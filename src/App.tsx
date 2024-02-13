@@ -1,15 +1,19 @@
-import useCounter from "./stores/slices/counter/useCounter";
+import styled from "styled-components";
+import FichasContainer from "./components/FichasContainer";
+import MenuTop from "./components/Menu/Top";
+
+const Container = styled.div({
+	height: "100%",
+	display: "flex",
+	flexFlow: "column",
+});
 
 function App() {
-	const { value, increment, decrement } = useCounter();
 	return (
-		<div>
-			<p>
-				Valor: <span>{value}</span>
-			</p>
-			<input type="button" onClick={increment} value="+" />
-			<input type="button" onClick={decrement} value="-" />
-		</div>
+		<Container>
+			<MenuTop />
+			<FichasContainer />
+		</Container>
 	);
 }
 
