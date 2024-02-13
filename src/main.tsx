@@ -1,7 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { registerSW } from "virtual:pwa-register";
+import { Provider } from "react-redux";
 import App from "./App.tsx";
+import { store } from "./stores/store.ts";
+import { registerSW } from "virtual:pwa-register";
 
 // add this to prompt for a refresh
 const updateSW = registerSW({
@@ -15,6 +17,8 @@ const updateSW = registerSW({
 // biome-ignore lint/style/noNonNullAssertion: <explanation>
 ReactDOM.createRoot(document.getElementById("root")!).render(
 	<React.StrictMode>
-		<App />
+		<Provider store={store}>
+			<App />
+		</Provider>
 	</React.StrictMode>,
 );
