@@ -37,6 +37,9 @@ Ainda sem imagens. Estou provando conceitos ;)
 ## Agradecimentos
 
 - Todos que criam e jogam Tagmar
+- [PWA](https://dev.to/bhendi/turn-your-react-vite-app-into-a-pwa-3lpg)
+- [PWA](https://dev.to/iamfranco/deploy-react-vite-pwa-to-github-pages-35i)
 - [PWA](https://adueck.github.io/blog/caching-everything-for-totally-offline-pwa-vite-react/)
+- [Github pages](https://dev.to/github/how-to-use-github-pages-to-host-your-website-even-with-multiple-repos-27k2)
 - [PWA asset generator](https://www.npmjs.com/package/pwa-asset-generator)
 - [Manifest generator](https://www.simicart.com/manifest-generator.html/)

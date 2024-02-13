@@ -23,25 +23,22 @@ export default defineConfig({
 				description: "Aplicativo para narradores e jogadores de Tagmar",
 				icons: [
 					{
-						src: "public/manifest-icon-192.maskable.png",
-						sizes: "192x192",
+						src: "pwa-64x64.png",
+						sizes: "64x64",
 						type: "image/png",
-						purpose: "any",
 					},
 					{
-						src: "public/manifest-icon-192.maskable.png",
+						src: "pwa-192x192.png",
 						sizes: "192x192",
 						type: "image/png",
-						purpose: "maskable",
 					},
 					{
-						src: "public/manifest-icon-512.maskable.png",
+						src: "pwa-512x512.png",
 						sizes: "512x512",
 						type: "image/png",
-						purpose: "any",
 					},
 					{
-						src: "public/manifest-icon-512.maskable.png",
+						src: "maskable-icon-512x512.png",
 						sizes: "512x512",
 						type: "image/png",
 						purpose: "maskable",
