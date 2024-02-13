@@ -16,9 +16,9 @@ export default defineConfig({
 				theme_color: "#70B0E0",
 				background_color: "#FFAC3D",
 				display: "standalone",
-				scope: "/",
-				start_url: "/",
-				name: "Tagmar PWA",
+				scope: "/tagmar_pwa",
+				start_url: "/tagmar_pwa",
+				name: "Tagmar",
 				short_name: "Tagmar",
 				description: "Aplicativo para narradores e jogadores de Tagmar",
 				icons: [
