@@ -2,9 +2,9 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
 import App from "./App.tsx";
+import "./reset.css";
 import { store } from "./stores/store.ts";
 import { registerSW } from "virtual:pwa-register";
-import "./reset.css";
 
 // add this to prompt for a refresh
 const updateSW = registerSW({

@@ -1,0 +1,12 @@
+{
+	"recommendations": [
+		"formulahendry.auto-rename-tag",
+		"biomejs.biome",
+		"streetsidesoftware.code-spell-checker-portuguese-brazilian",
+		"streetsidesoftware.code-spell-checker",
+		"naumovs.color-highlight",
+		"ms-vscode.vscode-typescript-next",
+		"yzhang.markdown-all-in-one",
+		"christian-kohler.npm-intellisense"
+	]
+}

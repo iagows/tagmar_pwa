@@ -1,9 +1,8 @@
 import styled from "styled-components";
-import FichasContainer from "./components/FichasContainer";
-import MenuTop from "./components/Menu/Top";
+import AppContent from "./components/AppContent";
+import Menu from "./components/Menu";
 
 const Container = styled.div({
-	height: "100%",
 	display: "flex",
 	flexFlow: "column",
 });
@@ -11,8 +10,8 @@ const Container = styled.div({
 function App() {
 	return (
 		<Container>
-			<MenuTop />
-			<FichasContainer />
+			<Menu />
+			<AppContent />
 		</Container>
 	);
 }

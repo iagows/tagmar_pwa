@@ -11,7 +11,7 @@ const Container = styled.div({
 const MenuTop = () => {
 	return (
 		<Container>
-			<p>menu</p>
+			<p>menu ícone</p>
 			<Label>Tagmar</Label>
 		</Container>
 	);
