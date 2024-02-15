@@ -1,10 +1,9 @@
 import styled from "styled-components";
 import bgEmpty from "../../assets/images/empty.png";
 import bgFilled from "../../assets/images/some.png";
-import InputButton from "../InputButton";
-import Label from "../Label";
-import { CSS } from "../../util/constants";
 import useFicha from "../../stores/slices/fichas/useFicha";
+import { CSS } from "../../util/constants";
+import InputButton from "../InputButton";
 import FichaCard from "./FichaCard";
 
 type IContainer = {

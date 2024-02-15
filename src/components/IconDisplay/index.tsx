@@ -21,6 +21,9 @@ type In = {
 	datum?: Raca | Profissao;
 };
 const IconDisplay = ({ datum }: In) => {
+	if (datum) {
+		// todo
+	}
 	return <Container />;
 };
 
