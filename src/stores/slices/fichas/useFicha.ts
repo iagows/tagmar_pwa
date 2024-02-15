@@ -1,6 +1,7 @@
 import { useAppDispatch, useAppSelector } from "../../../hooks/reduxHooks";
 import { Ficha } from "../../../models/FichaDTO";
-import { SingleOrArray, toArray } from "../../../util/commonTypes";
+import { SingleOrArray } from "../../../util/commonTypes";
+import { toArray } from "../../../util/functions";
 import { CrudType } from "../CrudTypes";
 import {
 	create as createFicha,

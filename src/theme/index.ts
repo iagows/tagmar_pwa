@@ -1,13 +1,17 @@
+import { changeOpacity } from "../util/functions";
+
+const FFF = "#ffffff";
+
 const Colors = {
 	fundo: {
 		normal: "#121212",
 		modal: "#2A2A2A",
 	},
 	branco: {
-		_32: "rgba(255,255,255,32)",
-		_42: "rgba(255,255,255,42)",
-		_70: "rgba(255,255,255,70)",
-		_100: "#ffffff",
+		_32: changeOpacity(FFF, 0.32),
+		_42: changeOpacity(FFF, 0.42),
+		_70: changeOpacity(FFF, 0.7),
+		_100: FFF,
 	},
 	cinza: {
 		claro: "#717171",

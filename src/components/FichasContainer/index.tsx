@@ -5,6 +5,7 @@ import InputButton from "../InputButton";
 import Label from "../Label";
 import { CSS } from "../../util/constants";
 import useFicha from "../../stores/slices/fichas/useFicha";
+import FichaCard from "./FichaCard";
 
 type IContainer = {
 	hasItem: boolean;
@@ -12,6 +13,7 @@ type IContainer = {
 
 const Container = styled.div<IContainer>(({ hasItem }) => ({
 	width: "100%",
+	maxWidth: "100%",
 	display: "flex",
 	flexDirection: "column",
 	backgroundSize: "cover",
@@ -26,7 +28,7 @@ const FichasContainer = () => {
 		<Container hasItem={false}>
 			<div style={{ flexGrow: 1 }}>
 				{list.map((f) => (
-					<Label key={f._id}>{f.nome}</Label>
+					<FichaCard ficha={f} key={f._id} />
 				))}
 			</div>
 			<div style={{ display: "flex", flexDirection: "column" }}>
