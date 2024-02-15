@@ -37,6 +37,9 @@ const InputButton = ({
 	isPrimary = false,
 	onClick,
 }: IComponent) => {
+	if (icon) {
+		console.log("fazer ícone");
+	}
 	return (
 		<InputButtonComponent
 			value={text}

@@ -8,9 +8,8 @@ type Out = {
 	incrementBy: (amount: number) => void;
 };
 const useCounter = (): Out => {
-	const { value } = useAppSelector((s) => s.one);
-
 	const dispatch = useAppDispatch();
+	const { value } = useAppSelector((s) => s.one);
 
 	function incrementCounter() {
 		dispatch(increment());

@@ -4,6 +4,7 @@ import bgFilled from "../../assets/images/some.png";
 import InputButton from "../InputButton";
 import Label from "../Label";
 import { CSS } from "../../util/constants";
+import useFicha from "../../stores/slices/fichas/useFicha";
 
 type IContainer = {
 	hasItem: boolean;
@@ -20,22 +21,13 @@ const Container = styled.div<IContainer>(({ hasItem }) => ({
 }));
 
 const FichasContainer = () => {
+	const { list } = useFicha();
 	return (
 		<Container hasItem={false}>
 			<div style={{ flexGrow: 1 }}>
-				<Label>conteúdo</Label>
-				<Label>conteúdo</Label>
-				<Label>conteúdo</Label>
-				<Label>conteúdo</Label>
-				<Label>conteúdo</Label>
-				<Label>conteúdo</Label>
-				<Label>conteúdo</Label>
-				<Label>conteúdo</Label>
-				<Label>conteúdo</Label>
-				<Label>conteúdo</Label>
-				<Label>conteúdo</Label>
-				<Label>conteúdo</Label>
-				<Label>conteúdo</Label>
+				{list.map((f) => (
+					<Label key={f._id}>{f.nome}</Label>
+				))}
 			</div>
 			<div style={{ display: "flex", flexDirection: "column" }}>
 				<InputButton text="Adicionar ficha" isPrimary />
