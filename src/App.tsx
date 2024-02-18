@@ -45,8 +45,8 @@ function App() {
 				<AppBar
 					position="fixed"
 					sx={{
-						width: { sm: `calc(100% - ${drawerWidth}px)` },
 						ml: { sm: `${drawerWidth}px` },
+						width: { sm: `calc(100% - ${drawerWidth}px)` },
 					}}
 				>
 					<Toolbar
@@ -55,9 +55,9 @@ function App() {
 						}}
 					>
 						<IconButton
+							edge="start"
 							color="inherit"
 							aria-label="open drawer"
-							edge="start"
 							onClick={handleDrawerToggle}
 							sx={{ mr: 2, display: { sm: "none" } }}
 						>
@@ -103,7 +103,10 @@ function App() {
 					</Drawer>
 				</Box>
 				<Box
+					height={"100vh"}
+					display={"flex"}
 					component="main"
+					flexDirection={"column"}
 					sx={{
 						flexGrow: 1,
 						width: { sm: `calc(100% - ${drawerWidth}px)` },
