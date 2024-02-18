@@ -7,24 +7,24 @@ import { Button } from "@mui/material";
 import FichaCard from "./FichaCard";
 
 type IContainer = {
-	hasItem: boolean;
+	$hasItem: boolean;
 };
 
-const Container = styled.div<IContainer>(({ hasItem }) => ({
+const Container = styled.div<IContainer>(({ $hasItem }: IContainer) => ({
 	width: "100%",
-	maxWidth: "100%",
 	display: "flex",
+	maxWidth: "100%",
 	flexDirection: "column",
 	backgroundSize: "cover",
 	padding: CSS.padding.page,
 	backgroundRepeat: "no-repeat",
-	backgroundImage: `url(${hasItem ? bgFilled : bgEmpty})`,
+	backgroundImage: `url(${$hasItem ? bgFilled : bgEmpty})`,
 }));
 
 const FichasContainer = () => {
 	const { list } = useFicha();
 	return (
-		<Container hasItem={false}>
+		<Container $hasItem={false}>
 			<div style={{ flexGrow: 1 }}>
 				{list.map((f) => (
 					<FichaCard ficha={f} key={f._id} />

@@ -7,7 +7,6 @@ const TagCard = ({ children }: PropsWithChildren) => {
 	return (
 		<Card
 			sx={{
-				maxWidth: 270,
 				backgroundColor: changeOpacity(
 					// biome-ignore lint/style/noNonNullAssertion: <eu criei>
 					THEME_OPTIONS.palette!.background!.default!,

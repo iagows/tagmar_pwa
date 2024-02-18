@@ -4,10 +4,10 @@ import { Ficha } from "../../../models/FichaDTO";
 const initialList: Ficha[] = [
 	{
 		_id: "asdf",
-		nome: "Algum Nome Legal por Aqui",
+		nome: "Nome 1",
 		classe: "id_rastreador",
 		descricao: "",
-		narrador: "fulano",
+		narrador: "narrador fulano",
 		nivel: 2,
 		xp: 20,
 		raca: "id_elfo",
@@ -15,10 +15,10 @@ const initialList: Ficha[] = [
 	},
 	{
 		_id: "asdf2",
-		nome: "Algum Outro Nome Legal por Aqui",
+		nome: "Nome 2",
 		classe: "id_mago",
 		descricao: "",
-		narrador: "cicrano",
+		narrador: "narrador cicrano",
 		nivel: 3,
 		xp: 30,
 		raca: "id_humano",
@@ -26,10 +26,10 @@ const initialList: Ficha[] = [
 	},
 	{
 		_id: "asdf3",
-		nome: "Algum Terceiro Nome Legal por Aqui",
+		nome: "Nome 3",
 		classe: "id_guerreiro",
 		descricao: "",
-		narrador: "beltrano",
+		narrador: "narrador beltrano",
 		nivel: 4,
 		xp: 40,
 		raca: "id_anao",
