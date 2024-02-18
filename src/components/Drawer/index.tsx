@@ -1,4 +1,12 @@
-import InboxIcon from "@mui/icons-material/MoveToInbox";
+import {
+	AutoFixHighOutlined,
+	Info,
+	MapOutlined,
+	PeopleAltOutlined,
+	PersonOutlined,
+	Settings,
+	StormOutlined,
+} from "@mui/icons-material";
 import {
 	Divider,
 	List,
@@ -20,34 +28,34 @@ type Item = {
 const gameMenu: Item[] = [
 	{
 		text: "Fichas",
-		icon: InboxIcon,
+		icon: PeopleAltOutlined,
 	},
 	{
 		text: "Ficha atual",
-		icon: InboxIcon,
+		icon: PersonOutlined,
 	},
 	{
 		text: "Magias",
-		icon: InboxIcon,
+		icon: AutoFixHighOutlined,
 	},
 	{
 		text: "Habilidades",
-		icon: InboxIcon,
+		icon: StormOutlined,
 	},
 	{
 		text: "Mapa",
-		icon: InboxIcon,
+		icon: MapOutlined,
 	},
 ];
 
 const appMenu: Item[] = [
 	{
 		text: "Configurações",
-		icon: InboxIcon,
+		icon: Settings,
 	},
 	{
 		text: "Sobre",
-		icon: InboxIcon,
+		icon: Info,
 	},
 ];
 
