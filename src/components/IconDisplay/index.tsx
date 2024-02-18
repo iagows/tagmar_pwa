@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Profissao } from "../../models/ProfissaoDTO";
 import { Raca } from "../../models/RacaDTO";
-import { Colors } from "../../theme";
+// import { Colors } from "../../theme";
 import { CSS } from "../../util/constants";
 
 const DIMENSION = 31;
@@ -13,7 +13,7 @@ const Container = styled.div({
 	minWidth: DIMENSION,
 	maxHeight: DIMENSION,
 	minHeight: DIMENSION,
-	backgroundColor: Colors.secundaria.light,
+	// backgroundColor: Colors.secundaria.light,
 	transition: `background-color ${CSS.transition.time} ${CSS.transition.mode}`,
 });
 

@@ -1,20 +1,19 @@
+import { Typography } from "@mui/material";
 import styled from "styled-components";
-import Label from "../../Label";
-import { Colors } from "../../../theme";
 
 const Container = styled.div({
-	backgroundColor: Colors.fundo.modal,
+	// backgroundColor: Colors.fundo.modal,
 });
 
 const MenuLateral = () => {
 	return (
 		<Container>
-			<Label>Item</Label>
-			<Label>Item</Label>
-			<Label>Item</Label>
-			<Label>Item</Label>
-			<Label>Item</Label>
-			<Label>Item</Label>
+			<Typography>Item</Typography>
+			<Typography>Item</Typography>
+			<Typography>Item</Typography>
+			<Typography>Item</Typography>
+			<Typography>Item</Typography>
+			<Typography>Item</Typography>
 		</Container>
 	);
 };

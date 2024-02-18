@@ -3,7 +3,7 @@ import bgEmpty from "../../assets/images/empty.png";
 import bgFilled from "../../assets/images/some.png";
 import useFicha from "../../stores/slices/fichas/useFicha";
 import { CSS } from "../../util/constants";
-import InputButton from "../InputButton";
+import { Button } from "@mui/material";
 import FichaCard from "./FichaCard";
 
 type IContainer = {
@@ -31,11 +31,7 @@ const FichasContainer = () => {
 				))}
 			</div>
 			<div style={{ display: "flex", flexDirection: "column" }}>
-				<InputButton text="Adicionar ficha" isPrimary />
-				<InputButton text="Adicionar ficha" />
-				<div>
-					<InputButton text="A" />
-				</div>
+				<Button variant="contained">Adicionar Ficha</Button>
 			</div>
 		</Container>
 	);

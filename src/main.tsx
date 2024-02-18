@@ -4,6 +4,7 @@ import { Provider } from "react-redux";
 import App from "./App.tsx";
 import "./reset.css";
 import { store } from "./stores/store.ts";
+import { ThemedApp } from "./theme/index.tsx";
 import { registerSW } from "virtual:pwa-register";
 
 // add this to prompt for a refresh
@@ -19,7 +20,9 @@ const updateSW = registerSW({
 ReactDOM.createRoot(document.getElementById("root")!).render(
 	<React.StrictMode>
 		<Provider store={store}>
-			<App />
+			<ThemedApp>
+				<App />
+			</ThemedApp>
 		</Provider>
 	</React.StrictMode>,
 );

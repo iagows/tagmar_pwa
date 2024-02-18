@@ -14,9 +14,18 @@
 		"deploy": "gh-pages -d dist"
 	},
 	"resolutions": {
-		"styled-components": "^6"
+		"styled-components": "^6",
+		"@mui/styled-engine": "npm:@mui/styled-engine-sc@latest"
+	},
+	"peerDependencies": {
+		"react": "^17.0.0 || ^18.0.0",
+		"react-dom": "^17.0.0 || ^18.0.0"
 	},
 	"dependencies": {
+		"@fontsource/poppins": "^5.0.8",
+		"@mui/icons-material": "^5.15.10",
+		"@mui/material": "^5.15.10",
+		"@mui/styled-engine-sc": "^6.0.0-alpha.16",
 		"@reduxjs/toolkit": "^2.2.0",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
