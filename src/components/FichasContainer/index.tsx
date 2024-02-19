@@ -27,7 +27,7 @@ const FichasContainer = () => {
 		<Container $hasItem={list.length > 0}>
 			<div style={{ flexGrow: 1 }}>
 				{list.map((f) => (
-					<FichaCard ficha={f} key={f._id} />
+					<FichaCard ficha={f} key={f.id} />
 				))}
 			</div>
 			<div style={{ display: "flex", flexDirection: "column" }}>

@@ -1,21 +1,27 @@
 import { z } from "zod";
 import DTO from "./DTO";
+import { AtributoEnum } from "./AtributoDTO";
 
-const RacaDTO = DTO.extend(
-	{
-		aura: z.number(),
-		peso: z.number(),
-		forca: z.number(),
-		fisico: z.number(),
-		altura: z.number(),
-		carisma: z.number(),
-		efBasica: z.number(),
-		percepcao: z.number(),
-		agilidade: z.number(),
-		velocidade: z.number(),
-		inteligencia: z.number(),
-	},
-);
+export enum RacaEnum {
+	ANAO = "anao",
+	ELFO_DOURADO = "elfo_dourado",
+	ELFO_FLORESTAL = "elfo_florestal",
+	HUMANO = "humano",
+	MEIO_ELFO = "meio_elfo",
+	PEQUENINO = "pequenino",
+}
+
+const RacaDTO = DTO.extend({
+	racaId: z.nativeEnum(RacaEnum),
+	aura: z.number(),
+	peso: z.number(),
+	modificadores: z.array(
+		z.object({
+			idAtributo: z.nativeEnum(AtributoEnum),
+			valor: z.number(),
+		}),
+	),
+});
 
 type Raca = z.infer<typeof RacaDTO>;
 

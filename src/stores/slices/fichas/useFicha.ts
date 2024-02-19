@@ -22,7 +22,7 @@ const useFicha = (): Out => {
 	function read(ids: SingleOrArray<string>): Ficha[] {
 		const lista = toArray(ids);
 		return list.filter(
-			(ficha) => lista.findIndex((l) => ficha._id === l) !== -1,
+			(ficha) => lista.findIndex((l) => ficha.id === l) !== -1,
 		);
 	}
 

@@ -1,13 +1,14 @@
 import { z } from "zod";
 import GenericDTO from "./DTO";
+import { RacaEnum } from "./RacaDTO";
 
 const FichaDTO = GenericDTO.extend({
 	xp: z.number(),
-	raca: z.string(),
+	raca: z.nativeEnum(RacaEnum),
 	nivel: z.number(),
 	criacao: z.date(),
-	classe: z.string(),
 	narrador: z.string(),
+	profissao: z.string(),
 });
 
 type Ficha = z.infer<typeof FichaDTO>;

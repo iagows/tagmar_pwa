@@ -1,7 +1,7 @@
 import { z } from "zod";
 
 const GenericDTO = z.object({
-	_id: z.string(),
+	id: z.string(),
 	nome: z.string(),
 	descricao: z.string(),
 });

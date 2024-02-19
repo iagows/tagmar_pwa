@@ -1,38 +1,39 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { Ficha } from "../../../models/FichaDTO";
+import { RacaEnum } from "../../../models/RacaDTO";
 
 const initialList: Ficha[] = [
 	{
-		_id: "asdf",
+		id: "asdf",
 		nome: "Nome 1",
-		classe: "id_rastreador",
+		profissao: "id_rastreador",
 		descricao: "",
 		narrador: "narrador fulano",
 		nivel: 2,
 		xp: 20,
-		raca: "id_elfo",
+		raca: RacaEnum.ELFO_DOURADO,
 		criacao: new Date(),
 	},
 	{
-		_id: "asdf2",
+		id: "asdf2",
 		nome: "Nome 2",
-		classe: "id_mago",
+		profissao: "id_mago",
 		descricao: "",
 		narrador: "narrador cicrano",
 		nivel: 3,
 		xp: 30,
-		raca: "id_humano",
+		raca: RacaEnum.HUMANO,
 		criacao: new Date(),
 	},
 	{
-		_id: "asdf3",
+		id: "asdf3",
 		nome: "Nome 3",
-		classe: "id_guerreiro",
+		profissao: "id_guerreiro",
 		descricao: "",
 		narrador: "narrador beltrano",
 		nivel: 4,
 		xp: 40,
-		raca: "id_anao",
+		raca: RacaEnum.ANAO,
 		criacao: new Date(),
 	},
 ];
@@ -49,7 +50,7 @@ const appSlice = createSlice({
 		}),
 		update: createSlice.reducer<Ficha[]>((state, action) => {
 			for (const ficha of action.payload) {
-				const index = state.list.findIndex((i) => i._id === ficha._id);
+				const index = state.list.findIndex((i) => i.id === ficha.id);
 				if (index > -1) {
 					state.list[index] = ficha;
 				}
@@ -57,7 +58,7 @@ const appSlice = createSlice({
 		}),
 		delete_: createSlice.reducer<string[]>((state, action) => {
 			for (const item of action.payload) {
-				const index = state.list.findIndex((i) => i._id === item);
+				const index = state.list.findIndex((i) => i.id === item);
 				if (index > -1) {
 					state.list.splice(index, 1);
 				}
