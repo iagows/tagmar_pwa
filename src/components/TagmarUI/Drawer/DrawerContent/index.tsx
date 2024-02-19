@@ -1,5 +1,6 @@
 import {
 	AutoFixHighOutlined,
+	Casino,
 	Info,
 	MapOutlined,
 	PeopleAltOutlined,
@@ -18,6 +19,7 @@ import {
 	Toolbar,
 } from "@mui/material";
 import { OverridableComponent } from "@mui/material/OverridableComponent";
+import UserDisplay from "../../../UserDisplay";
 
 type Item = {
 	text: string;
@@ -33,6 +35,10 @@ const gameMenu: Item[] = [
 	{
 		text: "Ficha atual",
 		icon: PersonOutlined,
+	},
+	{
+		text: "Dado",
+		icon: Casino,
 	},
 	{
 		text: "Magias",
@@ -77,10 +83,10 @@ const MountList = ({ list }: IList) => (
 	</List>
 );
 
-const Drawer = () => {
+const DrawerContent = () => {
 	return (
 		<>
-			<Toolbar />
+			<UserDisplay />
 			<Divider />
 			<MountList list={gameMenu} />
 			<Divider />
@@ -89,4 +95,4 @@ const Drawer = () => {
 	);
 };
 
-export default Drawer;
+export default DrawerContent;

@@ -1,4 +1,3 @@
-export const QUERY_WIDTH = 300;
 export const CSS = {
 	transition: {
 		time: "0.3s",
@@ -9,3 +8,5 @@ export const CSS = {
 		page: "15px 25px",
 	},
 };
+
+export const DRAWER_WIDTH = 300;

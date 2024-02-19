@@ -24,7 +24,7 @@ const Container = styled.div<IContainer>(({ $hasItem }: IContainer) => ({
 const FichasContainer = () => {
 	const { list } = useFicha();
 	return (
-		<Container $hasItem={false}>
+		<Container $hasItem={list.length > 0}>
 			<div style={{ flexGrow: 1 }}>
 				{list.map((f) => (
 					<FichaCard ficha={f} key={f._id} />

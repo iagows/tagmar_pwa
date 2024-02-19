@@ -1,4 +1,4 @@
-import { Typography } from "@mui/material";
+import { Avatar, Typography } from "@mui/material";
 import { Ficha } from "../../../models/FichaDTO";
 import TagCard from "../../TagmarUI/Card";
 import TagLabel from "../../TagmarUI/Label";
@@ -10,10 +10,23 @@ type In = {
 const FichaCard = ({ ficha }: In) => {
 	return (
 		<TagCard>
-			<Typography variant="h5">{ficha.nome}</Typography>
-			<TagLabel>
-				{ficha.narrador} - {ficha.nivel}
-			</TagLabel>
+			<div style={{ display: "flex", flex: 1 }}>
+				<Avatar>Elfo</Avatar>
+				<div
+					style={{
+						flex: 1,
+						display: "flex",
+						alignItems: "center",
+						flexDirection: "column",
+					}}
+				>
+					<Typography variant="h5">{ficha.nome}</Typography>
+					<TagLabel>
+						{ficha.narrador} - {ficha.nivel}
+					</TagLabel>
+				</div>
+				<Avatar>Ladino</Avatar>
+			</div>
 		</TagCard>
 	);
 };
