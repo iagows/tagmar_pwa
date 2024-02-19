@@ -11,7 +11,7 @@ const FichaCard = ({ ficha }: In) => {
 	return (
 		<TagCard>
 			<div style={{ display: "flex", flex: 1 }}>
-				<Avatar>Elfo</Avatar>
+				<Avatar>{ficha.raca}</Avatar>
 				<div
 					style={{
 						flex: 1,
@@ -25,7 +25,7 @@ const FichaCard = ({ ficha }: In) => {
 						{ficha.narrador} - {ficha.nivel}
 					</TagLabel>
 				</div>
-				<Avatar>Ladino</Avatar>
+				<Avatar>{ficha.profissao}</Avatar>
 			</div>
 		</TagCard>
 	);

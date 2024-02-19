@@ -1,6 +1,9 @@
 import { z } from "zod";
 import GenericDTO from "./DTO";
 import { RacaEnum } from "./RacaDTO";
+import { ProfissaoEnum } from "./ProfissaoDTO";
+import { AtributoEnum } from "./AtributoDTO";
+import { HabilidadeEnum } from "./HabilidadeDTO";
 
 const FichaDTO = GenericDTO.extend({
 	xp: z.number(),
@@ -8,7 +11,9 @@ const FichaDTO = GenericDTO.extend({
 	nivel: z.number(),
 	criacao: z.date(),
 	narrador: z.string(),
-	profissao: z.string(),
+	profissao: z.nativeEnum(ProfissaoEnum),
+	atributos: z.map(z.nativeEnum(AtributoEnum), z.number()),
+	habilidades: z.map(z.nativeEnum(HabilidadeEnum), z.number()),
 });
 
 type Ficha = z.infer<typeof FichaDTO>;

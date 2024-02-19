@@ -1,40 +1,47 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { Ficha } from "../../../models/FichaDTO";
 import { RacaEnum } from "../../../models/RacaDTO";
+import { ProfissaoEnum } from "../../../models/ProfissaoDTO";
 
 const initialList: Ficha[] = [
 	{
 		id: "asdf",
 		nome: "Nome 1",
-		profissao: "id_rastreador",
+		profissao: ProfissaoEnum.BARDO,
 		descricao: "",
 		narrador: "narrador fulano",
 		nivel: 2,
 		xp: 20,
 		raca: RacaEnum.ELFO_DOURADO,
 		criacao: new Date(),
+		atributos: new Map(),
+		habilidades: new Map(),
 	},
 	{
 		id: "asdf2",
 		nome: "Nome 2",
-		profissao: "id_mago",
+		profissao: ProfissaoEnum.MAGO,
 		descricao: "",
 		narrador: "narrador cicrano",
 		nivel: 3,
 		xp: 30,
 		raca: RacaEnum.HUMANO,
 		criacao: new Date(),
+		atributos: new Map(),
+		habilidades: new Map(),
 	},
 	{
 		id: "asdf3",
 		nome: "Nome 3",
-		profissao: "id_guerreiro",
+		profissao: ProfissaoEnum.GUERREIRO,
 		descricao: "",
 		narrador: "narrador beltrano",
 		nivel: 4,
 		xp: 40,
 		raca: RacaEnum.ANAO,
 		criacao: new Date(),
+		atributos: new Map(),
+		habilidades: new Map(),
 	},
 ];
 
