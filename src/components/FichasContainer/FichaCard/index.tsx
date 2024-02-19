@@ -1,6 +1,18 @@
-import { Avatar, Typography } from "@mui/material";
+import { DeleteOutlined, EditOutlined } from "@mui/icons-material";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import {
+	Avatar,
+	Card,
+	CardActionArea,
+	CardActions,
+	CardContent,
+	IconButton,
+	Typography,
+} from "@mui/material";
+import getAsset from "../../../assets/app";
 import { Ficha } from "../../../models/FichaDTO";
-import TagCard from "../../TagmarUI/Card";
+import { THEME_OPTIONS } from "../../../theme";
+import { changeOpacity } from "../../../util/functions";
 import TagLabel from "../../TagmarUI/Label";
 
 type In = {
@@ -8,26 +20,60 @@ type In = {
 };
 
 const FichaCard = ({ ficha }: In) => {
+	const RacaImage = getAsset(ficha.raca);
+	const ProfissaoImage = getAsset(ficha.profissao);
 	return (
-		<TagCard>
-			<div style={{ display: "flex", flex: 1 }}>
-				<Avatar>{ficha.raca}</Avatar>
-				<div
-					style={{
-						flex: 1,
-						display: "flex",
-						alignItems: "center",
-						flexDirection: "column",
-					}}
-				>
-					<Typography variant="h5">{ficha.nome}</Typography>
-					<TagLabel>
-						{ficha.narrador} - {ficha.nivel}
-					</TagLabel>
-				</div>
-				<Avatar>{ficha.profissao}</Avatar>
-			</div>
-		</TagCard>
+		<Card
+			sx={{
+				backgroundColor: changeOpacity(
+					// biome-ignore lint/style/noNonNullAssertion: <eu criei>
+					THEME_OPTIONS.palette!.background!.default!,
+					0.8,
+				),
+			}}
+		>
+			<CardActionArea>
+				<CardContent>
+					<div style={{ display: "flex", flex: 1 }}>
+						<Avatar alt={ficha.raca}>
+							<RacaImage />
+						</Avatar>
+						<div
+							style={{
+								flex: 1,
+								display: "flex",
+								alignItems: "center",
+								flexDirection: "column",
+							}}
+						>
+							<Typography variant="h5">{ficha.nome}</Typography>
+							<TagLabel>
+								{ficha.narrador} - {ficha.nivel}
+							</TagLabel>
+						</div>
+						<Avatar alt={ficha.profissao}>
+							<ProfissaoImage />
+						</Avatar>
+					</div>
+				</CardContent>
+			</CardActionArea>
+			<CardActions
+				sx={{
+					display: "flex",
+					justifyContent: "space-around",
+				}}
+			>
+				<IconButton aria-label="Favorito">
+					<FavoriteIcon color="primary" />
+				</IconButton>
+				<IconButton aria-label="Editar">
+					<EditOutlined color="primary" />
+				</IconButton>
+				<IconButton aria-label="Apagar">
+					<DeleteOutlined color="primary" />
+				</IconButton>
+			</CardActions>
+		</Card>
 	);
 };
 export default FichaCard;
