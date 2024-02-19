@@ -16,7 +16,6 @@ import {
 	ListItemIcon,
 	ListItemText,
 	SvgIconTypeMap,
-	Toolbar,
 } from "@mui/material";
 import { OverridableComponent } from "@mui/material/OverridableComponent";
 import UserDisplay from "../../../UserDisplay";
