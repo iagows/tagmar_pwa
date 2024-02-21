@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { Ficha } from "../../../models/FichaDTO";
-import { RacaEnum } from "../../../models/RacaDTO";
 import { ProfissaoEnum } from "../../../models/ProfissaoDTO";
+import { RacaEnum } from "../../../models/RacaDTO";
 
 const initialList: Ficha[] = [
 	{

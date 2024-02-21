@@ -1,7 +1,7 @@
 import { Box, Toolbar } from "@mui/material";
 import styled from "styled-components";
-import AppContent from "./components/AppContent";
 import TagDrawer from "./components/TagmarUI/Drawer";
+import AppRoute from "./pages/AppRoute";
 import { DRAWER_WIDTH } from "./util/constants";
 
 const Container = styled.div({
@@ -9,23 +9,32 @@ const Container = styled.div({
 	flexFlow: "column",
 });
 
+const AppContainer = styled.div({
+	flex: 1,
+	display: "flex",
+});
+
+const sx = {
+	flexGrow: 1,
+	width: { sm: `calc(100% - ${DRAWER_WIDTH}px)` },
+} as const;
+
 function App() {
 	return (
 		<Container>
 			<Box sx={{ display: "flex" }}>
 				<TagDrawer />
 				<Box
+					sx={sx}
 					height={"100vh"}
 					display={"flex"}
 					component="main"
 					flexDirection={"column"}
-					sx={{
-						flexGrow: 1,
-						width: { sm: `calc(100% - ${DRAWER_WIDTH}px)` },
-					}}
 				>
 					<Toolbar />
-					<AppContent />
+					<AppContainer>
+						<AppRoute />
+					</AppContainer>
 				</Box>
 			</Box>
 		</Container>
