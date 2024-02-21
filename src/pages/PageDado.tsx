@@ -1,5 +1,3 @@
-import FichasContainer from "../components/FichasContainer";
-
 const PageDado = () => {
 	// mudar menu
 	// mudar app bar
