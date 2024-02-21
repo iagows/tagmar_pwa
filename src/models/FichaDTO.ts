@@ -11,6 +11,7 @@ const FichaDTO = GenericDTO.extend({
 	nivel: z.number(),
 	criacao: z.date(),
 	narrador: z.string(),
+	isFavorito: z.boolean().optional(),
 	profissao: z.nativeEnum(ProfissaoEnum),
 	atributos: z.map(z.nativeEnum(AtributoEnum), z.number()),
 	habilidades: z.map(z.nativeEnum(HabilidadeEnum), z.number()),

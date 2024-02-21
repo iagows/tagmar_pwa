@@ -17,10 +17,6 @@ export const route = createBrowserRouter(
 
 			children: [
 				{
-					index: true,
-					element: <Navigate to={RoutePath.FICHAS} replace />,
-				},
-				{
 					path: RoutePath.FICHAS,
 					element: <PageFichas />,
 				},
@@ -31,6 +27,10 @@ export const route = createBrowserRouter(
 				{
 					path: RoutePath.DADO,
 					element: <PageDado />,
+				},
+				{
+					index: true,
+					element: <Navigate to={RoutePath.FICHAS} replace />,
 				},
 			],
 		},

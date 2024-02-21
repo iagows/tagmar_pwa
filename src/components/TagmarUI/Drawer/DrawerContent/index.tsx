@@ -81,16 +81,16 @@ type IList = {
 const MountList = ({ list }: IList) => (
 	<List>
 		{list.map(({ text, icon: Icon, path }) => (
-			<Link to={path}>
-				<ListItem key={text}>
-					<ListItemButton>
-						<ListItemIcon>
-							<Icon />
-						</ListItemIcon>
-						<ListItemText primary={text} />
-					</ListItemButton>
-				</ListItem>
-			</Link>
+			// <Link to={path}>
+			<ListItem key={text}>
+				<ListItemButton component={Link} to={path}>
+					<ListItemIcon>
+						<Icon />
+					</ListItemIcon>
+					<ListItemText primary={text} />
+				</ListItemButton>
+			</ListItem>
+			// </Link>
 		))}
 	</List>
 );

@@ -1,4 +1,8 @@
-import { DeleteOutlined, EditOutlined } from "@mui/icons-material";
+import {
+	DeleteOutlined,
+	EditOutlined,
+	FavoriteBorder,
+} from "@mui/icons-material";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import {
 	Avatar,
@@ -64,7 +68,11 @@ const FichaCard = ({ ficha }: In) => {
 				}}
 			>
 				<IconButton aria-label="Favorito">
-					<FavoriteIcon color="primary" />
+					{ficha.isFavorito ? (
+						<FavoriteIcon color="primary" />
+					) : (
+						<FavoriteBorder color="primary" />
+					)}
 				</IconButton>
 				<IconButton aria-label="Editar">
 					<EditOutlined color="primary" />

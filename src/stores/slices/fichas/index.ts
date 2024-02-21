@@ -29,6 +29,7 @@ const initialList: Ficha[] = [
 		criacao: new Date(),
 		atributos: new Map(),
 		habilidades: new Map(),
+		isFavorito: true,
 	},
 	{
 		id: "asdf3",
