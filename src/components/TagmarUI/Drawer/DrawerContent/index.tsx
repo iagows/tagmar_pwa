@@ -19,9 +19,12 @@ import {
 } from "@mui/material";
 import { OverridableComponent } from "@mui/material/OverridableComponent";
 import UserDisplay from "../../../UserDisplay";
+import { Link } from "react-router-dom";
+import { RoutePath } from "../../../../pages/RouteNames";
 
 type Item = {
 	text: string;
+	path: RoutePath;
 	// biome-ignore lint/suspicious/noExplicitAny: <explanation>
 	icon: OverridableComponent<SvgIconTypeMap<any, "svg">> & { muiName: string };
 };
@@ -30,26 +33,32 @@ const gameMenu: Item[] = [
 	{
 		text: "Fichas",
 		icon: PeopleAltOutlined,
+		path: RoutePath.ROOT,
 	},
 	{
 		text: "Ficha atual",
 		icon: PersonOutlined,
+		path: RoutePath.FICHA,
 	},
 	{
 		text: "Dado",
 		icon: Casino,
+		path: RoutePath.DADO,
 	},
 	{
 		text: "Magias",
 		icon: AutoFixHighOutlined,
+		path: RoutePath.FICHA,
 	},
 	{
 		text: "Habilidades",
 		icon: StormOutlined,
+		path: RoutePath.FICHA,
 	},
 	{
 		text: "Mapa",
 		icon: MapOutlined,
+		path: RoutePath.FICHA,
 	},
 ];
 
@@ -57,10 +66,12 @@ const appMenu: Item[] = [
 	{
 		text: "Configurações",
 		icon: Settings,
+		path: RoutePath.FICHA,
 	},
 	{
 		text: "Sobre",
 		icon: Info,
+		path: RoutePath.FICHA,
 	},
 ];
 
@@ -69,15 +80,17 @@ type IList = {
 };
 const MountList = ({ list }: IList) => (
 	<List>
-		{list.map(({ text, icon: Icon }) => (
-			<ListItem key={text}>
-				<ListItemButton>
-					<ListItemIcon>
-						<Icon />
-					</ListItemIcon>
-					<ListItemText primary={text} />
-				</ListItemButton>
-			</ListItem>
+		{list.map(({ text, icon: Icon, path }) => (
+			<Link to={path}>
+				<ListItem key={text}>
+					<ListItemButton>
+						<ListItemIcon>
+							<Icon />
+						</ListItemIcon>
+						<ListItemText primary={text} />
+					</ListItemButton>
+				</ListItem>
+			</Link>
 		))}
 	</List>
 );

@@ -1,8 +1,11 @@
 import { Box, Toolbar } from "@mui/material";
 import styled from "styled-components";
 import TagDrawer from "./components/TagmarUI/Drawer";
-import AppRoute from "./pages/AppRoute";
+
 import { DRAWER_WIDTH } from "./util/constants";
+import { Outlet } from "react-router-dom";
+import Fichas from "./stores/slices/fichas";
+import PageFichas from "./pages/PageFichas";
 
 const Container = styled.div({
 	display: "flex",
@@ -32,9 +35,7 @@ function App() {
 					flexDirection={"column"}
 				>
 					<Toolbar />
-					<AppContainer>
-						<AppRoute />
-					</AppContainer>
+					<AppContainer>{<Outlet />}</AppContainer>
 				</Box>
 			</Box>
 		</Container>
