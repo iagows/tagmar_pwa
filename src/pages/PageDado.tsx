@@ -40,11 +40,10 @@ async function getBox(): Promise<DiceBox> {
 }
 
 const NUMBERS = Array.from({ length: 20 }, (_, i) => i + 1);
+const getRandom = () => NUMBERS[Math.floor(Math.random() * NUMBERS.length)];
 
 function rodar(box: DiceBox): void {
-	const value = NUMBERS[Math.floor(Math.random() * NUMBERS.length)];
-
-	box.roll(`1d20@${value}`);
+	box.roll(`1d20@${getRandom()}`);
 }
 
 type C = {
@@ -118,7 +117,12 @@ const Commands = ({ box }: C) => {
 
 	return (
 		<FormControl sx={{ zIndex: 40 }}>
-			<Button onClick={() => rodar(box)} color="primary">
+			<Button
+				onClick={() => {
+					rodar(box);
+				}}
+				color="primary"
+			>
 				Jogar
 			</Button>
 			<Select
