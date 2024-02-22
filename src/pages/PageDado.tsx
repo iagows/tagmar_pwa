@@ -2,7 +2,6 @@ import DiceBox from "@3d-dice/dice-box-threejs";
 import {
 	Button,
 	FormControl,
-	InputLabel,
 	MenuItem,
 	Select,
 	SelectChangeEvent,
