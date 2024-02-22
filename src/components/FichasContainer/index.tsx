@@ -10,10 +10,11 @@ type IContainer = {
 	$hasItem: boolean;
 };
 
+const GROW = { flexGrow: 1 } as const;
+
 const Container = styled.div<IContainer>(({ $hasItem }: IContainer) => ({
-	width: "100%",
+	flex: 1,
 	display: "flex",
-	maxWidth: "100%",
 	flexDirection: "column",
 	backgroundSize: "cover",
 	padding: CSS.padding.page,
@@ -25,7 +26,7 @@ const FichasContainer = () => {
 	const { list } = useFicha();
 	return (
 		<Container $hasItem={list.length > 0}>
-			<div style={{ flexGrow: 1 }}>
+			<div style={GROW}>
 				{list.map((f) => (
 					<FichaCard ficha={f} key={f.id} />
 				))}
