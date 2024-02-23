@@ -23,12 +23,7 @@
     "noFallthroughCasesInSwitch": true,
     "types": [
       "vite-plugin-pwa/client"
-    ],
-    "paths": {
-      "@mui/styled-engine": [
-        "./node_modules/@mui/styled-engine-sc"
-      ]
-    }
+    ]
   },
   "include": [
     "src"
