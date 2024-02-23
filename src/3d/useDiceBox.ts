@@ -55,6 +55,11 @@ const useDiceBox = ({ containerId }: In): Out => {
 		if (!box) {
 			startBox();
 		}
+		return () => {
+			if (box) {
+				box.clearDice();
+			}
+		};
 	}, [box, containerId]);
 
 	const rodar = useCallback(() => {
