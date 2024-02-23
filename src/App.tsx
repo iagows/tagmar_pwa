@@ -1,18 +1,7 @@
 import { Box, Toolbar } from "@mui/material";
 import { Outlet } from "react-router-dom";
-import styled from "styled-components";
 import TagDrawer from "./components/TagmarUI/Drawer";
 import { DRAWER_WIDTH } from "./util/constants";
-
-const Container = styled.div({
-	display: "flex",
-	flexFlow: "column",
-});
-
-const AppContainer = styled.div({
-	flex: 1,
-	display: "flex",
-});
 
 const sx = {
 	flexGrow: 1,
@@ -21,7 +10,7 @@ const sx = {
 
 function App() {
 	return (
-		<Container>
+		<Box sx={{ display: "flex", flexFlow: "column" }}>
 			<Box sx={{ display: "flex" }}>
 				<TagDrawer />
 				<Box
@@ -32,10 +21,10 @@ function App() {
 					flexDirection={"column"}
 				>
 					<Toolbar />
-					<AppContainer>{<Outlet />}</AppContainer>
+					<Box sx={{ flex: 1, display: "flex" }}>{<Outlet />}</Box>
 				</Box>
 			</Box>
-		</Container>
+		</Box>
 	);
 }
 
