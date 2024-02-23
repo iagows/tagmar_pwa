@@ -48,7 +48,7 @@ const TagDrawer = () => {
 		}
 	};
 	return (
-		<>
+		<Box onClick={handleDrawerToggle}>
 			<CssBaseline />
 			<TagAppBar onMenu={handleDrawerToggle} />
 			<Box sx={DRAWER_BOX_SX}>
@@ -69,7 +69,7 @@ const TagDrawer = () => {
 					<DrawerContent />
 				</Drawer>
 			</Box>
-		</>
+		</Box>
 	);
 };
 
