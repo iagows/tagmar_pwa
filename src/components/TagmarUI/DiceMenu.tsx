@@ -7,7 +7,7 @@ import {
 	SelectChangeEvent,
 } from "@mui/material";
 import { useState } from "react";
-import { DICE_THEMES, THEME_COLOR_SET } from "../../3d/util";
+import { DICE_THEMES_COLOR_SET, THEME_COLOR_SET } from "../../3d/util";
 
 type C = {
 	onRodar: () => void;
@@ -43,7 +43,7 @@ const DiceMenu = ({ onRodar, box }: C) => {
 				label="Age"
 				onChange={handleChange}
 			>
-				{DICE_THEMES.map((t) => (
+				{DICE_THEMES_COLOR_SET.map((t) => (
 					<MenuItem value={t} key={t}>
 						{t}
 					</MenuItem>

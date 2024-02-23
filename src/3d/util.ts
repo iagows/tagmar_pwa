@@ -1,4 +1,42 @@
-export const DICE_THEMES = [
+export const DICE_THEME_TEXTURE = [
+	"cloudy",
+	"cloudy_2",
+	"fire",
+	"marble",
+	"water",
+	"ice",
+	"paper",
+	"speckles",
+	"glitter",
+	"glitter_2",
+	"stars",
+	"stainedglass",
+	"wood",
+	"metal",
+	"skulls",
+	"leopard",
+	"tiger",
+	"cheetah",
+	"dragon",
+	"lizard",
+	"bird",
+	"astral",
+	"acleaf",
+	"thecage",
+	"isabelle",
+	"bronze01",
+	"bronze02",
+	"bronze03",
+	"bronze03a",
+	"bronze03b",
+	"bronze04",
+	"none",
+	"",
+] as const;
+
+export type THEME_TEXTURE = (typeof DICE_THEME_TEXTURE)[number];
+
+export const DICE_THEMES_COLOR_SET = [
 	"coin_default",
 	"coin_silver",
 	"radiant",
@@ -51,4 +89,4 @@ export const DICE_THEMES = [
 	"swl_defwhite",
 ] as const;
 
-export type THEME_COLOR_SET = (typeof DICE_THEMES)[number];
+export type THEME_COLOR_SET = (typeof DICE_THEMES_COLOR_SET)[number];

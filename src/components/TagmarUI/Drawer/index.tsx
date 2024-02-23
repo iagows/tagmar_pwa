@@ -50,7 +50,7 @@ const TagDrawer = () => {
 	return (
 		<>
 			<CssBaseline />
-			<TagAppBar title="Fichas" onMenu={handleDrawerToggle} />
+			<TagAppBar onMenu={handleDrawerToggle} />
 			<Box sx={DRAWER_BOX_SX}>
 				{/* The implementation can be swapped with js to avoid SEO duplication of links. */}
 				<Drawer

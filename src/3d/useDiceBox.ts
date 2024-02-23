@@ -34,8 +34,8 @@ async function getBox(id: string): Promise<DiceBox> {
 const NUMBERS = Array.from({ length: 20 }, (_, i) => i + 1);
 const getRandom = () => NUMBERS[Math.floor(Math.random() * NUMBERS.length)];
 
-function rodarDados(box: DiceBox): void {
-	box.roll(`1d20@${getRandom()}`);
+function rodarDados(box: DiceBox, amount = 1): void {
+	box.roll(`${amount}d20@${getRandom()}`);
 }
 
 type In = {

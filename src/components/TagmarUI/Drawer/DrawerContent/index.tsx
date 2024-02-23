@@ -48,17 +48,17 @@ const gameMenu: Item[] = [
 	{
 		text: "Magias",
 		icon: AutoFixHighOutlined,
-		path: RoutePath.FICHA,
+		path: RoutePath.MAGIAS,
 	},
 	{
 		text: "Habilidades",
 		icon: StormOutlined,
-		path: RoutePath.FICHA,
+		path: RoutePath.HABILIDADES,
 	},
 	{
-		text: "Mapa",
+		text: "Mapas",
 		icon: MapOutlined,
-		path: RoutePath.FICHA,
+		path: RoutePath.MAPAS,
 	},
 ];
 
@@ -66,12 +66,12 @@ const appMenu: Item[] = [
 	{
 		text: "Configurações",
 		icon: Settings,
-		path: RoutePath.FICHA,
+		path: RoutePath.CONFIGURACOES,
 	},
 	{
 		text: "Sobre",
 		icon: Info,
-		path: RoutePath.FICHA,
+		path: RoutePath.SOBRE,
 	},
 ];
 

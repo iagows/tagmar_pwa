@@ -1,12 +1,11 @@
 import PageContainer from "../components/PageContainer";
 
-const PageFicha = () => {
-	// mudar menu
+const PageMapa = () => {
 	return (
 		<PageContainer>
-			<p>Ficha</p>
+			<p>Mapa</p>
 		</PageContainer>
 	);
 };
 
-export default PageFicha;
+export default PageMapa;

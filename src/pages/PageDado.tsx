@@ -1,4 +1,5 @@
 import useDiceBox from "../3d/useDiceBox";
+import PageContainer from "../components/PageContainer";
 import DiceMenu from "../components/TagmarUI/DiceMenu";
 
 const BOX_CSS = {
@@ -15,10 +16,12 @@ const PageDado = () => {
 	const { box, rodar } = useDiceBox({ containerId: "#box" });
 
 	return (
-		<div style={{ flex: 1 }}>
-			{!!box && <DiceMenu box={box} onRodar={rodar} />}
-			<div id="box" style={BOX_CSS} />
-		</div>
+		<PageContainer>
+			<div>
+				{!!box && <DiceMenu box={box} onRodar={rodar} />}
+				<div id="box" style={BOX_CSS} />
+			</div>
+		</PageContainer>
 	);
 };
 
