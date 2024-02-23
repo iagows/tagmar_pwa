@@ -46,12 +46,13 @@ type Out = { box?: DiceBox; rodar: () => void };
 
 const useDiceBox = ({ containerId }: In): Out => {
 	const [box, setBox] = useState<DiceBox>();
+
+	const startBox = useCallback(async () => {
+		const b = await getBox(containerId);
+		setBox(b);
+	}, [containerId]);
+
 	useEffect(() => {
-		const startBox = async () => {
-			const b = await getBox(containerId);
-			b.roll("1d20");
-			setBox(b);
-		};
 		if (!box) {
 			startBox();
 		}
@@ -60,7 +61,7 @@ const useDiceBox = ({ containerId }: In): Out => {
 				box.clearDice();
 			}
 		};
-	}, [box, containerId]);
+	}, [box, startBox]);
 
 	const rodar = useCallback(() => {
 		if (box) {

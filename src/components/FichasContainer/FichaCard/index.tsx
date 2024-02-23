@@ -6,6 +6,7 @@ import {
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import {
 	Avatar,
+	Box,
 	Card,
 	CardActionArea,
 	CardActions,
@@ -38,12 +39,12 @@ const FichaCard = ({ ficha }: In) => {
 		>
 			<CardActionArea>
 				<CardContent>
-					<div style={{ display: "flex", flex: 1 }}>
+					<Box sx={{ display: "flex", flex: 1 }}>
 						<Avatar alt={ficha.raca}>
 							<RacaImage />
 						</Avatar>
-						<div
-							style={{
+						<Box
+							sx={{
 								flex: 1,
 								display: "flex",
 								alignItems: "center",
@@ -54,11 +55,11 @@ const FichaCard = ({ ficha }: In) => {
 							<TagLabel>
 								{ficha.narrador} - {ficha.nivel}
 							</TagLabel>
-						</div>
+						</Box>
 						<Avatar alt={ficha.profissao}>
 							<ProfissaoImage />
 						</Avatar>
-					</div>
+					</Box>
 				</CardContent>
 			</CardActionArea>
 			<CardActions

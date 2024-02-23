@@ -1,3 +1,4 @@
+import { Box } from "@mui/material";
 import useDiceBox from "../3d/useDiceBox";
 import PageContainer from "../components/PageContainer";
 import DiceMenu from "../components/TagmarUI/DiceMenu";
@@ -17,10 +18,10 @@ const PageDado = () => {
 
 	return (
 		<PageContainer>
-			<div>
+			<Box>
 				{!!box && <DiceMenu box={box} onRodar={rodar} />}
-				<div id="box" style={BOX_CSS} />
-			</div>
+				<Box id="box" style={BOX_CSS} />
+			</Box>
 		</PageContainer>
 	);
 };

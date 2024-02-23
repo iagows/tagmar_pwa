@@ -140,7 +140,7 @@ declare module "@3d-dice/dice-box-threejs" {
 
 		roll(notation: string): Promise<void>;
 
-		updateConfig(config: Config): void;
+		updateConfig(config: Config): Promise<void>;
 
 		clearDice(): void;
 	}

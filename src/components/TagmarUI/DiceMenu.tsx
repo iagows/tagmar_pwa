@@ -6,8 +6,8 @@ import {
 	Select,
 	SelectChangeEvent,
 } from "@mui/material";
-import { useState } from "react";
-import { DICE_THEMES_COLOR_SET, THEME_COLOR_SET } from "../../3d/util";
+import { useCallback, useState } from "react";
+import { DICE_THEMES_COLOR_SET, ThemeColorSet } from "../../3d/util";
 
 type C = {
 	onRodar: () => void;
@@ -15,14 +15,26 @@ type C = {
 };
 
 const DiceMenu = ({ onRodar, box }: C) => {
-	const [sel, setSel] = useState<THEME_COLOR_SET>("poison");
+	const [sel, setSel] = useState<ThemeColorSet>("poison");
+	const [working, setWorking] = useState<boolean>(true);
 
-	const handleChange = (event: SelectChangeEvent) => {
-		setSel(event.target.value as THEME_COLOR_SET);
-		box.updateConfig({
-			theme_colorset: event.target.value as THEME_COLOR_SET,
-		});
+	const handleChange = async (event: SelectChangeEvent) => {
+		const set = event.target.value as ThemeColorSet;
+
+		setSel(set);
+		change(set);
 	};
+
+	const change = useCallback(
+		async (set: ThemeColorSet) => {
+			setWorking(true);
+			await box.updateConfig({
+				theme_colorset: set,
+			});
+			setWorking(false);
+		},
+		[box],
+	);
 
 	return (
 		<FormControl sx={{ zIndex: 40 }}>
@@ -31,6 +43,7 @@ const DiceMenu = ({ onRodar, box }: C) => {
 					onRodar();
 				}}
 				color="primary"
+				disabled={working}
 			>
 				Jogar
 			</Button>

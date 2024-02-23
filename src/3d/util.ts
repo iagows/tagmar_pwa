@@ -34,7 +34,7 @@ export const DICE_THEME_TEXTURE = [
 	"",
 ] as const;
 
-export type THEME_TEXTURE = (typeof DICE_THEME_TEXTURE)[number];
+export type ThemeTexture = (typeof DICE_THEME_TEXTURE)[number];
 
 export const DICE_THEMES_COLOR_SET = [
 	"coin_default",
@@ -89,4 +89,4 @@ export const DICE_THEMES_COLOR_SET = [
 	"swl_defwhite",
 ] as const;
 
-export type THEME_COLOR_SET = (typeof DICE_THEMES_COLOR_SET)[number];
+export type ThemeColorSet = (typeof DICE_THEMES_COLOR_SET)[number];
