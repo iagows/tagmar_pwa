@@ -141,6 +141,8 @@ declare module "@3d-dice/dice-box-threejs" {
 		roll(notation: string): Promise<void>;
 
 		updateConfig(config: Config): void;
+
+		clearDice(): void;
 	}
 
 	export default Box;
