@@ -10,19 +10,21 @@ import PageContainer from "../components/PageContainer";
 import { THEME_OPTIONS } from "../theme";
 
 type Config = {
-	teste1: boolean;
-	teste2: boolean;
+	magiaExata: boolean;
+	agruparMagias: boolean;
 };
 
 const SWITCH_CSS = {
 	backgroundColor: THEME_OPTIONS.palette?.background?.paper,
 	borderRadius: 10,
-};
+	justifyContent: "space-between",
+	paddingLeft: "16px",
+} as const;
 
 const PageConfiguracoes = () => {
 	const [state, setState] = useState<Config>({
-		teste1: true,
-		teste2: false,
+		magiaExata: true,
+		agruparMagias: false,
 	});
 
 	const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -34,7 +36,7 @@ const PageConfiguracoes = () => {
 	return (
 		<PageContainer>
 			<FormControl component="fieldset" variant="standard">
-				<FormLabel component="legend">Testando</FormLabel>
+				<FormLabel component="legend">Ainda não funcional</FormLabel>
 				<FormGroup
 					sx={{
 						maxWidth: 400,
@@ -47,24 +49,24 @@ const PageConfiguracoes = () => {
 						labelPlacement="start"
 						control={
 							<Switch
-								checked={state.teste1}
+								checked={state.magiaExata}
 								onChange={handleChange}
-								name="teste1"
+								name="magiaExata"
 							/>
 						}
-						label="Teste 1"
+						label="Buscar magias pelo nome exato"
 					/>
 					<FormControlLabel
 						sx={SWITCH_CSS}
 						labelPlacement="start"
 						control={
 							<Switch
-								checked={state.teste2}
+								checked={state.agruparMagias}
 								onChange={handleChange}
-								name="teste2"
+								name="agruparMagias"
 							/>
 						}
-						label="Teste 2"
+						label="Agrupar magias"
 					/>
 				</FormGroup>
 			</FormControl>

@@ -28,11 +28,11 @@ export const useRouteTitle = (): string => {
 		case RoutePath.DADO:
 			return "Dado";
 		case RoutePath.MAGIAS:
-			return "Magias";
+			return "Lista Magias";
 		case RoutePath.MAGIA:
 			return "Nome da magia";
 		case RoutePath.HABILIDADES:
-			return "Habilidades";
+			return "Lista de Habilidades";
 		case RoutePath.HABILIDADE:
 			return "Nome da habilidade";
 		case RoutePath.MAPAS:
