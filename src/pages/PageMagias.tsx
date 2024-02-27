@@ -2,7 +2,7 @@ import { InputAdornment, TextField } from "@mui/material";
 import PageContainer from "../components/PageContainer";
 import SearchOutlined from "@mui/icons-material/SearchOutlined";
 
-const top100Films = [
+const lista = [
 	{ title: "Magia1", year: 1994 },
 	{ title: "Magia2", year: 1994 },
 	{ title: "Magia3", year: 1998 },
@@ -34,12 +34,9 @@ const PageMagias = () => {
 				<p>z</p>
 			</div>
 			<div>
-				<p>Magia</p>
-				<p>Magia</p>
-				<p>Magia</p>
-				<p>Magia</p>
-				<p>Magia</p>
-				<p>Magia</p>
+				{lista.map((i) => (
+					<p>{i.title}</p>
+				))}
 			</div>
 		</PageContainer>
 	);
