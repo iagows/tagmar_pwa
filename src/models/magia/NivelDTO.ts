@@ -14,11 +14,12 @@ type NiveBaseType = z.infer<typeof NivelBase> & {
 	secundario?: NiveBaseType;
 };
 
-const NivelDTO: z.ZodType<NiveBaseType> = NivelBase.extend({
+// biome-ignore lint/suspicious/noExplicitAny: <explanation>
+const NivelDTO: any = NivelBase.extend({
 	secundario: z.lazy(() => NivelDTO.optional()),
 });
 
-type Nivel = z.infer<typeof NivelDTO>;
+type Nivel = NiveBaseType;
 
 export default NivelDTO;
 export type { Nivel };
