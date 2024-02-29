@@ -1,14 +1,9 @@
 import { InputAdornment, TextField } from "@mui/material";
 import PageContainer from "../components/PageContainer";
 import SearchOutlined from "@mui/icons-material/SearchOutlined";
+import { MAGIAS } from "../data/magias";
 
-const lista = [
-	{ title: "Magia1", year: 1994 },
-	{ title: "Magia2", year: 1994 },
-	{ title: "Magia3", year: 1998 },
-	{ title: "Magia4", year: 1998 },
-	{ title: "Magia5", year: 2000 },
-];
+const LETRAS = [...new Set(MAGIAS.map((m) => m.nome[0]))];
 
 const PageMagias = () => {
 	return (
@@ -24,18 +19,14 @@ const PageMagias = () => {
 					),
 				}}
 			/>
-			<div style={{ display: "flex", gap: 10 }}>
-				<p>a</p>
-				<p>b</p>
-				<p>c</p>
-				<p>d</p>
-				<p>e</p>
-				<p>...</p>
-				<p>z</p>
-			</div>
 			<div>
-				{lista.map((i) => (
-					<p>{i.title}</p>
+				{LETRAS.map((i) => (
+					<p key={i}>{i}</p>
+				))}
+			</div>
+			<div style={{ display: "flex", gap: 10 }}>
+				{MAGIAS.map((m) => (
+					<p key={m.id}>{m.nome}</p>
 				))}
 			</div>
 		</PageContainer>

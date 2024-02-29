@@ -1,5 +1,5 @@
 import { z } from "zod";
-import DTO from "./DTO";
+import AbstractNamedDTO from "./AbstractNamedDTO";
 import { AtributoEnum } from "./AtributoDTO";
 
 export enum RacaEnum {
@@ -11,7 +11,7 @@ export enum RacaEnum {
 	PEQUENINO = "pequenino",
 }
 
-const RacaDTO = DTO.extend({
+const RacaDTO = AbstractNamedDTO.extend({
 	racaId: z.nativeEnum(RacaEnum),
 	aura: z.number(),
 	peso: z.number(),

@@ -1,6 +1,5 @@
 import { z } from "zod";
-
-import DTO from "./DTO";
+import AbstractNamedDTO from "./AbstractNamedDTO";
 import HabilidadeDTO from "./HabilidadeDTO";
 import RacaDTO from "./RacaDTO";
 
@@ -13,7 +12,7 @@ export enum ProfissaoEnum {
 	SACERDOTE = "sacerdote",
 }
 
-const ProfissaoDTO = DTO.extend({
+const ProfissaoDTO = AbstractNamedDTO.extend({
 	ehBasica: z.boolean(),
 	habilidadeIdAperfeicoada: HabilidadeDTO,
 	racasNaoPermitidas: z.array(RacaDTO),

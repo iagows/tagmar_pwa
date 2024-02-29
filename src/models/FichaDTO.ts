@@ -1,11 +1,11 @@
 import { z } from "zod";
-import GenericDTO from "./DTO";
-import { RacaEnum } from "./RacaDTO";
-import { ProfissaoEnum } from "./ProfissaoDTO";
+import AbstractNamedDTO from "./AbstractNamedDTO";
 import { AtributoEnum } from "./AtributoDTO";
 import { HabilidadeEnum } from "./HabilidadeDTO";
+import { ProfissaoEnum } from "./ProfissaoDTO";
+import { RacaEnum } from "./RacaDTO";
 
-const FichaDTO = GenericDTO.extend({
+const FichaDTO = AbstractNamedDTO.extend({
 	xp: z.number(),
 	raca: z.nativeEnum(RacaEnum),
 	nivel: z.number(),

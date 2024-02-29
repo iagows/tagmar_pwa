@@ -1,11 +1,11 @@
 import { z } from "zod";
-import DTO from "./DTO";
+import AbstractNamedDTO from "./AbstractNamedDTO";
 
 export enum AtributoEnum {
 	FORCA = "Força",
 }
 
-const AtributoDTO = DTO.extend({
+const AtributoDTO = AbstractNamedDTO.extend({
 	idAtributo: z.nativeEnum(AtributoEnum),
 	valor: z.string(),
 });

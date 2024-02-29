@@ -1,5 +1,5 @@
 import { z } from "zod";
-import DTO from "./DTO";
+import AbstractNamedDTO from "./AbstractNamedDTO";
 
 export enum HabilidadeDef {
 	ARMADURA = "armadura",
@@ -14,7 +14,7 @@ export enum HabilidadeEnum {
 	CARPINTARIA = "Carpintaria",
 }
 
-const HabilidadeDTO = DTO.extend({
+const HabilidadeDTO = AbstractNamedDTO.extend({
 	valor: z.string(),
 	idAtributo: z.nativeEnum(HabilidadeEnum),
 	modificador: z.optional(z.nativeEnum(HabilidadeDef)),

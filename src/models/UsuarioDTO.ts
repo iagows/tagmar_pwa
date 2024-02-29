@@ -1,8 +1,8 @@
 import { z } from "zod";
-import DTO from "./DTO";
+import AbstractNamedDTO from "./AbstractNamedDTO";
 import FichaDTO from "./FichaDTO";
 
-const UsuarioDTO = DTO.extend({
+const UsuarioDTO = AbstractNamedDTO.extend({
 	image: z.optional(z.string()),
 	email: z.optional(z.string().email()),
 	fichas: z.array(FichaDTO).default([]),
