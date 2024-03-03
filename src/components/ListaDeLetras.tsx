@@ -20,7 +20,13 @@ const ListaDeLetras = ({ lista }: In) => {
 	return (
 		<Box sx={{ gap: 1, display: "flex" }}>
 			{letras.map((l) => (
-				<Button variant="outlined">{l}</Button>
+				<Button
+					variant="outlined"
+					key={l}
+					sx={{ maxWidth: "10px", minWidth: "10px" }}
+				>
+					{l}
+				</Button>
 			))}
 		</Box>
 	);
