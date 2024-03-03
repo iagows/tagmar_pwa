@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { getPlural } from "../util/stringHelp";
+import { StringUtil } from "../util/stringHelp";
 
 export enum AlcanceEnum {
 	VARIAVEL = "Variável",
@@ -23,7 +23,7 @@ export default AlcanceDTO;
 export type { Alcance };
 
 const basicValue = (tipo: AlcanceEnum, valor = 0, complemento = ""): string => {
-	const plural: string = getPlural(valor);
+	const plural: string = StringUtil.getPlural(valor);
 	const sufix: string = complemento !== "" ? ` ${complemento}` : "";
 
 	return `${valor} ${tipo}${plural}${sufix}`;
@@ -34,7 +34,7 @@ export const alcanceToString = (alcance: Alcance): string => {
 		return alcance.outraDescricao;
 	}
 
-	const plural: string = getPlural(alcance.valor ?? 0);
+	const plural: string = StringUtil.getPlural(alcance.valor ?? 0);
 	const complemento: string = alcance.isQuadrado
 		? `quadrado${plural}`
 		: alcance.isRaio

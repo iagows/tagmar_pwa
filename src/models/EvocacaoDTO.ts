@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { getPlural } from "../util/stringHelp";
+import { StringUtil } from "../util/stringHelp";
 
 export enum EvocacaoEnum {
 	VARIAVEL = "Variável",
@@ -27,7 +27,7 @@ export const evocatoToString = (evocacao: Evocacao): string => {
 	}
 
 	if (evocacao.valor) {
-		const plural = getPlural(evocacao.valor);
+		const plural = StringUtil.getPlural(evocacao.valor);
 		return `${evocacao.valor} ${evocacao.tipo}${plural}`;
 	}
 	return evocacao.tipo;

@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { getPlural } from "../util/stringHelp";
+import { StringUtil } from "../util/stringHelp";
 
 export enum DuracaoEnum {
 	USO = "uso",
@@ -37,6 +37,6 @@ export const duracaoToString = (duracao: Duracao): string => {
 	if (duracao.outraDescricao) {
 		return duracao.outraDescricao;
 	}
-	const plural = getPlural(duracao.valor ?? 0);
+	const plural = StringUtil.getPlural(duracao.valor ?? 0);
 	return `${duracao.valor}${plural} ${duracao.tipo}`;
 };

@@ -2,7 +2,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { AppBar, IconButton, Toolbar, Typography } from "@mui/material";
 import { useRouteTitle } from "../../../pages/RouteNames";
 import { THEME_OPTIONS } from "../../../theme";
-import { DRAWER_WIDTH } from "../../../util/constants";
+import { Constants } from "../../../util/constants";
 
 type In = {
 	onMenu: () => void;
@@ -14,8 +14,8 @@ const TagAppBar = ({ onMenu }: In) => {
 		<AppBar
 			position="fixed"
 			sx={{
-				ml: { sm: `${DRAWER_WIDTH}px` },
-				width: { sm: `calc(100% - ${DRAWER_WIDTH}px)` },
+				ml: { sm: `${Constants.DRAWER_WIDTH}px` },
+				width: { sm: `calc(100% - ${Constants.DRAWER_WIDTH}px)` },
 			}}
 		>
 			<Toolbar

@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
 import { PropsWithChildren } from "react";
-import { CSS } from "../util/constants";
+import { Constants } from "../util/constants";
 
 type In = {
 	bg?: string;
@@ -14,7 +14,7 @@ const PageContainer = ({ children, bg }: PropsWithChildren<In>) => {
 				backgroundImage: bg,
 				flexDirection: "column",
 				backgroundSize: "cover",
-				padding: CSS.padding.page,
+				padding: Constants.CSS.padding.page,
 				backgroundRepeat: "no-repeat",
 			}}
 		>

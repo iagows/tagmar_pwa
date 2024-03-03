@@ -2,7 +2,7 @@ import Add from "@mui/icons-material/Add";
 import { Button, Grid } from "@mui/material";
 import { THEME_OPTIONS } from "../theme";
 import { HasName } from "../util/commonTypes";
-import { CSS } from "../util/constants";
+import { Constants } from "../util/constants";
 
 type In = {
 	lista: HasName[];
@@ -15,9 +15,9 @@ const ListaDeNomes = ({ lista }: In) => (
 					variant="contained"
 					endIcon={<Add color="primary" />}
 					sx={{
-						minWidth: CSS.caixaGrande.width,
-						minHeight: CSS.caixaGrande.height,
-						borderRadius: CSS.caixaGrande.radius,
+						minWidth: Constants.CSS.caixaGrande.width,
+						minHeight: Constants.CSS.caixaGrande.height,
+						borderRadius: Constants.CSS.caixaGrande.radius,
 						background: THEME_OPTIONS.palette?.background?.paper,
 					}}
 				>

@@ -1,6 +1,6 @@
 import { Box, Button } from "@mui/material";
 import { HasName } from "../util/commonTypes";
-import { extractFirstChar } from "../util/stringHelp";
+import { StringUtil } from "../util/stringHelp";
 
 type In = {
 	lista: HasName[];
@@ -8,7 +8,7 @@ type In = {
 	onClick: (char: string) => void;
 };
 
-const getChar = (obj: HasName): string => extractFirstChar(obj.nome);
+const getChar = (obj: HasName): string => StringUtil.extractFirstChar(obj.nome);
 const getCharSet = (lista: HasName[]): Set<string> =>
 	new Set(lista.map(getChar));
 const getCharList = (lista: HasName[]): string[] => [...getCharSet(lista)];

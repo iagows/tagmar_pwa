@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { getPlural } from "../util/stringHelp";
+import { StringUtil } from "../util/stringHelp";
 
 const DinheiroDTO = z.object({
 	ouro: z.number().min(0).optional(),
@@ -13,7 +13,7 @@ export default DinheiroDTO;
 export type { Dinheiro };
 
 const generatePhrase = (n: number, tipo: string): string => {
-	return n > 0 ? `${n} moeda${getPlural(n)} de ${tipo}` : "";
+	return n > 0 ? `${n} moeda${StringUtil.getPlural(n)} de ${tipo}` : "";
 };
 
 export const dinheiroToString = (dinheiro: Dinheiro): string => {

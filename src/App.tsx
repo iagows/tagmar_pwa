@@ -1,11 +1,11 @@
 import { Box, Toolbar } from "@mui/material";
 import { Outlet } from "react-router-dom";
 import TagDrawer from "./components/TagmarUI/Drawer";
-import { DRAWER_WIDTH } from "./util/constants";
+import { Constants } from "./util/constants";
 
 const sx = {
 	flexGrow: 1,
-	width: { sm: `calc(100% - ${DRAWER_WIDTH}px)` },
+	width: { sm: `calc(100% - ${Constants.DRAWER_WIDTH}px)` },
 } as const;
 
 function App() {
