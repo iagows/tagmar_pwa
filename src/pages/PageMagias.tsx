@@ -2,8 +2,9 @@ import { InputAdornment, TextField } from "@mui/material";
 import PageContainer from "../components/PageContainer";
 import SearchOutlined from "@mui/icons-material/SearchOutlined";
 import { MAGIAS } from "../data/magias";
+import { extractFirstChar } from "../util/functions";
 
-const LETRAS = [...new Set(MAGIAS.map((m) => m.nome[0]))];
+const LETRAS = [...new Set(MAGIAS.map((m) => extractFirstChar(m.nome)))];
 
 const PageMagias = () => {
 	return (
