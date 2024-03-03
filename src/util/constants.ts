@@ -7,6 +7,11 @@ export const CSS = {
 		button: "9px 16px",
 		page: "15px 25px",
 	},
+	caixaGrande: {
+		width: "288px",
+		height: "51px",
+		radius: "10px",
+	},
 };
 
 export const DRAWER_WIDTH = 300;

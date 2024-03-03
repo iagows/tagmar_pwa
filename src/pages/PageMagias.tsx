@@ -1,4 +1,6 @@
 import Clear from "@mui/icons-material/Clear";
+import Filter from "@mui/icons-material/FilterAlt";
+import Search from "@mui/icons-material/SearchOutlined";
 import { Box, IconButton, InputAdornment, TextField } from "@mui/material";
 import { useEffect, useState } from "react";
 import ListaDeLetras from "../components/ListaDeLetras";
@@ -64,7 +66,15 @@ const PageMagias = () => {
 										<Clear />
 									</IconButton>
 								)}
+								<IconButton disabled>
+									<Filter />
+								</IconButton>
 							</InputAdornment>
+						),
+						startAdornment: (
+							<IconButton disabled>
+								<Search />
+							</IconButton>
 						),
 					}}
 					placeholder="Nome da magia"
