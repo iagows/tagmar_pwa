@@ -15,6 +15,7 @@ const ListaDeNomes = ({ lista }: In) => (
 					variant="contained"
 					endIcon={<Add color="primary" />}
 					sx={{
+						textTransform: "capitalize",
 						minWidth: Constants.CSS.caixaGrande.width,
 						minHeight: Constants.CSS.caixaGrande.height,
 						borderRadius: Constants.CSS.caixaGrande.radius,

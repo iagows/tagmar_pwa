@@ -21,19 +21,16 @@ const MountList = ({ list }: IList) => {
 
 	return (
 		<List>
-			{list.map(({ text, icon: Icon, path }) => {
-				console.log(path, p);
-				return (
-					<ListItem key={text}>
-						<ListItemButton component={Link} to={path} disabled={path === p}>
-							<ListItemIcon>
-								<Icon />
-							</ListItemIcon>
-							<ListItemText primary={text} />
-						</ListItemButton>
-					</ListItem>
-				);
-			})}
+			{list.map(({ text, icon: Icon, path }) => (
+				<ListItem key={text}>
+					<ListItemButton component={Link} to={path} disabled={path === p}>
+						<ListItemIcon>
+							<Icon />
+						</ListItemIcon>
+						<ListItemText primary={text} />
+					</ListItemButton>
+				</ListItem>
+			))}
 		</List>
 	);
 };
