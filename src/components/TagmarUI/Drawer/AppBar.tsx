@@ -1,8 +1,8 @@
 import MenuIcon from "@mui/icons-material/Menu";
 import { AppBar, IconButton, Toolbar, Typography } from "@mui/material";
-import { useRouteTitle } from "../../../../pages/RouteNames";
-import { THEME_OPTIONS } from "../../../../theme";
-import { DRAWER_WIDTH } from "../../../../util/constants";
+import { useRouteTitle } from "../../../pages/RouteNames";
+import { THEME_OPTIONS } from "../../../theme";
+import { DRAWER_WIDTH } from "../../../util/constants";
 
 type In = {
 	onMenu: () => void;

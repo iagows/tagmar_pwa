@@ -19,8 +19,8 @@ import {
 } from "@mui/material";
 import { OverridableComponent } from "@mui/material/OverridableComponent";
 import { Link, useLocation } from "react-router-dom";
-import { RoutePath } from "../../../../pages/RouteNames";
-import UserDisplay from "../../../UserDisplay";
+import { RoutePath } from "../../../pages/RouteNames";
+import UserDisplay from "../../UserDisplay";
 
 type Item = {
 	text: string;
