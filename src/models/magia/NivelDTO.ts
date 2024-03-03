@@ -6,20 +6,21 @@ import DuracaoDTO from "../DuracaoDTO";
 
 const NivelBase = GenericDTO.extend({
 	nivel: z.number().min(1),
-	dinheiro: DinheiroDTO.nullable(),
-	alcance: AlcanceDTO.nullable(),
-	duracao: DuracaoDTO.nullable(),
+	dinheiro: DinheiroDTO.optional(),
+	alcance: AlcanceDTO.optional(),
+	duracao: DuracaoDTO.optional(),
+	descricao: z.string(),
 });
-type NiveBaseType = z.infer<typeof NivelBase> & {
-	secundario?: NiveBaseType;
+
+type NivelBaseType = z.infer<typeof NivelBase> & {
+	secundario?: NivelBaseType;
 };
 
-// biome-ignore lint/suspicious/noExplicitAny: <explanation>
-const NivelDTO: any = NivelBase.extend({
+const NivelDTO = NivelBase.extend({
 	secundario: z.lazy(() => NivelDTO.optional()),
-});
+}) as z.ZodType<NivelBaseType>;
 
-type Nivel = NiveBaseType;
+type Nivel = NivelBaseType;
 
 export default NivelDTO;
 export type { Nivel };

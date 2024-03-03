@@ -4,13 +4,14 @@ import AlcanceDTO from "../AlcanceDTO";
 import DinheiroDTO from "../DinheiroDTO";
 import DuracaoDTO from "../DuracaoDTO";
 import NivelDTO from "./NivelDTO";
+import EvocacaoDTO from "../EvocacaoDTO";
 
 const MagiaDTO = AbstractNamedDTO.extend({
 	extra: z.string().array().optional().default([]),
 	alcance: AlcanceDTO,
 	duracao: DuracaoDTO,
 	custo: DinheiroDTO.optional(),
-	// evocacao
+	evocacao: EvocacaoDTO.optional(),
 	niveis: NivelDTO.array(),
 });
 
