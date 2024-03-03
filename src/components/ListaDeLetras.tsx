@@ -7,6 +7,8 @@ type HasName = {
 
 type In = {
 	lista: HasName[];
+	selected: string;
+	onClick: (char: string) => void;
 };
 
 const getChar = (obj: HasName): string => extractFirstChar(obj.nome);
@@ -14,16 +16,20 @@ const getCharSet = (lista: HasName[]): Set<string> =>
 	new Set(lista.map(getChar));
 const getCharList = (lista: HasName[]): string[] => [...getCharSet(lista)];
 
-const ListaDeLetras = ({ lista }: In) => {
+/////////////
+
+const ListaDeLetras = ({ lista, onClick, selected }: In) => {
 	const letras = getCharList(lista);
 
 	return (
 		<Box sx={{ gap: 1, display: "flex" }}>
 			{letras.map((l) => (
 				<Button
-					variant="outlined"
 					key={l}
+					onClick={() => onClick(l)}
 					sx={{ maxWidth: "10px", minWidth: "10px" }}
+					variant="outlined"
+					color={selected !== l ? "secondary" : "primary"}
 				>
 					{l}
 				</Button>

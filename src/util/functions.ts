@@ -30,5 +30,5 @@ function removeDiacritic(letra: string): string {
 }
 
 export const extractFirstChar = (word: string): string => {
-	return removeDiacritic(word.trim().charAt(0).toLowerCase()).toUpperCase();
+	return removeDiacritic(word.trim().charAt(0).toLowerCase());
 };
