@@ -10,3 +10,4 @@ export const CSS = {
 };
 
 export const DRAWER_WIDTH = 300;
+export const MARGEM_DIFERENCA_PALAVRAS = 0.8;

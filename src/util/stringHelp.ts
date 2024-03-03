@@ -7,88 +7,78 @@ export const extractFirstChar = (word: string): string => {
 	return remove(word.trim().charAt(0).toLowerCase());
 };
 
-/*
-import 'dart:math' as math;
-import 'package:diacritic/diacritic.dart' as diacritic;
+/**
+ * Compara strings dando a marge de diferença entre elas
+ *
+ * @link https://www.geeksforgeeks.org/jaro-and-jaro-winkler-similarity/
+ * @param a Primeira palavra
+ * @param b Segunda palavra
+ * @returns diferença
+ */
+const jaroDistance = (s1: string, s2: string): number => {
+	// sendo iguais, retorna logo
+	if (s1.localeCompare(s2) === 0) {
+		return 1;
+	}
 
-// https://www.geeksforgeeks.org/jaro-and-jaro-winkler-similarity/
+	// comprimentos
+	const len1 = s1.length;
+	const len2 = s2.length;
 
-/// Compara strings dando margem de diferença
-double jaroDistance(String s1, String s2) {
-  if (s1.compareTo(s2) == 0) return 1;
+	// distância máxima
+	const maxDistance = Math.floor(Math.max(len1, len2) / 2) - 1;
 
-  // Length of two Strings
-  final int len1 = s1.length, len2 = s2.length;
+	// acertos
+	let match = 0;
 
-  // Maximum distance upto which matching
-  // is allowed
-  final int maxDistance = (math.max(len1, len2) / 2).floor() - 1;
+	// hash para acertos
+	const hashS1: number[] = Array(len1).fill(0);
+	const hashS2: number[] = Array(len2).fill(0);
 
-  // Count of matches
-  int match = 0;
+	// iterando a primeira palavra
+	for (let i = 0; i < len1; i++) {
+		// procurando acertos
+		for (
+			let j = Math.max(0, i - maxDistance);
+			j < Math.min(len2, i + maxDistance + 1);
+			j++
+		) {
+			// se tiver acerto
+			if (s1[i] === s2[j] && hashS2[j] === 0) {
+				hashS1[i] = 1;
+				hashS2[j] = 1;
+				match++;
+				break;
+			}
+		}
+	}
 
-  // Hash for matches
-  final List<int> hashS1 = List.filled(len1, 0);
-  final List<int> hashS2 = List.filled(len2, 0);
+	// não acertou até agora
+	if (match === 0) {
+		return 0;
+	}
 
-  // Traverse through the first String
-  for (int i = 0; i < len1; i++) {
-    // Check if there is any matches
-    for (int j = math.max(0, i - maxDistance);
-        j < math.min(len2, i + maxDistance + 1);
-        j++) {
-      // If there is a match
-      if ((s1[i] == s2[j]) && (hashS2[j] == 0)) {
-        hashS1[i] = 1;
-        hashS2[j] = 1;
-        match++;
-        break;
-      }
-    }
-  }
+	let t = 0;
+	let point = 0;
 
-  // If there is no match
-  if (match == 0) {
-    return 0.0;
-  }
+	// conta ocorrências onde dois caracteres coincidem, mas tem um outro caractere
+	// entre os índices
 
-  // Number of transpositions
-  double t = 0;
+	for (let i = 0; i < len1; i++) {
+		if (hashS1[i] === 1) {
+			// ache o próximo acerto na segunda palavra
+			while (hashS2[point] === 0) {
+				point++;
+			}
 
-  int point = 0;
+			if (s1[i] !== s2[point++]) {
+				t++;
+			}
+		}
+	}
+	t /= 2;
 
-  // Count number of occurrences
-  // where two characters match but
-  // there is a third matched character
-  // in between the indices
-  for (int i = 0; i < len1; i++) {
-    if (hashS1[i] == 1) {
-      // Find the next matched character
-      // in second String
-      while (hashS2[point] == 0) {
-        point++;
-      }
-
-      if (s1[i] != s2[point++]) {
-        t++;
-      }
-    }
-  }
-
-  t /= 2;
-
-  // Return the Jaro Similarity
-  return ((match.toDouble()) / (len1.toDouble()) +
-          (match.toDouble()) / (len2.toDouble()) +
-          (match.toDouble() - t) / (match.toDouble())) /
-      3.0;
-}
-
-
-*/
-
-const jaroDistance = (a: string, b: string): number => {
-	return 0;
+	return (match / len1 + match / len2 + (match - t) / match) / 3.0;
 };
 
 /**
@@ -131,8 +121,8 @@ const jaroWinkler = (a: string, b: string): number => {
  * @returns Se ambas são parecidas ou iguais
  */
 const compareWords = (a: string, b: string, similarity: number): boolean => {
-	const A = remove(a);
-	const B = remove(b);
+	const A = remove(a).toLowerCase();
+	const B = remove(b).toLowerCase();
 
 	return B.indexOf(A) > -1 || jaroWinkler(A, B) >= similarity;
 };
@@ -153,6 +143,7 @@ export const compareWordWithWordsInSentence = (
 	if (a.length < 3) {
 		return false;
 	}
+
 	return sentence.split(" ").some((element) => {
 		if (element.length < 3) {
 			return false;
