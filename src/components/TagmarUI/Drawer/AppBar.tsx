@@ -7,6 +7,7 @@ import { Constants } from "../../../util/constants";
 type In = {
 	onMenu: () => void;
 };
+
 const TagAppBar = ({ onMenu }: In) => {
 	const title = useRouteTitle();
 

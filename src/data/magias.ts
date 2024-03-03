@@ -1,5 +1,5 @@
 import { Magia } from "../models/magia/MagiaDTO";
-import { MagiasA } from "./magiaA";
-import { MagiasB } from "./magiaB";
+import { Magias as MagiasA } from "./magiaA";
+import { Magias as MagiasB } from "./magiaB";
 
-export const MAGIAS: Magia[] = [...MagiasA, ...MagiasB];
+export const MAGIAS: Magia[] = [...MagiasA.A, ...MagiasB.B];

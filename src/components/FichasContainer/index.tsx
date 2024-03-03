@@ -14,7 +14,7 @@ const FichasContainer = () => {
 			<Box sx={{ flexGrow: 1 }}>
 				<Grid container rowSpacing={2} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
 					{list.map((f) => (
-						<Grid item xs={12} key={f.id} sm={8} md={4}>
+						<Grid item xs={12} key={f.id} md={6} lg={4}>
 							<FichaCard ficha={f} />
 						</Grid>
 					))}

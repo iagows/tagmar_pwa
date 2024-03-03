@@ -1,83 +1,20 @@
 import {
-	AutoFixHighOutlined,
-	Casino,
-	Info,
-	MapOutlined,
-	PeopleAltOutlined,
-	PersonOutlined,
-	Settings,
-	StormOutlined,
-} from "@mui/icons-material";
-import {
 	Divider,
 	List,
 	ListItem,
 	ListItemButton,
 	ListItemIcon,
 	ListItemText,
-	SvgIconTypeMap,
 } from "@mui/material";
-import { OverridableComponent } from "@mui/material/OverridableComponent";
 import { Link, useLocation } from "react-router-dom";
 import { RoutePath } from "../../../pages/RouteNames";
 import UserDisplay from "../../UserDisplay";
-
-type Item = {
-	text: string;
-	path: RoutePath;
-	// biome-ignore lint/suspicious/noExplicitAny: <explanation>
-	icon: OverridableComponent<SvgIconTypeMap<any, "svg">> & { muiName: string };
-};
-
-const gameMenu: Item[] = [
-	{
-		text: "Fichas",
-		icon: PeopleAltOutlined,
-		path: RoutePath.FICHAS,
-	},
-	{
-		text: "Ficha atual",
-		icon: PersonOutlined,
-		path: RoutePath.FICHA,
-	},
-	{
-		text: "Dado",
-		icon: Casino,
-		path: RoutePath.DADO,
-	},
-	{
-		text: "Magias",
-		icon: AutoFixHighOutlined,
-		path: RoutePath.MAGIAS,
-	},
-	{
-		text: "Habilidades",
-		icon: StormOutlined,
-		path: RoutePath.HABILIDADES,
-	},
-	{
-		text: "Mapas",
-		icon: MapOutlined,
-		path: RoutePath.MAPAS,
-	},
-];
-
-const appMenu: Item[] = [
-	{
-		text: "Configurações",
-		icon: Settings,
-		path: RoutePath.CONFIGURACOES,
-	},
-	{
-		text: "Sobre",
-		icon: Info,
-		path: RoutePath.SOBRE,
-	},
-];
+import { Drawer } from "./data";
 
 type IList = {
-	list: Item[];
+	list: Drawer.Item[];
 };
+
 const MountList = ({ list }: IList) => {
 	const { pathname } = useLocation();
 	const p = pathname as RoutePath;
@@ -106,9 +43,9 @@ const DrawerContent = () => {
 		<>
 			<UserDisplay />
 			<Divider />
-			<MountList list={gameMenu} />
+			<MountList list={Drawer.gameMenu} />
 			<Divider />
-			<MountList list={appMenu} />
+			<MountList list={Drawer.appMenu} />
 		</>
 	);
 };

@@ -4,11 +4,6 @@ import { Constants } from "../../../util/constants";
 import TagAppBar from "./AppBar";
 import DrawerContent from "./DrawerContent";
 
-export enum DrawerType {
-	mobile = 0,
-	desktop = 1,
-}
-
 const DRAWER_BOX_SX = {
 	width: { sm: Constants.DRAWER_WIDTH },
 	flexShrink: { sm: 0 },
