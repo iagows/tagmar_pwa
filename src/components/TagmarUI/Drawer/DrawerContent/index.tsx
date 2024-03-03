@@ -18,7 +18,7 @@ import {
 	SvgIconTypeMap,
 } from "@mui/material";
 import { OverridableComponent } from "@mui/material/OverridableComponent";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { RoutePath } from "../../../../pages/RouteNames";
 import UserDisplay from "../../../UserDisplay";
 
@@ -33,7 +33,7 @@ const gameMenu: Item[] = [
 	{
 		text: "Fichas",
 		icon: PeopleAltOutlined,
-		path: RoutePath.ROOT,
+		path: RoutePath.FICHAS,
 	},
 	{
 		text: "Ficha atual",
@@ -78,22 +78,28 @@ const appMenu: Item[] = [
 type IList = {
 	list: Item[];
 };
-const MountList = ({ list }: IList) => (
-	<List>
-		{list.map(({ text, icon: Icon, path }) => (
-			// <Link to={path}>
-			<ListItem key={text}>
-				<ListItemButton component={Link} to={path}>
-					<ListItemIcon>
-						<Icon />
-					</ListItemIcon>
-					<ListItemText primary={text} />
-				</ListItemButton>
-			</ListItem>
-			// </Link>
-		))}
-	</List>
-);
+const MountList = ({ list }: IList) => {
+	const { pathname } = useLocation();
+	const p = pathname as RoutePath;
+
+	return (
+		<List>
+			{list.map(({ text, icon: Icon, path }) => {
+				console.log(path, p);
+				return (
+					<ListItem key={text}>
+						<ListItemButton component={Link} to={path} disabled={path === p}>
+							<ListItemIcon>
+								<Icon />
+							</ListItemIcon>
+							<ListItemText primary={text} />
+						</ListItemButton>
+					</ListItem>
+				);
+			})}
+		</List>
+	);
+};
 
 const DrawerContent = () => {
 	return (
