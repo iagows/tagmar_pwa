@@ -5,6 +5,7 @@ const DinheiroDTO = z.object({
 	ouro: z.number().min(0).optional(),
 	prata: z.number().min(0).optional(),
 	cobre: z.number().min(0).optional(),
+	descricao: z.string().optional(),
 });
 
 type Dinheiro = z.infer<typeof DinheiroDTO>;
@@ -17,6 +18,9 @@ const generatePhrase = (n: number, tipo: string): string => {
 };
 
 export const dinheiroToString = (dinheiro: Dinheiro): string => {
+	if (dinheiro.descricao) {
+		return dinheiro.descricao;
+	}
 	const ouro = generatePhrase(dinheiro.ouro ?? 0, "ouro");
 	const prata = generatePhrase(dinheiro.prata ?? 0, "prata");
 	const cobre = generatePhrase(dinheiro.cobre ?? 0, "cobre");

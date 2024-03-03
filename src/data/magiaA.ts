@@ -4,7 +4,7 @@ import { EvocacaoEnum } from "../models/EvocacaoDTO";
 import { Magia, MagiaEnum } from "../models/magia/MagiaDTO";
 
 export namespace Magias {
-	export const A: Magia[] = [
+	export const lista: Magia[] = [
 		{
 			id: MagiaEnum.abrigo,
 			nome: "Abrigo",
