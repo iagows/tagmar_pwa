@@ -1,5 +1,5 @@
 import { Box, Button } from "@mui/material";
-import { extractFirstChar } from "../../util/functions";
+import { extractFirstChar } from "../util/functions";
 
 type HasName = {
 	nome: string;

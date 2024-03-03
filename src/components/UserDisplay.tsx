@@ -6,8 +6,8 @@ import {
 	ListItemButton,
 	ListItemText,
 } from "@mui/material";
-import useFicha from "../../stores/slices/fichas/useFicha";
-import TagLabel from "../TagmarUI/Label";
+import useFicha from "../stores/slices/fichas/useFicha";
+import TagLabel from "./TagmarUI/Label";
 
 const UserDisplay = () => {
 	const { list } = useFicha();

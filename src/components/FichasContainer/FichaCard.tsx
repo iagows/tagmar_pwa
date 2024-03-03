@@ -14,11 +14,11 @@ import {
 	IconButton,
 	Typography,
 } from "@mui/material";
-import getAsset from "../../../assets/app";
-import { Ficha } from "../../../models/FichaDTO";
-import { THEME_OPTIONS } from "../../../theme";
-import { changeOpacity } from "../../../util/functions";
-import TagLabel from "../../TagmarUI/Label";
+import getAsset from "../../assets/app";
+import { Ficha } from "../../models/FichaDTO";
+import { THEME_OPTIONS } from "../../theme";
+import { changeOpacity } from "../../util/functions";
+import TagLabel from "../TagmarUI/Label";
 
 type In = {
 	ficha: Ficha;
