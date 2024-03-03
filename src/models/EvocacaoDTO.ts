@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { getPlural } from "../util/functions";
+import { getPlural } from "../util/stringHelp";
 
 export enum EvocacaoEnum {
 	VARIAVEL = "Variável",

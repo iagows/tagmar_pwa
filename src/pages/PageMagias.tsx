@@ -6,7 +6,7 @@ import ListaDeNomes from "../components/ListaDeNomes";
 import PageContainer from "../components/PageContainer";
 import { MAGIAS } from "../data/magias";
 import { Magia } from "../models/magia/MagiaDTO";
-import { extractFirstChar } from "../util/functions";
+import { extractFirstChar } from "../util/stringHelp";
 
 const PageMagias = () => {
 	const [text, setText] = useState<string>("");

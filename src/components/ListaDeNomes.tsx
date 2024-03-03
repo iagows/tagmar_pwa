@@ -1,12 +1,9 @@
-import { Button, Grid } from "@mui/material";
 import Add from "@mui/icons-material/Add";
-
-type ComNome = {
-	nome: string;
-};
+import { Button, Grid } from "@mui/material";
+import { HasName } from "../util/commonTypes";
 
 type In = {
-	lista: ComNome[];
+	lista: HasName[];
 };
 const ListaDeNomes = ({ lista }: In) => (
 	<Grid container rowSpacing={2} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>

@@ -1,9 +1,6 @@
 import { Box, Button } from "@mui/material";
-import { extractFirstChar } from "../util/functions";
-
-type HasName = {
-	nome: string;
-};
+import { HasName } from "../util/commonTypes";
+import { extractFirstChar } from "../util/stringHelp";
 
 type In = {
 	lista: HasName[];
@@ -27,8 +24,8 @@ const ListaDeLetras = ({ lista, onClick, selected }: In) => {
 				<Button
 					key={l}
 					onClick={() => onClick(l)}
-					sx={{ maxWidth: "10px", minWidth: "10px" }}
 					variant="outlined"
+					sx={{ maxWidth: "10px", minWidth: "10px" }}
 					color={selected !== l ? "secondary" : "primary"}
 				>
 					{l}
