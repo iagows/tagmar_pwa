@@ -1,5 +1,5 @@
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { AccordionDetails, AccordionSummary, Box, styled } from "@mui/material";
+import { AccordionDetails, AccordionSummary, Box } from "@mui/material";
 import MuiAccordion, { AccordionProps } from "@mui/material/Accordion";
 import { Fragment } from "react";
 import { useParams } from "react-router-dom";
@@ -9,9 +9,9 @@ import { getMagia } from "../data/magias";
 import { Magia, MagiaEnum } from "../models/magia/MagiaDTO";
 import { Constants } from "../util/constants";
 
-const Accordion = styled((props: AccordionProps) => (
+const Accordion = (props: AccordionProps) => (
 	<MuiAccordion disableGutters elevation={0} square {...props} />
-))(() => ({}));
+);
 
 const PageMagia = () => {
 	const { id } = useParams();
