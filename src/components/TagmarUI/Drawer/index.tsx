@@ -1,22 +1,17 @@
 import { Box, CssBaseline, Drawer } from "@mui/material";
 import { useState } from "react";
-import { DRAWER_WIDTH } from "../../../util/constants";
+import { Constants } from "../../../util/constants";
 import TagAppBar from "./AppBar";
 import DrawerContent from "./DrawerContent";
 
-export enum DrawerType {
-	mobile = 0,
-	desktop = 1,
-}
-
 const DRAWER_BOX_SX = {
-	width: { sm: DRAWER_WIDTH },
+	width: { sm: Constants.DRAWER_WIDTH },
 	flexShrink: { sm: 0 },
 } as const;
 
 const DRAWER_CSS = {
 	boxSizing: "border-box",
-	width: DRAWER_WIDTH,
+	width: Constants.DRAWER_WIDTH,
 } as const;
 
 const DRAWER_SX_TEMP = {

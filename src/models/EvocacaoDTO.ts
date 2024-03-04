@@ -1,18 +1,18 @@
 import { z } from "zod";
-import { getPlural } from "../util/functions";
+import { StringUtil } from "../util/stringHelp";
 
 export enum EvocacaoEnum {
 	VARIAVEL = "Variável",
 	INSTANTANEA = "Instantânea",
-	RODADAS = "rodada",
-	MINUTOS = "minuto",
-	HORAS = "hora",
+	RODADA = "rodada",
+	MINUTO = "minuto",
+	HORA = "hora",
 	RITUAL = "Ritual",
 }
 
 const EvocacaoDTO = z.object({
 	valor: z.number().min(0).optional(),
-	idEvocacao: z.nativeEnum(EvocacaoEnum),
+	tipo: z.nativeEnum(EvocacaoEnum),
 	outraDescricao: z.string().optional(),
 });
 
@@ -27,8 +27,8 @@ export const evocatoToString = (evocacao: Evocacao): string => {
 	}
 
 	if (evocacao.valor) {
-		const plural = getPlural(evocacao.valor);
-		return `${evocacao.valor} ${evocacao.idEvocacao}${plural}`;
+		const plural = StringUtil.getPlural(evocacao.valor);
+		return `${evocacao.valor} ${evocacao.tipo}${plural}`;
 	}
-	return evocacao.idEvocacao;
+	return evocacao.tipo;
 };

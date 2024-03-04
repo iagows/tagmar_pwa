@@ -3,6 +3,7 @@ import AlcanceDTO from "../AlcanceDTO";
 import GenericDTO from "../DTO";
 import DinheiroDTO from "../DinheiroDTO";
 import DuracaoDTO from "../DuracaoDTO";
+import EvocacaoDTO from "../EvocacaoDTO";
 
 const NivelBase = GenericDTO.extend({
 	nivel: z.number().min(1),
@@ -10,6 +11,7 @@ const NivelBase = GenericDTO.extend({
 	alcance: AlcanceDTO.optional(),
 	duracao: DuracaoDTO.optional(),
 	descricao: z.string(),
+	evocacao: EvocacaoDTO.optional(),
 });
 
 type NivelBaseType = z.infer<typeof NivelBase> & {

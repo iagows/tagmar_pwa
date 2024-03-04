@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { getPlural } from "../util/functions";
+import { StringUtil } from "../util/stringHelp";
 
 export enum DuracaoEnum {
 	USO = "uso",
@@ -9,22 +9,22 @@ export enum DuracaoEnum {
 	ESPECIAL = "Especial", // ver "visão de batalhas"
 	RITUAL = "Ritual",
 	SEGUNDO = "segundo",
-	RODADAS = "rodada",
+	RODADA = "rodada",
 	COMBATE = "combate",
 	CENA = "cena",
-	MINUTOS = "minuto",
-	HORAS = "hora",
+	MINUTO = "minuto",
+	HORA = "hora",
 	DIA = "dia",
 	SEMANA = "semana",
 	MES = "mês",
 	ANO = "ano",
-	ANOEDIA = "1 ano e 1 dia",
+	ANO_E_DIA = "1 ano e 1 dia",
 	PERMANENTE = "Permanente",
 }
 
 const DuracaoDTO = z.object({
-	valor: z.number().min(0).default(0),
-	idDuracao: z.nativeEnum(DuracaoEnum),
+	valor: z.number().min(0).optional(),
+	tipo: z.nativeEnum(DuracaoEnum),
 	outraDescricao: z.string().optional(),
 });
 
@@ -37,6 +37,6 @@ export const duracaoToString = (duracao: Duracao): string => {
 	if (duracao.outraDescricao) {
 		return duracao.outraDescricao;
 	}
-	const plural = getPlural(duracao.valor);
-	return `${duracao.valor}${plural} ${duracao.idDuracao}`;
+	const plural = StringUtil.getPlural(duracao.valor ?? 0);
+	return `${duracao.valor}${plural} ${duracao.tipo}`;
 };
