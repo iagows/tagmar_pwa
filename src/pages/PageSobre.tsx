@@ -33,7 +33,7 @@ const PageSobre = () => {
 					onChange={onChange(item.id)}
 					key={item.id}
 				>
-					<AccordionSummary expandIcon={<ExpandMoreIcon />}>
+					<AccordionSummary expandIcon={<ExpandMoreIcon color="primary" />}>
 						<Typography>{item.title}</Typography>
 					</AccordionSummary>
 					<AccordionDetails>

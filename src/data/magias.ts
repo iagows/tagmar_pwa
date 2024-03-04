@@ -1,4 +1,4 @@
-import { Magia } from "../models/magia/MagiaDTO";
+import { Magia, MagiaEnum } from "../models/magia/MagiaDTO";
 import { Magias as MagiasA } from "./magiaA";
 import { Magias as MagiasB } from "./magiaB";
 import { Magias as MagiasC } from "./magiaC";
@@ -14,3 +14,6 @@ export const MAGIAS: Magia[] = [
 	...MagiasE.lista,
 	...MagiasF.lista,
 ];
+
+export const getMagia = (id: MagiaEnum): Magia | undefined =>
+	MAGIAS.filter((m) => m.id === id)?.[0];

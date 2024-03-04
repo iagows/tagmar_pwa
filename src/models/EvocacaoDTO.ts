@@ -21,7 +21,7 @@ type Evocacao = z.infer<typeof EvocacaoDTO>;
 export default EvocacaoDTO;
 export type { Evocacao };
 
-export const evocatoToString = (evocacao: Evocacao): string => {
+export const evocacaoToString = (evocacao: Evocacao): string => {
 	if (evocacao.outraDescricao) {
 		return evocacao.outraDescricao;
 	}

@@ -10,6 +10,7 @@ import { MAGIAS } from "../data/magias";
 import { Magia } from "../models/magia/MagiaDTO";
 import { Constants } from "../util/constants";
 import { StringUtil } from "../util/stringHelp";
+import { RoutePath } from "./RouteNames";
 
 const PageMagias = () => {
 	const [text, setText] = useState<string>("");
@@ -81,7 +82,7 @@ const PageMagias = () => {
 					onClick={onCharClick}
 					selected={selectedCharButton}
 				/>
-				<ListaDeNomes lista={list} />
+				<ListaDeNomes lista={list} to={RoutePath.MAGIA} />
 			</Box>
 		</PageContainer>
 	);
