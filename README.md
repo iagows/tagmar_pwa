@@ -48,24 +48,24 @@ Ainda sem imagens. Estou provando conceitos ;)
 
 ## Roadmap
 
-- Revisar a tela de fichas (mover o botão de adicionar para um menu)
+- Revisar a tela de fichas (mover o botão de adicionar para um menu) (minor)
   - Fazer os cards funcionarem
-- Criar tela de ficha
-  - Criar
-  - Ver
-  - Gastar XP
-  - Imprimir pdf no layout do livro
-- Dado
+  - Criar tela de ficha
+    - Criar
+    - Ver
+    - Gastar XP
+    - Imprimir pdf no layout do livro
+- Dado (minor)
   - adicionar seleção de coluna
   - exibir o resultado
-- Magias
+- Magias (minor)
   - completar a lista
   - organizar layout
-- Habilidades
+- Habilidades (minor)
   - fazer
-- Mapas
+- Mapas (minor)
   - fazer
-- Configurações
+- Configurações (minor)
   - revisar
-- Sobre
+- Sobre (minor)
   - revisar
