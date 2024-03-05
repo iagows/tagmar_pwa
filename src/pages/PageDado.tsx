@@ -2,6 +2,8 @@ import { Box } from "@mui/material";
 import useDiceBox from "../3d/useDiceBox";
 import PageContainer from "../components/PageContainer";
 import DiceMenu from "../components/TagmarUI/DiceMenu";
+import usePageTopBar from "../hooks/usePageTopBar";
+import { Constants } from "../util/constants";
 
 const BOX_CSS = {
 	background: "#559955",
@@ -14,6 +16,7 @@ const BOX_CSS = {
 } as const;
 
 const PageDado = () => {
+	usePageTopBar(Constants.PAGES.configuracoes);
 	const { box, rodar } = useDiceBox({ containerId: "#box" });
 
 	return (

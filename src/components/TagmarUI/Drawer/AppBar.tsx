@@ -1,16 +1,16 @@
 import MenuIcon from "@mui/icons-material/Menu";
 import { AppBar, IconButton, Toolbar, Typography } from "@mui/material";
-import { useRouteTitle } from "../../../pages/RouteNames";
 import { THEME_OPTIONS } from "../../../theme";
 import { Constants } from "../../../util/constants";
 import HideOnScroll from "../../HideOnScroll";
+import useConfiguration from "../../../stores/slices/configurations/useConfiguration";
 
 type In = {
 	onMenu: () => void;
 };
 
 const TagAppBar = ({ onMenu }: In) => {
-	const title = useRouteTitle();
+	const { titulo } = useConfiguration();
 
 	return (
 		<HideOnScroll>
@@ -36,7 +36,7 @@ const TagAppBar = ({ onMenu }: In) => {
 						<MenuIcon />
 					</IconButton>
 					<Typography variant="h6" noWrap component="div">
-						{title}
+						{titulo}
 					</Typography>
 				</Toolbar>
 			</AppBar>

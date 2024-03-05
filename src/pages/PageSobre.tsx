@@ -10,8 +10,11 @@ import { useState } from "react";
 import PageContainer from "../components/PageContainer";
 import { ABOUT_DATA, AboutAccordionName } from "../data/about";
 import UnderConstruction from "../components/UnderConstruction";
+import usePageTopBar from "../hooks/usePageTopBar";
+import { Constants } from "../util/constants";
 
 const PageSobre = () => {
+	usePageTopBar(Constants.PAGES.sobre);
 	const [expanded, setExpanded] = useState<AboutAccordionName>("tagmar");
 
 	const onChange =

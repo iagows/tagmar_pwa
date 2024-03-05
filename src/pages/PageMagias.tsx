@@ -6,14 +6,16 @@ import { useEffect, useState } from "react";
 import ListaDeLetras from "../components/ListaDeLetras";
 import ListaDeNomes from "../components/ListaDeNomes";
 import PageContainer from "../components/PageContainer";
+import UnderConstruction from "../components/UnderConstruction";
 import { MAGIAS } from "../data/magias";
+import usePageTopBar from "../hooks/usePageTopBar";
 import { Magia } from "../models/magia/MagiaDTO";
 import { Constants } from "../util/constants";
 import { StringUtil } from "../util/stringHelp";
 import { RoutePath } from "./RouteNames";
-import UnderConstruction from "../components/UnderConstruction";
 
 const PageMagias = () => {
+	usePageTopBar(Constants.PAGES.magias);
 	const [text, setText] = useState<string>("");
 	const [list, setList] = useState<Magia[]>(MAGIAS);
 	const [selectedCharButton, setSelectedCharButton] = useState<string>("");

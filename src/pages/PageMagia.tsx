@@ -5,10 +5,11 @@ import { Fragment } from "react";
 import { useParams } from "react-router-dom";
 import PageContainer from "../components/PageContainer";
 import TagLabel from "../components/TagmarUI/Label";
+import UnderConstruction from "../components/UnderConstruction";
 import { getMagia } from "../data/magias";
+import usePageTopBar from "../hooks/usePageTopBar";
 import { Magia, MagiaEnum } from "../models/magia/MagiaDTO";
 import { Constants } from "../util/constants";
-import UnderConstruction from "../components/UnderConstruction";
 
 const Accordion = (props: AccordionProps) => (
 	<MuiAccordion disableGutters elevation={0} square {...props} />
@@ -18,6 +19,7 @@ const PageMagia = () => {
 	const { id } = useParams();
 	const magia = getMagia((id as MagiaEnum) ?? MagiaEnum.abrigo) as Magia;
 
+	usePageTopBar(magia.nome);
 	return (
 		<PageContainer>
 			<UnderConstruction descricao="Layout, título e botão de voltar" />
