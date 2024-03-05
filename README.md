@@ -45,3 +45,27 @@ Ainda sem imagens. Estou provando conceitos ;)
 - [Manifest generator](https://www.simicart.com/manifest-generator.html/)
 - [Bubblewrap](https://chromeos.dev/en/publish/pwa-in-play)
 - [Jaro Winkler](https://www.geeksforgeeks.org/jaro-and-jaro-winkler-similarity)
+
+## Roadmap
+
+- Revisar a tela de fichas (mover o botão de adicionar para um menu)
+  - Fazer os cards funcionarem
+- Criar tela de ficha
+  - Criar
+  - Ver
+  - Gastar XP
+  - Imprimir pdf no layout do livro
+- Dado
+  - adicionar seleção de coluna
+  - exibir o resultado
+- Magias
+  - completar a lista
+  - organizar layout
+- Habilidades
+  - fazer
+- Mapas
+  - fazer
+- Configurações
+  - revisar
+- Sobre
+  - revisar
