@@ -28,7 +28,7 @@ Além disso, fazendo versão web torna o aplicativo mais abrangente: Android, iO
 
 1. Baixe o projeto
 2. > yarn
-3. > yarn dev
+3. > make start
 
 ## Imagens
 
