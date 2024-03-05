@@ -16,7 +16,7 @@ const BOX_CSS = {
 } as const;
 
 const PageDado = () => {
-	usePageTopBar(Constants.PAGES.configuracoes);
+	usePageTopBar(Constants.PAGES.dado);
 	const { box, rodar } = useDiceBox({ containerId: "#box" });
 
 	return (
