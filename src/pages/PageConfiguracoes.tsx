@@ -2,11 +2,11 @@ import {
 	FormControl,
 	FormControlLabel,
 	FormGroup,
-	FormLabel,
 	Switch,
 } from "@mui/material";
 import { useState } from "react";
 import PageContainer from "../components/PageContainer";
+import UnderConstruction from "../components/UnderConstruction";
 import { THEME_OPTIONS } from "../theme";
 
 type Config = {
@@ -35,8 +35,8 @@ const PageConfiguracoes = () => {
 	};
 	return (
 		<PageContainer>
+			<UnderConstruction descricao="Ainda não funciona nada. Revisar" />
 			<FormControl component="fieldset" variant="standard">
-				<FormLabel component="legend">Ainda não funcional</FormLabel>
 				<FormGroup
 					sx={{
 						maxWidth: 400,

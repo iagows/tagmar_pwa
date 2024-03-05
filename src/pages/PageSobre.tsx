@@ -9,6 +9,7 @@ import {
 import { useState } from "react";
 import PageContainer from "../components/PageContainer";
 import { ABOUT_DATA, AboutAccordionName } from "../data/about";
+import UnderConstruction from "../components/UnderConstruction";
 
 const PageSobre = () => {
 	const [expanded, setExpanded] = useState<AboutAccordionName>("tagmar");
@@ -23,6 +24,7 @@ const PageSobre = () => {
 
 	return (
 		<PageContainer>
+			<UnderConstruction descricao="Revisar" />
 			<Typography>
 				Os links aqui contidos levarão para fora do aplicativo. Clique/toque com
 				cautela.

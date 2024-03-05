@@ -8,6 +8,7 @@ import TagLabel from "../components/TagmarUI/Label";
 import { getMagia } from "../data/magias";
 import { Magia, MagiaEnum } from "../models/magia/MagiaDTO";
 import { Constants } from "../util/constants";
+import UnderConstruction from "../components/UnderConstruction";
 
 const Accordion = (props: AccordionProps) => (
 	<MuiAccordion disableGutters elevation={0} square {...props} />
@@ -19,6 +20,7 @@ const PageMagia = () => {
 
 	return (
 		<PageContainer>
+			<UnderConstruction descricao="Layout, título e botão de voltar" />
 			<Box
 				sx={{
 					borderRadius: Constants.CSS.caixaGrande.radius,

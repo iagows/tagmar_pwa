@@ -11,6 +11,7 @@ import { Magia } from "../models/magia/MagiaDTO";
 import { Constants } from "../util/constants";
 import { StringUtil } from "../util/stringHelp";
 import { RoutePath } from "./RouteNames";
+import UnderConstruction from "../components/UnderConstruction";
 
 const PageMagias = () => {
 	const [text, setText] = useState<string>("");
@@ -48,6 +49,7 @@ const PageMagias = () => {
 	const hasText = text.length > 0 || selectedCharButton.length > 0;
 	return (
 		<PageContainer>
+			<UnderConstruction descricao="Filtros e completar lista" />
 			<Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
 				<TextField
 					label="Nome da magia"

@@ -1,10 +1,12 @@
 import { InputAdornment, TextField } from "@mui/material";
 import PageContainer from "../components/PageContainer";
 import { SearchOutlined } from "@mui/icons-material";
+import UnderConstruction from "../components/UnderConstruction";
 
 const PageHabilidades = () => {
 	return (
 		<PageContainer>
+			<UnderConstruction descricao="tudo" />
 			<TextField
 				label="Nome da habilidade"
 				variant="outlined"
