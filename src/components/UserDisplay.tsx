@@ -1,11 +1,4 @@
-import {
-	Avatar,
-	Divider,
-	List,
-	ListItem,
-	ListItemButton,
-	ListItemText,
-} from "@mui/material";
+import { Avatar, Divider, List, ListItem, ListItemText } from "@mui/material";
 import useFicha from "../stores/slices/fichas/useFicha";
 import TagLabel from "./TagmarUI/Label";
 
@@ -22,9 +15,10 @@ const UserDisplay = () => {
 				<ListItemText primary="Fulano de tal" />
 			</ListItem>
 			<ListItem>
-				<ListItemButton>
-					<TagLabel>fulano@gmail.com - {list.length} fichas</TagLabel>
-				</ListItemButton>
+				<TagLabel>fulano@gmail.com - {list.length} fichas</TagLabel>
+			</ListItem>
+			<ListItem>
+				<TagLabel>app v{__APP_VERSION__}</TagLabel>
 			</ListItem>
 		</List>
 	);
