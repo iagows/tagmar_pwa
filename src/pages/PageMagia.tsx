@@ -10,6 +10,23 @@ import { getMagia } from "../data/magias";
 import usePageTopBar from "../hooks/usePageTopBar";
 import { Magia, MagiaEnum } from "../models/magia/MagiaDTO";
 import { Constants } from "../util/constants";
+import { evocacaoToString } from "../models/EvocacaoDTO";
+import { alcanceToString } from "../models/AlcanceDTO";
+import { duracaoToString } from "../models/DuracaoDTO";
+
+type In<T> = {
+	title: string;
+	valor?: T;
+	converter: (v: T) => string;
+};
+const Info = <T,>({ title, valor, converter }: In<T>) => {
+	return valor ? (
+		<Box display={"flex"}>
+			<TagLabel fontWeight="bold">{title}:&nbsp;</TagLabel>
+			{valor && <TagLabel>{converter(valor)}</TagLabel>}
+		</Box>
+	) : null;
+};
 
 const PageMagia = () => {
 	const { id } = useParams();
@@ -18,7 +35,7 @@ const PageMagia = () => {
 	usePageTopBar(magia.nome);
 	return (
 		<PageContainer>
-			<UnderConstruction descricao="Botão de voltar e layout" />
+			<UnderConstruction descricao="Botão de voltar" />
 			<Box borderRadius={Constants.CSS.caixaGrande.radius} overflow="hidden">
 				<MagiaPage.Accordion expanded={true}>
 					<AccordionSummary id="panel-header">
@@ -27,9 +44,21 @@ const PageMagia = () => {
 						</TagLabel>
 					</AccordionSummary>
 					<AccordionDetails>
-						<TagLabel>evocação</TagLabel>
-						<TagLabel>alcance</TagLabel>
-						<TagLabel>duração</TagLabel>
+						<Info
+							title="Evocação"
+							valor={magia.evocacao}
+							converter={evocacaoToString}
+						/>
+						<Info
+							title="Alcance"
+							valor={magia.alcance}
+							converter={alcanceToString}
+						/>
+						<Info
+							title="Duração"
+							valor={magia.duracao}
+							converter={duracaoToString}
+						/>
 					</AccordionDetails>
 				</MagiaPage.Accordion>
 				<MagiaPage.Section title="Descrição">

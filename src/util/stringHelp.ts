@@ -3,7 +3,7 @@ import { HasDescription } from "./commonTypes";
 
 export namespace StringUtil {
 	export const getPlural = (n: number): "s" | "" => {
-		return n > 0 ? "s" : "";
+		return n > 1 ? "s" : "";
 	};
 
 	export const getDescricaoLonga = (dto: HasDescription): string[] =>

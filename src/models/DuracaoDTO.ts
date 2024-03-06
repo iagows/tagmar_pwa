@@ -38,5 +38,5 @@ export const duracaoToString = (duracao: Duracao): string => {
 		return duracao.outraDescricao;
 	}
 	const plural = StringUtil.getPlural(duracao.valor ?? 0);
-	return `${duracao.valor}${plural} ${duracao.tipo}`;
+	return `${duracao.valor} ${duracao.tipo}${plural}`;
 };
