@@ -1,9 +1,10 @@
 import MenuIcon from "@mui/icons-material/Menu";
-import { AppBar, IconButton, Toolbar, Typography } from "@mui/material";
+import { AppBar, IconButton, Toolbar } from "@mui/material";
+import useConfiguration from "../../../stores/slices/configurations/useConfiguration";
 import { THEME_OPTIONS } from "../../../theme";
 import { Constants } from "../../../util/constants";
 import HideOnScroll from "../../HideOnScroll";
-import useConfiguration from "../../../stores/slices/configurations/useConfiguration";
+import TagLabel from "../Label";
 
 type In = {
 	onMenu: () => void;
@@ -35,9 +36,9 @@ const TagAppBar = ({ onMenu }: In) => {
 					>
 						<MenuIcon />
 					</IconButton>
-					<Typography variant="h6" noWrap component="div">
+					<TagLabel variant="h6" noWrap component="div">
 						{titulo}
-					</Typography>
+					</TagLabel>
 				</Toolbar>
 			</AppBar>
 		</HideOnScroll>

@@ -1,8 +1,7 @@
-import { Typography } from "@mui/material";
-import { PropsWithChildren } from "react";
+import { Typography, TypographyProps } from "@mui/material";
 
-const TagLabel = ({ children }: PropsWithChildren) => {
-	return <Typography variant="body2">{children}</Typography>;
+const TagLabel = (props: TypographyProps) => {
+	return <Typography variant="body2" {...props} />;
 };
 
 export default TagLabel;

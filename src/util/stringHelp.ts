@@ -1,9 +1,13 @@
 import { remove } from "diacritics";
+import { HasDescription } from "./commonTypes";
 
 export namespace StringUtil {
 	export const getPlural = (n: number): "s" | "" => {
 		return n > 0 ? "s" : "";
 	};
+
+	export const getDescricaoLonga = (dto: HasDescription): string[] =>
+		dto.descricao.split("\n\n");
 
 	export const extractFirstChar = (word: string): string => {
 		return remove(word.trim().charAt(0).toLowerCase());

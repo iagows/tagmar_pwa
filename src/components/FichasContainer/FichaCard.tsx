@@ -12,7 +12,6 @@ import {
 	CardActions,
 	CardContent,
 	IconButton,
-	Typography,
 } from "@mui/material";
 import getAsset from "../../assets/app";
 import { Ficha } from "../../models/FichaDTO";
@@ -51,7 +50,7 @@ const FichaCard = ({ ficha }: In) => {
 								flexDirection: "column",
 							}}
 						>
-							<Typography variant="h5">{ficha.nome}</Typography>
+							<TagLabel variant="h5">{ficha.nome}</TagLabel>
 							<TagLabel>
 								{ficha.narrador} - {ficha.nivel}
 							</TagLabel>

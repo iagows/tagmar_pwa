@@ -4,12 +4,12 @@ import {
 	AccordionDetails,
 	AccordionSummary,
 	Link,
-	Typography,
 } from "@mui/material";
 import { useState } from "react";
 import PageContainer from "../components/PageContainer";
-import { ABOUT_DATA, AboutAccordionName } from "../data/about";
+import TagLabel from "../components/TagmarUI/Label";
 import UnderConstruction from "../components/UnderConstruction";
+import { ABOUT_DATA, AboutAccordionName } from "../data/about";
 import usePageTopBar from "../hooks/usePageTopBar";
 import { Constants } from "../util/constants";
 
@@ -28,10 +28,10 @@ const PageSobre = () => {
 	return (
 		<PageContainer>
 			<UnderConstruction descricao="Revisar" />
-			<Typography>
+			<TagLabel>
 				Os links aqui contidos levarão para fora do aplicativo. Clique/toque com
 				cautela.
-			</Typography>
+			</TagLabel>
 			{ABOUT_DATA.map((item) => (
 				<Accordion
 					expanded={expanded === item.id}
@@ -39,11 +39,11 @@ const PageSobre = () => {
 					key={item.id}
 				>
 					<AccordionSummary expandIcon={<ExpandMoreIcon color="primary" />}>
-						<Typography>{item.title}</Typography>
+						<TagLabel>{item.title}</TagLabel>
 					</AccordionSummary>
 					<AccordionDetails>
 						{item.info.map((info) => (
-							<Typography>
+							<TagLabel>
 								{info.url ? (
 									<Link href={info.url} target="_blank">
 										{info.text}
@@ -51,7 +51,7 @@ const PageSobre = () => {
 								) : (
 									info.text
 								)}
-							</Typography>
+							</TagLabel>
 						))}
 					</AccordionDetails>
 				</Accordion>

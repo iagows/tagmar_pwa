@@ -8,4 +8,8 @@ export type HasId = {
 	id: string;
 };
 
+export type HasDescription = {
+	descricao: string;
+};
+
 export type HasIdAndName = HasId & HasName;
