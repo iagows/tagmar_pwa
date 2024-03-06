@@ -14,7 +14,7 @@ const Niveis = ({ magia }: In) => {
 		<List>
 			{magia.niveis.map((n) => (
 				<ListItem key={n.id}>
-					<TagLabel display={"flex"} flexDirection={"column"}>
+					<TagLabel display={"flex"} flexDirection={"column"} component="div">
 						<TagLabel color="primary">{getTítulo(n)}</TagLabel>
 						<Descricao item={n} />
 					</TagLabel>

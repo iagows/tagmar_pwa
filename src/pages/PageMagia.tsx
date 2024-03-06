@@ -18,13 +18,8 @@ const PageMagia = () => {
 	usePageTopBar(magia.nome);
 	return (
 		<PageContainer>
-			<UnderConstruction descricao="Botão de voltar" />
-			<Box
-				sx={{
-					borderRadius: Constants.CSS.caixaGrande.radius,
-					overflow: "hidden",
-				}}
-			>
+			<UnderConstruction descricao="Botão de voltar e layout" />
+			<Box borderRadius={Constants.CSS.caixaGrande.radius} overflow="hidden">
 				<MagiaPage.Accordion expanded={true}>
 					<AccordionSummary id="panel-header">
 						<TagLabel variant="h6" color="primary">

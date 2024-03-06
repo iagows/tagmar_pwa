@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { Ficha } from "../../../models/FichaDTO";
 import { ProfissaoEnum } from "../../../models/ProfissaoDTO";
 import { RacaEnum } from "../../../models/RacaDTO";
@@ -13,9 +13,9 @@ const initialList: Ficha[] = [
 		nivel: 2,
 		xp: 20,
 		raca: RacaEnum.ELFO_DOURADO,
-		criacao: new Date(),
-		atributos: new Map(),
-		habilidades: new Map(),
+		criacao: "2024-03-06T15:30:00.000-03:00",
+		// atributos: new Map(),
+		// habilidades: new Map(),
 	},
 	{
 		id: "asdf2",
@@ -26,9 +26,9 @@ const initialList: Ficha[] = [
 		nivel: 3,
 		xp: 30,
 		raca: RacaEnum.HUMANO,
-		criacao: new Date(),
-		atributos: new Map(),
-		habilidades: new Map(),
+		criacao: "2024-03-06T15:30:00.000-03:00",
+		// atributos: new Map(),
+		// habilidades: new Map(),
 		isFavorito: true,
 	},
 	{
@@ -40,9 +40,9 @@ const initialList: Ficha[] = [
 		nivel: 4,
 		xp: 40,
 		raca: RacaEnum.ANAO,
-		criacao: new Date(),
-		atributos: new Map(),
-		habilidades: new Map(),
+		criacao: "2024-03-06T15:30:00.000-03:00",
+		// atributos: new Map(),
+		// habilidades: new Map(),
 	},
 ];
 
@@ -52,27 +52,27 @@ const appSlice = createSlice({
 		list: initialList,
 	},
 	// https://redux-toolkit.js.org/api/createslice/
-	reducers: (createSlice) => ({
-		create: createSlice.reducer<Ficha>((state, action) => {
+	reducers: {
+		create: (state, action: PayloadAction<Ficha>) => {
 			state.list.push(action.payload);
-		}),
-		update: createSlice.reducer<Ficha[]>((state, action) => {
+		},
+		update: (state, action: PayloadAction<Ficha[]>) => {
 			for (const ficha of action.payload) {
 				const index = state.list.findIndex((i) => i.id === ficha.id);
 				if (index > -1) {
 					state.list[index] = ficha;
 				}
 			}
-		}),
-		delete_: createSlice.reducer<string[]>((state, action) => {
+		},
+		delete_: (state, action: PayloadAction<string[]>) => {
 			for (const item of action.payload) {
 				const index = state.list.findIndex((i) => i.id === item);
 				if (index > -1) {
 					state.list.splice(index, 1);
 				}
 			}
-		}),
-	}),
+		},
+	},
 });
 
 export default appSlice.reducer;
