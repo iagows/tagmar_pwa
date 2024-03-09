@@ -1,4 +1,5 @@
 import MenuIcon from "@mui/icons-material/Menu";
+import ArrowBack from "@mui/icons-material/ArrowBack";
 import { AppBar, IconButton, Toolbar } from "@mui/material";
 import useConfiguration from "../../../stores/slices/configurations/useConfiguration";
 import { THEME_OPTIONS } from "../../../theme";
@@ -12,6 +13,7 @@ type In = {
 
 const TagAppBar = ({ onMenu }: In) => {
 	const { titulo } = useConfiguration();
+	const { showBackButton } = useConfiguration();
 
 	return (
 		<HideOnScroll>
@@ -34,7 +36,7 @@ const TagAppBar = ({ onMenu }: In) => {
 						onClick={onMenu}
 						sx={{ mr: 2, display: { sm: "none" } }}
 					>
-						<MenuIcon />
+						{showBackButton ? <ArrowBack /> : <MenuIcon />}
 					</IconButton>
 					<TagLabel variant="h6" noWrap component="div">
 						{titulo}

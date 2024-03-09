@@ -1,8 +1,10 @@
-import { Box, CssBaseline, Drawer } from "@mui/material";
+import { Box, CssBaseline, Drawer, SwipeableDrawer } from "@mui/material";
 import { useState } from "react";
 import { Constants } from "../../../util/constants";
 import TagAppBar from "./AppBar";
 import DrawerContent from "./DrawerContent";
+import useConfiguration from "../../../stores/slices/configurations/useConfiguration";
+import { useNavigate } from "react-router-dom";
 
 const DRAWER_BOX_SX = {
 	width: { sm: Constants.DRAWER_WIDTH },
@@ -27,6 +29,13 @@ const DRAWER_SX_PERM = {
 const TagDrawer = () => {
 	const [isClosing, setIsClosing] = useState<boolean>(false);
 	const [mobileOpen, setMobileOpen] = useState<boolean>(false);
+	const { showBackButton } = useConfiguration();
+	const navigate = useNavigate();
+
+	const handleDrawerOpen = () => {
+		setIsClosing(false);
+		setMobileOpen(true);
+	};
 
 	const handleDrawerClose = () => {
 		setIsClosing(true);
@@ -38,28 +47,37 @@ const TagDrawer = () => {
 	};
 
 	const handleDrawerToggle = () => {
-		if (!isClosing) {
+		if (!showBackButton && !isClosing) {
 			setMobileOpen(!mobileOpen);
 		}
 	};
+
+	const goBack = () => {
+		if (showBackButton) {
+			navigate(-1);
+		}
+	};
+
 	return (
 		<Box onClick={handleDrawerToggle}>
 			<CssBaseline />
-			<TagAppBar onMenu={handleDrawerToggle} />
+			<TagAppBar onMenu={goBack} />
 			<Box sx={DRAWER_BOX_SX}>
 				{/* The implementation can be swapped with js to avoid SEO duplication of links. */}
-				<Drawer
-					variant="temporary"
+				<SwipeableDrawer
 					open={mobileOpen}
-					onTransitionEnd={handleDrawerTransitionEnd}
+					variant="temporary"
+					onOpen={handleDrawerOpen}
+					disableBackdropTransition
 					onClose={handleDrawerClose}
+					onTransitionEnd={handleDrawerTransitionEnd}
 					ModalProps={{
 						keepMounted: true, // Better open performance on mobile.
 					}}
 					sx={DRAWER_SX_TEMP}
 				>
 					<DrawerContent />
-				</Drawer>
+				</SwipeableDrawer>
 				<Drawer variant="permanent" sx={DRAWER_SX_PERM} open>
 					<DrawerContent />
 				</Drawer>

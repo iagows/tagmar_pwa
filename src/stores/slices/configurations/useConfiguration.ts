@@ -1,22 +1,30 @@
 import { useAppDispatch, useAppSelector } from "../../../hooks/reduxHooks";
-import { changeTitle } from "./index";
+import { changeTitle, changeBackButton } from "./index";
+
+type Title = {
+	titulo: string;
+	backButton?: boolean;
+};
 
 type Out = {
 	titulo: string;
-	setTitulo: (t: string) => void;
+	showBackButton: boolean;
+	setTitulo: (opt: Title) => void;
 };
 
 const useConfiguration = (): Out => {
 	const dispatch = useAppDispatch();
 
-	const { appTitle } = useAppSelector((s) => s.config);
+	const { appTitle, showBackButton } = useAppSelector((s) => s.config);
 
-	function setTitulo(titulo: string): void {
+	function setTitulo({ titulo, backButton = false }: Title): void {
 		dispatch(changeTitle(titulo));
+		dispatch(changeBackButton(backButton));
 	}
 	return {
-		titulo: appTitle,
 		setTitulo,
+		showBackButton,
+		titulo: appTitle,
 	};
 };
 

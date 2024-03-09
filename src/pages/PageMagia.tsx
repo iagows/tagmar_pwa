@@ -2,17 +2,16 @@ import { AccordionDetails, AccordionSummary, Box } from "@mui/material";
 import { useParams } from "react-router-dom";
 import Descricao from "../components/Magias/Descricao";
 import Niveis from "../components/Magias/Niveis";
-import { MagiaPage } from "../components/Magias/Section";
 import PageContainer from "../components/PageContainer";
 import TagLabel from "../components/TagmarUI/Label";
-import UnderConstruction from "../components/UnderConstruction";
+import { MagiaPage } from "../components/TagmarUI/Section";
 import { getMagia } from "../data/magias";
 import usePageTopBar from "../hooks/usePageTopBar";
-import { Magia, MagiaEnum } from "../models/magia/MagiaDTO";
-import { Constants } from "../util/constants";
-import { evocacaoToString } from "../models/EvocacaoDTO";
 import { alcanceToString } from "../models/AlcanceDTO";
 import { duracaoToString } from "../models/DuracaoDTO";
+import { evocacaoToString } from "../models/EvocacaoDTO";
+import { Magia, MagiaEnum } from "../models/magia/MagiaDTO";
+import { Constants } from "../util/constants";
 
 type In<T> = {
 	title: string;
@@ -32,10 +31,12 @@ const PageMagia = () => {
 	const { id } = useParams();
 	const magia = getMagia((id as MagiaEnum) ?? MagiaEnum.abrigo) as Magia;
 
-	usePageTopBar(magia.nome);
+	usePageTopBar({
+		titulo: magia.nome,
+		showBackButton: true,
+	});
 	return (
 		<PageContainer>
-			<UnderConstruction descricao="Botão de voltar" />
 			<Box borderRadius={Constants.CSS.caixaGrande.radius} overflow="hidden">
 				<MagiaPage.Accordion expanded={true}>
 					<AccordionSummary id="panel-header">

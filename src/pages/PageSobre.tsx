@@ -56,6 +56,16 @@ const PageSobre = () => {
 					</AccordionDetails>
 				</Accordion>
 			))}
+			<Accordion>
+				<AccordionSummary expandIcon={<ExpandMoreIcon color="primary" />}>
+					<TagLabel>Planos</TagLabel>
+				</AccordionSummary>
+				<AccordionDetails>
+					Mudar o menu lateral (exibir ícones ao fechar) - configurável
+				</AccordionDetails>
+				<AccordionDetails>Mapa por região</AccordionDetails>
+				<AccordionDetails>Revisar a tela de sobre</AccordionDetails>
+			</Accordion>
 		</PageContainer>
 	);
 };

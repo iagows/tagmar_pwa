@@ -36,6 +36,7 @@ const MountList = ({ list }: IList) => {
 };
 
 const DrawerContent = () => {
+	// filtrar ficha atual se estiver vazia
 	return (
 		<>
 			<UserDisplay />
