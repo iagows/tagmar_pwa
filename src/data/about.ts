@@ -5,7 +5,7 @@ export type AboutAccordionName =
 	| "bug"
 	| "forum"
 	| "app"
-	| "testers";
+	| "thanks";
 
 type AccordionData = {
 	id: AboutAccordionName;
@@ -74,31 +74,34 @@ export const ABOUT_DATA: AccordionData[] = [
 			},
 		],
 	},
-	// {
-	// 	id: "testers",
-	// 	title: "Testadores",
-	// 	info: [
-	// 		{
-	// 			text: "Álvaro",
-	// 		},
-	// 		{
-	// 			text: "Breno",
-	// 		},
-	// 		{
-	// 			text: "Edilton",
-	// 		},
-	// 		{
-	// 			text: "Marcelo",
-	// 		},
-	// 		{
-	// 			text: "Petrus",
-	// 		},
-	// 		{
-	// 			text: "Rodolfo",
-	// 		},
-	// 		{
-	// 			text: "Sérgio",
-	// 		},
-	// 	],
-	// },
-];
+	{
+		id: "thanks",
+		title: "Agradecimentos",
+		info: [
+			// {
+			// 	text: "Álvaro",
+			// },
+			// {
+			// 	text: "Breno",
+			// },
+			{
+				text: "Edilton",
+			},
+			// {
+			// 	text: "Marcelo",
+			// },
+			{
+				text: "Odijas",
+			},
+			// {
+			// 	text: "Petrus",
+			// },
+			// {
+			// 	text: "Rodolfo",
+			// },
+			// {
+			// 	text: "Sérgio",
+			// },
+		],
+	},
+] as const;
