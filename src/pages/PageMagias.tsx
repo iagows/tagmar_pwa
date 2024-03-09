@@ -2,47 +2,32 @@ import Clear from "@mui/icons-material/Clear";
 import Filter from "@mui/icons-material/FilterAlt";
 import Search from "@mui/icons-material/SearchOutlined";
 import { Box, IconButton, InputAdornment, TextField } from "@mui/material";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import ListaDeLetras from "../components/ListaDeLetras";
 import ListaDeNomes from "../components/ListaDeNomes";
 import PageContainer from "../components/PageContainer";
 import UnderConstruction from "../components/UnderConstruction";
 import { MAGIAS } from "../data/magiasCompiladas";
+import useListFilter from "../hooks/useListFilter";
 import usePageTopBar from "../hooks/usePageTopBar";
-import { Magia } from "../models/magia/MagiaDTO";
 import { Constants } from "../util/constants";
-import { StringUtil } from "../util/stringHelp";
 import { RoutePath } from "./RouteNames";
 
 const PageMagias = () => {
 	usePageTopBar(Constants.PAGES.magias);
 	const [text, setText] = useState<string>("");
-	const [list, setList] = useState<Magia[]>(MAGIAS);
 	const [selectedCharButton, setSelectedCharButton] = useState<string>("");
+
+	const { filtered } = useListFilter({
+		input: text,
+		list: MAGIAS,
+		selectedChar: selectedCharButton,
+	});
 
 	function clear() {
 		setText("");
 		setSelectedCharButton("");
 	}
-
-	useEffect(() => {
-		const charFiltered = MAGIAS.filter(
-			(m) =>
-				selectedCharButton === "" ||
-				StringUtil.extractFirstChar(m.nome) === selectedCharButton,
-		);
-
-		const clearedText = text.trim().toLowerCase();
-		const filteredList = charFiltered.filter((m) =>
-			StringUtil.compareWordWithWordsInSentence(
-				clearedText,
-				m.nome,
-				Constants.MARGEM_DIFERENCA_PALAVRAS,
-			),
-		);
-
-		setList(clearedText.length === 0 ? charFiltered : filteredList);
-	}, [text, selectedCharButton]);
 
 	function onCharClick(char: string): void {
 		setSelectedCharButton((last) => (char === last ? "" : char));
@@ -51,7 +36,7 @@ const PageMagias = () => {
 	const hasText = text.length > 0 || selectedCharButton.length > 0;
 	return (
 		<PageContainer>
-			<UnderConstruction descricao="Filtros e completar lista" />
+			<UnderConstruction descricao="Filtros e revisar magias" />
 			<Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
 				<TextField
 					label="Nome da magia"
@@ -82,11 +67,11 @@ const PageMagias = () => {
 					placeholder="Nome da magia"
 				/>
 				<ListaDeLetras
-					lista={MAGIAS}
+					lista={filtered}
 					onClick={onCharClick}
 					selected={selectedCharButton}
 				/>
-				<ListaDeNomes lista={list} to={RoutePath.MAGIA} />
+				<ListaDeNomes lista={filtered} to={RoutePath.MAGIA} />
 			</Box>
 		</PageContainer>
 	);
