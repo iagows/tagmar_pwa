@@ -22,7 +22,7 @@ const Section = ({ title, children }: PropsWithChildren<ISection>) => (
 	</Accordion>
 );
 
-export const MagiaPage = {
+export const SectionPage = {
 	Section,
 	Accordion,
 };

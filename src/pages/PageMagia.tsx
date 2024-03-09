@@ -4,7 +4,7 @@ import Descricao from "../components/Magias/Descricao";
 import Niveis from "../components/Magias/Niveis";
 import PageContainer from "../components/PageContainer";
 import TagLabel from "../components/TagmarUI/Label";
-import { MagiaPage } from "../components/TagmarUI/Section";
+import { SectionPage } from "../components/TagmarUI/Section";
 import { getMagia } from "../data/magias";
 import usePageTopBar from "../hooks/usePageTopBar";
 import { alcanceToString } from "../models/AlcanceDTO";
@@ -38,7 +38,7 @@ const PageMagia = () => {
 	return (
 		<PageContainer>
 			<Box borderRadius={Constants.CSS.caixaGrande.radius} overflow="hidden">
-				<MagiaPage.Accordion expanded={true}>
+				<SectionPage.Accordion expanded={true} title="aaaa">
 					<AccordionSummary id="panel-header">
 						<TagLabel variant="h6" color="primary">
 							{magia.nome}
@@ -61,13 +61,13 @@ const PageMagia = () => {
 							converter={duracaoToString}
 						/>
 					</AccordionDetails>
-				</MagiaPage.Accordion>
-				<MagiaPage.Section title="Descrição">
+				</SectionPage.Accordion>
+				<SectionPage.Section title="Descrição">
 					<Descricao item={magia} />
-				</MagiaPage.Section>
-				<MagiaPage.Section title="Níveis">
+				</SectionPage.Section>
+				<SectionPage.Section title="Níveis">
 					<Niveis magia={magia} />
-				</MagiaPage.Section>
+				</SectionPage.Section>
 			</Box>
 		</PageContainer>
 	);

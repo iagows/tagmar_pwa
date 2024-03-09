@@ -74,31 +74,31 @@ export const ABOUT_DATA: AccordionData[] = [
 			},
 		],
 	},
-	{
-		id: "testers",
-		title: "Testadores",
-		info: [
-			{
-				text: "Álvaro",
-			},
-			{
-				text: "Breno",
-			},
-			{
-				text: "Edilton",
-			},
-			{
-				text: "Marcelo",
-			},
-			{
-				text: "Petrus",
-			},
-			{
-				text: "Rodolfo",
-			},
-			{
-				text: "Sérgio",
-			},
-		],
-	},
+	// {
+	// 	id: "testers",
+	// 	title: "Testadores",
+	// 	info: [
+	// 		{
+	// 			text: "Álvaro",
+	// 		},
+	// 		{
+	// 			text: "Breno",
+	// 		},
+	// 		{
+	// 			text: "Edilton",
+	// 		},
+	// 		{
+	// 			text: "Marcelo",
+	// 		},
+	// 		{
+	// 			text: "Petrus",
+	// 		},
+	// 		{
+	// 			text: "Rodolfo",
+	// 		},
+	// 		{
+	// 			text: "Sérgio",
+	// 		},
+	// 	],
+	// },
 ];
