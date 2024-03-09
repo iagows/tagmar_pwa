@@ -12,6 +12,7 @@ import { duracaoToString } from "../models/DuracaoDTO";
 import { evocacaoToString } from "../models/EvocacaoDTO";
 import { Magia, MagiaEnum } from "../models/magia/MagiaDTO";
 import { Constants } from "../util/constants";
+import UnderConstruction from "../components/UnderConstruction";
 
 type In<T> = {
 	title: string;
@@ -37,6 +38,7 @@ const PageMagia = () => {
 	});
 	return (
 		<PageContainer>
+			<UnderConstruction descricao="Revisar todas magias: descrição, custo, alcance etc. Revisar níveis (alguns possuem alcance, custo etc próprios" />
 			<Box borderRadius={Constants.CSS.caixaGrande.radius} overflow="hidden">
 				<SectionPage.Accordion expanded={true} title="aaaa">
 					<AccordionSummary id="panel-header">
