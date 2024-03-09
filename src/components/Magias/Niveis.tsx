@@ -1,6 +1,7 @@
 import { Box, List, ListItem } from "@mui/material";
 import { Magia } from "../../models/magia/MagiaDTO";
 import { Nivel } from "../../models/magia/NivelDTO";
+import Custo from "../Custo";
 import TagLabel from "../TagmarUI/Label";
 import Descricao from "./Descricao";
 
@@ -14,8 +15,9 @@ const Niveis = ({ magia }: In) => {
 		<List>
 			{magia.niveis.map((n) => (
 				<ListItem key={n.id}>
-					<Box display={"flex"} flexDirection={"column"}>
+					<Box display={"flex"} flexDirection={"column"} gap={1}>
 						<TagLabel color="primary">{getTítulo(n)}</TagLabel>
+						{n.dinheiro && <Custo custo={n.dinheiro} />}
 						<Descricao item={n} />
 					</Box>
 				</ListItem>

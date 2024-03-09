@@ -14,7 +14,7 @@ export namespace StringUtil {
 	};
 
 	/**
-	 * Compara strings dando a marge de diferença entre elas
+	 * Compara strings dando a margem de diferença entre elas
 	 *
 	 * @link https://www.geeksforgeeks.org/jaro-and-jaro-winkler-similarity/
 	 * @param a Primeira palavra

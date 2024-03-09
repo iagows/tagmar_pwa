@@ -359,78 +359,78 @@ Note que ao final do efeito a vítima se lembrará de tudo que fez e sentiu, por
 			niveis: [
 				{
 					id: "0",
-					descricao: "Analisa propriedades mágicas de nível 1.",
+					descricao: `Analisa propriedades mágicas de nível 1.
+
+Magias de nível 1; focus +2; absorção +1.`,
 					nivel: 1,
 				},
 				{
 					id: "1",
-					descricao: "Analisa propriedades mágicas de nível máximo 2.",
+					descricao: `Analisa propriedades mágicas de nível máximo 2.
+
+Magias de nível 2; focus +4; absorção +2; armas +1.`,
 					nivel: 2,
 				},
 				{
 					id: "2",
-					descricao: "Analisa propriedades mágicas de nível máximo 3.",
+					descricao: `Analisa propriedades mágicas de nível máximo 3.
+
+Magias de nível 3; focus +6; absorção +3; defesa +1.`,
 					nivel: 3,
 				},
 				{
 					id: "3",
-					descricao: "Analisa propriedades mágicas de nível máximo 4.",
+					descricao: `Analisa propriedades mágicas de nível máximo 4.
+
+Magias de nível 4; focus +8; absorção +4; armas +2.`,
 					nivel: 4,
 				},
 				{
 					id: "4",
-					descricao: "Analisa propriedades mágicas de nível máximo 5.",
+					descricao: `Analisa propriedades mágicas de nível máximo 5.
+
+Magias de nível 5; focus +10; absorção +5.`,
 					nivel: 5,
 				},
 				{
 					id: "5",
-					descricao: "Analisa propriedades mágicas de nível máximo 6.",
+					descricao: `Analisa propriedades mágicas de nível máximo 6.
+
+Magias de nível 6; focus +12; absorção +6; armas +3; defesa +2.`,
 					nivel: 6,
 				},
 				{
 					id: "6",
-					descricao: "Analisa propriedades mágicas de nível máximo 7.",
+					descricao: `Analisa propriedades mágicas de nível máximo 7.
+
+Magias de nível 7; focus +14; absorção +7.`,
 					nivel: 7,
 				},
 				{
 					id: "7",
-					descricao: "Analisa propriedades mágicas de nível máximo 8.",
+					descricao: `Analisa propriedades mágicas de nível máximo 8.
+
+Magias de nível 8; focus +16; absorção +8; armas +4.`,
 					nivel: 8,
 				},
 				{
 					id: "8",
-					descricao: "Analisa propriedades mágicas de nível máximo 9.",
+					descricao: `Analisa propriedades mágicas de nível máximo 9.
+
+Magias de nível 9; focus +18; absorção +9.`,
 					nivel: 9,
 				},
 				{
 					id: "9",
-					descricao: "Analisa propriedades mágicas de nível máximo 10.",
+					descricao: `Analisa propriedades mágicas de nível máximo 10.
+
+Magias de nível 10; focus +20; absorção +10; armas +5; defesa +3.`,
 					nivel: 10,
 				},
 			],
 			descricao: `Esta magia permite que o evocador analise a aura de um objeto e descubra as propriedades mágicas que ele possui. Caso o evocador use esta magia em um objeto que não seja mágico, ele descobre imediatamente que o objeto não é mágico (mas ainda assim desperdiça o dinheiro do ritual).
 
-Embora esta magia seja muito útil, ela requer muito treinamento, pois o evocador só é capaz de descobrir propriedades mágicas de poder equivalente ao seu conhecimento em Análise. Para a maioria das propriedades mágicas vale a relação abaixo:
-
-Propriedades de nível 1: Magias de nível 1; focus +2; absorção +1.
-
-Propriedades de nível 2: Magias de nível 2; focus +4; absorção +2; armas +1.
-
-Propriedades de nível 3: Magias de nível 3; focus +6; absorção +3; defesa +1.
-
-Propriedades de nível 4: Magias de nível 4; focus +8; absorção +4; armas +2.
-
-Propriedades de nível 5: Magias de nível 5; focus +10; absorção +5.
-
-Propriedades de nível 6: Magias de nível 6; focus +12; absorção +6; armas +3; defesa +2.
-
-Propriedades de nível 7: Magias de nível 7; focus +14; absorção +7.
-
-Propriedades de nível 8: Magias de nível 8; focus +16; absorção +8; armas +4.
-
-Propriedades de nível 9: Magias de nível 9; focus +18; absorção +9.
-
-Propriedades de nível 10: Magias de nível 10; focus +20; absorção +10; armas +5; defesa +3.
+Embora esta magia seja muito útil, ela requer muito treinamento, pois o evocador só é capaz de descobrir propriedades mágicas de poder equivalente ao seu conhecimento em Análise. Para a maioria das propriedades mágicas vale o que está descrito.
 
 Propriedades específicas que não se enquadrem na relação acima como por exemplo os itens descritos no Livro de Artefatos, terão seu nível determinado pelo mestre do jogo.
 
@@ -451,7 +451,7 @@ Este ritual exige o uso de materiais raros, de modo que eles custam 5 moedas de 
 			niveis: [
 				{
 					id: "0",
-					dinheiro: { ouro: 1 }, //descrever na tela
+					dinheiro: { ouro: 1 },
 					descricao:
 						"Grupo de Armas igual a 1 em uma arma média que cause dano máximo 16, Concede defesa P1 e 10 pontos de EH.",
 					nivel: 1,
