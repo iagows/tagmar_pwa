@@ -226,7 +226,7 @@ export enum MagiaEnum {
 	santuarioNatural = "s2",
 	seducao = "s3",
 	sentidoNatural = "s4",
-	serDeagua = "s5",
+	serDeAgua = "s5",
 	serenidade = "s6",
 	sextoSentido = "s7",
 	silencio = "s8",

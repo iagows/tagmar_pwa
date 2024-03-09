@@ -7,7 +7,7 @@ import ListaDeLetras from "../components/ListaDeLetras";
 import ListaDeNomes from "../components/ListaDeNomes";
 import PageContainer from "../components/PageContainer";
 import UnderConstruction from "../components/UnderConstruction";
-import { MAGIAS } from "../data/magias";
+import { MAGIAS } from "../data/magiasCompiladas";
 import usePageTopBar from "../hooks/usePageTopBar";
 import { Magia } from "../models/magia/MagiaDTO";
 import { Constants } from "../util/constants";

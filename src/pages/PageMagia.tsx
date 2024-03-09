@@ -5,7 +5,7 @@ import Niveis from "../components/Magias/Niveis";
 import PageContainer from "../components/PageContainer";
 import TagLabel from "../components/TagmarUI/Label";
 import { SectionPage } from "../components/TagmarUI/Section";
-import { getMagia } from "../data/magias";
+import { getMagia } from "../data/magiasCompiladas";
 import usePageTopBar from "../hooks/usePageTopBar";
 import { alcanceToString } from "../models/AlcanceDTO";
 import { duracaoToString } from "../models/DuracaoDTO";
