@@ -33,6 +33,12 @@ export const alcanceToString = (alcance: Alcance): string => {
 	if (alcance.outraDescricao) {
 		return alcance.outraDescricao;
 	}
+	if (
+		alcance.tipo === AlcanceEnum.TOQUE ||
+		alcance.tipo === AlcanceEnum.PESSOAL
+	) {
+		return alcance.tipo;
+	}
 
 	const plural: string = StringUtil.getPlural(alcance.valor ?? 0);
 	const complemento: string = alcance.isQuadrado
