@@ -1,13 +1,14 @@
 import { remove } from "diacritics";
-import { Descricao } from "../models/DescricaoDTO";
+import { AbstractDTO } from "../models/Abstract/DescriptionDTO";
 
 export namespace StringUtil {
 	export const getPlural = (n: number): "s" | "" => {
 		return n > 1 ? "s" : "";
 	};
 
-	export const getDescricaoLonga = (dto: Descricao): string[] =>
-		dto.descricao.split("\n\n");
+	export const getDescricaoLonga = (
+		dto: AbstractDTO.DescriptionType,
+	): string[] => dto.descricao.split("\n\n");
 
 	export const extractFirstChar = (word: string): string => {
 		return remove(word.trim().charAt(0).toLowerCase());
