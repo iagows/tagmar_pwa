@@ -304,7 +304,7 @@ Note que, como este encanto afeta a mente da vítima e não ondas de luz, etc, a
 					id: "0",
 					duracao: {
 						tipo: DuracaoEnum.ESPECIAL,
-						outraDescricao: "Até o favor ser feito",
+						descricao: "Até o favor ser feito",
 					},
 					descricao:
 						"Torna uma criatura inteligente mais simpática em relação ao evocador. Este pode pedir um pequeno favor à vítima, desde que seja algo razoável.",
@@ -756,7 +756,7 @@ Caso o enviado morra ou a duração chegue ao fim, ele desaparece, voltando para
 			alcance: { tipo: AlcanceEnum.PESSOAL },
 			duracao: {
 				tipo: DuracaoEnum.USO,
-				outraDescricao: "Uso(s) ou 12 horas",
+				descricao: "Uso(s) ou 12 horas",
 			},
 			evocacao: { tipo: EvocacaoEnum.INSTANTANEA },
 		},
@@ -1045,7 +1045,7 @@ A quantidade de dano que pode ser absorvida antes do feitiço entrar em colapso 
 					duracao: {
 						tipo: DuracaoEnum.RODADA,
 						valor: 3,
-						outraDescricao:
+						descricao:
 							"3 rodadas, mas a penalidade -2 e o efeito da perda de EF dura até a flecha ser retirada (que gasta pelo menos uma ação de combate)",
 					},
 					descricao:

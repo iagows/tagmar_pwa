@@ -2,7 +2,7 @@ import { Box, List, ListItem } from "@mui/material";
 import { Magia } from "../../models/magia/MagiaDTO";
 import { Nivel } from "../../models/magia/NivelDTO";
 import TagLabel from "../TagmarUI/Label";
-import Descricao from "./Descricao";
+import TagDescricao from "./TagDescricao";
 import TagMagic from "./Info";
 
 type In = {
@@ -18,7 +18,7 @@ const Niveis = ({ magia }: In) => {
 					<Box display={"flex"} flexDirection={"column"} gap={1}>
 						<TagLabel color="primary">{getTítulo(n)}</TagLabel>
 						<TagMagic item={n} />
-						<Descricao item={n} />
+						<TagDescricao item={n} />
 					</Box>
 				</ListItem>
 			))}

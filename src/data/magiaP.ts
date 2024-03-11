@@ -371,7 +371,7 @@ Qualquer mago pode abrir essa “porta” desde que possa usar o mesmo nível de
 			},
 			evocacao: {
 				tipo: EvocacaoEnum.RITUAL,
-				outraDescricao: "Ritual / 3 rodadas",
+				descricao: "Ritual / 3 rodadas",
 			},
 		},
 		{

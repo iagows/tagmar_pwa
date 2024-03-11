@@ -1,5 +1,7 @@
 import { z } from "zod";
-import AbstractNamedDTO from "../AbstractNamedDTO";
+import { AbstractDTO as DescDTO } from "../Abstract/DescriptionDTO";
+import { AbstractDTO as IdDTO } from "../Abstract/IdDTO";
+import { AbstractDTO as NameDTO } from "../Abstract/NameDTO";
 import AbstractMagicDTO from "./AbstractMagicDTO";
 import NivelDTO from "./NivelDTO";
 
@@ -271,10 +273,15 @@ const next = list.map(i => i.split("=")[0].trim()).map(i => {
 console.log(next.join("\n"))
 */
 
-const MagiaDTO = AbstractNamedDTO.extend({
-	extra: z.string().array().optional(),
-	niveis: NivelDTO.array(),
-}).merge(AbstractMagicDTO);
+const MagiaDTO = z
+	.object({
+		extra: z.string().array().optional(),
+		niveis: NivelDTO.array(),
+	})
+	.merge(IdDTO.IdDTO)
+	.merge(NameDTO.NameDTO)
+	.merge(AbstractMagicDTO)
+	.merge(DescDTO.DescriptionDTO);
 
 type Magia = z.infer<typeof MagiaDTO>;
 

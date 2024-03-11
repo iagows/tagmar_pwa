@@ -1,10 +1,15 @@
 import { z } from "zod";
-import AbstractDescribedDTO from "../AbstractDescribedDTO";
+import { AbstractDTO as DescDTO } from "../Abstract/DescriptionOptionalDTO";
+import { AbstractDTO as IdDTO } from "../Abstract/IdDTO";
 import AbstractMagicDTO from "./AbstractMagicDTO";
 
-const NivelBase = AbstractDescribedDTO.extend({
-	nivel: z.number().min(1),
-}).merge(AbstractMagicDTO);
+const NivelBase = z
+	.object({
+		nivel: z.number().min(1),
+	})
+	.merge(IdDTO.IdDTO)
+	.merge(AbstractMagicDTO)
+	.merge(DescDTO.DescriptionOptionalDTO);
 
 type NivelBaseType = z.infer<typeof NivelBase> & {
 	secundario?: NivelBaseType;

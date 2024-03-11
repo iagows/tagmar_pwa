@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { StringUtil } from "../util/stringHelp";
+import AbstractMagicInfoDTO from "./magia/AbstractMagicInfoDTO";
 
 export enum DuracaoEnum {
 	USO = "uso",
@@ -22,20 +23,15 @@ export enum DuracaoEnum {
 	PERMANENTE = "Permanente",
 }
 
-const DuracaoDTO = z.object({
-	valor: z.number().min(0).optional(),
-	tipo: z.nativeEnum(DuracaoEnum),
-	outraDescricao: z.string().optional(),
-});
-
+const DuracaoDTO = AbstractMagicInfoDTO(DuracaoEnum);
 type Duracao = z.infer<typeof DuracaoDTO>;
 
 export default DuracaoDTO;
 export type { Duracao };
 
 export const duracaoToString = (duracao: Duracao): string => {
-	if (duracao.outraDescricao) {
-		return duracao.outraDescricao;
+	if (duracao.descricao) {
+		return duracao.descricao;
 	}
 	if (
 		[

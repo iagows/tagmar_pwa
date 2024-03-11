@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { StringUtil } from "../util/stringHelp";
+import AbstractMagicInfoDTO from "./magia/AbstractMagicInfoDTO";
 
 export enum AlcanceEnum {
 	VARIAVEL = "Variável",
@@ -9,12 +10,9 @@ export enum AlcanceEnum {
 	QUILOMETRO = "quilômetro",
 }
 
-const AlcanceDTO = z.object({
-	valor: z.number().min(0).optional(),
-	tipo: z.nativeEnum(AlcanceEnum),
+const AlcanceDTO = AbstractMagicInfoDTO(AlcanceEnum).extend({
 	isRaio: z.boolean().optional(),
 	isQuadrado: z.boolean().optional(),
-	outraDescricao: z.string().optional(),
 });
 
 type Alcance = z.infer<typeof AlcanceDTO>;
@@ -30,8 +28,8 @@ const basicValue = (tipo: AlcanceEnum, valor = 0, complemento = ""): string => {
 };
 
 export const alcanceToString = (alcance: Alcance): string => {
-	if (alcance.outraDescricao) {
-		return alcance.outraDescricao;
+	if (alcance.descricao) {
+		return alcance.descricao;
 	}
 	if (
 		[AlcanceEnum.TOQUE, AlcanceEnum.PESSOAL, AlcanceEnum.VARIAVEL].includes(

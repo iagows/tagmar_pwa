@@ -342,7 +342,7 @@ A duração do feitiço, a não ser que a descrição do efeito diga o contrári
 			duracao: {
 				tipo: DuracaoEnum.RODADA,
 				valor: 20,
-				outraDescricao:
+				descricao:
 					"20 rodadas ou o tempo que o evocador permanecer concentrado tocando a canção, desde que não exceda a 2 (duas) horas",
 			},
 			evocacao: { tipo: EvocacaoEnum.RODADA, valor: 1 },
@@ -592,7 +592,7 @@ Círculos podem ser reutilizados, mas a cada novo uso deve-se gastar novamente o
 			alcance: {
 				tipo: AlcanceEnum.METRO,
 				valor: 5,
-				outraDescricao: "Até 5m de raio",
+				descricao: "Até 5m de raio",
 			},
 			duracao: { tipo: DuracaoEnum.VARIAVEL },
 			evocacao: { tipo: EvocacaoEnum.RODADA, valor: 1 },
@@ -1829,7 +1829,7 @@ O morto-vivo criado é completamente independente do seu criador e agirá de aco
 					id: "2",
 					evocacao: {
 						tipo: EvocacaoEnum.VARIAVEL,
-						outraDescricao:
+						descricao:
 							"Varia de 1 minuto para desenhos simples a 10 minutos para desenhos complexos",
 					},
 					descricao:
@@ -1840,7 +1840,7 @@ O morto-vivo criado é completamente independente do seu criador e agirá de aco
 					id: "3",
 					evocacao: {
 						tipo: EvocacaoEnum.VARIAVEL,
-						outraDescricao:
+						descricao:
 							"Varia de 1 minuto para desenhos simples a 10 minutos para desenhos complexos",
 					},
 					descricao:

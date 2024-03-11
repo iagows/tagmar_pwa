@@ -1,12 +1,12 @@
 import { remove } from "diacritics";
-import { HasDescription } from "./commonTypes";
+import { Descricao } from "../models/DescricaoDTO";
 
 export namespace StringUtil {
 	export const getPlural = (n: number): "s" | "" => {
 		return n > 1 ? "s" : "";
 	};
 
-	export const getDescricaoLonga = (dto: HasDescription): string[] =>
+	export const getDescricaoLonga = (dto: Descricao): string[] =>
 		dto.descricao.split("\n\n");
 
 	export const extractFirstChar = (word: string): string => {

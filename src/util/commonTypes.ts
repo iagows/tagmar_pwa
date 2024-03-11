@@ -1,15 +1,11 @@
 export type SingleOrArray<T> = T | T[];
 
-export type HasName = {
+type HasName = {
 	nome: string;
 };
 
-export type HasId = {
+type HasId = {
 	id: string;
-};
-
-export type HasDescription = {
-	descricao: string;
 };
 
 export type HasIdAndName = HasId & HasName;

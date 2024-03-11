@@ -1,8 +1,8 @@
 import { AccordionDetails, AccordionSummary, Box } from "@mui/material";
 import { useParams } from "react-router-dom";
-import Descricao from "../components/Magias/Descricao";
 import TagMagic from "../components/Magias/Info";
 import Niveis from "../components/Magias/Niveis";
+import TagDescricao from "../components/Magias/TagDescricao";
 import PageContainer from "../components/PageContainer";
 import TagLabel from "../components/TagmarUI/Label";
 import { SectionPage } from "../components/TagmarUI/Section";
@@ -35,7 +35,7 @@ const PageMagia = () => {
 					</AccordionDetails>
 				</SectionPage.Accordion>
 				<SectionPage.Section title="Descrição">
-					<Descricao item={magia} />
+					<TagDescricao item={magia} />
 				</SectionPage.Section>
 				<SectionPage.Section title="Níveis">
 					<Niveis magia={magia} />

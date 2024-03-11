@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { StringUtil } from "../util/stringHelp";
+import AbstractMagicInfoDTO from "./magia/AbstractMagicInfoDTO";
 
 export enum EvocacaoEnum {
 	VARIAVEL = "Variável",
@@ -10,11 +11,7 @@ export enum EvocacaoEnum {
 	RITUAL = "Ritual",
 }
 
-const EvocacaoDTO = z.object({
-	valor: z.number().min(0).optional(),
-	tipo: z.nativeEnum(EvocacaoEnum),
-	outraDescricao: z.string().optional(),
-});
+const EvocacaoDTO = AbstractMagicInfoDTO(EvocacaoEnum);
 
 type Evocacao = z.infer<typeof EvocacaoDTO>;
 
@@ -22,8 +19,8 @@ export default EvocacaoDTO;
 export type { Evocacao };
 
 export const evocacaoToString = (evocacao: Evocacao): string => {
-	if (evocacao.outraDescricao) {
-		return evocacao.outraDescricao;
+	if (evocacao.descricao) {
+		return evocacao.descricao;
 	}
 
 	if (

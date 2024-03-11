@@ -1,12 +1,12 @@
-import { HasDescription } from "../../util/commonTypes";
+import { Descricao } from "../../models/DescricaoDTO";
 import { StringUtil } from "../../util/stringHelp";
 import TagLabel from "../TagmarUI/Label";
 
 type In = {
-	item: HasDescription;
+	item: Descricao;
 };
 
-const Descricao = ({ item }: In) => (
+const TagDescricao = ({ item }: In) => (
 	<>
 		{StringUtil.getDescricaoLonga(item).map((d, i) => (
 			<TagLabel key={`desc_${i + 1}`} textAlign={"justify"}>
@@ -16,4 +16,4 @@ const Descricao = ({ item }: In) => (
 	</>
 );
 
-export default Descricao;
+export default TagDescricao;
