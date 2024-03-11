@@ -78,30 +78,17 @@ export const ABOUT_DATA: AccordionData[] = [
 		id: "thanks",
 		title: "Agradecimentos",
 		info: [
-			// {
-			// 	text: "Álvaro",
-			// },
-			// {
-			// 	text: "Breno",
-			// },
 			{
-				text: "Edilton",
+				text: "Edilton Oliveira",
 			},
-			// {
-			// 	text: "Marcelo",
-			// },
+			{
+				text: "Marcelo Rodrigues",
+				url: "https://www.tagmar.com.br/",
+			},
 			{
 				text: "Odijas",
+				url: "https://www.instagram.com/odjaseviu?igsh=bXpvOXdjdWEwdGQ3",
 			},
-			// {
-			// 	text: "Petrus",
-			// },
-			// {
-			// 	text: "Rodolfo",
-			// },
-			// {
-			// 	text: "Sérgio",
-			// },
 		],
 	},
 ] as const;
