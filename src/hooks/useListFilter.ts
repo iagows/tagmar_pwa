@@ -1,19 +1,19 @@
 import { useEffect, useState } from "react";
-import { HasName } from "../util/commonTypes";
+import { AbstractDTO } from "../models/Abstract/NameDTO";
 import { Constants } from "../util/constants";
 import { StringUtil } from "../util/stringHelp";
 
-type In<T extends HasName> = {
+type In<T extends AbstractDTO.NameType> = {
 	input: string;
 	selectedChar: string;
 	list: T[];
 };
 
-type Out<T extends HasName> = {
+type Out<T extends AbstractDTO.NameType> = {
 	filtered: T[];
 };
 
-const useListFilter = <T extends HasName>({
+const useListFilter = <T extends AbstractDTO.NameType>({
 	list,
 	selectedChar,
 	input,

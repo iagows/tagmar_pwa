@@ -1,8 +1,8 @@
 import { z } from "zod";
-import { AtributoEnum } from "./AtributoDTO";
 import { AbstractDTO as DescDTO } from "./Abstract/DescriptionDTO";
 import { AbstractDTO as IdDTO } from "./Abstract/IdDTO";
 import { AbstractDTO as NameDTO } from "./Abstract/NameDTO";
+import { AtributoEnum } from "./AtributoDTO";
 
 export enum RacaEnum {
 	ANAO = "anao",

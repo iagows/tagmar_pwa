@@ -1,15 +1,16 @@
 import Add from "@mui/icons-material/Add";
 import { Button, Grid } from "@mui/material";
 import { Link } from "react-router-dom";
+import { AbstractDTO as IdT } from "../models/Abstract/IdDTO";
+import { AbstractDTO as NT } from "../models/Abstract/NameDTO";
 import { RoutePath } from "../pages/RouteNames";
 import { THEME_OPTIONS } from "../theme";
-import { HasIdAndName } from "../util/commonTypes";
 import { Constants } from "../util/constants";
 import { routeTo } from "../util/functions";
 
 type In = {
 	to: RoutePath;
-	lista: HasIdAndName[];
+	lista: (IdT.IdType & NT.NameType)[];
 };
 const ListaDeNomes = ({ lista, to }: In) => (
 	<Grid container rowSpacing={2} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>

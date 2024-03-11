@@ -1,17 +1,20 @@
 import { Button, Grid } from "@mui/material";
-import { HasName } from "../util/commonTypes";
+import { AbstractDTO } from "../models/Abstract/NameDTO";
 import { StringUtil } from "../util/stringHelp";
 
 type In = {
-	lista: HasName[];
+	lista: AbstractDTO.NameType[];
 	selected: string;
 	onClick: (char: string) => void;
 };
 
-const getChar = (obj: HasName): string => StringUtil.extractFirstChar(obj.nome);
-const getCharSet = (lista: HasName[]): Set<string> =>
+const getChar = (obj: AbstractDTO.NameType): string =>
+	StringUtil.extractFirstChar(obj.nome);
+const getCharSet = (lista: AbstractDTO.NameType[]): Set<string> =>
 	new Set(lista.map(getChar));
-const getCharList = (lista: HasName[]): string[] => [...getCharSet(lista)];
+const getCharList = (lista: AbstractDTO.NameType[]): string[] => [
+	...getCharSet(lista),
+];
 
 /////////////
 
