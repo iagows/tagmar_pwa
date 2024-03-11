@@ -1,9 +1,9 @@
-import { AbstractDTO } from "../../models/Abstract/DescriptionDTO";
+import { AbstractDTO } from "../../models/Abstract/DescriptionOptionalDTO";
 import { StringUtil } from "../../util/stringHelp";
 import TagLabel from "../TagmarUI/Label";
 
 type In = {
-	item: AbstractDTO.DescriptionType;
+	item: AbstractDTO.DescriptionOptionalType;
 };
 
 const TagDescricao = ({ item }: In) => (
