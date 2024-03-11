@@ -1,9 +1,8 @@
 import { z } from "zod";
-import DTO from "./DTO";
+import AbstractDescribedDTO from "./AbstractDescribedDTO";
 
-const AbstractNamedDTO = DTO.extend({
+const AbstractNamedDTO = AbstractDescribedDTO.extend({
 	nome: z.string(),
-	descricao: z.optional(z.string()).default(""),
 });
 
 type AbstractNamed = z.infer<typeof AbstractNamedDTO>;

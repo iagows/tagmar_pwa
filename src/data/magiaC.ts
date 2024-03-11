@@ -607,7 +607,7 @@ Círculos podem ser reutilizados, mas a cada novo uso deve-se gastar novamente o
 					descricao:
 						"O evocador tem uma visão (apenas imagem) e pode ser do presente ou do futuro (o MESTRE escolhe).",
 					nivel: 1,
-					dinheiro: { ouro: 1 },
+					custo: { ouro: 1 },
 				},
 				{
 					id: "1",
@@ -615,7 +615,7 @@ Círculos podem ser reutilizados, mas a cada novo uso deve-se gastar novamente o
 					descricao:
 						"O evocador tem uma visão (apenas imagem) e pode ser do presente ou do futuro (o MESTRE escolhe).",
 					nivel: 3,
-					dinheiro: { ouro: 3 },
+					custo: { ouro: 3 },
 				},
 				{
 					id: "2",
@@ -623,7 +623,7 @@ Círculos podem ser reutilizados, mas a cada novo uso deve-se gastar novamente o
 					descricao:
 						"O evocador tem uma visão (apenas imagem) e pode ser do presente ou do futuro (o JOGADOR escolhe).",
 					nivel: 5,
-					dinheiro: { ouro: 5 },
+					custo: { ouro: 5 },
 				},
 				{
 					id: "3",
@@ -631,7 +631,7 @@ Círculos podem ser reutilizados, mas a cada novo uso deve-se gastar novamente o
 					descricao:
 						"O evocador tem uma visão (apenas imagem) e pode ser do presente ou do futuro (o JOGADOR escolhe).",
 					nivel: 7,
-					dinheiro: { ouro: 7 },
+					custo: { ouro: 7 },
 				},
 				{
 					id: "4",
@@ -639,7 +639,7 @@ Círculos podem ser reutilizados, mas a cada novo uso deve-se gastar novamente o
 					descricao:
 						"O evocador tem uma visão (imagem e som) e pode ser do presente ou do futuro (o JOGADOR escolhe).",
 					nivel: 9,
-					dinheiro: { ouro: 9 },
+					custo: { ouro: 9 },
 				},
 			],
 			descricao: `Com esta magia o evocador tem uma visão de lugares e de situações, sejam elas no presente ou no futuro. O que será visto é uma imagem (parada ou em movimento com ou sem som) de um lugar ou situação, e a precisão não é grande. O jogador antes de fazer a magia deve dizer ao Mestre o que pretende ver. De acordo com o efeito o Mestre, determinará o que será visto. Não há limite para a distância mas a duração da visão é dada no efeito. Note que toda visão é meio turva e mas o som é bem razoável. Toda clarividência que seja sobre o futuro não necessariamente irá acontecer.
@@ -985,25 +985,25 @@ Por ampliar o conhecimento do terreno, a magia também melhora a performance na 
 					id: "0",
 					descricao: "Conjura um Plantor Mensageiro",
 					nivel: 1,
-					dinheiro: { ouro: 3 },
+					custo: { ouro: 3 },
 				},
 				{
 					id: "1",
 					descricao: "Conjura um Plantor Soldado",
 					nivel: 3,
-					dinheiro: { ouro: 6 },
+					custo: { ouro: 6 },
 				},
 				{
 					id: "2",
 					descricao: "Conjura um Plantor Conselheiro",
 					nivel: 5,
-					dinheiro: { ouro: 15 },
+					custo: { ouro: 15 },
 				},
 				{
 					id: "3",
 					descricao: "Conjura um Plantor Líder",
 					nivel: 7,
-					dinheiro: { ouro: 21 },
+					custo: { ouro: 21 },
 				},
 			],
 			descricao: `Através deste ritual o evocador entra em sintonia com o Plano Astral para trazer entidades deste, temporariamente à terra.
@@ -1738,61 +1738,61 @@ A pessoa atacada deve fazer sua Resistência à Magia, ou perder o número de po
 			niveis: [
 				{
 					id: "0",
-					dinheiro: { prata: 3 },
+					custo: { prata: 3 },
 					descricao: "Cria 1 morto-vivo de estágio 1.",
 					nivel: 1,
 				},
 				{
 					id: "1",
-					dinheiro: { prata: 6 },
+					custo: { prata: 6 },
 					descricao: "Cria 1 morto-vivo de estágio 2.",
 					nivel: 2,
 				},
 				{
 					id: "2",
-					dinheiro: { prata: 9 },
+					custo: { prata: 9 },
 					descricao: "Cria 1 morto-vivo de estágio 3.",
 					nivel: 3,
 				},
 				{
 					id: "3",
-					dinheiro: { prata: 12 },
+					custo: { prata: 12 },
 					descricao: "Cria 1 morto-vivo de estágio 4.",
 					nivel: 4,
 				},
 				{
 					id: "4",
-					dinheiro: { prata: 15 },
+					custo: { prata: 15 },
 					descricao: "Cria 1 morto-vivo de estágio 5.",
 					nivel: 5,
 				},
 				{
 					id: "5",
-					dinheiro: { ouro: 2 },
+					custo: { ouro: 2 },
 					descricao: "Cria 1 morto-vivo de estágio até 6.",
 					nivel: 6,
 				},
 				{
 					id: "6",
-					dinheiro: { ouro: 3 },
+					custo: { ouro: 3 },
 					descricao: "Cria 1 morto-vivo de estágio até 7.",
 					nivel: 7,
 				},
 				{
 					id: "7",
-					dinheiro: { ouro: 4 },
+					custo: { ouro: 4 },
 					descricao: "Cria 1 morto-vivo de estágio até 8.",
 					nivel: 8,
 				},
 				{
 					id: "8",
-					dinheiro: { ouro: 5 },
+					custo: { ouro: 5 },
 					descricao: "Cria 1 morto-vivo de estágio até 9.",
 					nivel: 9,
 				},
 				{
 					id: "9",
-					dinheiro: { ouro: 7 },
+					custo: { ouro: 7 },
 					descricao: "Cria 1 morto-vivo de estágio até 10.",
 					nivel: 10,
 				},
@@ -1820,7 +1820,7 @@ O morto-vivo criado é completamente independente do seu criador e agirá de aco
 				{
 					id: "1",
 					evocacao: { tipo: EvocacaoEnum.HORA, valor: 1 },
-					dinheiro: { descricao: "1 moeda de ouro por pena" },
+					custo: { descricao: "1 moeda de ouro por pena" },
 					descricao:
 						"Com este nível é possível criar uma ou mais penas e tinta. O texto escrito com esse material poderá ser visto somente por aqueles que participaram do ritual, ninguém mais.",
 					nivel: 2,
@@ -1849,14 +1849,14 @@ O morto-vivo criado é completamente independente do seu criador e agirá de aco
 				},
 				{
 					id: "4",
-					dinheiro: { ouro: 6 },
+					custo: { ouro: 6 },
 					descricao:
 						"Esse interessante ritual deve ser usado em um livro ou pergaminho que após confeccionado pode ao desejo do mago gravar magicamente, em suas folhas, toda a conversação realizada próxima a ele por um máximo de uma hora. Após este período o livro deverá ser encantado novamente. O livro capta palavras num raio de até 25 metros. As palavras serão escritas com a letra do conjurador e no sentido em que o mesmo entenderia essa conversa se estivesse presente. Existe uma cor para cada timbre de voz, sendo fácil uma visualização de quem diz cada frase.",
 					nivel: 8,
 				},
 				{
 					id: "5",
-					dinheiro: { ouro: 6 },
+					custo: { ouro: 6 },
 					descricao:
 						"Esse nível é um ritual conhecido como folhas gêmeas. Este nível permite encantar duas folhas de modo que, após o encantamento ao escrever em um deles, a outra ficará escritas da mesma forma, independente da distância que as duas folhas estiverem. Note que qualquer acidente com uma das folhas (fogo, água, tempo, sangue}, serão assimilados pelas outras.",
 					nivel: 10,

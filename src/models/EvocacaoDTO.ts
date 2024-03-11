@@ -26,6 +26,16 @@ export const evocacaoToString = (evocacao: Evocacao): string => {
 		return evocacao.outraDescricao;
 	}
 
+	if (
+		[
+			EvocacaoEnum.INSTANTANEA,
+			EvocacaoEnum.RITUAL,
+			EvocacaoEnum.VARIAVEL,
+		].includes(evocacao.tipo)
+	) {
+		return evocacao.tipo;
+	}
+
 	if (evocacao.valor) {
 		const plural = StringUtil.getPlural(evocacao.valor);
 		return `${evocacao.valor} ${evocacao.tipo}${plural}`;

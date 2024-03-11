@@ -1,18 +1,10 @@
 import { z } from "zod";
-import AlcanceDTO from "../AlcanceDTO";
-import GenericDTO from "../DTO";
-import DinheiroDTO from "../DinheiroDTO";
-import DuracaoDTO from "../DuracaoDTO";
-import EvocacaoDTO from "../EvocacaoDTO";
+import AbstractDescribedDTO from "../AbstractDescribedDTO";
+import AbstractMagicDTO from "./AbstractMagicDTO";
 
-const NivelBase = GenericDTO.extend({
+const NivelBase = AbstractDescribedDTO.extend({
 	nivel: z.number().min(1),
-	dinheiro: DinheiroDTO.optional(),
-	alcance: AlcanceDTO.optional(),
-	duracao: DuracaoDTO.optional(),
-	descricao: z.string(),
-	evocacao: EvocacaoDTO.optional(),
-});
+}).merge(AbstractMagicDTO);
 
 type NivelBaseType = z.infer<typeof NivelBase> & {
 	secundario?: NivelBaseType;

@@ -451,42 +451,42 @@ Este ritual exige o uso de materiais raros, de modo que eles custam 5 moedas de 
 			niveis: [
 				{
 					id: "0",
-					dinheiro: { ouro: 1 },
+					custo: { ouro: 1 },
 					descricao:
 						"Grupo de Armas igual a 1 em uma arma média que cause dano máximo 16, Concede defesa P1 e 10 pontos de EH.",
 					nivel: 1,
 				},
 				{
 					id: "1",
-					dinheiro: { ouro: 2 },
+					custo: { ouro: 2 },
 					descricao:
 						"Grupo de Armas igual a 3 em uma arma média que cause dano máximo 20, Concede defesa P1 e 20 pontos de EH.",
 					nivel: 2,
 				},
 				{
 					id: "2",
-					dinheiro: { ouro: 4 },
+					custo: { ouro: 4 },
 					descricao:
 						"Grupo de Armas igual a 6 em duas armas médias que causem dano máximo 20, Concede defesa P2 e 30 pontos de EH.",
 					nivel: 4,
 				},
 				{
 					id: "3",
-					dinheiro: { ouro: 6 },
+					custo: { ouro: 6 },
 					descricao:
 						"Grupo de Armas igual a 9 em uma arma média que cause 20 de dano e uma arma pesada que cause 20 de dano. Concede defesa P3 e 40 pontos de EH.",
 					nivel: 6,
 				},
 				{
 					id: "4",
-					dinheiro: { ouro: 8 },
+					custo: { ouro: 8 },
 					descricao:
 						"Grupo de Armas igual a 12 em uma arma média que cause 20 de dano e uma arma pesada que cause 24 de dano. Concede defesa P4 e 50 pontos de EH.",
 					nivel: 8,
 				},
 				{
 					id: "5",
-					dinheiro: { ouro: 10 },
+					custo: { ouro: 10 },
 					descricao:
 						"Grupo de Armas igual a 15 em três armas a escolha do evocador. Concede defesa P5 e 60 pontos de EH.",
 					nivel: 10,
@@ -519,35 +519,35 @@ O nível da magia diz os parâmetros gerais do ser, as armas que ele será capaz
 			niveis: [
 				{
 					id: "0",
-					dinheiro: { ouro: 1 },
+					custo: { ouro: 1 },
 					duracao: { tipo: DuracaoEnum.DIA, valor: 4 },
 					descricao: "Anima uma árvore de Porte menor.",
 					nivel: 1,
 				},
 				{
 					id: "1",
-					dinheiro: { ouro: 3 },
+					custo: { ouro: 3 },
 					duracao: { tipo: DuracaoEnum.SEMANA, valor: 1 },
 					descricao: "Anima uma árvore de Pequeno porte.",
 					nivel: 3,
 				},
 				{
 					id: "2",
-					dinheiro: { ouro: 5 },
+					custo: { ouro: 5 },
 					duracao: { tipo: DuracaoEnum.SEMANA, valor: 2 },
 					descricao: "Anima uma árvore de Médio porte.",
 					nivel: 5,
 				},
 				{
 					id: "3",
-					dinheiro: { ouro: 7 },
+					custo: { ouro: 7 },
 					duracao: { tipo: DuracaoEnum.SEMANA, valor: 3 },
 					descricao: "Anima uma árvore de Médio porte.",
 					nivel: 7,
 				},
 				{
 					id: "4",
-					dinheiro: { ouro: 9 },
+					custo: { ouro: 9 },
 					duracao: { tipo: DuracaoEnum.MES, valor: 1 },
 					descricao: "Anima uma árvore de Grande porte.",
 					nivel: 9,
@@ -669,7 +669,7 @@ Esse milagre costuma ser muito utilizado em masmorras de castelos, em especial a
 				{
 					id: "2",
 					evocacao: { tipo: EvocacaoEnum.RITUAL },
-					dinheiro: { ouro: 10 },
+					custo: { ouro: 10 },
 					descricao:
 						"Conjura um enviado menor para servir o evocador até a morte (do enviado ou do evocador).",
 					nivel: 4,
@@ -682,7 +682,7 @@ Esse milagre costuma ser muito utilizado em masmorras de castelos, em especial a
 				{
 					id: "4",
 					evocacao: { tipo: EvocacaoEnum.RITUAL },
-					dinheiro: { ouro: 30 },
+					custo: { ouro: 30 },
 					descricao:
 						"Conjura um enviado tipo I para servir o evocador até a morte (do enviado ou do evocador).",
 					nivel: 6,
@@ -695,7 +695,7 @@ Esse milagre costuma ser muito utilizado em masmorras de castelos, em especial a
 				{
 					id: "6",
 					evocacao: { tipo: EvocacaoEnum.RITUAL },
-					dinheiro: { ouro: 50 },
+					custo: { ouro: 50 },
 					descricao:
 						"Conjura um enviado tipo II para servir o evocador até a morte (do enviado ou do evocador).",
 					nivel: 9,
@@ -1159,42 +1159,42 @@ Não é possível assimilar magias de itens mágicos Pois somente criaturas pode
 			niveis: [
 				{
 					id: "0",
-					dinheiro: { prata: 2 },
+					custo: { prata: 2 },
 					descricao:
 						"Atrai até 2 estágios de mortos-vivos para o local assombrado.",
 					nivel: 1,
 				},
 				{
 					id: "1",
-					dinheiro: { prata: 4 },
+					custo: { prata: 4 },
 					descricao:
 						"Atrai até 3 estágios de mortos-vivos para o local assombrado.",
 					nivel: 2,
 				},
 				{
 					id: "2",
-					dinheiro: { prata: 8 },
+					custo: { prata: 8 },
 					descricao:
 						"Atrai até 6 estágios de mortos-vivos para o local assombrado.",
 					nivel: 4,
 				},
 				{
 					id: "3",
-					dinheiro: { prata: 12 },
+					custo: { prata: 12 },
 					descricao:
 						"Atrai até 9 estágios de mortos-vivos para o local assombrado.",
 					nivel: 6,
 				},
 				{
 					id: "4",
-					dinheiro: { prata: 16 },
+					custo: { prata: 16 },
 					descricao:
 						"Atrai até 12 estágios de mortos-vivos para o local assombrado.",
 					nivel: 8,
 				},
 				{
 					id: "5",
-					dinheiro: { prata: 20 },
+					custo: { prata: 20 },
 					descricao:
 						"Atrai até 15 estágios de mortos-vivos para o local assombrado.",
 					nivel: 10,
@@ -1456,7 +1456,7 @@ Uma mesma pessoa não pode ser vítima duas vezes seguidas de uma só evocação
 			niveis: [
 				{
 					id: "0",
-					dinheiro: { ouro: 1 },
+					custo: { ouro: 1 },
 					duracao: { tipo: DuracaoEnum.DIA, valor: 1 },
 					alcance: { tipo: AlcanceEnum.METRO, valor: 1, isRaio: true },
 					descricao:
@@ -1465,7 +1465,7 @@ Uma mesma pessoa não pode ser vítima duas vezes seguidas de uma só evocação
 				},
 				{
 					id: "1",
-					dinheiro: { ouro: 5 },
+					custo: { ouro: 5 },
 					duracao: { tipo: DuracaoEnum.MES, valor: 1 },
 					alcance: { tipo: AlcanceEnum.METRO, valor: 5, isRaio: true },
 					descricao:
@@ -1474,7 +1474,7 @@ Uma mesma pessoa não pode ser vítima duas vezes seguidas de uma só evocação
 				},
 				{
 					id: "2",
-					dinheiro: { ouro: 10 },
+					custo: { ouro: 10 },
 					duracao: { tipo: DuracaoEnum.MES, valor: 1 },
 					alcance: { tipo: AlcanceEnum.METRO, valor: 10, isRaio: true },
 					descricao:
@@ -1483,7 +1483,7 @@ Uma mesma pessoa não pode ser vítima duas vezes seguidas de uma só evocação
 				},
 				{
 					id: "3",
-					dinheiro: { ouro: 20 },
+					custo: { ouro: 20 },
 					duracao: { tipo: DuracaoEnum.ANO_E_DIA },
 					alcance: { tipo: AlcanceEnum.METRO, valor: 15, isRaio: true },
 					descricao:
@@ -1492,7 +1492,7 @@ Uma mesma pessoa não pode ser vítima duas vezes seguidas de uma só evocação
 				},
 				{
 					id: "4",
-					dinheiro: { ouro: 40 },
+					custo: { ouro: 40 },
 					duracao: { tipo: DuracaoEnum.ANO, valor: 13 },
 					alcance: { tipo: AlcanceEnum.METRO, valor: 20, isRaio: true },
 					descricao:

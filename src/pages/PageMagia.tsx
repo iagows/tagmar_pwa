@@ -1,7 +1,7 @@
 import { AccordionDetails, AccordionSummary, Box } from "@mui/material";
 import { useParams } from "react-router-dom";
 import Descricao from "../components/Magias/Descricao";
-import TagInfo from "../components/Magias/Info";
+import TagMagic from "../components/Magias/Info";
 import Niveis from "../components/Magias/Niveis";
 import PageContainer from "../components/PageContainer";
 import TagLabel from "../components/TagmarUI/Label";
@@ -9,10 +9,6 @@ import { SectionPage } from "../components/TagmarUI/Section";
 import UnderConstruction from "../components/UnderConstruction";
 import { getMagia } from "../data/magiasCompiladas";
 import usePageTopBar from "../hooks/usePageTopBar";
-import { alcanceToString } from "../models/AlcanceDTO";
-import { dinheiroToString } from "../models/DinheiroDTO";
-import { duracaoToString } from "../models/DuracaoDTO";
-import { evocacaoToString } from "../models/EvocacaoDTO";
 import { Magia, MagiaEnum } from "../models/magia/MagiaDTO";
 import { Constants } from "../util/constants";
 
@@ -35,28 +31,7 @@ const PageMagia = () => {
 						</TagLabel>
 					</AccordionSummary>
 					<AccordionDetails>
-						<TagInfo
-							title="Evocação"
-							valor={magia.evocacao}
-							converter={evocacaoToString}
-						/>
-						<TagInfo
-							title="Alcance"
-							valor={magia.alcance}
-							converter={alcanceToString}
-						/>
-						<TagInfo
-							title="Duração"
-							valor={magia.duracao}
-							converter={duracaoToString}
-						/>
-						{magia.custo && (
-							<TagInfo
-								title="Custo"
-								valor={magia.custo}
-								converter={dinheiroToString}
-							/>
-						)}
+						<TagMagic item={magia} />
 					</AccordionDetails>
 				</SectionPage.Accordion>
 				<SectionPage.Section title="Descrição">

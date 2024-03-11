@@ -1,7 +1,7 @@
 import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
 import { Box } from "@mui/material";
-import { Dinheiro } from "../models/DinheiroDTO";
-import TagLabel from "./TagmarUI/Label";
+import { Dinheiro } from "../../models/DinheiroDTO";
+import TagLabel from "../TagmarUI/Label";
 
 type MoedaIn = {
 	valor?: number;
@@ -22,9 +22,10 @@ type In = {
 	custo: Dinheiro;
 };
 
-const Custo = ({ custo }: In) => {
+const TagCusto = ({ custo }: In) => {
 	return (
 		<Box display="flex" gap={3}>
+			<TagLabel>Custo:</TagLabel>
 			<Moeda valor={custo.ouro} color="#FFD700" />
 			<Moeda valor={custo.prata} color="#C0C0C0" />
 			<Moeda valor={custo.cobre} color="#B87333" />
@@ -32,4 +33,4 @@ const Custo = ({ custo }: In) => {
 	);
 };
 
-export default Custo;
+export default TagCusto;

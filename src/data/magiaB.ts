@@ -242,7 +242,7 @@ O efeito plástico deste feitiço causa um quadro espantoso fazendo com que o re
 					id: "0",
 					alcance: { tipo: AlcanceEnum.METRO, valor: 3, isRaio: true },
 					duracao: { tipo: DuracaoEnum.DIA, valor: 1 },
-					dinheiro: { ouro: 2 },
+					custo: { ouro: 2 },
 					descricao:
 						"Impede a entrada de criaturas animadas que sejam de estágio 2 ou inferior. A área de atuação da magia é de 3m de raio.",
 					nivel: 1,
@@ -251,7 +251,7 @@ O efeito plástico deste feitiço causa um quadro espantoso fazendo com que o re
 					id: "1",
 					alcance: { tipo: AlcanceEnum.METRO, valor: 5, isRaio: true },
 					duracao: { tipo: DuracaoEnum.SEMANA, valor: 1 },
-					dinheiro: { ouro: 4 },
+					custo: { ouro: 4 },
 					descricao:
 						"Impede a entrada de criaturas animadas que sejam de estágio 4 ou inferior. A área de atuação da magia é de 5m de raio.",
 					nivel: 2,
@@ -260,7 +260,7 @@ O efeito plástico deste feitiço causa um quadro espantoso fazendo com que o re
 					id: "2",
 					alcance: { tipo: AlcanceEnum.METRO, valor: 7, isRaio: true },
 					duracao: { tipo: DuracaoEnum.SEMANA, valor: 2 },
-					dinheiro: { ouro: 8 },
+					custo: { ouro: 8 },
 					descricao:
 						"Impede a entrada de criaturas animadas e construídas que sejam de estágio 7 ou inferior. A área de atuação da magia é de 7m de raio.",
 					nivel: 4,
@@ -269,7 +269,7 @@ O efeito plástico deste feitiço causa um quadro espantoso fazendo com que o re
 					id: "3",
 					alcance: { tipo: AlcanceEnum.METRO, valor: 15, isRaio: true },
 					duracao: { tipo: DuracaoEnum.MES, valor: 1 },
-					dinheiro: { ouro: 12 },
+					custo: { ouro: 12 },
 					descricao:
 						"Impede a entrada de criaturas animadas e construídas que sejam de estágio 10 ou inferior. A área de atuação da magia é de 15m de raio.",
 					nivel: 6,
@@ -278,7 +278,7 @@ O efeito plástico deste feitiço causa um quadro espantoso fazendo com que o re
 					id: "4",
 					alcance: { tipo: AlcanceEnum.METRO, valor: 25, isRaio: true },
 					duracao: { tipo: DuracaoEnum.MES, valor: 6 },
-					dinheiro: { ouro: 16 },
+					custo: { ouro: 16 },
 					descricao:
 						"Impede a entrada de criaturas animadas e construídas que sejam de estágio 13 ou inferior. A área de atuação da magia é de 25m de raio.",
 					nivel: 8,
@@ -287,7 +287,7 @@ O efeito plástico deste feitiço causa um quadro espantoso fazendo com que o re
 					id: "5",
 					alcance: { tipo: AlcanceEnum.METRO, valor: 50, isRaio: true },
 					duracao: { tipo: DuracaoEnum.ANO_E_DIA },
-					dinheiro: { ouro: 20 },
+					custo: { ouro: 20 },
 					descricao:
 						"Impede a entrada de criaturas animadas e construídas que sejam de estágio 16 ou inferior. A área de atuação da magia é de 50m de raio A duração do efeito é de 1 ano e 1 dia.",
 					nivel: 10,

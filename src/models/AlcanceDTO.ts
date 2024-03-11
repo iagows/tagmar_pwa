@@ -34,8 +34,9 @@ export const alcanceToString = (alcance: Alcance): string => {
 		return alcance.outraDescricao;
 	}
 	if (
-		alcance.tipo === AlcanceEnum.TOQUE ||
-		alcance.tipo === AlcanceEnum.PESSOAL
+		[AlcanceEnum.TOQUE, AlcanceEnum.PESSOAL, AlcanceEnum.VARIAVEL].includes(
+			alcance.tipo,
+		)
 	) {
 		return alcance.tipo;
 	}
