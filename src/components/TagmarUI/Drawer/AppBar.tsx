@@ -12,7 +12,7 @@ type In = {
 };
 
 const TagAppBar = ({ onMenu }: In) => {
-	const { isMainRoute, title } = useRouteMatch();
+	const { isMainRoute, title, rightAction } = useRouteMatch();
 
 	return (
 		<HideOnScroll>
@@ -37,9 +37,14 @@ const TagAppBar = ({ onMenu }: In) => {
 					>
 						{isMainRoute ? <MenuIcon /> : <ArrowBack />}
 					</IconButton>
-					<TagLabel variant="h6" noWrap component="div">
+					<TagLabel variant="h6" noWrap component="div" flexGrow={1}>
 						{title}
 					</TagLabel>
+					{rightAction && (
+						<IconButton edge="end" onClick={rightAction.action} disabled>
+							<rightAction.Icon />
+						</IconButton>
+					)}
 				</Toolbar>
 			</AppBar>
 		</HideOnScroll>

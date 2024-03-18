@@ -15,8 +15,18 @@ import PageSobre from "../pages/PageSobre";
 import { RoutePath } from "./RouteNames";
 import { RouteHandle } from "../util/commonTypes";
 import { Constants } from "../util/constants";
+import AddIcon from "@mui/icons-material/Add";
 
 const BASENAME = "/tagmar_pwa";
+
+const FICHAS_HANDLE: RouteHandle = {
+	title: Constants.PAGES.fichas,
+	isMainRoute: true,
+	rightAction: {
+		Icon: AddIcon,
+		action: () => console.log("clicou"),
+	},
+};
 
 export const route = createBrowserRouter(
 	[
@@ -29,10 +39,7 @@ export const route = createBrowserRouter(
 				{
 					path: RoutePath.FICHAS,
 					element: <PageFichas />,
-					handle: {
-						title: Constants.PAGES.fichas,
-						isMainRoute: true,
-					} as RouteHandle,
+					handle: FICHAS_HANDLE,
 				},
 				{
 					path: RoutePath.FICHA,
