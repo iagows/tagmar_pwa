@@ -9,7 +9,17 @@ import {
 	update as updateFicha,
 } from "./index";
 
-type Out = CrudType<Ficha>;
+type Out = CrudType<Ficha> & { changeFav: (id: string) => void };
+
+const sorter = (a: Ficha, b: Ficha): number => {
+	if (a.isFavorito && !b.isFavorito) {
+		return -1;
+	}
+	if (b.isFavorito) {
+		return 1;
+	}
+	return 0;
+};
 
 const useFicha = (): Out => {
 	const dispatch = useAppDispatch();
@@ -34,12 +44,18 @@ const useFicha = (): Out => {
 		dispatch(deleteFicha(toArray(ids)));
 	}
 
+	function changeFav(id: string): void {
+		const ficha = read(id)[0];
+		update({ ...ficha, isFavorito: !ficha.isFavorito });
+	}
+
 	return {
-		list,
+		list: [...list].sort(sorter),
 		read,
 		update,
 		delete_,
 		create,
+		changeFav,
 	};
 };
 

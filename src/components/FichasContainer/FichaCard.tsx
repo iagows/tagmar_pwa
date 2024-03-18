@@ -18,6 +18,7 @@ import { Ficha } from "../../models/FichaDTO";
 import { THEME_OPTIONS } from "../../theme";
 import { changeOpacity } from "../../util/functions";
 import TagLabel from "../TagmarUI/Label";
+import useFicha from "../../stores/slices/fichas/useFicha";
 
 type In = {
 	ficha: Ficha;
@@ -26,6 +27,7 @@ type In = {
 const FichaCard = ({ ficha }: In) => {
 	const RacaImage = getAsset(ficha.raca);
 	const ProfissaoImage = getAsset(ficha.profissao);
+	const { changeFav } = useFicha();
 	return (
 		<Card
 			sx={{
@@ -67,7 +69,7 @@ const FichaCard = ({ ficha }: In) => {
 					justifyContent: "space-around",
 				}}
 			>
-				<IconButton aria-label="Favorito">
+				<IconButton aria-label="Favorito" onClick={() => changeFav(ficha.id)}>
 					{ficha.isFavorito ? (
 						<FavoriteIcon color="primary" />
 					) : (
