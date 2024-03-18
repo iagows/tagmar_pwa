@@ -1,10 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
-import configReducer from "./slices/configurations";
 import fichaReducer from "./slices/fichas";
 
 export const store = configureStore({
 	reducer: {
-		config: configReducer,
 		fichas: fichaReducer,
 	},
 });

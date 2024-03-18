@@ -1,7 +1,7 @@
-import MenuIcon from "@mui/icons-material/Menu";
 import ArrowBack from "@mui/icons-material/ArrowBack";
+import MenuIcon from "@mui/icons-material/Menu";
 import { AppBar, IconButton, Toolbar } from "@mui/material";
-import useConfiguration from "../../../stores/slices/configurations/useConfiguration";
+import useRouteMatch from "../../../hooks/useRouteMatch";
 import { THEME_OPTIONS } from "../../../theme";
 import { Constants } from "../../../util/constants";
 import HideOnScroll from "../../HideOnScroll";
@@ -12,7 +12,7 @@ type In = {
 };
 
 const TagAppBar = ({ onMenu }: In) => {
-	const { titulo, showBackButton } = useConfiguration();
+	const { isMainRoute, title } = useRouteMatch();
 
 	return (
 		<HideOnScroll>
@@ -35,10 +35,10 @@ const TagAppBar = ({ onMenu }: In) => {
 						onClick={onMenu}
 						sx={{ mr: 2, display: { sm: "none" } }}
 					>
-						{showBackButton ? <ArrowBack /> : <MenuIcon />}
+						{isMainRoute ? <MenuIcon /> : <ArrowBack />}
 					</IconButton>
 					<TagLabel variant="h6" noWrap component="div">
-						{titulo}
+						{title}
 					</TagLabel>
 				</Toolbar>
 			</AppBar>

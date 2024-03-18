@@ -8,7 +8,6 @@ import TagLabel from "../components/TagmarUI/Label";
 import { SectionPage } from "../components/TagmarUI/Section";
 import UnderConstruction from "../components/UnderConstruction";
 import { getMagia } from "../data/magiasCompiladas";
-import usePageTopBar from "../hooks/usePageTopBar";
 import { Magia, MagiaEnum } from "../models/magia/MagiaDTO";
 import { Constants } from "../util/constants";
 
@@ -16,10 +15,6 @@ const PageMagia = () => {
 	const { id } = useParams();
 	const magia = getMagia((id as MagiaEnum) ?? MagiaEnum.abrigo) as Magia;
 
-	usePageTopBar({
-		titulo: magia.nome,
-		showBackButton: true,
-	});
 	return (
 		<PageContainer>
 			<UnderConstruction descricao="Revisar todas magias: descrição, custo, alcance etc. Revisar níveis (alguns possuem alcance, custo etc próprios" />

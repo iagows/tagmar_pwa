@@ -8,8 +8,6 @@ import { useState } from "react";
 import PageContainer from "../components/PageContainer";
 import UnderConstruction from "../components/UnderConstruction";
 import { THEME_OPTIONS } from "../theme";
-import { Constants } from "../util/constants";
-import usePageTopBar from "../hooks/usePageTopBar";
 
 type Config = {
 	magiaExata: boolean;
@@ -24,7 +22,6 @@ const SWITCH_CSS = {
 } as const;
 
 const PageConfiguracoes = () => {
-	usePageTopBar({ titulo: Constants.PAGES.configuracoes });
 	const [state, setState] = useState<Config>({
 		magiaExata: true,
 		agruparMagias: false,

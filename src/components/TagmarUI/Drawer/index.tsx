@@ -1,10 +1,10 @@
 import { Box, CssBaseline, Drawer, SwipeableDrawer } from "@mui/material";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import useRouteMatch from "../../../hooks/useRouteMatch";
 import { Constants } from "../../../util/constants";
 import TagAppBar from "./AppBar";
 import DrawerContent from "./DrawerContent";
-import useConfiguration from "../../../stores/slices/configurations/useConfiguration";
-import { useNavigate } from "react-router-dom";
 
 const DRAWER_BOX_SX = {
 	width: { sm: Constants.DRAWER_WIDTH },
@@ -29,7 +29,9 @@ const DRAWER_SX_PERM = {
 const TagDrawer = () => {
 	const [isClosing, setIsClosing] = useState<boolean>(false);
 	const [mobileOpen, setMobileOpen] = useState<boolean>(false);
-	const { showBackButton } = useConfiguration();
+
+	const { isMainRoute } = useRouteMatch();
+
 	const navigate = useNavigate();
 
 	const handleDrawerOpen = () => {
@@ -47,13 +49,13 @@ const TagDrawer = () => {
 	};
 
 	const handleDrawerToggle = () => {
-		if (!showBackButton && !isClosing) {
+		if (isMainRoute && !isClosing) {
 			setMobileOpen(!mobileOpen);
 		}
 	};
 
 	const goBack = () => {
-		if (showBackButton) {
+		if (!isMainRoute) {
 			navigate(-1);
 		}
 	};

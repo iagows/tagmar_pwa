@@ -2,11 +2,8 @@ import { SearchOutlined } from "@mui/icons-material";
 import { InputAdornment, TextField } from "@mui/material";
 import PageContainer from "../components/PageContainer";
 import UnderConstruction from "../components/UnderConstruction";
-import usePageTopBar from "../hooks/usePageTopBar";
-import { Constants } from "../util/constants";
 
 const PageHabilidades = () => {
-	usePageTopBar({ titulo: Constants.PAGES.habilidades });
 	return (
 		<PageContainer>
 			<UnderConstruction descricao="tudo" />

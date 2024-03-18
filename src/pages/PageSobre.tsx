@@ -3,12 +3,8 @@ import PageContainer from "../components/PageContainer";
 import TagLabel from "../components/TagmarUI/Label";
 import { SectionPage } from "../components/TagmarUI/Section";
 import { ABOUT_DATA } from "../data/about";
-import usePageTopBar from "../hooks/usePageTopBar";
-import { Constants } from "../util/constants";
 
 const PageSobre = () => {
-	usePageTopBar({ titulo: Constants.PAGES.sobre });
-
 	return (
 		<PageContainer>
 			<TagLabel sx={{ marginBottom: 1 }}>
