@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
 import { RouterProvider } from "react-router-dom";
 import { registerSW } from "virtual:pwa-register";
-import { route } from "./pages/AppRoute.tsx";
+import { route } from "./routing/AppRoute.tsx";
 import "./reset.css";
 import { store } from "./stores/store.ts";
 import { ThemedApp } from "./theme/index.tsx";

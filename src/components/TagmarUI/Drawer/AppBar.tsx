@@ -12,8 +12,7 @@ type In = {
 };
 
 const TagAppBar = ({ onMenu }: In) => {
-	const { titulo } = useConfiguration();
-	const { showBackButton } = useConfiguration();
+	const { titulo, showBackButton } = useConfiguration();
 
 	return (
 		<HideOnScroll>

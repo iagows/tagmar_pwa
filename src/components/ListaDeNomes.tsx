@@ -3,7 +3,7 @@ import { Button, Grid } from "@mui/material";
 import { Link } from "react-router-dom";
 import { AbstractDTO as IdT } from "../models/Abstract/IdDTO";
 import { AbstractDTO as NT } from "../models/Abstract/NameDTO";
-import { RoutePath } from "../pages/RouteNames";
+import { RoutePath } from "../routing/RouteNames";
 import { THEME_OPTIONS } from "../theme";
 import { Constants } from "../util/constants";
 import { routeTo } from "../util/functions";

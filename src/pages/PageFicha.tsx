@@ -4,7 +4,7 @@ import usePageTopBar from "../hooks/usePageTopBar";
 
 const PageFicha = () => {
 	// mudar menu
-	usePageTopBar("Nome do personagem");
+	usePageTopBar({ titulo: "Nome do personagem" });
 	return (
 		<PageContainer>
 			<UnderConstruction descricao="tudo" />

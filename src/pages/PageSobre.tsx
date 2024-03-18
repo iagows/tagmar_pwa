@@ -7,7 +7,7 @@ import usePageTopBar from "../hooks/usePageTopBar";
 import { Constants } from "../util/constants";
 
 const PageSobre = () => {
-	usePageTopBar(Constants.PAGES.sobre);
+	usePageTopBar({ titulo: Constants.PAGES.sobre });
 
 	return (
 		<PageContainer>

@@ -6,7 +6,7 @@ import usePageTopBar from "../hooks/usePageTopBar";
 import { Constants } from "../util/constants";
 
 const PageHabilidades = () => {
-	usePageTopBar(Constants.PAGES.habilidades);
+	usePageTopBar({ titulo: Constants.PAGES.habilidades });
 	return (
 		<PageContainer>
 			<UnderConstruction descricao="tudo" />

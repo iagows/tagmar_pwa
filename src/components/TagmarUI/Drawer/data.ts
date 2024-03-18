@@ -11,7 +11,7 @@ import {
 
 import { SvgIconTypeMap } from "@mui/material";
 import { OverridableComponent } from "@mui/material/OverridableComponent";
-import { RoutePath } from "../../../pages/RouteNames";
+import { RoutePath } from "../../../routing/RouteNames";
 
 export namespace Drawer {
 	export type Item = {

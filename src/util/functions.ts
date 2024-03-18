@@ -1,4 +1,4 @@
-import { RoutePath } from "../pages/RouteNames";
+import { RoutePath } from "../routing/RouteNames";
 import Color from "./Color";
 import { SingleOrArray } from "./commonTypes";
 

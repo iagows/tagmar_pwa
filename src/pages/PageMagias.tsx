@@ -11,10 +11,12 @@ import { MAGIAS } from "../data/magiasCompiladas";
 import useListFilter from "../hooks/useListFilter";
 import usePageTopBar from "../hooks/usePageTopBar";
 import { Constants } from "../util/constants";
-import { RoutePath } from "./RouteNames";
+import { RoutePath } from "../routing/RouteNames";
 
 const PageMagias = () => {
-	usePageTopBar(Constants.PAGES.magias);
+	usePageTopBar({
+		titulo: Constants.PAGES.magias,
+	});
 	const [text, setText] = useState<string>("");
 	const [selectedCharButton, setSelectedCharButton] = useState<string>("");
 

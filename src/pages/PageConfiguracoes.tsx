@@ -24,7 +24,7 @@ const SWITCH_CSS = {
 } as const;
 
 const PageConfiguracoes = () => {
-	usePageTopBar(Constants.PAGES.configuracoes);
+	usePageTopBar({ titulo: Constants.PAGES.configuracoes });
 	const [state, setState] = useState<Config>({
 		magiaExata: true,
 		agruparMagias: false,
