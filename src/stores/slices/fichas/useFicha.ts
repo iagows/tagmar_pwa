@@ -6,21 +6,11 @@ import { CrudType } from "../CrudTypes";
 import {
 	create as createFicha,
 	delete_ as deleteFicha,
-	update as updateFicha,
 	invertFavorite,
+	update as updateFicha,
 } from "./index";
 
 type Out = CrudType<Ficha> & { changeFav: (id: string) => void };
-
-const sorter = (a: Ficha, b: Ficha): number => {
-	if (a.isFavorito && !b.isFavorito) {
-		return -1;
-	}
-	if (b.isFavorito) {
-		return 1;
-	}
-	return 0;
-};
 
 const useFicha = (): Out => {
 	const dispatch = useAppDispatch();
