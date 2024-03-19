@@ -22,3 +22,6 @@ lighthouseRemoto: # mostra qualidade pwa
 deploy: # envia para o github
 	@yarn build
 	@yarn deploy
+
+upgrade: # atualiza as libs
+	@yarn upgrade-interactive
