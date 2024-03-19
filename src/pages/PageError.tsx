@@ -1,4 +1,6 @@
+import { Box } from "@mui/material";
 import { Link, useLocation, useRouteError } from "react-router-dom";
+import TagLabel from "../components/TagmarUI/Label";
 
 const PageError = () => {
 	// mudar menu
@@ -7,12 +9,14 @@ const PageError = () => {
 	const { pathname } = useLocation();
 	const error = useRouteError() as undefined | { message: string };
 	return (
-		<div>
-			<p>
+		<Box>
+			<TagLabel>
 				{pathname} - Erro: {error?.message}
-			</p>
-			<Link to="/">Go back to Home Page</Link>
-		</div>
+			</TagLabel>
+			<Link to="/">
+				<TagLabel>Go back to Home Page</TagLabel>
+			</Link>
+		</Box>
 	);
 };
 

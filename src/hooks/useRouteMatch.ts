@@ -9,8 +9,14 @@ const match = (list: UIMatch<unknown, unknown>[]): RouteHandle => {
 
 const useRouteMatch = (): RouteHandle => {
 	const matches = useMatches();
+	if (matches) {
+		return match(matches);
+	}
 
-	return match(matches);
+	return {
+		title: "Erro",
+		isMainRoute: false,
+	};
 };
 
 export default useRouteMatch;

@@ -5,7 +5,7 @@ export type SingleOrArray<T> = T | T[];
 
 export type RouteHandle = {
 	title: string;
-	isMainRoute: boolean;
+	isMainRoute?: boolean;
 	rightAction?: {
 		// biome-ignore lint/complexity/noBannedTypes: <explanation>
 		Icon: OverridableComponent<SvgIconTypeMap<{}, "svg">> & {
