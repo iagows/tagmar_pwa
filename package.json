@@ -11,7 +11,13 @@
 		"preview": "vite preview",
 		"predeploy": "npm run build",
 		"gen-assets": "pwa-assets-generator",
-		"deploy": "gh-pages -d dist"
+		"deploy": "gh-pages -d dist",
+		"incPatch": "node predeploy.js p",
+		"incMinor": "node predeploy.js m",
+		"incMajor": "node predeploy.js M",
+		"deployPatch": "yarn incPatch && yarn deploy",
+		"deployMinor": "yarn incMinor && yarn deploy",
+		"deployMajor": "yarn incMajor && yarn deploy"
 	},
 	"peerDependencies": {
 		"react": "^17.0.0 || ^18.0.0",
