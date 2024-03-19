@@ -75,7 +75,7 @@ function doSomething(something) {
 	const v = getVersion();
 	something(v);
 	saveVersion(v);
-	console.log("foi");
+	console.log("Versão incrementada");
 }
 
 const minor = () => {
