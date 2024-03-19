@@ -1,16 +1,16 @@
 import { UIMatch, useMatches } from "react-router-dom";
 import { RouteHandle } from "../util/commonTypes";
 
-const match = (list: UIMatch<unknown, unknown>[]): RouteHandle => {
+const match = (list: UIMatch<unknown, unknown>[]): RouteHandle[] => {
 	return list
 		.map((m) => m.handle as RouteHandle | undefined)
-		.filter((m): m is RouteHandle => !!m)[0];
+		.filter((m): m is RouteHandle => !!m);
 };
 
 const useRouteMatch = (): RouteHandle => {
 	const matches = useMatches();
-	if (matches) {
-		return match(matches);
+	if (matches?.length > 0) {
+		return match(matches)[0];
 	}
 
 	return {
