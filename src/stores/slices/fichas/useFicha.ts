@@ -7,6 +7,7 @@ import {
 	create as createFicha,
 	delete_ as deleteFicha,
 	update as updateFicha,
+	invertFavorite,
 } from "./index";
 
 type Out = CrudType<Ficha> & { changeFav: (id: string) => void };
@@ -45,12 +46,11 @@ const useFicha = (): Out => {
 	}
 
 	function changeFav(id: string): void {
-		const ficha = read(id)[0];
-		update({ ...ficha, isFavorito: !ficha.isFavorito });
+		dispatch(invertFavorite(id));
 	}
 
 	return {
-		list: [...list].sort(sorter),
+		list,
 		read,
 		update,
 		delete_,

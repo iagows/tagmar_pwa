@@ -46,6 +46,15 @@ const initialList: Ficha[] = [
 	},
 ];
 
+const on = (id: string, list: Ficha[], cb: (ficha: Ficha) => void) => {
+	const index = list.findIndex((i) => i.id === id);
+	if (index > -1) {
+		const ficha = list[index];
+		cb(ficha);
+		list[index] = ficha;
+	}
+};
+
 const appSlice = createSlice({
 	name: "fichas",
 	initialState: {
@@ -72,8 +81,13 @@ const appSlice = createSlice({
 				}
 			}
 		},
+		invertFavorite: (state, action: PayloadAction<string>) => {
+			on(action.payload, state.list, (f) => {
+				f.isFavorito = !f.isFavorito;
+			});
+		},
 	},
 });
 
 export default appSlice.reducer;
-export const { create, update, delete_ } = appSlice.actions;
+export const { create, update, delete_, invertFavorite } = appSlice.actions;

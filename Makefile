@@ -32,4 +32,5 @@ deployPatch: # envia para o github
 	@yarn deploy
 
 upgrade: # atualiza as libs
+	@nvm use
 	@yarn upgrade-interactive
