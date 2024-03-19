@@ -1,7 +1,19 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { compareAsc } from "date-fns";
 import { Ficha } from "../../../models/FichaDTO";
 import { ProfissaoEnum } from "../../../models/ProfissaoDTO";
 import { RacaEnum } from "../../../models/RacaDTO";
+
+const sorter = (a: Ficha, b: Ficha): number => {
+	if (a.isFavorito && !b.isFavorito) {
+		return -1;
+	}
+	if (b.isFavorito && !a.isFavorito) {
+		return 1;
+	}
+
+	return compareAsc(a.ultimaVisualizacao, b.ultimaVisualizacao);
+};
 
 const initialList: Ficha[] = [
 	{
@@ -14,6 +26,7 @@ const initialList: Ficha[] = [
 		xp: 20,
 		raca: RacaEnum.ELFO_DOURADO,
 		criacao: "2024-03-06T15:30:00.000-03:00",
+		ultimaVisualizacao: "2024-03-10T15:30:00.000-03:00",
 		// atributos: new Map(),
 		// habilidades: new Map(),
 	},
@@ -27,6 +40,7 @@ const initialList: Ficha[] = [
 		xp: 30,
 		raca: RacaEnum.HUMANO,
 		criacao: "2024-03-06T15:30:00.000-03:00",
+		ultimaVisualizacao: "2024-03-07T15:30:00.000-03:00",
 		// atributos: new Map(),
 		// habilidades: new Map(),
 		isFavorito: true,
@@ -41,10 +55,11 @@ const initialList: Ficha[] = [
 		xp: 40,
 		raca: RacaEnum.ANAO,
 		criacao: "2024-03-06T15:30:00.000-03:00",
+		ultimaVisualizacao: "2024-03-08T15:30:00.000-03:00",
 		// atributos: new Map(),
 		// habilidades: new Map(),
 	},
-];
+].sort(sorter);
 
 const on = (id: string, list: Ficha[], cb: (ficha: Ficha) => void) => {
 	const index = list.findIndex((i) => i.id === id);
@@ -55,7 +70,7 @@ const on = (id: string, list: Ficha[], cb: (ficha: Ficha) => void) => {
 	}
 };
 
-const appSlice = createSlice({
+const fichasSlice = createSlice({
 	name: "fichas",
 	initialState: {
 		list: initialList,
@@ -85,9 +100,10 @@ const appSlice = createSlice({
 			on(action.payload, state.list, (f) => {
 				f.isFavorito = !f.isFavorito;
 			});
+			state.list.sort(sorter);
 		},
 	},
 });
 
-export default appSlice.reducer;
-export const { create, update, delete_, invertFavorite } = appSlice.actions;
+export default fichasSlice.reducer;
+export const { create, update, delete_, invertFavorite } = fichasSlice.actions;

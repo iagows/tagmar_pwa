@@ -16,6 +16,7 @@ const FichaDTO = z
 		profissao: z.nativeEnum(ProfissaoEnum),
 		// atributos: z.map(z.nativeEnum(AtributoEnum), z.number()),
 		// habilidades: z.map(z.nativeEnum(HabilidadeEnum), z.number()),
+		ultimaVisualizacao: z.string(),
 	})
 	.merge(IdDTO.IdDTO)
 	.merge(NameDTO.NameDTO)
