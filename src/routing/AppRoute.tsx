@@ -28,6 +28,11 @@ const FICHAS_HANDLE: RouteHandle = {
 	},
 };
 
+const FICHA_HANDLE: RouteHandle = {
+	title: "Personagem",
+	isMainRoute: false,
+};
+
 export const route = createBrowserRouter(
 	[
 		{
@@ -44,9 +49,7 @@ export const route = createBrowserRouter(
 				{
 					path: RoutePath.FICHA,
 					element: <PageFicha />,
-					handle: {
-						title: "Personagem",
-					} as RouteHandle,
+					handle: FICHA_HANDLE,
 				},
 				{
 					path: RoutePath.DADO,
@@ -69,6 +72,7 @@ export const route = createBrowserRouter(
 					element: <PageMagia />,
 					handle: {
 						title: "Magia",
+						isMainRoute: false,
 					} as RouteHandle,
 				},
 				{
@@ -84,6 +88,7 @@ export const route = createBrowserRouter(
 					element: <PageHabilidade />,
 					handle: {
 						title: "Habilidade",
+						isMainRoute: false,
 					} as RouteHandle,
 				},
 				{
@@ -99,6 +104,7 @@ export const route = createBrowserRouter(
 					element: <PageMapa />,
 					handle: {
 						title: "Mapa",
+						isMainRoute: false,
 					} as RouteHandle,
 				},
 				{
@@ -120,6 +126,10 @@ export const route = createBrowserRouter(
 				{
 					index: true,
 					element: <Navigate to={RoutePath.FICHAS} replace />,
+					handle: {
+						title: "",
+						isMainRoute: false,
+					} as RouteHandle,
 				},
 			],
 		},

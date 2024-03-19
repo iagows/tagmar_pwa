@@ -10,6 +10,7 @@ const PageError = () => {
 	const error = useRouteError() as undefined | { message: string };
 	return (
 		<Box>
+			<TagLabel>Tagmar app. Versão: {__APP_VERSION__}</TagLabel>
 			<TagLabel>
 				{pathname} - Erro: {error?.message}
 			</TagLabel>
