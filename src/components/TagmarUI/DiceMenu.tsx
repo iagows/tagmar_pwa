@@ -8,9 +8,10 @@ import {
 } from "@mui/material";
 import { useCallback, useState } from "react";
 import { DICE_THEMES_COLOR_SET, ThemeColorSet } from "../../3d/util";
+import { VoidCallback } from "../../util/commonTypes";
 
 type C = {
-	onRodar: () => void;
+	onRodar: VoidCallback;
 	box: DiceBox;
 };
 

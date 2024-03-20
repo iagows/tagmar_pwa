@@ -11,7 +11,7 @@ const PageSobre = () => {
 				Os links levarão para fora do aplicativo. Clique/toque com cautela.
 			</TagLabel>
 			{ABOUT_DATA.map((item) => (
-				<SectionPage.Section key={item.id} title={item.title}>
+				<SectionPage.Section key={item.id} title={item.id}>
 					{item.info.map((info, index) => (
 						<TagLabel key={`${info.text}_${index}`}>
 							{info.url ? (

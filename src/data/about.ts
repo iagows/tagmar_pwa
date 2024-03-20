@@ -1,22 +1,20 @@
-export type AboutAccordionName =
-	| "tagmar"
-	| "tagmar licence"
-	| "app license"
-	| "bug"
-	| "forum"
-	| "app"
-	| "thanks";
+export enum AboutAccordionName {
+	TAGMAR = "Tagmar",
+	RPG_LICENCE = "Licença do RPG Tagmar",
+	APP_LICENCE = "Licença desse Site/Aplicativo",
+	BUG = "Bugs e Sugestões",
+	ABOUT = "Sobre o App",
+	THANKS = "Agradecimentos",
+}
 
 type AccordionData = {
 	id: AboutAccordionName;
-	title: string;
 	info: { text: string; url?: string }[];
 };
 
 export const ABOUT_DATA: AccordionData[] = [
 	{
-		id: "tagmar",
-		title: "Tagmar",
+		id: AboutAccordionName.TAGMAR,
 		info: [
 			{
 				text: "Site oficial",
@@ -25,8 +23,7 @@ export const ABOUT_DATA: AccordionData[] = [
 		],
 	},
 	{
-		id: "tagmar licence",
-		title: "Licença do RPG Tagmar",
+		id: AboutAccordionName.RPG_LICENCE,
 		info: [
 			{
 				text: "Atribuição-NãoComercial-CompartilhaIgual 3.0 Brasil",
@@ -35,8 +32,7 @@ export const ABOUT_DATA: AccordionData[] = [
 		],
 	},
 	{
-		id: "app license",
-		title: "Licença desse Site/Aplicativo",
+		id: AboutAccordionName.APP_LICENCE,
 		info: [
 			{
 				text: "GNU General Public License v3.0",
@@ -45,8 +41,7 @@ export const ABOUT_DATA: AccordionData[] = [
 		],
 	},
 	{
-		id: "bug",
-		title: "Bugs e sugestões",
+		id: AboutAccordionName.BUG,
 		info: [
 			{
 				text: "Encontrou um erro ou tem uma sugestão?",
@@ -55,18 +50,7 @@ export const ABOUT_DATA: AccordionData[] = [
 		],
 	},
 	{
-		id: "forum",
-		title: "Fórum oficial",
-		info: [
-			{
-				text: "Conheça o fórum oficial",
-				url: "https://www.tagmar.com.br/forum/default.aspx?g=active",
-			},
-		],
-	},
-	{
-		id: "app",
-		title: "Sobre o App",
+		id: AboutAccordionName.ABOUT,
 		info: [
 			{
 				text: "Código-fonte",
@@ -75,8 +59,7 @@ export const ABOUT_DATA: AccordionData[] = [
 		],
 	},
 	{
-		id: "thanks",
-		title: "Agradecimentos",
+		id: AboutAccordionName.THANKS,
 		info: [
 			{
 				text: "Edilton Oliveira",

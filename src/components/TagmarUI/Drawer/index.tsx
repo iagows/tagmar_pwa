@@ -2,6 +2,7 @@ import { Box, CssBaseline, Drawer, SwipeableDrawer } from "@mui/material";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import useRouteMatch from "../../../hooks/useRouteMatch";
+import { VoidCallback } from "../../../util/commonTypes";
 import { Constants } from "../../../util/constants";
 import TagAppBar from "./AppBar";
 import DrawerContent from "./DrawerContent";
@@ -26,7 +27,16 @@ const DRAWER_SX_PERM = {
 	"& .MuiDrawer-paper": DRAWER_CSS,
 } as const;
 
-const TagDrawer = () => {
+type DrawerType = {
+	goBack: VoidCallback;
+	mobileOpen: boolean;
+	handleDrawerOpen: VoidCallback;
+	handleDrawerClose: VoidCallback;
+	handleDrawerToggle: VoidCallback;
+	handleDrawerTransitionEnd: VoidCallback;
+};
+
+const useDrawer = (): DrawerType => {
 	const [isClosing, setIsClosing] = useState<boolean>(false);
 	const [mobileOpen, setMobileOpen] = useState<boolean>(false);
 
@@ -59,6 +69,25 @@ const TagDrawer = () => {
 			navigate(-1);
 		}
 	};
+	return {
+		goBack,
+		mobileOpen,
+		handleDrawerOpen,
+		handleDrawerClose,
+		handleDrawerToggle,
+		handleDrawerTransitionEnd,
+	};
+};
+
+const TagDrawer = () => {
+	const {
+		goBack,
+		mobileOpen,
+		handleDrawerOpen,
+		handleDrawerClose,
+		handleDrawerToggle,
+		handleDrawerTransitionEnd,
+	} = useDrawer();
 
 	return (
 		<Box onClick={handleDrawerToggle}>

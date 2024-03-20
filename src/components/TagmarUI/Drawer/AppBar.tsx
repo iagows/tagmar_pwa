@@ -3,12 +3,13 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { AppBar, IconButton, Toolbar } from "@mui/material";
 import useRouteMatch from "../../../hooks/useRouteMatch";
 import { THEME_OPTIONS } from "../../../theme";
+import { VoidCallback } from "../../../util/commonTypes";
 import { Constants } from "../../../util/constants";
 import HideOnScroll from "../../HideOnScroll";
 import TagLabel from "../Label";
 
 type In = {
-	onMenu: () => void;
+	onMenu: VoidCallback;
 };
 
 const TagAppBar = ({ onMenu }: In) => {

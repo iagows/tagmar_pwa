@@ -1,24 +1,24 @@
 import { Magia, MagiaEnum } from "../models/magia/MagiaDTO";
-import { Magias as MagiasA } from "./magiaA";
-import { Magias as MagiasB } from "./magiaB";
-import { Magias as MagiasC } from "./magiaC";
-import { Magias as MagiasD } from "./magiaD";
-import { Magias as MagiasE } from "./magiaE";
-import { Magias as MagiasF } from "./magiaF";
-import { Magias as MagiasG } from "./magiaG";
-import { Magias as MagiasH } from "./magiaH";
-import { Magias as MagiasI } from "./magiaI";
-import { Magias as MagiasL } from "./magiaL";
-import { Magias as MagiasM } from "./magiaM";
-import { Magias as MagiasN } from "./magiaN";
-import { Magias as MagiasO } from "./magiaO";
-import { Magias as MagiasP } from "./magiaP";
-import { Magias as MagiasQ } from "./magiaQ";
-import { Magias as MagiasR } from "./magiaR";
-import { Magias as MagiasS } from "./magiaS";
-import { Magias as MagiasT } from "./magiaT";
-import { Magias as MagiasU } from "./magiaU";
-import { Magias as MagiasV } from "./magiaV";
+import { Magias as MagiasA } from "./magia/magiaA";
+import { Magias as MagiasB } from "./magia/magiaB";
+import { Magias as MagiasC } from "./magia/magiaC";
+import { Magias as MagiasD } from "./magia/magiaD";
+import { Magias as MagiasE } from "./magia/magiaE";
+import { Magias as MagiasF } from "./magia/magiaF";
+import { Magias as MagiasG } from "./magia/magiaG";
+import { Magias as MagiasH } from "./magia/magiaH";
+import { Magias as MagiasI } from "./magia/magiaI";
+import { Magias as MagiasL } from "./magia/magiaL";
+import { Magias as MagiasM } from "./magia/magiaM";
+import { Magias as MagiasN } from "./magia/magiaN";
+import { Magias as MagiasO } from "./magia/magiaO";
+import { Magias as MagiasP } from "./magia/magiaP";
+import { Magias as MagiasQ } from "./magia/magiaQ";
+import { Magias as MagiasR } from "./magia/magiaR";
+import { Magias as MagiasS } from "./magia/magiaS";
+import { Magias as MagiasT } from "./magia/magiaT";
+import { Magias as MagiasU } from "./magia/magiaU";
+import { Magias as MagiasV } from "./magia/magiaV";
 
 export const MAGIAS: Magia[] = [
 	...MagiasA.lista,
