@@ -4,7 +4,13 @@ import { AbstractDTO as NameDTO } from "./Abstract/NameDTO";
 import { AbstractDTO as DescDTO } from "./Abstract/DescriptionDTO";
 
 export enum AtributoEnum {
+	AGILIDADE = "Agilidade",
+	AURA = "Aura",
+	CARISMA = "Carisma",
+	FISICO = "Físico",
 	FORCA = "Força",
+	INTELECTO = "Intelecto",
+	PERCEPCAO = "Percepção",
 }
 
 const AtributoDTO = z
