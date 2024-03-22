@@ -15,19 +15,20 @@ import {
 } from "@mui/material";
 import getAsset from "../../assets/app";
 import { Ficha } from "../../models/FichaDTO";
+import useFicha from "../../stores/slices/fichas/useFicha";
 import { THEME_OPTIONS } from "../../theme";
 import { changeOpacity } from "../../util/functions";
 import TagLabel from "../TagmarUI/Label";
-import useFicha from "../../stores/slices/fichas/useFicha";
 
 type In = {
 	ficha: Ficha;
 };
 
 const FichaCard = ({ ficha }: In) => {
+	const { changeFav } = useFicha();
 	const RacaImage = getAsset(ficha.raca);
 	const ProfissaoImage = getAsset(ficha.profissao);
-	const { changeFav } = useFicha();
+
 	return (
 		<Card
 			sx={{

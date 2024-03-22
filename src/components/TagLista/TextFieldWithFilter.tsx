@@ -1,10 +1,10 @@
 import Clear from "@mui/icons-material/Clear";
-import Filter from "@mui/icons-material/FilterAlt";
 import Search from "@mui/icons-material/SearchOutlined";
 import { IconButton, InputAdornment, TextField } from "@mui/material";
-import { useState } from "react";
+import { PropsWithChildren, useState } from "react";
 import { VoidCallback } from "../../util/commonTypes";
 import FilterMenu from "./FilterMenu";
+import { FilterAlt } from "@mui/icons-material";
 
 type In = {
 	text: string;
@@ -13,16 +13,18 @@ type In = {
 	onClearText: VoidCallback;
 	onClearFilters: VoidCallback;
 	onChange: (text: string) => void;
+	filterMenuItems?: React.ReactNode;
 };
 
 const TextFieldWithFilter = ({
 	text,
 	label,
+	children,
 	onChange,
 	onClearText,
 	onClearFilters,
 	showClearButton,
-}: In) => {
+}: PropsWithChildren<In>) => {
 	const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 	const open = Boolean(anchorEl);
 	const handleClick = (event: React.MouseEvent<HTMLElement>) => {
@@ -49,14 +51,16 @@ const TextFieldWithFilter = ({
 							</IconButton>
 						)}
 						<IconButton onClick={handleClick}>
-							<Filter color="primary" />
+							<FilterAlt color="primary" />
 						</IconButton>
 						<FilterMenu
+							open={open}
 							anchorEl={anchorEl}
 							onClose={handleClose}
-							open={open}
 							onClear={onClearFilters}
-						/>
+						>
+							{children}
+						</FilterMenu>
 					</InputAdornment>
 				),
 				startAdornment: (

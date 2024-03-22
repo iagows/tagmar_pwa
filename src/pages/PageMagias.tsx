@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Avatar, Box, MenuItem } from "@mui/material";
 import { useState } from "react";
 import ListaDeLetras from "../components/ListaDeLetras";
 import ListaDeNomes from "../components/ListaDeNomes";
@@ -8,6 +8,9 @@ import UnderConstruction from "../components/UnderConstruction";
 import { MAGIAS } from "../data/magiasCompiladas";
 import useListFilter from "../hooks/useListFilter";
 import { RoutePath } from "../routing/RouteNames";
+import getAsset from "../assets/app";
+import { ProfissaoEnum } from "../models/ProfissaoDTO";
+import { Relations } from "../data/relations";
 
 const PageMagias = () => {
 	const [text, setText] = useState<string>("");
@@ -32,6 +35,8 @@ const PageMagias = () => {
 		setSelectedCharButton((last) => (char === last ? "" : char));
 	}
 
+	const profissoes = Relations.getProfissoesMagicas();
+
 	const hasText: boolean = text.length > 0 || selectedCharButton.length > 0;
 	return (
 		<PageContainer>
@@ -44,7 +49,19 @@ const PageMagias = () => {
 					onClearText={clearText}
 					showClearButton={hasText}
 					onClearFilters={clearFilters}
-				/>
+				>
+					{profissoes.map((p) => {
+						const Icon = getAsset(p);
+						return (
+							<MenuItem key={p}>
+								<Avatar>
+									<Icon />
+								</Avatar>{" "}
+								{p}
+							</MenuItem>
+						);
+					})}
+				</TextFieldWithFilter>
 				<ListaDeLetras
 					lista={filtered}
 					onClick={onCharClick}

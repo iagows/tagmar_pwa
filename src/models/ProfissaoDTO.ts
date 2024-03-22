@@ -6,12 +6,12 @@ import HabilidadeDTO from "./HabilidadeDTO";
 import RacaDTO from "./RacaDTO";
 
 export enum ProfissaoEnum {
-	BARDO = "bardo",
-	GUERREIRO = "guerreiro",
-	LADINO = "ladino",
-	MAGO = "mago",
-	RASTREADOR = "rastreador",
-	SACERDOTE = "sacerdote",
+	BARDO = "Bardo",
+	GUERREIRO = "Guerreiro",
+	LADINO = "Ladino",
+	MAGO = "Mago",
+	RASTREADOR = "Rastreador",
+	SACERDOTE = "Sacerdote",
 }
 
 const ProfissaoDTO = z
