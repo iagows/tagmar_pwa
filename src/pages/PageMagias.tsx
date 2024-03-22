@@ -1,11 +1,9 @@
-import Clear from "@mui/icons-material/Clear";
-import Filter from "@mui/icons-material/FilterAlt";
-import Search from "@mui/icons-material/SearchOutlined";
-import { Box, IconButton, InputAdornment, TextField } from "@mui/material";
+import { Box } from "@mui/material";
 import { useState } from "react";
 import ListaDeLetras from "../components/ListaDeLetras";
 import ListaDeNomes from "../components/ListaDeNomes";
 import PageContainer from "../components/PageContainer";
+import TextFieldWithFilter from "../components/TagLista/TextFieldWithFilter";
 import UnderConstruction from "../components/UnderConstruction";
 import { MAGIAS } from "../data/magiasCompiladas";
 import useListFilter from "../hooks/useListFilter";
@@ -21,47 +19,31 @@ const PageMagias = () => {
 		selectedChar: selectedCharButton,
 	});
 
-	function clear() {
+	function clearText() {
 		setText("");
 		setSelectedCharButton("");
+	}
+
+	function clearFilters() {
+		//
 	}
 
 	function onCharClick(char: string): void {
 		setSelectedCharButton((last) => (char === last ? "" : char));
 	}
 
-	const hasText = text.length > 0 || selectedCharButton.length > 0;
+	const hasText: boolean = text.length > 0 || selectedCharButton.length > 0;
 	return (
 		<PageContainer>
 			<UnderConstruction descricao="Filtros e revisar magias" />
 			<Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
-				<TextField
+				<TextFieldWithFilter
+					text={text}
+					onChange={setText}
 					label="Nome da magia"
-					variant="outlined"
-					value={text}
-					onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-						setText(event.target.value);
-					}}
-					InputProps={{
-						endAdornment: (
-							<InputAdornment position="start">
-								{hasText && (
-									<IconButton onClick={clear}>
-										<Clear />
-									</IconButton>
-								)}
-								<IconButton disabled>
-									<Filter />
-								</IconButton>
-							</InputAdornment>
-						),
-						startAdornment: (
-							<IconButton disabled>
-								<Search />
-							</IconButton>
-						),
-					}}
-					placeholder="Nome da magia"
+					onClearText={clearText}
+					showClearButton={hasText}
+					onClearFilters={clearFilters}
 				/>
 				<ListaDeLetras
 					lista={filtered}
