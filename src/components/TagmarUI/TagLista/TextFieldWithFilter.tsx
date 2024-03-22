@@ -2,7 +2,7 @@ import Clear from "@mui/icons-material/Clear";
 import Search from "@mui/icons-material/SearchOutlined";
 import { IconButton, InputAdornment, TextField } from "@mui/material";
 import { PropsWithChildren, useState } from "react";
-import { VoidCallback } from "../../util/commonTypes";
+import { VoidCallback } from "../../../util/commonTypes";
 import FilterMenu from "./FilterMenu";
 import { FilterAlt } from "@mui/icons-material";
 

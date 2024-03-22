@@ -192,7 +192,7 @@ export namespace Relations {
 
 	export const getProfissoesMagicas = (): ProfissaoEnum[] => {
 		const profs = profissaoMagia.keys();
-		return [...profs];
+		return [...profs].sort();
 	};
 
 	export const getMagiasPor = (profissao: ProfissaoEnum): MagiaEnum[] => {
@@ -201,6 +201,16 @@ export namespace Relations {
 		const ids = magias.keys();
 
 		return [...ids];
+	};
+
+	export const filterMagiaPor = (
+		profissoes: ProfissaoEnum[],
+		magia: MagiaEnum,
+	): boolean => {
+		if (profissoes.length === 0) {
+			return true;
+		}
+		return profissoes.flatMap(getMagiasPor).some((m) => m === magia);
 	};
 
 	export const getCustoPorProfissaoMagia = (

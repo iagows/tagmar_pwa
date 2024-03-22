@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import { OverridableComponent } from "@mui/material/OverridableComponent";
 import { PropsWithChildren } from "react";
-import { VoidCallback } from "../../util/commonTypes";
+import { VoidCallback } from "../../../util/commonTypes";
 
 type In = {
 	open: boolean;
