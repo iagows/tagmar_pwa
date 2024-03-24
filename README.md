@@ -16,6 +16,13 @@ A ideia não é derrubar/ganhar/fazer melhor. Minha ideia é fazer diferente. O 
 
 Além disso, fazendo versão web torna o aplicativo mais abrangente: Android, iOS, Linux, Windows... E sendo PWA, fica com cara de aplicativo nativo. Para atualizar basta entrar na internet que tudo se atualiza.
 
+### Exemplo
+
+24/03/204
+
+![Desktop](preview/tagmar_2023_03_24_desktop.png)
+![Mobile](preview/tagmar_2023_03_24_mobile.png)
+
 ## Ferramentas
 
 - Yarn
@@ -48,24 +55,34 @@ Ainda sem imagens. Estou provando conceitos ;)
 
 ## Roadmap
 
-- Revisar a tela de fichas (mover o botão de adicionar para um menu) (minor)
-  - Fazer os cards funcionarem
-  - Criar tela de ficha
-    - Criar
-    - Ver
-    - Gastar XP
-    - Imprimir pdf no layout do livro
-- Dado (minor)
-  - adicionar seleção de coluna
-  - exibir o resultado
-- Magias (minor)
-  - completar a lista
-  - organizar layout
-- Habilidades (minor)
-  - fazer
-- Mapas (minor)
-  - fazer
-- Configurações (minor)
-  - revisar
-- Sobre (minor)
-  - revisar
+- [ ] Revisar a tela de fichas
+  - [x] Mover o botão de adicionar para um menu
+  - [ ] Fazer os cards funcionarem
+  - [ ] Criar tela de ficha
+    - [ ] Criar
+    - [ ] Ver
+    - [ ] Gastar XP
+    - [ ] Imprimir pdf no layout do livro
+- [ ] Dado (minor)
+  - [ ] adicionar seleção de coluna
+  - [ ] exibir o resultado
+  - [ ] cor por tipo de lançamento (quando lançar usando a ficha)
+- [ ] Magias
+  - [x] completar a lista
+  - [x] organizar layout
+  - [ ] revisar descrição
+- [ ] Habilidades (atualmente em revisão oficial do RPG, então ficará parado por um tempo)
+  - [ ] fazer
+- [ ] Mapas
+  - [ ] Exibir um mapa grande
+  - [ ] O mapa deve ser selecionável (svg) por região
+  - [ ] Popup com descrição
+- [ ] Configurações
+  - [ ] Ativar/desativar dado 3d
+  - [ ] Ativar/desativar busca por nome aproximado
+- [ ] Sobre
+  - [ ] Colaboradores
+- [ ] Outros
+  - [ ] Salvar no sistema de arquivos
+    - [ ] exportar
+    - [ ] importar
