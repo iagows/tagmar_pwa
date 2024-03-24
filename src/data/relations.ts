@@ -1,4 +1,3 @@
-import { number } from "zod";
 import { AtributoEnum } from "../models/AtributoDTO";
 import { ProfissaoEnum } from "../models/ProfissaoDTO";
 import { RacaEnum } from "../models/RacaDTO";

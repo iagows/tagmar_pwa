@@ -1,7 +1,6 @@
 import { SlotComponentProps } from "@mui/base/utils";
 import Clear from "@mui/icons-material/Clear";
 import {
-	Avatar,
 	Divider,
 	ListItemIcon,
 	Menu,

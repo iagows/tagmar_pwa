@@ -3,6 +3,7 @@ export enum AboutAccordionName {
 	RPG_LICENCE = "Licença do RPG Tagmar",
 	APP_LICENCE = "Licença desse Site/Aplicativo",
 	BUG = "Bugs e Sugestões",
+	REVISAR = "Revisar",
 	ABOUT = "Sobre o App",
 	THANKS = "Agradecimentos",
 }
@@ -46,6 +47,15 @@ export const ABOUT_DATA: AccordionData[] = [
 			{
 				text: "Encontrou um erro ou tem uma sugestão?",
 				url: "https://github.com/iagows/tagmar_pwa/issues",
+			},
+		],
+	},
+	{
+		id: AboutAccordionName.REVISAR,
+		info: [
+			{
+				text: "Revisar magias (descrição e exibição). Adicionar: trilhas, confrarias, ordens e colégios",
+				url: "https://www.tagmar.com.br/wiki/Default.aspx?PageName=Livro%20de%20Magias",
 			},
 		],
 	},

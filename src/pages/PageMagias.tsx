@@ -4,7 +4,6 @@ import ListaDeLetras from "../components/ListaDeLetras";
 import ListaDeNomes from "../components/ListaDeNomes";
 import PageContainer from "../components/PageContainer";
 import TextFieldWithFilter from "../components/TagmarUI/TagLista/TextFieldWithFilter";
-import UnderConstruction from "../components/UnderConstruction";
 import { Relations } from "../data/relations";
 import usePageMagias from "../hooks/usePageMagias";
 import { RoutePath } from "../routing/RouteNames";
@@ -16,7 +15,6 @@ const PageMagias = () => {
 
 	return (
 		<PageContainer>
-			<UnderConstruction descricao="Revisar magias" />
 			<Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
 				<TextFieldWithFilter
 					text={input.text}
