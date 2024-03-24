@@ -1,5 +1,6 @@
 import { remove } from "diacritics";
 import { AbstractDTO } from "../models/Abstract/DescriptionOptionalDTO";
+import { Constants } from "./constants";
 
 export namespace StringUtil {
 	export const getPlural = (n: number): "s" | "" => {
@@ -157,5 +158,20 @@ export namespace StringUtil {
 			}
 			return compareWords(a, element, similarity);
 		});
+	};
+
+	export const filterByFirstChar = (c: string, item: string): boolean =>
+		c === "" || extractFirstChar(item) === c;
+
+	export const filterByProximity = (text: string, item: string): boolean => {
+		const trimmed = text.trim().toLowerCase();
+		if (trimmed.length < 3) {
+			return true;
+		}
+		return compareWordWithWordsInSentence(
+			trimmed,
+			item,
+			Constants.MARGEM_DIFERENCA_PALAVRAS,
+		);
 	};
 }

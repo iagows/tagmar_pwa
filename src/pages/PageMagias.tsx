@@ -13,7 +13,6 @@ import { AbstractDTO as NameDTO } from "../models/Abstract/NameDTO";
 import { ProfissaoEnum } from "../models/ProfissaoDTO";
 import { MagiaEnum } from "../models/magia/MagiaDTO";
 import { RoutePath } from "../routing/RouteNames";
-import { Constants } from "../util/constants";
 import { StringUtil } from "../util/stringHelp";
 
 const createSet = <T,>(s: Set<T>, o: T): Set<T> => {
@@ -25,36 +24,8 @@ const createSet = <T,>(s: Set<T>, o: T): Set<T> => {
 	return new Set([...s]);
 };
 
-const filterByFirstChar = <T extends NameDTO.NameType>(
-	c: string,
-	list: T[],
-): T[] =>
-	list.filter((i) => c === "" || StringUtil.extractFirstChar(i.nome) === c);
-
-const filterByProximity = <T extends NameDTO.NameType>(
-	text: string,
-	list: T[],
-): T[] => {
-	const clean = text.trim().toLowerCase();
-
-	return list.filter((i) =>
-		StringUtil.compareWordWithWordsInSentence(
-			clean,
-			i.nome,
-			Constants.MARGEM_DIFERENCA_PALAVRAS,
-		),
-	);
-};
-
-const filterByProfissao = <T extends IdDTO.IdType>(
-	profs: ProfissaoEnum[],
-	list: T[],
-): T[] => {
-	return list.filter((i) => {
-		const id = i.id as MagiaEnum;
-		return Relations.filterMagiaPor(profs, id);
-	});
-};
+const filterByProfissao = (profs: ProfissaoEnum[], item: MagiaEnum): boolean =>
+	Relations.filterMagiaPor(profs, item);
 
 const profissoes = Relations.getProfissoesMagicas();
 
@@ -65,9 +36,16 @@ const PageMagias = () => {
 		new Set(),
 	);
 
-	const filtered = filterByFirstChar(selectedCharButton, MAGIAS);
-	const filtered2 = filterByProximity(text, filtered);
-	const filtered3 = filterByProfissao([...selectedProf], filtered2);
+	const profFilter = (i: IdDTO.IdType) =>
+		filterByProfissao([...selectedProf], i.id as MagiaEnum);
+	const charFilter = (i: NameDTO.NameType) =>
+		StringUtil.filterByFirstChar(selectedCharButton, i.nome);
+	const proxFilter = (i: NameDTO.NameType) =>
+		StringUtil.filterByProximity(text, i.nome);
+
+	const filtered = MAGIAS.filter(profFilter)
+		.filter(charFilter)
+		.filter(proxFilter);
 
 	function clearText() {
 		setText("");
@@ -86,7 +64,7 @@ const PageMagias = () => {
 
 	return (
 		<PageContainer>
-			<UnderConstruction descricao="Filtros, revisar magias e otimizar renderização da lista" />
+			<UnderConstruction descricao="Revisar magias e otimizar renderização da lista" />
 			<Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
 				<TextFieldWithFilter
 					text={text}
@@ -122,11 +100,11 @@ const PageMagias = () => {
 					})}
 				</TextFieldWithFilter>
 				<ListaDeLetras
-					lista={filtered3}
+					lista={filtered}
 					onClick={onCharClick}
 					selected={selectedCharButton}
 				/>
-				<ListaDeNomes lista={filtered3} to={RoutePath.MAGIA} />
+				<ListaDeNomes lista={filtered} to={RoutePath.MAGIA} />
 			</Box>
 		</PageContainer>
 	);
