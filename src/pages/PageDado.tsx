@@ -2,6 +2,8 @@ import { Box } from "@mui/material";
 import useDiceBox from "../3d/useDiceBox";
 import PageContainer from "../components/PageContainer";
 import DiceMenu from "../components/TagmarUI/DiceMenu";
+import useConfig from "../stores/slices/config/useConfig";
+import TagLabel from "../components/TagmarUI/Label";
 
 const BOX_CSS = {
 	background: "#559955",
@@ -13,15 +15,24 @@ const BOX_CSS = {
 	overflow: "hidden",
 } as const;
 
-const PageDado = () => {
+const Dado3d = () => {
 	const { box, rodar } = useDiceBox({ containerId: "#box" });
+	return (
+		<>
+			{!!box && <DiceMenu box={box} onRodar={rodar} />}
+			<Box id="box" style={BOX_CSS} />
+		</>
+	);
+};
+
+const Dado2d = () => <TagLabel>Dado 2D ainda não disponível</TagLabel>;
+
+const PageDado = () => {
+	const { isDado3d } = useConfig();
 
 	return (
 		<PageContainer>
-			<Box>
-				{!!box && <DiceMenu box={box} onRodar={rodar} />}
-				<Box id="box" style={BOX_CSS} />
-			</Box>
+			<Box>{isDado3d ? <Dado3d /> : <Dado2d />}</Box>
 		</PageContainer>
 	);
 };

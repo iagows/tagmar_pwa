@@ -78,8 +78,9 @@ Ainda sem imagens. Estou provando conceitos ;)
   - [ ] O mapa deve ser selecionável (svg) por região
   - [ ] Popup com descrição
 - [ ] Configurações
-  - [ ] Ativar/desativar dado 3d
-  - [ ] Ativar/desativar busca por nome aproximado
+  - [x] Ativar/desativar dado 3d
+  - [x] Ativar/desativar busca por nome aproximado
+  - [ ] salvar (ver `Outros`)
 - [ ] Sobre (sempre revisando)
   - [x] Colaboradores
 - [ ] Outros
