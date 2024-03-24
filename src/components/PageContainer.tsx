@@ -13,6 +13,7 @@ const PageContainer = ({ children, bg }: PropsWithChildren<In>) => {
 			sx={{
 				flex: 1,
 				display: "flex",
+				overflowY: "scroll",
 				backgroundImage: bg,
 				flexDirection: "column",
 				backgroundSize: "cover",
