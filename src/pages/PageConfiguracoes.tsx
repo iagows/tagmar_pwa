@@ -4,11 +4,10 @@ import {
 	FormGroup,
 	Switch,
 } from "@mui/material";
-import { useState } from "react";
 import PageContainer from "../components/PageContainer";
 import UnderConstruction from "../components/UnderConstruction";
-import { THEME_OPTIONS } from "../theme";
 import useConfig from "../stores/slices/config/useConfig";
+import { THEME_OPTIONS } from "../theme";
 
 const SWITCH_CSS = {
 	backgroundColor: THEME_OPTIONS.palette?.background?.paper,
