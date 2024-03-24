@@ -63,14 +63,14 @@ Ainda sem imagens. Estou provando conceitos ;)
     - [ ] Ver
     - [ ] Gastar XP
     - [ ] Imprimir pdf no layout do livro
-- [ ] Dado (minor)
+- [ ] Dado
   - [ ] adicionar seleção de coluna
   - [ ] exibir o resultado
   - [ ] cor por tipo de lançamento (quando lançar usando a ficha)
 - [ ] Magias
   - [x] completar a lista
   - [x] organizar layout
-  - [ ] revisar descrição
+  - [ ] revisar [descrição](https://www.tagmar.com.br/wiki/Default.aspx?PageName=Livro%20de%20Magias)
 - [ ] Habilidades (atualmente em revisão oficial do RPG, então ficará parado por um tempo)
   - [ ] fazer
 - [ ] Mapas
@@ -80,8 +80,8 @@ Ainda sem imagens. Estou provando conceitos ;)
 - [ ] Configurações
   - [ ] Ativar/desativar dado 3d
   - [ ] Ativar/desativar busca por nome aproximado
-- [ ] Sobre
-  - [ ] Colaboradores
+- [ ] Sobre (sempre revisando)
+  - [x] Colaboradores
 - [ ] Outros
   - [ ] Salvar no sistema de arquivos
     - [ ] exportar

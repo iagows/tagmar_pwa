@@ -11,7 +11,7 @@ import { THEME_OPTIONS } from "../theme";
 
 type Config = {
 	magiaExata: boolean;
-	agruparMagias: boolean;
+	dado3d: boolean;
 };
 
 const SWITCH_CSS = {
@@ -24,7 +24,7 @@ const SWITCH_CSS = {
 const PageConfiguracoes = () => {
 	const [state, setState] = useState<Config>({
 		magiaExata: true,
-		agruparMagias: false,
+		dado3d: true,
 	});
 
 	const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -61,7 +61,7 @@ const PageConfiguracoes = () => {
 						labelPlacement="start"
 						control={
 							<Switch
-								checked={state.agruparMagias}
+								checked={state.dado3d}
 								onChange={handleChange}
 								name="agruparMagias"
 							/>

@@ -54,8 +54,8 @@ export const ABOUT_DATA: AccordionData[] = [
 		id: AboutAccordionName.REVISAR,
 		info: [
 			{
-				text: "Revisar magias (descrição e exibição). Adicionar: trilhas, confrarias, ordens e colégios",
-				url: "https://www.tagmar.com.br/wiki/Default.aspx?PageName=Livro%20de%20Magias",
+				text: "O que está sendo revisado ou feito no momento",
+				url: "https://github.com/iagows/tagmar_pwa?tab=readme-ov-file#roadmap",
 			},
 		],
 	},
