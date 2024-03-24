@@ -1,4 +1,5 @@
 import { Box } from "@mui/material";
+import { useEffect } from "react";
 import {
 	Link,
 	useLocation,
@@ -6,13 +7,13 @@ import {
 	useRouteError,
 } from "react-router-dom";
 import TagLabel from "../components/TagmarUI/Label";
-import { useEffect } from "react";
 import { RoutePath } from "../routing/RouteNames";
 
-const PageError = () => {
-	// mudar menu
-	// mudar app bar
-	// mudar head > title
+type ErrorOut = {
+	pathname: string;
+	error?: { message: string };
+};
+const useError = (): ErrorOut => {
 	const { pathname } = useLocation();
 	const error = useRouteError() as undefined | { message: string };
 
@@ -23,6 +24,15 @@ const PageError = () => {
 			navigate(RoutePath.FICHAS);
 		}, 10000);
 	}, [navigate]);
+
+	return {
+		pathname,
+		error,
+	};
+};
+
+const PageError = () => {
+	const { pathname, error } = useError();
 	return (
 		<Box>
 			<TagLabel>Tagmar app. Versão: {__APP_VERSION__}</TagLabel>
