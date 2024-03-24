@@ -8,11 +8,7 @@ import { useState } from "react";
 import PageContainer from "../components/PageContainer";
 import UnderConstruction from "../components/UnderConstruction";
 import { THEME_OPTIONS } from "../theme";
-
-type Config = {
-	magiaExata: boolean;
-	dado3d: boolean;
-};
+import useConfig from "../stores/slices/config/useConfig";
 
 const SWITCH_CSS = {
 	backgroundColor: THEME_OPTIONS.palette?.background?.paper,
@@ -22,17 +18,8 @@ const SWITCH_CSS = {
 } as const;
 
 const PageConfiguracoes = () => {
-	const [state, setState] = useState<Config>({
-		magiaExata: true,
-		dado3d: true,
-	});
+	const { isBuscaInexata, isDado3d, swapBusca, swapDado } = useConfig();
 
-	const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-		setState({
-			...state,
-			[event.target.name]: event.target.checked,
-		});
-	};
 	return (
 		<PageContainer>
 			<UnderConstruction descricao="Ainda não funciona nada. Revisar" />
@@ -47,26 +34,14 @@ const PageConfiguracoes = () => {
 					<FormControlLabel
 						sx={SWITCH_CSS}
 						labelPlacement="start"
-						control={
-							<Switch
-								checked={state.magiaExata}
-								onChange={handleChange}
-								name="magiaExata"
-							/>
-						}
-						label="Buscar magias pelo nome exato"
+						label="Buscar pelo texto aproximado"
+						control={<Switch checked={isBuscaInexata} onChange={swapBusca} />}
 					/>
 					<FormControlLabel
 						sx={SWITCH_CSS}
 						labelPlacement="start"
-						control={
-							<Switch
-								checked={state.dado3d}
-								onChange={handleChange}
-								name="agruparMagias"
-							/>
-						}
-						label="Agrupar magias"
+						label="Exibir dado em 3D"
+						control={<Switch checked={isDado3d} onChange={swapDado} />}
 					/>
 				</FormGroup>
 			</FormControl>

@@ -174,4 +174,14 @@ export namespace StringUtil {
 			Constants.MARGEM_DIFERENCA_PALAVRAS,
 		);
 	};
+
+	export const filterByExact = (needle: string, hay: string): boolean => {
+		const trimmedNeedle = needle.trim().toLocaleLowerCase();
+		const trimmedHay = hay.trim().toLocaleLowerCase();
+
+		if (trimmedNeedle.length < 3) {
+			return true;
+		}
+		return trimmedHay.includes(trimmedNeedle);
+	};
 }

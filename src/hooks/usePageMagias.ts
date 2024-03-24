@@ -8,6 +8,7 @@ import { Magia, MagiaEnum } from "../models/magia/MagiaDTO";
 import { VoidCallback } from "../util/commonTypes";
 import { swapSet } from "../util/functions";
 import { StringUtil } from "../util/stringHelp";
+import useConfig from "../stores/slices/config/useConfig";
 
 const filterByProfissao = (profs: ProfissaoEnum[], item: MagiaEnum): boolean =>
 	Relations.filterMagiaPor(profs, item);
@@ -38,13 +39,16 @@ const usePageMagias = (): Out => {
 	const [selectedProf, setSelectedProf] = useState<Set<ProfissaoEnum>>(
 		new Set(),
 	);
+	const { isBuscaInexata } = useConfig();
 
 	const profFilter = (i: IdDTO.IdType) =>
 		filterByProfissao([...selectedProf], i.id as MagiaEnum);
 	const charFilter = (i: NameDTO.NameType) =>
 		StringUtil.filterByFirstChar(selectedCharButton, i.nome);
 	const proxFilter = (i: NameDTO.NameType) =>
-		StringUtil.filterByProximity(text, i.nome);
+		isBuscaInexata
+			? StringUtil.filterByProximity(text, i.nome)
+			: StringUtil.filterByExact(text, i.nome);
 
 	const filtered = MAGIAS.filter(profFilter)
 		.filter(charFilter)

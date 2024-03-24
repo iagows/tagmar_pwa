@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
+import configReducer from "./slices/config";
 import fichaReducer from "./slices/fichas";
 
 export const store = configureStore({
 	reducer: {
 		fichas: fichaReducer,
+		config: configReducer,
 	},
 });
 
