@@ -10,14 +10,15 @@ import useConfig from "../stores/slices/config/useConfig";
 import { THEME_OPTIONS } from "../theme";
 
 const SWITCH_CSS = {
-	backgroundColor: THEME_OPTIONS.palette?.background?.paper,
 	borderRadius: 10,
-	justifyContent: "space-between",
 	paddingLeft: "16px",
+	justifyContent: "space-between",
+	backgroundColor: THEME_OPTIONS.palette?.background?.paper,
 } as const;
 
 const PageConfiguracoes = () => {
-	const { isBuscaInexata, isDado3d, swapBusca, swapDado } = useConfig();
+	const { isDado3d, swapDado3d, isBuscaInexata, swapBuscaInexata, loading } =
+		useConfig();
 
 	return (
 		<PageContainer>
@@ -25,22 +26,34 @@ const PageConfiguracoes = () => {
 			<FormControl component="fieldset" variant="standard">
 				<FormGroup
 					sx={{
-						maxWidth: 400,
 						gap: "10px",
+						maxWidth: 400,
 						paddingTop: "20px",
 					}}
 				>
 					<FormControlLabel
 						sx={SWITCH_CSS}
+						disabled={loading}
 						labelPlacement="start"
 						label="Buscar pelo texto aproximado"
-						control={<Switch checked={isBuscaInexata} onChange={swapBusca} />}
+						control={
+							<Switch
+								checked={isBuscaInexata}
+								onChange={swapBuscaInexata}
+							/>
+						}
 					/>
 					<FormControlLabel
 						sx={SWITCH_CSS}
+						disabled={loading}
 						labelPlacement="start"
 						label="Exibir dado em 3D"
-						control={<Switch checked={isDado3d} onChange={swapDado} />}
+						control={
+							<Switch
+								checked={isDado3d}
+								onChange={swapDado3d}
+							/>
+						}
 					/>
 				</FormGroup>
 			</FormControl>

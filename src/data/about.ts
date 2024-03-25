@@ -6,6 +6,7 @@ export enum AboutAccordionName {
 	REVISAR = "Revisar",
 	ABOUT = "Sobre o App",
 	THANKS = "Agradecimentos",
+	BIBLIOTECAS = "Bibliotecas",
 }
 
 type AccordionData = {
@@ -81,6 +82,31 @@ export const ABOUT_DATA: AccordionData[] = [
 			{
 				text: "Odijas",
 				url: "https://www.instagram.com/odjaseviu?igsh=bXpvOXdjdWEwdGQ3",
+			},
+		],
+	},
+	{
+		id: AboutAccordionName.BIBLIOTECAS,
+		info: [
+			{
+				text: "@3d-dice/dice-box-threejs",
+				url: "https://github.com/3d-dice/dice-box-threejs",
+			},
+			{
+				text: "date-fns",
+				url: "https://date-fns.org/",
+			},
+			{
+				text: "MUI",
+				url: "https://mui.com/",
+			},
+			{
+				text: "Redux toolkit",
+				url: "https://redux-toolkit.js.org/",
+			},
+			{
+				text: "zod",
+				url: "https://zod.dev/",
 			},
 		],
 	},

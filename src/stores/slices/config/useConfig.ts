@@ -1,31 +1,44 @@
 import { useAppDispatch, useAppSelector } from "../../../hooks/reduxHooks";
-import { VoidCallback } from "../../../util/commonTypes";
-import { swapBusca, swapDado } from "./index";
+import { PromiseVoidCallback } from "../../../util/commonTypes";
+import { TagThunk } from "../../thunks/Config";
 
 type Out = {
 	isBuscaInexata: boolean;
-	swapBusca: VoidCallback;
+	swapBuscaInexata: PromiseVoidCallback;
+
 	isDado3d: boolean;
-	swapDado: VoidCallback;
+	swapDado3d: PromiseVoidCallback;
+
+	load: PromiseVoidCallback;
+	loading: boolean;
 };
 
 const useConfig = (): Out => {
 	const dispatch = useAppDispatch();
-	const { configuracao } = useAppSelector((s) => s.config);
 
-	function onSwapBusca(): void {
-		dispatch(swapBusca());
+	const {
+		config: { isBuscaInexata, isDado3dAtivo },
+		loading,
+	} = useAppSelector((s) => s.config);
+
+	async function swapBuscaInexata(): Promise<void> {
+		await dispatch(TagThunk.setBuscaInexata(!isBuscaInexata));
 	}
 
-	function onSwapDado(): void {
-		dispatch(swapDado());
+	async function swapDado3d(): Promise<void> {
+		await dispatch(TagThunk.setDado3D(!isDado3dAtivo));
+	}
+	async function load(): Promise<void> {
+		await dispatch(TagThunk.loadConfig());
 	}
 
 	return {
-		isBuscaInexata: configuracao.isBuscaInexata,
-		isDado3d: configuracao.isDado3dAtivo,
-		swapBusca: onSwapBusca,
-		swapDado: onSwapDado,
+		load,
+		loading,
+		swapDado3d,
+		swapBuscaInexata,
+		isDado3d: isDado3dAtivo,
+		isBuscaInexata: isBuscaInexata,
 	};
 };
 
