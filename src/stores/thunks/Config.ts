@@ -37,7 +37,7 @@ export async function test(): Promise<void> {
 		JSON.parse(
 			JSON.stringify(
 				res.toArray(),
-				(key, value) => (typeof value === "bigint" ? value.toString() : value), // return everything else unchanged
+				(_, value) => (typeof value === "bigint" ? value.toString() : value), // return everything else unchanged
 			),
 		),
 	);
