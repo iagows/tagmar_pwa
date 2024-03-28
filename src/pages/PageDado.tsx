@@ -2,8 +2,8 @@ import { Box } from "@mui/material";
 import useDiceBox from "../3d/useDiceBox";
 import PageContainer from "../components/PageContainer";
 import DiceMenu from "../components/TagmarUI/DiceMenu";
-import useConfig from "../stores/slices/config/useConfig";
 import TagLabel from "../components/TagmarUI/Label";
+import useConfig from "../stores/slices/config/useConfig";
 
 const BOX_CSS = {
 	background: "#559955",

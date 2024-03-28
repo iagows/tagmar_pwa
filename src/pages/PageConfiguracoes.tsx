@@ -17,7 +17,7 @@ const SWITCH_CSS = {
 } as const;
 
 const PageConfiguracoes = () => {
-	const { isDado3d, swapDado3d, isBuscaInexata, swapBuscaInexata, loading } =
+	const { isDado3d, swapDado3d, isBuscaInexata, swapBuscaInexata } =
 		useConfig();
 
 	return (
@@ -33,27 +33,17 @@ const PageConfiguracoes = () => {
 				>
 					<FormControlLabel
 						sx={SWITCH_CSS}
-						disabled={loading}
 						labelPlacement="start"
 						label="Buscar pelo texto aproximado"
 						control={
-							<Switch
-								checked={isBuscaInexata}
-								onChange={swapBuscaInexata}
-							/>
+							<Switch checked={isBuscaInexata} onChange={swapBuscaInexata} />
 						}
 					/>
 					<FormControlLabel
 						sx={SWITCH_CSS}
-						disabled={loading}
 						labelPlacement="start"
 						label="Exibir dado em 3D"
-						control={
-							<Switch
-								checked={isDado3d}
-								onChange={swapDado3d}
-							/>
-						}
+						control={<Switch checked={isDado3d} onChange={swapDado3d} />}
 					/>
 				</FormGroup>
 			</FormControl>
