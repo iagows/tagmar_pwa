@@ -1,38 +1,40 @@
-import { Box, Button, ButtonProps, Modal } from "@mui/material";
-import { VoidCallback } from "../../util/commonTypes";
+import { Box, Button, Modal } from "@mui/material";
 import { PropsWithChildren } from "react";
+import { VoidCallback } from "../../util/commonTypes";
 import TagLabel from "./Label";
 
 const style = {
 	p: 4,
-	position: "absolute" as const,
 	top: "50%",
 	left: "50%",
 	width: 300,
 	height: 280,
-	bgcolor: "background.paper",
-	border: "2px solid #000",
 	boxShadow: 24,
+	border: "2px solid #000",
+	bgcolor: "background.paper",
+	position: "absolute" as const,
 	transform: "translate(-50%, -50%)",
+	display: "flex",
+	alignItems: "center",
+	flexDirection: "column",
+	justifyContent: "space-between",
 };
 
 type In = {
 	title: string;
-	positive: {
-		text: string;
-		onClick: VoidCallback;
-	};
-	negative: {
-		text: string;
-		onClick: VoidFunction;
-	};
+	confirmText: string;
+	onConfirm: VoidCallback;
+	cancelText?: string;
+	onCancel: VoidCallback;
 };
 
 const TagModal = ({
 	title,
-	positive,
-	negative,
+	onCancel,
 	children,
+	onConfirm,
+	confirmText,
+	cancelText = "Voltar",
 }: PropsWithChildren<In>) => {
 	return (
 		<Modal
@@ -41,11 +43,19 @@ const TagModal = ({
 			aria-describedby="modal-modal-description"
 		>
 			<Box sx={style}>
-				<TagLabel>{title}</TagLabel>
+				<TagLabel variant="h6">{title}</TagLabel>
 				<Box>{children}</Box>
 				<Box display="flex" flexDirection="column">
-					<Button onClick={positive.onClick}>{positive.text}</Button>
-					<Button onClick={negative.onClick}>{negative.text}</Button>
+					<Button
+						variant="contained"
+						onClick={onConfirm}
+						sx={{
+							flex: 1,
+						}}
+					>
+						{confirmText}
+					</Button>
+					<Button onClick={onCancel}>{cancelText}</Button>
 				</Box>
 			</Box>
 		</Modal>
