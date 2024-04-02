@@ -5,8 +5,9 @@ import { RouterProvider } from "react-router-dom";
 import { registerSW } from "virtual:pwa-register";
 import "./reset.css";
 import { route } from "./routing/AppRoute.tsx";
-import { store } from "./stores/store.ts";
+import { persistor, store } from "./stores/store.ts";
 import { ThemedApp } from "./theme/index.tsx";
+import { PersistGate } from "redux-persist/integration/react";
 
 // add this to prompt for a refresh
 const updateSW = registerSW({
@@ -21,9 +22,11 @@ const updateSW = registerSW({
 ReactDOM.createRoot(document.getElementById("root")!).render(
 	<React.StrictMode>
 		<Provider store={store}>
-			<ThemedApp>
-				<RouterProvider router={route} />
-			</ThemedApp>
+			<PersistGate loading={null} persistor={persistor}>
+				<ThemedApp>
+					<RouterProvider router={route} />
+				</ThemedApp>
+			</PersistGate>
 		</Provider>
 	</React.StrictMode>,
 );
