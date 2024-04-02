@@ -4,11 +4,11 @@ import {
 	FLUSH,
 	PAUSE,
 	PERSIST,
-	persistReducer,
-	persistStore,
 	PURGE,
 	REGISTER,
 	REHYDRATE,
+	persistReducer,
+	persistStore,
 } from "redux-persist";
 import configReducer from "./slices/config";
 import fichaReducer from "./slices/fichas";

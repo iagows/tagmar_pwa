@@ -12,6 +12,7 @@ import {
 	CardActions,
 	CardContent,
 	IconButton,
+	Modal,
 } from "@mui/material";
 import getAsset from "../../assets/app";
 import { Ficha } from "../../models/FichaDTO";
@@ -19,15 +20,26 @@ import useFicha from "../../stores/slices/fichas/useFicha";
 import { THEME_OPTIONS } from "../../theme";
 import { changeOpacity } from "../../util/functions";
 import TagLabel from "../TagmarUI/Label";
+import { useState } from "react";
+import TagModal from "../TagmarUI/TagModal";
 
 type In = {
 	ficha: Ficha;
 };
 
 const FichaCard = ({ ficha }: In) => {
-	const { changeFav } = useFicha();
+	const { changeFav, delete_ } = useFicha();
 	const RacaImage = getAsset(ficha.raca);
 	const ProfissaoImage = getAsset(ficha.profissao);
+
+	const [open, setOpen] = useState(false);
+	const handleOpen = () => setOpen(true);
+	const handleClose = () => setOpen(false);
+
+	function apagar() {
+		delete_(ficha.id);
+		handleClose();
+	}
 
 	return (
 		<Card
@@ -39,6 +51,23 @@ const FichaCard = ({ ficha }: In) => {
 				),
 			}}
 		>
+			{open && (
+				<TagModal
+					negative={{
+						onClick: handleClose,
+						text: "Voltar",
+					}}
+					positive={{
+						onClick: apagar,
+						text: "Confirmar",
+					}}
+					title="Título"
+				>
+					<Box>
+						<TagLabel>Conteúdo</TagLabel>
+					</Box>
+				</TagModal>
+			)}
 			<CardActionArea>
 				<CardContent>
 					<Box sx={{ display: "flex", flex: 1 }}>
@@ -80,7 +109,7 @@ const FichaCard = ({ ficha }: In) => {
 				<IconButton aria-label="Editar">
 					<EditOutlined color="primary" />
 				</IconButton>
-				<IconButton aria-label="Apagar">
+				<IconButton aria-label="Apagar" onClick={handleOpen}>
 					<DeleteOutlined color="primary" />
 				</IconButton>
 			</CardActions>

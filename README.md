@@ -58,6 +58,9 @@ Ainda sem imagens. Estou provando conceitos ;)
 - [ ] Revisar a tela de fichas
   - [x] Mover o botão de adicionar para um menu
   - [ ] Fazer os cards funcionarem
+    - [x] Favorito
+    - [ ] Apagar
+    - [ ] Editar
   - [ ] Criar tela de ficha
     - [ ] Criar
     - [ ] Ver
@@ -80,10 +83,12 @@ Ainda sem imagens. Estou provando conceitos ;)
 - [ ] Configurações
   - [x] Ativar/desativar dado 3d
   - [x] Ativar/desativar busca por nome aproximado
-  - [ ] salvar (ver `Outros`)
 - [ ] Sobre (sempre revisando)
   - [x] Colaboradores
 - [ ] Outros
+  - [ ] Persistir
+    - [x] Configurações
+    - [ ] Fichas
   - [ ] Salvar no sistema de arquivos
     - [ ] exportar
     - [ ] importar
