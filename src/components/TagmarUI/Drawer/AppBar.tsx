@@ -1,12 +1,48 @@
 import ArrowBack from "@mui/icons-material/ArrowBack";
 import MenuIcon from "@mui/icons-material/Menu";
-import { AppBar, IconButton, Toolbar } from "@mui/material";
+import { AppBar, IconButton, LinkProps, Toolbar } from "@mui/material";
 import useRouteMatch from "../../../hooks/useRouteMatch";
 import { THEME_OPTIONS } from "../../../theme";
-import { VoidCallback } from "../../../util/commonTypes";
+import {
+	ActionLinkFunction,
+	isActionFunction,
+	isActionLink,
+	VoidCallback,
+} from "../../../util/commonTypes";
 import { Constants } from "../../../util/constants";
 import HideOnScroll from "../../HideOnScroll";
 import TagLabel from "../Label";
+import { Link } from "react-router-dom";
+
+type LocalVoid = VoidCallback;
+type LocalLink = {
+	component: React.ElementType;
+	to: string;
+};
+type LocalInfo = LocalVoid | LocalLink | undefined;
+
+function localLink(action: ActionLinkFunction): LocalInfo {
+	if (isActionFunction(action)) {
+		return action.action;
+	}
+	if (isActionLink(action)) {
+		return {
+			component: Link,
+			to: action.link,
+		};
+	}
+}
+
+const BAR_STYLE = {
+	ml: { sm: `${Constants.DRAWER_WIDTH}px` },
+	width: { sm: `calc(100% - ${Constants.DRAWER_WIDTH}px)` },
+} as const;
+
+const TOOLBAR_STYLE = {
+	backgroundColor: THEME_OPTIONS.palette?.background?.default,
+} as const;
+
+const ICON_STYLE = { mr: 2, display: { sm: "none" } } as const;
 
 type In = {
 	onMenu: VoidCallback;
@@ -17,24 +53,14 @@ const TagAppBar = ({ onMenu }: In) => {
 
 	return (
 		<HideOnScroll>
-			<AppBar
-				position="fixed"
-				sx={{
-					ml: { sm: `${Constants.DRAWER_WIDTH}px` },
-					width: { sm: `calc(100% - ${Constants.DRAWER_WIDTH}px)` },
-				}}
-			>
-				<Toolbar
-					sx={{
-						backgroundColor: THEME_OPTIONS.palette?.background?.default,
-					}}
-				>
+			<AppBar position="fixed" sx={BAR_STYLE}>
+				<Toolbar sx={TOOLBAR_STYLE}>
 					<IconButton
 						edge="start"
+						sx={ICON_STYLE}
 						color="inherit"
-						aria-label="open drawer"
 						onClick={onMenu}
-						sx={{ mr: 2, display: { sm: "none" } }}
+						aria-label="open drawer"
 					>
 						{isMainRoute ? <MenuIcon /> : <ArrowBack />}
 					</IconButton>
@@ -42,7 +68,7 @@ const TagAppBar = ({ onMenu }: In) => {
 						{title}
 					</TagLabel>
 					{rightAction && (
-						<IconButton edge="end" onClick={rightAction.action} disabled>
+						<IconButton edge="end" {...localLink(rightAction)}>
 							<rightAction.Icon />
 						</IconButton>
 					)}

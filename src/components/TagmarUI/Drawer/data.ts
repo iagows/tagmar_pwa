@@ -29,11 +29,11 @@ export namespace Drawer {
 			icon: PeopleAltOutlined,
 			path: RoutePath.FICHAS,
 		},
-		// {
-		// 	text: "Ficha atual",
-		// 	icon: PersonOutlined,
-		// 	path: RoutePath.FICHA,
-		// },
+		{
+			text: "Ficha atual",
+			icon: PersonOutlined,
+			path: RoutePath.FICHA,
+		},
 		{
 			text: "Dado",
 			icon: Casino,

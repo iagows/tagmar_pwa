@@ -11,4 +11,5 @@ export enum RoutePath {
 	MAPA = "/mapa/:id",
 	CONFIGURACOES = "/configuracoes",
 	SOBRE = "/sobre",
+	EDITAR_FICHA = "/editar_ficha/:id",
 }

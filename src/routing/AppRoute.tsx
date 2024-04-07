@@ -24,7 +24,7 @@ const FICHAS_HANDLE: RouteHandle = {
 	isMainRoute: true,
 	rightAction: {
 		Icon: AddIcon,
-		action: () => console.log("clicou"),
+		link: RoutePath.EDITAR_FICHA,
 	},
 };
 
