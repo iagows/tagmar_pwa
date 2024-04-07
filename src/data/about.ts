@@ -1,22 +1,22 @@
-export type AboutAccordionName =
-	| "tagmar"
-	| "tagmar licence"
-	| "app license"
-	| "bug"
-	| "forum"
-	| "app"
-	| "testers";
+export enum AboutAccordionName {
+	TAGMAR = "Tagmar",
+	RPG_LICENCE = "Licença do RPG Tagmar",
+	APP_LICENCE = "Licença desse Site/Aplicativo",
+	BUG = "Bugs e Sugestões",
+	REVISAR = "Revisar",
+	ABOUT = "Sobre o App",
+	THANKS = "Agradecimentos",
+	BIBLIOTECAS = "Bibliotecas",
+}
 
 type AccordionData = {
 	id: AboutAccordionName;
-	title: string;
 	info: { text: string; url?: string }[];
 };
 
 export const ABOUT_DATA: AccordionData[] = [
 	{
-		id: "tagmar",
-		title: "Tagmar",
+		id: AboutAccordionName.TAGMAR,
 		info: [
 			{
 				text: "Site oficial",
@@ -25,8 +25,7 @@ export const ABOUT_DATA: AccordionData[] = [
 		],
 	},
 	{
-		id: "tagmar licence",
-		title: "Licença do RPG Tagmar",
+		id: AboutAccordionName.RPG_LICENCE,
 		info: [
 			{
 				text: "Atribuição-NãoComercial-CompartilhaIgual 3.0 Brasil",
@@ -35,8 +34,7 @@ export const ABOUT_DATA: AccordionData[] = [
 		],
 	},
 	{
-		id: "app license",
-		title: "Licença desse Site/Aplicativo",
+		id: AboutAccordionName.APP_LICENCE,
 		info: [
 			{
 				text: "GNU General Public License v3.0",
@@ -45,8 +43,7 @@ export const ABOUT_DATA: AccordionData[] = [
 		],
 	},
 	{
-		id: "bug",
-		title: "Bugs e sugestões",
+		id: AboutAccordionName.BUG,
 		info: [
 			{
 				text: "Encontrou um erro ou tem uma sugestão?",
@@ -55,18 +52,16 @@ export const ABOUT_DATA: AccordionData[] = [
 		],
 	},
 	{
-		id: "forum",
-		title: "Fórum oficial",
+		id: AboutAccordionName.REVISAR,
 		info: [
 			{
-				text: "Conheça o fórum oficial",
-				url: "https://www.tagmar.com.br/forum/default.aspx?g=active",
+				text: "O que está sendo revisado ou feito no momento",
+				url: "https://github.com/iagows/tagmar_pwa?tab=readme-ov-file#roadmap",
 			},
 		],
 	},
 	{
-		id: "app",
-		title: "Sobre o App",
+		id: AboutAccordionName.ABOUT,
 		info: [
 			{
 				text: "Código-fonte",
@@ -75,30 +70,44 @@ export const ABOUT_DATA: AccordionData[] = [
 		],
 	},
 	{
-		id: "testers",
-		title: "Testadores",
+		id: AboutAccordionName.THANKS,
 		info: [
 			{
-				text: "Álvaro",
+				text: "Edilton Oliveira",
 			},
 			{
-				text: "Breno",
+				text: "Marcelo Rodrigues",
+				url: "https://www.tagmar.com.br/",
 			},
 			{
-				text: "Edilton",
-			},
-			{
-				text: "Marcelo",
-			},
-			{
-				text: "Petrus",
-			},
-			{
-				text: "Rodolfo",
-			},
-			{
-				text: "Sérgio",
+				text: "Odijas",
+				url: "https://www.instagram.com/odjaseviu?igsh=bXpvOXdjdWEwdGQ3",
 			},
 		],
 	},
-];
+	{
+		id: AboutAccordionName.BIBLIOTECAS,
+		info: [
+			{
+				text: "@3d-dice/dice-box-threejs",
+				url: "https://github.com/3d-dice/dice-box-threejs",
+			},
+			{
+				text: "date-fns",
+				url: "https://date-fns.org/",
+			},
+			{
+				text: "MUI",
+				url: "https://mui.com/",
+			},
+			{
+				text: "Redux toolkit",
+				url: "https://redux-toolkit.js.org/",
+			},
+			{
+				text: "zod",
+				url: "https://zod.dev/",
+			},
+		],
+	},
+] as const;

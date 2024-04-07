@@ -1,16 +1,22 @@
 import { remove } from "diacritics";
+import { AbstractDTO } from "../models/Abstract/DescriptionOptionalDTO";
+import { Constants } from "./constants";
 
 export namespace StringUtil {
 	export const getPlural = (n: number): "s" | "" => {
-		return n > 0 ? "s" : "";
+		return n > 1 ? "s" : "";
 	};
+
+	export const getDescricaoLonga = (
+		dto: AbstractDTO.DescriptionOptionalType,
+	): string[] => dto.descricao?.split("\n\n") ?? [];
 
 	export const extractFirstChar = (word: string): string => {
 		return remove(word.trim().charAt(0).toLowerCase());
 	};
 
 	/**
-	 * Compara strings dando a marge de diferença entre elas
+	 * Compara strings dando a margem de diferença entre elas
 	 *
 	 * @link https://www.geeksforgeeks.org/jaro-and-jaro-winkler-similarity/
 	 * @param a Primeira palavra
@@ -152,5 +158,30 @@ export namespace StringUtil {
 			}
 			return compareWords(a, element, similarity);
 		});
+	};
+
+	export const filterByFirstChar = (c: string, item: string): boolean =>
+		c === "" || extractFirstChar(item) === c;
+
+	export const filterByProximity = (text: string, item: string): boolean => {
+		const trimmed = text.trim().toLowerCase();
+		if (trimmed.length < 3) {
+			return true;
+		}
+		return compareWordWithWordsInSentence(
+			trimmed,
+			item,
+			Constants.MARGEM_DIFERENCA_PALAVRAS,
+		);
+	};
+
+	export const filterByExact = (needle: string, hay: string): boolean => {
+		const trimmedNeedle = needle.trim().toLocaleLowerCase();
+		const trimmedHay = hay.trim().toLocaleLowerCase();
+
+		if (trimmedNeedle.length < 3) {
+			return true;
+		}
+		return trimmedHay.includes(trimmedNeedle);
 	};
 }

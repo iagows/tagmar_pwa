@@ -1,7 +1,7 @@
-import { IDTO } from "../../models/DTO";
+import { AbstractDTO } from "../../models/Abstract/IdDTO";
 import { SingleOrArray } from "../../util/commonTypes";
 
-export type CrudType<T extends IDTO> = {
+export type CrudType<T extends AbstractDTO.IdType> = {
 	list: T[];
 	create: (datum: T) => void;
 	read: (id: SingleOrArray<string>) => T[];

@@ -1,8 +1,9 @@
-import { Box, Button, Grid } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 import bgEmpty from "../../assets/images/empty.png";
 import bgFilled from "../../assets/images/some.png";
 import useFicha from "../../stores/slices/fichas/useFicha";
 import PageContainer from "../PageContainer";
+import UnderConstruction from "../UnderConstruction";
 import FichaCard from "./FichaCard";
 
 const FichasContainer = () => {
@@ -11,6 +12,7 @@ const FichasContainer = () => {
 
 	return (
 		<PageContainer bg={bg}>
+			<UnderConstruction descricao="Fazer os cards funcionarem" />
 			<Box sx={{ flexGrow: 1 }}>
 				<Grid container rowSpacing={2} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
 					{list.map((f) => (
@@ -19,9 +21,6 @@ const FichasContainer = () => {
 						</Grid>
 					))}
 				</Grid>
-			</Box>
-			<Box sx={{ display: "flex", flexDirection: "column" }}>
-				<Button variant="contained">Adicionar Ficha</Button>
 			</Box>
 		</PageContainer>
 	);

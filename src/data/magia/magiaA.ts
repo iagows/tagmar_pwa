@@ -1,7 +1,7 @@
-import { AlcanceEnum } from "../models/AlcanceDTO";
-import { DuracaoEnum } from "../models/DuracaoDTO";
-import { EvocacaoEnum } from "../models/EvocacaoDTO";
-import { Magia, MagiaEnum } from "../models/magia/MagiaDTO";
+import { AlcanceEnum } from "../../models/AlcanceDTO";
+import { DuracaoEnum } from "../../models/DuracaoDTO";
+import { EvocacaoEnum } from "../../models/EvocacaoDTO";
+import { Magia, MagiaEnum } from "../../models/magia/MagiaDTO";
 
 export namespace Magias {
 	export const lista: Magia[] = [
@@ -304,7 +304,7 @@ Note que, como este encanto afeta a mente da vítima e não ondas de luz, etc, a
 					id: "0",
 					duracao: {
 						tipo: DuracaoEnum.ESPECIAL,
-						outraDescricao: "Até o favor ser feito",
+						descricao: "Até o favor ser feito",
 					},
 					descricao:
 						"Torna uma criatura inteligente mais simpática em relação ao evocador. Este pode pedir um pequeno favor à vítima, desde que seja algo razoável.",
@@ -359,78 +359,78 @@ Note que ao final do efeito a vítima se lembrará de tudo que fez e sentiu, por
 			niveis: [
 				{
 					id: "0",
-					descricao: "Analisa propriedades mágicas de nível 1.",
+					descricao: `Analisa propriedades mágicas de nível 1.
+
+Magias de nível 1; focus +2; absorção +1.`,
 					nivel: 1,
 				},
 				{
 					id: "1",
-					descricao: "Analisa propriedades mágicas de nível máximo 2.",
+					descricao: `Analisa propriedades mágicas de nível máximo 2.
+
+Magias de nível 2; focus +4; absorção +2; armas +1.`,
 					nivel: 2,
 				},
 				{
 					id: "2",
-					descricao: "Analisa propriedades mágicas de nível máximo 3.",
+					descricao: `Analisa propriedades mágicas de nível máximo 3.
+
+Magias de nível 3; focus +6; absorção +3; defesa +1.`,
 					nivel: 3,
 				},
 				{
 					id: "3",
-					descricao: "Analisa propriedades mágicas de nível máximo 4.",
+					descricao: `Analisa propriedades mágicas de nível máximo 4.
+
+Magias de nível 4; focus +8; absorção +4; armas +2.`,
 					nivel: 4,
 				},
 				{
 					id: "4",
-					descricao: "Analisa propriedades mágicas de nível máximo 5.",
+					descricao: `Analisa propriedades mágicas de nível máximo 5.
+
+Magias de nível 5; focus +10; absorção +5.`,
 					nivel: 5,
 				},
 				{
 					id: "5",
-					descricao: "Analisa propriedades mágicas de nível máximo 6.",
+					descricao: `Analisa propriedades mágicas de nível máximo 6.
+
+Magias de nível 6; focus +12; absorção +6; armas +3; defesa +2.`,
 					nivel: 6,
 				},
 				{
 					id: "6",
-					descricao: "Analisa propriedades mágicas de nível máximo 7.",
+					descricao: `Analisa propriedades mágicas de nível máximo 7.
+
+Magias de nível 7; focus +14; absorção +7.`,
 					nivel: 7,
 				},
 				{
 					id: "7",
-					descricao: "Analisa propriedades mágicas de nível máximo 8.",
+					descricao: `Analisa propriedades mágicas de nível máximo 8.
+
+Magias de nível 8; focus +16; absorção +8; armas +4.`,
 					nivel: 8,
 				},
 				{
 					id: "8",
-					descricao: "Analisa propriedades mágicas de nível máximo 9.",
+					descricao: `Analisa propriedades mágicas de nível máximo 9.
+
+Magias de nível 9; focus +18; absorção +9.`,
 					nivel: 9,
 				},
 				{
 					id: "9",
-					descricao: "Analisa propriedades mágicas de nível máximo 10.",
+					descricao: `Analisa propriedades mágicas de nível máximo 10.
+
+Magias de nível 10; focus +20; absorção +10; armas +5; defesa +3.`,
 					nivel: 10,
 				},
 			],
 			descricao: `Esta magia permite que o evocador analise a aura de um objeto e descubra as propriedades mágicas que ele possui. Caso o evocador use esta magia em um objeto que não seja mágico, ele descobre imediatamente que o objeto não é mágico (mas ainda assim desperdiça o dinheiro do ritual).
 
-Embora esta magia seja muito útil, ela requer muito treinamento, pois o evocador só é capaz de descobrir propriedades mágicas de poder equivalente ao seu conhecimento em Análise. Para a maioria das propriedades mágicas vale a relação abaixo:
-
-Propriedades de nível 1: Magias de nível 1; focus +2; absorção +1.
-
-Propriedades de nível 2: Magias de nível 2; focus +4; absorção +2; armas +1.
-
-Propriedades de nível 3: Magias de nível 3; focus +6; absorção +3; defesa +1.
-
-Propriedades de nível 4: Magias de nível 4; focus +8; absorção +4; armas +2.
-
-Propriedades de nível 5: Magias de nível 5; focus +10; absorção +5.
-
-Propriedades de nível 6: Magias de nível 6; focus +12; absorção +6; armas +3; defesa +2.
-
-Propriedades de nível 7: Magias de nível 7; focus +14; absorção +7.
-
-Propriedades de nível 8: Magias de nível 8; focus +16; absorção +8; armas +4.
-
-Propriedades de nível 9: Magias de nível 9; focus +18; absorção +9.
-
-Propriedades de nível 10: Magias de nível 10; focus +20; absorção +10; armas +5; defesa +3.
+Embora esta magia seja muito útil, ela requer muito treinamento, pois o evocador só é capaz de descobrir propriedades mágicas de poder equivalente ao seu conhecimento em Análise. Para a maioria das propriedades mágicas vale o que está descrito.
 
 Propriedades específicas que não se enquadrem na relação acima como por exemplo os itens descritos no Livro de Artefatos, terão seu nível determinado pelo mestre do jogo.
 
@@ -451,42 +451,42 @@ Este ritual exige o uso de materiais raros, de modo que eles custam 5 moedas de 
 			niveis: [
 				{
 					id: "0",
-					dinheiro: { ouro: 1 }, //descrever na tela
+					custo: { ouro: 1 },
 					descricao:
 						"Grupo de Armas igual a 1 em uma arma média que cause dano máximo 16, Concede defesa P1 e 10 pontos de EH.",
 					nivel: 1,
 				},
 				{
 					id: "1",
-					dinheiro: { ouro: 2 },
+					custo: { ouro: 2 },
 					descricao:
 						"Grupo de Armas igual a 3 em uma arma média que cause dano máximo 20, Concede defesa P1 e 20 pontos de EH.",
 					nivel: 2,
 				},
 				{
 					id: "2",
-					dinheiro: { ouro: 4 },
+					custo: { ouro: 4 },
 					descricao:
 						"Grupo de Armas igual a 6 em duas armas médias que causem dano máximo 20, Concede defesa P2 e 30 pontos de EH.",
 					nivel: 4,
 				},
 				{
 					id: "3",
-					dinheiro: { ouro: 6 },
+					custo: { ouro: 6 },
 					descricao:
 						"Grupo de Armas igual a 9 em uma arma média que cause 20 de dano e uma arma pesada que cause 20 de dano. Concede defesa P3 e 40 pontos de EH.",
 					nivel: 6,
 				},
 				{
 					id: "4",
-					dinheiro: { ouro: 8 },
+					custo: { ouro: 8 },
 					descricao:
 						"Grupo de Armas igual a 12 em uma arma média que cause 20 de dano e uma arma pesada que cause 24 de dano. Concede defesa P4 e 50 pontos de EH.",
 					nivel: 8,
 				},
 				{
 					id: "5",
-					dinheiro: { ouro: 10 },
+					custo: { ouro: 10 },
 					descricao:
 						"Grupo de Armas igual a 15 em três armas a escolha do evocador. Concede defesa P5 e 60 pontos de EH.",
 					nivel: 10,
@@ -519,35 +519,35 @@ O nível da magia diz os parâmetros gerais do ser, as armas que ele será capaz
 			niveis: [
 				{
 					id: "0",
-					dinheiro: { ouro: 1 },
+					custo: { ouro: 1 },
 					duracao: { tipo: DuracaoEnum.DIA, valor: 4 },
 					descricao: "Anima uma árvore de Porte menor.",
 					nivel: 1,
 				},
 				{
 					id: "1",
-					dinheiro: { ouro: 3 },
+					custo: { ouro: 3 },
 					duracao: { tipo: DuracaoEnum.SEMANA, valor: 1 },
 					descricao: "Anima uma árvore de Pequeno porte.",
 					nivel: 3,
 				},
 				{
 					id: "2",
-					dinheiro: { ouro: 5 },
+					custo: { ouro: 5 },
 					duracao: { tipo: DuracaoEnum.SEMANA, valor: 2 },
 					descricao: "Anima uma árvore de Médio porte.",
 					nivel: 5,
 				},
 				{
 					id: "3",
-					dinheiro: { ouro: 7 },
+					custo: { ouro: 7 },
 					duracao: { tipo: DuracaoEnum.SEMANA, valor: 3 },
 					descricao: "Anima uma árvore de Médio porte.",
 					nivel: 7,
 				},
 				{
 					id: "4",
-					dinheiro: { ouro: 9 },
+					custo: { ouro: 9 },
 					duracao: { tipo: DuracaoEnum.MES, valor: 1 },
 					descricao: "Anima uma árvore de Grande porte.",
 					nivel: 9,
@@ -669,7 +669,7 @@ Esse milagre costuma ser muito utilizado em masmorras de castelos, em especial a
 				{
 					id: "2",
 					evocacao: { tipo: EvocacaoEnum.RITUAL },
-					dinheiro: { ouro: 10 },
+					custo: { ouro: 10 },
 					descricao:
 						"Conjura um enviado menor para servir o evocador até a morte (do enviado ou do evocador).",
 					nivel: 4,
@@ -682,7 +682,7 @@ Esse milagre costuma ser muito utilizado em masmorras de castelos, em especial a
 				{
 					id: "4",
 					evocacao: { tipo: EvocacaoEnum.RITUAL },
-					dinheiro: { ouro: 30 },
+					custo: { ouro: 30 },
 					descricao:
 						"Conjura um enviado tipo I para servir o evocador até a morte (do enviado ou do evocador).",
 					nivel: 6,
@@ -695,7 +695,7 @@ Esse milagre costuma ser muito utilizado em masmorras de castelos, em especial a
 				{
 					id: "6",
 					evocacao: { tipo: EvocacaoEnum.RITUAL },
-					dinheiro: { ouro: 50 },
+					custo: { ouro: 50 },
 					descricao:
 						"Conjura um enviado tipo II para servir o evocador até a morte (do enviado ou do evocador).",
 					nivel: 9,
@@ -756,7 +756,7 @@ Caso o enviado morra ou a duração chegue ao fim, ele desaparece, voltando para
 			alcance: { tipo: AlcanceEnum.PESSOAL },
 			duracao: {
 				tipo: DuracaoEnum.USO,
-				outraDescricao: "Uso(s) ou 12 horas",
+				descricao: "Uso(s) ou 12 horas",
 			},
 			evocacao: { tipo: EvocacaoEnum.INSTANTANEA },
 		},
@@ -1045,7 +1045,7 @@ A quantidade de dano que pode ser absorvida antes do feitiço entrar em colapso 
 					duracao: {
 						tipo: DuracaoEnum.RODADA,
 						valor: 3,
-						outraDescricao:
+						descricao:
 							"3 rodadas, mas a penalidade -2 e o efeito da perda de EF dura até a flecha ser retirada (que gasta pelo menos uma ação de combate)",
 					},
 					descricao:
@@ -1159,42 +1159,42 @@ Não é possível assimilar magias de itens mágicos Pois somente criaturas pode
 			niveis: [
 				{
 					id: "0",
-					dinheiro: { prata: 2 },
+					custo: { prata: 2 },
 					descricao:
 						"Atrai até 2 estágios de mortos-vivos para o local assombrado.",
 					nivel: 1,
 				},
 				{
 					id: "1",
-					dinheiro: { prata: 4 },
+					custo: { prata: 4 },
 					descricao:
 						"Atrai até 3 estágios de mortos-vivos para o local assombrado.",
 					nivel: 2,
 				},
 				{
 					id: "2",
-					dinheiro: { prata: 8 },
+					custo: { prata: 8 },
 					descricao:
 						"Atrai até 6 estágios de mortos-vivos para o local assombrado.",
 					nivel: 4,
 				},
 				{
 					id: "3",
-					dinheiro: { prata: 12 },
+					custo: { prata: 12 },
 					descricao:
 						"Atrai até 9 estágios de mortos-vivos para o local assombrado.",
 					nivel: 6,
 				},
 				{
 					id: "4",
-					dinheiro: { prata: 16 },
+					custo: { prata: 16 },
 					descricao:
 						"Atrai até 12 estágios de mortos-vivos para o local assombrado.",
 					nivel: 8,
 				},
 				{
 					id: "5",
-					dinheiro: { prata: 20 },
+					custo: { prata: 20 },
 					descricao:
 						"Atrai até 15 estágios de mortos-vivos para o local assombrado.",
 					nivel: 10,
@@ -1456,7 +1456,7 @@ Uma mesma pessoa não pode ser vítima duas vezes seguidas de uma só evocação
 			niveis: [
 				{
 					id: "0",
-					dinheiro: { ouro: 1 },
+					custo: { ouro: 1 },
 					duracao: { tipo: DuracaoEnum.DIA, valor: 1 },
 					alcance: { tipo: AlcanceEnum.METRO, valor: 1, isRaio: true },
 					descricao:
@@ -1465,7 +1465,7 @@ Uma mesma pessoa não pode ser vítima duas vezes seguidas de uma só evocação
 				},
 				{
 					id: "1",
-					dinheiro: { ouro: 5 },
+					custo: { ouro: 5 },
 					duracao: { tipo: DuracaoEnum.MES, valor: 1 },
 					alcance: { tipo: AlcanceEnum.METRO, valor: 5, isRaio: true },
 					descricao:
@@ -1474,7 +1474,7 @@ Uma mesma pessoa não pode ser vítima duas vezes seguidas de uma só evocação
 				},
 				{
 					id: "2",
-					dinheiro: { ouro: 10 },
+					custo: { ouro: 10 },
 					duracao: { tipo: DuracaoEnum.MES, valor: 1 },
 					alcance: { tipo: AlcanceEnum.METRO, valor: 10, isRaio: true },
 					descricao:
@@ -1483,7 +1483,7 @@ Uma mesma pessoa não pode ser vítima duas vezes seguidas de uma só evocação
 				},
 				{
 					id: "3",
-					dinheiro: { ouro: 20 },
+					custo: { ouro: 20 },
 					duracao: { tipo: DuracaoEnum.ANO_E_DIA },
 					alcance: { tipo: AlcanceEnum.METRO, valor: 15, isRaio: true },
 					descricao:
@@ -1492,7 +1492,7 @@ Uma mesma pessoa não pode ser vítima duas vezes seguidas de uma só evocação
 				},
 				{
 					id: "4",
-					dinheiro: { ouro: 40 },
+					custo: { ouro: 40 },
 					duracao: { tipo: DuracaoEnum.ANO, valor: 13 },
 					alcance: { tipo: AlcanceEnum.METRO, valor: 20, isRaio: true },
 					descricao:

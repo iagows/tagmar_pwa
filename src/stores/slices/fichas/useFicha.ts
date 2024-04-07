@@ -6,14 +6,15 @@ import { CrudType } from "../CrudTypes";
 import {
 	create as createFicha,
 	delete_ as deleteFicha,
+	invertFavorite,
 	update as updateFicha,
 } from "./index";
 
-type Out = CrudType<Ficha>;
+type Out = CrudType<Ficha> & { changeFav: (id: string) => void };
 
 const useFicha = (): Out => {
 	const dispatch = useAppDispatch();
-	const { list } = useAppSelector((s) => s.fichas);
+	const { list } = useAppSelector((s) => s.fichaReducer);
 
 	function create(datum: Ficha): void {
 		dispatch(createFicha(datum));
@@ -34,12 +35,17 @@ const useFicha = (): Out => {
 		dispatch(deleteFicha(toArray(ids)));
 	}
 
+	function changeFav(id: string): void {
+		dispatch(invertFavorite(id));
+	}
+
 	return {
 		list,
 		read,
 		update,
 		delete_,
 		create,
+		changeFav,
 	};
 };
 

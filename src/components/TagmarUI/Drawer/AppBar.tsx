@@ -1,16 +1,19 @@
+import ArrowBack from "@mui/icons-material/ArrowBack";
 import MenuIcon from "@mui/icons-material/Menu";
-import { AppBar, IconButton, Toolbar, Typography } from "@mui/material";
-import { useRouteTitle } from "../../../pages/RouteNames";
+import { AppBar, IconButton, Toolbar } from "@mui/material";
+import useRouteMatch from "../../../hooks/useRouteMatch";
 import { THEME_OPTIONS } from "../../../theme";
+import { VoidCallback } from "../../../util/commonTypes";
 import { Constants } from "../../../util/constants";
 import HideOnScroll from "../../HideOnScroll";
+import TagLabel from "../Label";
 
 type In = {
-	onMenu: () => void;
+	onMenu: VoidCallback;
 };
 
 const TagAppBar = ({ onMenu }: In) => {
-	const title = useRouteTitle();
+	const { isMainRoute, title, rightAction } = useRouteMatch();
 
 	return (
 		<HideOnScroll>
@@ -33,11 +36,16 @@ const TagAppBar = ({ onMenu }: In) => {
 						onClick={onMenu}
 						sx={{ mr: 2, display: { sm: "none" } }}
 					>
-						<MenuIcon />
+						{isMainRoute ? <MenuIcon /> : <ArrowBack />}
 					</IconButton>
-					<Typography variant="h6" noWrap component="div">
+					<TagLabel variant="h6" noWrap component="div" flexGrow={1}>
 						{title}
-					</Typography>
+					</TagLabel>
+					{rightAction && (
+						<IconButton edge="end" onClick={rightAction.action} disabled>
+							<rightAction.Icon />
+						</IconButton>
+					)}
 				</Toolbar>
 			</AppBar>
 		</HideOnScroll>

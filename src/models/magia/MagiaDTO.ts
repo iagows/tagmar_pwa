@@ -1,10 +1,9 @@
 import { z } from "zod";
-import AbstractNamedDTO from "../AbstractNamedDTO";
-import AlcanceDTO from "../AlcanceDTO";
-import DinheiroDTO from "../DinheiroDTO";
-import DuracaoDTO from "../DuracaoDTO";
+import { AbstractDTO as DescDTO } from "../Abstract/DescriptionDTO";
+import { AbstractDTO as IdDTO } from "../Abstract/IdDTO";
+import { AbstractDTO as NameDTO } from "../Abstract/NameDTO";
+import AbstractMagicDTO from "./AbstractMagicDTO";
 import NivelDTO from "./NivelDTO";
-import EvocacaoDTO from "../EvocacaoDTO";
 
 export enum MagiaEnum {
 	abrigo = "a0",
@@ -226,7 +225,7 @@ export enum MagiaEnum {
 	santuarioNatural = "s2",
 	seducao = "s3",
 	sentidoNatural = "s4",
-	serDeagua = "s5",
+	serDeAgua = "s5",
 	serenidade = "s6",
 	sextoSentido = "s7",
 	silencio = "s8",
@@ -274,14 +273,15 @@ const next = list.map(i => i.split("=")[0].trim()).map(i => {
 console.log(next.join("\n"))
 */
 
-const MagiaDTO = AbstractNamedDTO.extend({
-	extra: z.string().array().optional(),
-	alcance: AlcanceDTO,
-	duracao: DuracaoDTO,
-	custo: DinheiroDTO.optional(),
-	evocacao: EvocacaoDTO.optional(),
-	niveis: NivelDTO.array(),
-});
+const MagiaDTO = z
+	.object({
+		extra: z.string().array().optional(),
+		niveis: NivelDTO.array(),
+	})
+	.merge(IdDTO.IdDTO)
+	.merge(NameDTO.NameDTO)
+	.merge(AbstractMagicDTO)
+	.merge(DescDTO.DescriptionDTO);
 
 type Magia = z.infer<typeof MagiaDTO>;
 

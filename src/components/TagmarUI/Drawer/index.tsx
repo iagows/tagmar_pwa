@@ -1,5 +1,8 @@
-import { Box, CssBaseline, Drawer } from "@mui/material";
+import { Box, CssBaseline, Drawer, SwipeableDrawer } from "@mui/material";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import useRouteMatch from "../../../hooks/useRouteMatch";
+import { VoidCallback } from "../../../util/commonTypes";
 import { Constants } from "../../../util/constants";
 import TagAppBar from "./AppBar";
 import DrawerContent from "./DrawerContent";
@@ -24,9 +27,27 @@ const DRAWER_SX_PERM = {
 	"& .MuiDrawer-paper": DRAWER_CSS,
 } as const;
 
-const TagDrawer = () => {
+type DrawerType = {
+	goBack: VoidCallback;
+	mobileOpen: boolean;
+	handleDrawerOpen: VoidCallback;
+	handleDrawerClose: VoidCallback;
+	handleDrawerToggle: VoidCallback;
+	handleDrawerTransitionEnd: VoidCallback;
+};
+
+const useDrawer = (): DrawerType => {
 	const [isClosing, setIsClosing] = useState<boolean>(false);
 	const [mobileOpen, setMobileOpen] = useState<boolean>(false);
+
+	const { isMainRoute } = useRouteMatch();
+
+	const navigate = useNavigate();
+
+	const handleDrawerOpen = () => {
+		setIsClosing(false);
+		setMobileOpen(true);
+	};
 
 	const handleDrawerClose = () => {
 		setIsClosing(true);
@@ -38,28 +59,56 @@ const TagDrawer = () => {
 	};
 
 	const handleDrawerToggle = () => {
-		if (!isClosing) {
+		if (isMainRoute && !isClosing) {
 			setMobileOpen(!mobileOpen);
 		}
 	};
+
+	const goBack = () => {
+		if (!isMainRoute) {
+			navigate(-1);
+		}
+	};
+	return {
+		goBack,
+		mobileOpen,
+		handleDrawerOpen,
+		handleDrawerClose,
+		handleDrawerToggle,
+		handleDrawerTransitionEnd,
+	};
+};
+
+const TagDrawer = () => {
+	const {
+		goBack,
+		mobileOpen,
+		handleDrawerOpen,
+		handleDrawerClose,
+		handleDrawerToggle,
+		handleDrawerTransitionEnd,
+	} = useDrawer();
+
 	return (
 		<Box onClick={handleDrawerToggle}>
 			<CssBaseline />
-			<TagAppBar onMenu={handleDrawerToggle} />
+			<TagAppBar onMenu={goBack} />
 			<Box sx={DRAWER_BOX_SX}>
 				{/* The implementation can be swapped with js to avoid SEO duplication of links. */}
-				<Drawer
-					variant="temporary"
+				<SwipeableDrawer
 					open={mobileOpen}
-					onTransitionEnd={handleDrawerTransitionEnd}
+					variant="temporary"
+					onOpen={handleDrawerOpen}
+					disableBackdropTransition
 					onClose={handleDrawerClose}
+					onTransitionEnd={handleDrawerTransitionEnd}
 					ModalProps={{
 						keepMounted: true, // Better open performance on mobile.
 					}}
 					sx={DRAWER_SX_TEMP}
 				>
 					<DrawerContent />
-				</Drawer>
+				</SwipeableDrawer>
 				<Drawer variant="permanent" sx={DRAWER_SX_PERM} open>
 					<DrawerContent />
 				</Drawer>

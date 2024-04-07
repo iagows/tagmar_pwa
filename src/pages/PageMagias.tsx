@@ -1,87 +1,57 @@
-import Clear from "@mui/icons-material/Clear";
-import Filter from "@mui/icons-material/FilterAlt";
-import Search from "@mui/icons-material/SearchOutlined";
-import { Box, IconButton, InputAdornment, TextField } from "@mui/material";
-import { useEffect, useState } from "react";
+import { Avatar, Badge, Box, MenuItem } from "@mui/material";
+import getAsset from "../assets/app";
 import ListaDeLetras from "../components/ListaDeLetras";
 import ListaDeNomes from "../components/ListaDeNomes";
 import PageContainer from "../components/PageContainer";
-import { MAGIAS } from "../data/magias";
-import { Magia } from "../models/magia/MagiaDTO";
-import { Constants } from "../util/constants";
-import { StringUtil } from "../util/stringHelp";
+import TextFieldWithFilter from "../components/TagmarUI/TagLista/TextFieldWithFilter";
+import { Relations } from "../data/relations";
+import usePageMagias from "../hooks/usePageMagias";
+import { RoutePath } from "../routing/RouteNames";
+
+const profissoes = Relations.getProfissoesMagicas();
 
 const PageMagias = () => {
-	const [text, setText] = useState<string>("");
-	const [list, setList] = useState<Magia[]>(MAGIAS);
-	const [selectedCharButton, setSelectedCharButton] = useState<string>("");
+	const { input, list, char, filter } = usePageMagias();
 
-	function clear() {
-		setText("");
-		setSelectedCharButton("");
-	}
-
-	useEffect(() => {
-		const charFiltered = MAGIAS.filter(
-			(m) =>
-				selectedCharButton === "" ||
-				StringUtil.extractFirstChar(m.nome) === selectedCharButton,
-		);
-
-		const clearedText = text.trim().toLowerCase();
-		const filteredList = charFiltered.filter((m) =>
-			StringUtil.compareWordWithWordsInSentence(
-				clearedText,
-				m.nome,
-				Constants.MARGEM_DIFERENCA_PALAVRAS,
-			),
-		);
-
-		setList(clearedText.length === 0 ? charFiltered : filteredList);
-	}, [text, selectedCharButton]);
-
-	function onCharClick(char: string): void {
-		setSelectedCharButton((last) => (char === last ? "" : char));
-	}
-
-	const hasText = text.length > 0 || selectedCharButton.length > 0;
 	return (
 		<PageContainer>
 			<Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
-				<TextField
+				<TextFieldWithFilter
+					text={input.text}
 					label="Nome da magia"
-					variant="outlined"
-					value={text}
-					onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-						setText(event.target.value);
-					}}
-					InputProps={{
-						endAdornment: (
-							<InputAdornment position="start">
-								{hasText && (
-									<IconButton onClick={clear}>
-										<Clear />
-									</IconButton>
-								)}
-								<IconButton disabled>
-									<Filter />
-								</IconButton>
-							</InputAdornment>
-						),
-						startAdornment: (
-							<IconButton disabled>
-								<Search />
-							</IconButton>
-						),
-					}}
-					placeholder="Nome da magia"
-				/>
+					onChange={input.setText}
+					onClearText={input.clear}
+					onClearFilters={filter.clear}
+					showClearButton={input.hasText}
+				>
+					{profissoes.map((p) => {
+						const Icon = getAsset(p);
+						const hideBadge = !filter.exists(p);
+
+						return (
+							<MenuItem key={p} onClick={() => filter.swap(p)}>
+								<Badge
+									variant="dot"
+									color="primary"
+									overlap="circular"
+									invisible={hideBadge}
+									anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+								>
+									<Avatar>
+										<Icon />
+									</Avatar>
+								</Badge>{" "}
+								{p}
+							</MenuItem>
+						);
+					})}
+				</TextFieldWithFilter>
 				<ListaDeLetras
-					lista={MAGIAS}
-					onClick={onCharClick}
-					selected={selectedCharButton}
+					lista={list.data}
+					onClick={char.onCharClick}
+					selected={char.char}
 				/>
-				<ListaDeNomes lista={list} />
+				<ListaDeNomes lista={list.data} to={RoutePath.MAGIA} />
 			</Box>
 		</PageContainer>
 	);

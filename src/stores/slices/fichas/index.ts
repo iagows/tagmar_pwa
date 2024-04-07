@@ -1,79 +1,63 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { compareAsc } from "date-fns";
 import { Ficha } from "../../../models/FichaDTO";
-import { ProfissaoEnum } from "../../../models/ProfissaoDTO";
-import { RacaEnum } from "../../../models/RacaDTO";
 
-const initialList: Ficha[] = [
-	{
-		id: "asdf",
-		nome: "Nome 1",
-		profissao: ProfissaoEnum.BARDO,
-		descricao: "",
-		narrador: "narrador fulano",
-		nivel: 2,
-		xp: 20,
-		raca: RacaEnum.ELFO_DOURADO,
-		criacao: new Date(),
-		atributos: new Map(),
-		habilidades: new Map(),
-	},
-	{
-		id: "asdf2",
-		nome: "Nome 2",
-		profissao: ProfissaoEnum.MAGO,
-		descricao: "",
-		narrador: "narrador cicrano",
-		nivel: 3,
-		xp: 30,
-		raca: RacaEnum.HUMANO,
-		criacao: new Date(),
-		atributos: new Map(),
-		habilidades: new Map(),
-		isFavorito: true,
-	},
-	{
-		id: "asdf3",
-		nome: "Nome 3",
-		profissao: ProfissaoEnum.GUERREIRO,
-		descricao: "",
-		narrador: "narrador beltrano",
-		nivel: 4,
-		xp: 40,
-		raca: RacaEnum.ANAO,
-		criacao: new Date(),
-		atributos: new Map(),
-		habilidades: new Map(),
-	},
-];
+const sorter = (a: Ficha, b: Ficha): number => {
+	if (a.isFavorito && !b.isFavorito) {
+		return -1;
+	}
+	if (b.isFavorito && !a.isFavorito) {
+		return 1;
+	}
 
-const appSlice = createSlice({
+	return compareAsc(a.ultimaVisualizacao, b.ultimaVisualizacao);
+};
+
+const initialList: Ficha[] = [].sort(sorter);
+
+const on = (id: string, list: Ficha[], cb: (ficha: Ficha) => void) => {
+	const index = list.findIndex((i) => i.id === id);
+	if (index > -1) {
+		const ficha = list[index];
+		cb(ficha);
+		list[index] = ficha;
+	}
+};
+
+const fichasSlice = createSlice({
 	name: "fichas",
 	initialState: {
 		list: initialList,
 	},
 	// https://redux-toolkit.js.org/api/createslice/
-	reducers: (createSlice) => ({
-		create: createSlice.reducer<Ficha>((state, action) => {
+	reducers: {
+		create: (state, action: PayloadAction<Ficha>) => {
 			state.list.push(action.payload);
-		}),
-		update: createSlice.reducer<Ficha[]>((state, action) => {
+		},
+		update: (state, action: PayloadAction<Ficha[]>) => {
 			for (const ficha of action.payload) {
 				const index = state.list.findIndex((i) => i.id === ficha.id);
 				if (index > -1) {
 					state.list[index] = ficha;
 				}
 			}
-		}),
-		delete_: createSlice.reducer<string[]>((state, action) => {
+		},
+		delete_: (state, action: PayloadAction<string[]>) => {
 			for (const item of action.payload) {
 				const index = state.list.findIndex((i) => i.id === item);
 				if (index > -1) {
 					state.list.splice(index, 1);
 				}
 			}
-		}),
-	}),
+		},
+		invertFavorite: (state, action: PayloadAction<string>) => {
+			on(action.payload, state.list, (f) => {
+				f.isFavorito = !f.isFavorito;
+			});
+			state.list.sort(sorter);
+		},
+	},
 });
 
-export default appSlice.reducer;
-export const { create, update, delete_ } = appSlice.actions;
+export default fichasSlice.reducer;
+export const { create, update, delete_, invertFavorite } = fichasSlice.actions;

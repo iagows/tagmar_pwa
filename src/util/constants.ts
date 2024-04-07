@@ -17,4 +17,15 @@ export namespace Constants {
 
 	export const DRAWER_WIDTH = 300;
 	export const MARGEM_DIFERENCA_PALAVRAS = 0.8;
+
+	export enum PAGES {
+		dado = "Dado",
+		mapas = "Mapas",
+		sobre = "Sobre",
+		tagmar = "Tagmar",
+		fichas = "Fichas",
+		magias = "Magias",
+		habilidades = "Habilidades",
+		configuracoes = "Configurações",
+	}
 }

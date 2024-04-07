@@ -13,7 +13,13 @@ import Mago from "./mago.svg?react";
 import Rastreador from "./rastreador.svg?react";
 import Sacerdote from "./sacerdote.svg?react";
 
-const getAssetRaca = (raca: RacaEnum) => {
+export type TagAsset = React.FunctionComponent<
+	React.SVGProps<SVGSVGElement> & {
+		title?: string | undefined;
+	}
+>;
+
+const getAssetRaca = (raca: RacaEnum): TagAsset => {
 	switch (raca) {
 		case RacaEnum.ANAO:
 			return Anao;
@@ -30,7 +36,7 @@ const getAssetRaca = (raca: RacaEnum) => {
 	}
 };
 
-const getAssetProfissao = (profissao: ProfissaoEnum) => {
+const getAssetProfissao = (profissao: ProfissaoEnum): TagAsset => {
 	switch (profissao) {
 		case ProfissaoEnum.BARDO:
 			return Bardo;
@@ -47,7 +53,7 @@ const getAssetProfissao = (profissao: ProfissaoEnum) => {
 	}
 };
 
-const getAsset = (desired: RacaEnum | ProfissaoEnum) => {
+const getAsset = (desired: RacaEnum | ProfissaoEnum): TagAsset => {
 	// biome-ignore lint/suspicious/noExplicitAny: <explanation>
 	if ((<any>Object).values(RacaEnum).includes(desired)) {
 		const d = desired as RacaEnum;

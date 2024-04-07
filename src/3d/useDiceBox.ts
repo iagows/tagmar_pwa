@@ -1,5 +1,6 @@
-import { useCallback, useEffect, useState } from "react";
 import DiceBox from "@3d-dice/dice-box-threejs";
+import { useCallback, useEffect, useState } from "react";
+import { VoidCallback } from "../util/commonTypes";
 
 async function getBox(id: string): Promise<DiceBox> {
 	const diceBox = new DiceBox(id, {
@@ -42,7 +43,7 @@ type In = {
 	containerId: string;
 };
 
-type Out = { box?: DiceBox; rodar: () => void };
+type Out = { box?: DiceBox; rodar: VoidCallback };
 
 const useDiceBox = ({ containerId }: In): Out => {
 	const [box, setBox] = useState<DiceBox>();

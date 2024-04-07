@@ -1,55 +1,29 @@
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import {
-	Accordion,
-	AccordionDetails,
-	AccordionSummary,
-	Link,
-	Typography,
-} from "@mui/material";
-import { useState } from "react";
+import { Link } from "@mui/material";
 import PageContainer from "../components/PageContainer";
-import { ABOUT_DATA, AboutAccordionName } from "../data/about";
+import TagLabel from "../components/TagmarUI/Label";
+import { SectionPage } from "../components/TagmarUI/Section";
+import { ABOUT_DATA } from "../data/about";
 
 const PageSobre = () => {
-	const [expanded, setExpanded] = useState<AboutAccordionName>("tagmar");
-
-	const onChange =
-		(panel: AboutAccordionName) =>
-		(_: React.SyntheticEvent, isExpanded: boolean) => {
-			if (isExpanded) {
-				setExpanded(panel);
-			}
-		};
-
 	return (
 		<PageContainer>
-			<Typography>
-				Os links aqui contidos levarão para fora do aplicativo. Clique/toque com
-				cautela.
-			</Typography>
+			<TagLabel sx={{ marginBottom: 1 }}>
+				Os links levarão para fora do aplicativo. Clique/toque com cautela.
+			</TagLabel>
 			{ABOUT_DATA.map((item) => (
-				<Accordion
-					expanded={expanded === item.id}
-					onChange={onChange(item.id)}
-					key={item.id}
-				>
-					<AccordionSummary expandIcon={<ExpandMoreIcon />}>
-						<Typography>{item.title}</Typography>
-					</AccordionSummary>
-					<AccordionDetails>
-						{item.info.map((info) => (
-							<Typography>
-								{info.url ? (
-									<Link href={info.url} target="_blank">
-										{info.text}
-									</Link>
-								) : (
-									info.text
-								)}
-							</Typography>
-						))}
-					</AccordionDetails>
-				</Accordion>
+				<SectionPage.Section key={item.id} title={item.id}>
+					{item.info.map((info, index) => (
+						<TagLabel key={`${info.text}_${index}`}>
+							{info.url ? (
+								<Link href={info.url} target="_blank">
+									{info.text}
+								</Link>
+							) : (
+								info.text
+							)}
+						</TagLabel>
+					))}
+				</SectionPage.Section>
 			))}
 		</PageContainer>
 	);

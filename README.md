@@ -16,6 +16,13 @@ A ideia não é derrubar/ganhar/fazer melhor. Minha ideia é fazer diferente. O 
 
 Além disso, fazendo versão web torna o aplicativo mais abrangente: Android, iOS, Linux, Windows... E sendo PWA, fica com cara de aplicativo nativo. Para atualizar basta entrar na internet que tudo se atualiza.
 
+### Exemplo
+
+24/03/204
+
+![Desktop](preview/tagmar_2023_03_24_desktop.png)
+![Mobile](preview/tagmar_2023_03_24_mobile.png)
+
 ## Ferramentas
 
 - Yarn
@@ -28,7 +35,7 @@ Além disso, fazendo versão web torna o aplicativo mais abrangente: Android, iO
 
 1. Baixe o projeto
 2. > yarn
-3. > yarn dev
+3. > make start
 
 ## Imagens
 
@@ -45,3 +52,43 @@ Ainda sem imagens. Estou provando conceitos ;)
 - [Manifest generator](https://www.simicart.com/manifest-generator.html/)
 - [Bubblewrap](https://chromeos.dev/en/publish/pwa-in-play)
 - [Jaro Winkler](https://www.geeksforgeeks.org/jaro-and-jaro-winkler-similarity)
+
+## Roadmap
+
+- [ ] Revisar a tela de fichas
+  - [x] Mover o botão de adicionar para um menu
+  - [ ] Fazer os cards funcionarem
+    - [x] Favorito
+    - [ ] Apagar
+    - [ ] Editar
+  - [ ] Criar tela de ficha
+    - [ ] Criar
+    - [ ] Ver
+    - [ ] Gastar XP
+    - [ ] Imprimir pdf no layout do livro
+- [ ] Dado
+  - [ ] adicionar seleção de coluna
+  - [ ] exibir o resultado
+  - [ ] cor por tipo de lançamento (quando lançar usando a ficha)
+- [ ] Magias
+  - [x] completar a lista
+  - [x] organizar layout
+  - [ ] revisar [descrição](https://www.tagmar.com.br/wiki/Default.aspx?PageName=Livro%20de%20Magias)
+- [ ] Habilidades (atualmente em revisão oficial do RPG, então ficará parado por um tempo)
+  - [ ] fazer
+- [ ] Mapas
+  - [ ] Exibir um mapa grande
+  - [ ] O mapa deve ser selecionável (svg) por região
+  - [ ] Popup com descrição
+- [ ] Configurações
+  - [x] Ativar/desativar dado 3d
+  - [x] Ativar/desativar busca por nome aproximado
+- [ ] Sobre (sempre revisando)
+  - [x] Colaboradores
+- [ ] Outros
+  - [ ] Persistir
+    - [x] Configurações
+    - [ ] Fichas
+  - [ ] Salvar no sistema de arquivos
+    - [ ] exportar
+    - [ ] importar

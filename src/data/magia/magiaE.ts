@@ -1,7 +1,7 @@
-import { AlcanceEnum } from "../models/AlcanceDTO";
-import { DuracaoEnum } from "../models/DuracaoDTO";
-import { EvocacaoEnum } from "../models/EvocacaoDTO";
-import { Magia, MagiaEnum } from "../models/magia/MagiaDTO";
+import { AlcanceEnum } from "../../models/AlcanceDTO";
+import { DuracaoEnum } from "../../models/DuracaoDTO";
+import { EvocacaoEnum } from "../../models/EvocacaoDTO";
+import { Magia, MagiaEnum } from "../../models/magia/MagiaDTO";
 
 export namespace Magias {
 	export const lista: Magia[] = [
@@ -11,35 +11,35 @@ export namespace Magias {
 			niveis: [
 				{
 					id: "0",
-					dinheiro: { ouro: 1 },
+					custo: { ouro: 1 },
 					duracao: { tipo: DuracaoEnum.DIA, valor: 1 },
 					descricao: "Conjura Elemental Menor da Água.",
 					nivel: 1,
 				},
 				{
 					id: "1",
-					dinheiro: { ouro: 3 },
+					custo: { ouro: 3 },
 					duracao: { tipo: DuracaoEnum.DIA, valor: 1 },
 					descricao: "Conjura Elemental da Água fraco.",
 					nivel: 3,
 				},
 				{
 					id: "2",
-					dinheiro: { ouro: 5 },
+					custo: { ouro: 5 },
 					duracao: { tipo: DuracaoEnum.DIA, valor: 1 },
 					descricao: "Conjura Elemental da Água médio.",
 					nivel: 5,
 				},
 				{
 					id: "3",
-					dinheiro: { ouro: 7 },
+					custo: { ouro: 7 },
 					duracao: { tipo: DuracaoEnum.DIA, valor: 5 },
 					descricao: "Conjura Elemental da Água médio.",
 					nivel: 7,
 				},
 				{
 					id: "4",
-					dinheiro: { ouro: 9 },
+					custo: { ouro: 9 },
 					duracao: { tipo: DuracaoEnum.DIA, valor: 5 },
 					descricao: "Conjura Elemental da Água forte.",
 					nivel: 9,
@@ -60,28 +60,28 @@ O ser conjurado aparece no local escolhido pelo evocador desde que este local es
 			niveis: [
 				{
 					id: "0",
-					dinheiro: { ouro: 1 },
+					custo: { ouro: 1 },
 					duracao: { tipo: DuracaoEnum.DIA, valor: 1 },
 					descricao: "Conjura um Elemental. Menor da Terra.",
 					nivel: 1,
 				},
 				{
 					id: "1",
-					dinheiro: { ouro: 3 },
+					custo: { ouro: 3 },
 					duracao: { tipo: DuracaoEnum.DIA, valor: 1 },
 					descricao: "Conjura um Elemental da Terra fraco.",
 					nivel: 3,
 				},
 				{
 					id: "2",
-					dinheiro: { ouro: 5 },
+					custo: { ouro: 5 },
 					duracao: { tipo: DuracaoEnum.DIA, valor: 1 },
 					descricao: "Conjura um Elemental da Terra médio.",
 					nivel: 5,
 				},
 				{
 					id: "3",
-					dinheiro: { ouro: 7 },
+					custo: { ouro: 7 },
 					duracao: { tipo: DuracaoEnum.DIA, valor: 5 },
 					descricao: "Conjura um Elemental da Terra médio.",
 					nivel: 7,
@@ -104,35 +104,35 @@ Elemental, da Terra 9: Conjura um Elemental da Terra forte por 5 dias. O rubi cu
 			niveis: [
 				{
 					id: "0",
-					dinheiro: { ouro: 1 },
+					custo: { ouro: 1 },
 					duracao: { tipo: DuracaoEnum.DIA, valor: 1 },
 					descricao: "Conjura Elemental Menor do Ar.",
 					nivel: 1,
 				},
 				{
 					id: "1",
-					dinheiro: { ouro: 3 },
+					custo: { ouro: 3 },
 					duracao: { tipo: DuracaoEnum.DIA, valor: 1 },
 					descricao: "Conjura Elemental do Ar fraco.",
 					nivel: 3,
 				},
 				{
 					id: "2",
-					dinheiro: { ouro: 5 },
+					custo: { ouro: 5 },
 					duracao: { tipo: DuracaoEnum.DIA, valor: 1 },
 					descricao: "Conjura Elemental do Ar médio.",
 					nivel: 5,
 				},
 				{
 					id: "3",
-					dinheiro: { ouro: 7 },
+					custo: { ouro: 7 },
 					duracao: { tipo: DuracaoEnum.DIA, valor: 5 },
 					descricao: "Conjura Elemental do Ar médio.",
 					nivel: 7,
 				},
 				{
 					id: "4",
-					dinheiro: { ouro: 9 },
+					custo: { ouro: 9 },
 					duracao: { tipo: DuracaoEnum.DIA, valor: 5 },
 					descricao: "Conjura Elemental do Ar forte.",
 					nivel: 9,
@@ -153,21 +153,21 @@ O ser conjurado aparece no local escolhido pelo evocador desde que este local es
 			niveis: [
 				{
 					id: "0",
-					dinheiro: { ouro: 1 },
+					custo: { ouro: 1 },
 					duracao: { tipo: DuracaoEnum.DIA, valor: 1 },
 					descricao: "Conjura um Elemental Menor do Fogo.",
 					nivel: 1,
 				},
 				{
 					id: "1",
-					dinheiro: { ouro: 3 },
+					custo: { ouro: 3 },
 					duracao: { tipo: DuracaoEnum.DIA, valor: 1 },
 					descricao: "Conjura um Elemental do Fogo fraco.",
 					nivel: 3,
 				},
 				{
 					id: "2",
-					dinheiro: { ouro: 5 },
+					custo: { ouro: 5 },
 					duracao: { tipo: DuracaoEnum.DIA, valor: 1 },
 					descricao:
 						"Conjura um Elemental do Fogo médio por 1 dia. O rubi custa 5 moedas de ouro.",
@@ -175,14 +175,14 @@ O ser conjurado aparece no local escolhido pelo evocador desde que este local es
 				},
 				{
 					id: "3",
-					dinheiro: { ouro: 7 },
+					custo: { ouro: 7 },
 					duracao: { tipo: DuracaoEnum.DIA, valor: 5 },
 					descricao: "Conjura um Elemental do Fogo médio.",
 					nivel: 7,
 				},
 				{
 					id: "4",
-					dinheiro: { ouro: 9 },
+					custo: { ouro: 9 },
 					duracao: { tipo: DuracaoEnum.DIA, valor: 5 },
 					descricao: "Conjura um Elemental do Fogo forte.",
 					nivel: 9,
@@ -267,35 +267,35 @@ O último nível deste encanto é um ritual que permite ao místico se comunicar
 			niveis: [
 				{
 					id: "0",
-					dinheiro: { prata: 5 },
+					custo: { prata: 5 },
 					descricao:
 						"A magia cria um elo entre duas pessoas. as partes saberão se uma das partes envolvidas estão em grande perigo ou em grande sofrimento.",
 					nivel: 1,
 				},
 				{
 					id: "1",
-					dinheiro: { ouro: 1 },
+					custo: { ouro: 1 },
 					descricao:
 						"As partes saberão a distância que os separa, obtendo as seguintes respostas: muito perto (até 1km}, perto (de 1 a 10 km}, médio (de 10 a 100km}, longe (de 100 a 1.000km}, muito longe (mais que 1.000km}, além de saber a direção nos pontos cardeais: Norte, Sul, Leste ou Oeste, a magia pode criar um elo com até 4 pessoas.",
 					nivel: 2,
 				},
 				{
 					id: "2",
-					dinheiro: { ouro: 2 },
+					custo: { ouro: 2 },
 					descricao:
 						"Uma vez por semana, todas as partes terão um sonho em comum, onde poderão conversar normalmente, nenhuma delas terá como prever quando será o sonho. Obviamente para que o sonho possa ocorrer é necessário que as partes estejam dormindo ao mesmo tempo, a magia pode criar um elo com até 6 pessoas.",
 					nivel: 4,
 				},
 				{
 					id: "3",
-					dinheiro: { ouro: 4 },
+					custo: { ouro: 4 },
 					descricao:
 						"Uma vez por dia, as partes poderão por 30 minutos verem uns aos outros, nesse caso eles podem escolher quando farão isso. Eles terão uma imagem dinâmica um do outro, olhando por cima, como se estivessem a uns 10 metros de distância acima, apenas as partes afetadas pela magia podem ver a imagem. Nenhum deles tem como saber se o outro está observando. Os 30 minutos devem ser utilizados uma única vez (ou seja, não se pode ver a imagem durante 20 minutos e depois ver mais 10 minutos) e aquele que convocar essa imagem, deverá estar em estado de meditação, longe de grandes barulhos e completamente alheio ao que acontece ao seu redor. Qualquer coisa que desperte sua atenção, fará com que a imagem se perca, a magia pode criar um elo com até 8 pessoas.",
 					nivel: 6,
 				},
 				{
 					id: "4",
-					dinheiro: { ouro: 8 },
+					custo: { ouro: 8 },
 					descricao:
 						"Idem ao anterior, mas os 30 minutos para ver a outra parte não precisa ser utilizado de uma única vez, podendo ser divididos em várias vezes, desde que cada uma delas tenham um mínimo de 1 minuto, a magia pode criar um elo com até 10 pessoas.",
 					nivel: 8,

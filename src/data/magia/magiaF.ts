@@ -1,12 +1,12 @@
-import { AlcanceEnum } from "../models/AlcanceDTO";
-import { DuracaoEnum } from "../models/DuracaoDTO";
-import { EvocacaoEnum } from "../models/EvocacaoDTO";
-import { Magia } from "../models/magia/MagiaDTO";
+import { AlcanceEnum } from "../../models/AlcanceDTO";
+import { DuracaoEnum } from "../../models/DuracaoDTO";
+import { EvocacaoEnum } from "../../models/EvocacaoDTO";
+import { Magia, MagiaEnum } from "../../models/magia/MagiaDTO";
 
 export namespace Magias {
 	export const lista: Magia[] = [
 		{
-			id: "112",
+			id: MagiaEnum.fabricacaoDivina,
 			nome: "Fabricação Divina",
 			niveis: [
 				{
@@ -60,7 +60,7 @@ A duração do encanto será de acordo com a duração da habilidade usada. No m
 			},
 		},
 		{
-			id: "113",
+			id: MagiaEnum.faro,
 			nome: "Faro",
 			niveis: [
 				{
@@ -116,7 +116,7 @@ Um rastreador evoca o efeito 9 e por 3 horas ele pode farejar coisas mais especi
 			},
 		},
 		{
-			id: "114",
+			id: MagiaEnum.fascinio,
 			nome: "Fascínio",
 			niveis: [
 				{
@@ -166,7 +166,7 @@ A magia acaba quando o evocador pára de tocar o seu instrumento, cantar ou disc
 			},
 		},
 		{
-			id: "115",
+			id: MagiaEnum.feixesIncandescentes,
 			nome: "Feixes Incandescentes",
 			niveis: [
 				{
@@ -214,7 +214,7 @@ Embora esta magia seja de origem energética, sua matéria prima é o fogo, se s
 			},
 		},
 		{
-			id: "116",
+			id: MagiaEnum.fitogenese,
 			nome: "Fitogênese",
 			niveis: [
 				{
@@ -274,7 +274,7 @@ Filogênese 4: Cria uma área de 10 m de raio com uma pequena diversidade de pla
 			},
 		},
 		{
-			id: "117",
+			id: MagiaEnum.fogoDivino,
 			nome: "Fogo Divino",
 			niveis: [
 				{
@@ -325,7 +325,7 @@ Os sacerdotes que dominam este milagre não devem usá-lo levianamente, apenas e
 			},
 		},
 		{
-			id: "118",
+			id: MagiaEnum.forcaMutua,
 			nome: "Força Mútua",
 			niveis: [
 				{
@@ -376,7 +376,7 @@ O número de colunas de ataque atribuído ao evocador e aos animais variam de ac
 			},
 		},
 		{
-			id: "119",
+			id: MagiaEnum.forcaSagrada,
 			nome: "Força Sagrada",
 			niveis: [
 				{
@@ -420,7 +420,7 @@ O número de colunas de ataque atribuído ao evocador e aos animais variam de ac
 			},
 		},
 		{
-			id: "120",
+			id: MagiaEnum.forcarDisputa,
 			nome: "Forçar Disputa",
 			niveis: [
 				{
@@ -476,7 +476,7 @@ OBS: a maldição será escolhida livremente pelo Mestre que avaliará qual o gr
 			},
 		},
 		{
-			id: "121",
+			id: MagiaEnum.formaDePedra,
 			nome: "Forma de Pedra",
 			niveis: [
 				{
@@ -532,12 +532,12 @@ Os materiais necessários a evocação deste milagre custam 1 moeda de ouro veze
 			},
 		},
 		{
-			id: "122",
+			id: MagiaEnum.formaFluida,
 			nome: "Forma Fluida",
 			niveis: [],
 			descricao: `Com esse milagre, o sacerdote de Ganis pede à Deusa que transforme momentaneamente em água seu corpo e suas vestes, incluindo armadura e elmo. Pode ser usado para se infiltrar através de rachaduras, fendas ou qualquer orifício que o Mestre julgar possível; escapar de prisões ou amarras; ou até mesmo camuflagem. Também torna o místico imune a ataques físicos (todos os golpes atravessam o corpo sem causar dano}, mas ataques elétricos (Relâmpago e Raio Elétrico, por exemplo) causam um nível a mais de dano. Ataques mágicos e que afetam a mente funcionam normalmente contra o evocador. Armas mágicas funcionam parcialmente, causando metade do dano, arredondando para cima.
 
-A magia cria uma tensão superficial possibilitando manter o formato corpóreo ou a que o volume de água permitir (uma poça d’água, por exemplo). Sua cor será semelhante ao reflexo do místico na água. Por ser uma água divina, possuindo aura específica, a forma fluida não é afetada por magias de controle de água, como Hidromanipulação, por exemplo.
+A magia cria uma tensão superficial possibilitando manter o formato corpóreo ou a que o volume de água permitir (uma poça d'água, por exemplo). Sua cor será semelhante ao reflexo do místico na água. Por ser uma água divina, possuindo aura específica, a forma fluida não é afetada por magias de controle de água, como Hidromanipulação, por exemplo.
 
 Durante o efeito, o evocador mantém os sentidos normais, fica impossibilitado de fazer ataques físicos e realizar magias, não precisa respirar e não consegue segurar objetos. A VB permanece a mesma, respeitando as penalidades para as adversidades do terreno. Armas e escudos, caso estejam empunhadas no momento da ativação da magia, cairão no chão; mas se a arma estiver guardada e o escudo nas costas, transformar-se-á em água também (não servirão para ataques ou defesa). Os danos sofridos na forma fluida serão contabilizados normalmente da EF e EH do sacerdote.
 

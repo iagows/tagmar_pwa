@@ -7,7 +7,7 @@ import {
 	ListItemText,
 } from "@mui/material";
 import { Link, useLocation } from "react-router-dom";
-import { RoutePath } from "../../../pages/RouteNames";
+import { RoutePath } from "../../../routing/RouteNames";
 import UserDisplay from "../../UserDisplay";
 import { Drawer } from "./data";
 
@@ -36,6 +36,7 @@ const MountList = ({ list }: IList) => {
 };
 
 const DrawerContent = () => {
+	// filtrar ficha atual se estiver vazia
 	return (
 		<>
 			<UserDisplay />
