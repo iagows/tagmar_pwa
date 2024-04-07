@@ -16,6 +16,7 @@ import { RoutePath } from "./RouteNames";
 import { RouteHandle } from "../util/commonTypes";
 import { Constants } from "../util/constants";
 import AddIcon from "@mui/icons-material/Add";
+import PageEditarFicha from "../pages/PageEditarFicha";
 
 const BASENAME = "/tagmar_pwa";
 
@@ -50,6 +51,13 @@ export const route = createBrowserRouter(
 					path: RoutePath.FICHA,
 					element: <PageFicha />,
 					handle: FICHA_HANDLE,
+				},
+				{
+					path: RoutePath.EDITAR_FICHA,
+					element: <PageEditarFicha />,
+					handle: {
+						title: Constants.PAGES.ficha,
+					} as RouteHandle,
 				},
 				{
 					path: RoutePath.DADO,

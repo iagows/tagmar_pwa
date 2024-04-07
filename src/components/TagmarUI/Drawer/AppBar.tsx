@@ -1,18 +1,19 @@
 import ArrowBack from "@mui/icons-material/ArrowBack";
 import MenuIcon from "@mui/icons-material/Menu";
 import { AppBar, IconButton, LinkProps, Toolbar } from "@mui/material";
+import { nanoid } from "nanoid";
+import { Link } from "react-router-dom";
 import useRouteMatch from "../../../hooks/useRouteMatch";
 import { THEME_OPTIONS } from "../../../theme";
 import {
 	ActionLinkFunction,
+	VoidCallback,
 	isActionFunction,
 	isActionLink,
-	VoidCallback,
 } from "../../../util/commonTypes";
 import { Constants } from "../../../util/constants";
 import HideOnScroll from "../../HideOnScroll";
 import TagLabel from "../Label";
-import { Link } from "react-router-dom";
 
 type LocalVoid = VoidCallback;
 type LocalLink = {
@@ -26,6 +27,7 @@ function localLink(action: ActionLinkFunction): LocalInfo {
 		return action.action;
 	}
 	if (isActionLink(action)) {
+		action.link = action.link.replace(":id", nanoid());
 		return {
 			component: Link,
 			to: action.link,
