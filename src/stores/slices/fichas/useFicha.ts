@@ -14,7 +14,7 @@ type Out = CrudType<Ficha> & { changeFav: (id: string) => void };
 
 const useFicha = (): Out => {
 	const dispatch = useAppDispatch();
-	const { list } = useAppSelector((s) => s.fichaReducer);
+	const { list } = useAppSelector((s) => s.fichasReducer);
 
 	function create(datum: Ficha): void {
 		dispatch(createFicha(datum));

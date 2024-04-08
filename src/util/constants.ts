@@ -19,6 +19,7 @@ export namespace Constants {
 	export const MARGEM_DIFERENCA_PALAVRAS = 0.8;
 
 	export enum PAGES {
+		ficha = "Editar Ficha",
 		dado = "Dado",
 		mapas = "Mapas",
 		sobre = "Sobre",

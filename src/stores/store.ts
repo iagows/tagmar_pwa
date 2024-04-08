@@ -11,7 +11,7 @@ import {
 	persistStore,
 } from "redux-persist";
 import configReducer from "./slices/config";
-import fichaReducer from "./slices/fichas";
+import fichasReducer from "./slices/fichas";
 
 const persistConfig = {
 	key: "root",
@@ -20,7 +20,7 @@ const persistConfig = {
 
 const tagmarReducers = combineReducers({
 	configReducer,
-	fichaReducer,
+	fichasReducer,
 });
 const persistedReducer = persistReducer(persistConfig, tagmarReducers);
 

@@ -13,8 +13,6 @@ const sorter = (a: Ficha, b: Ficha): number => {
 	return compareAsc(a.ultimaVisualizacao, b.ultimaVisualizacao);
 };
 
-const initialList: Ficha[] = [].sort(sorter);
-
 const on = (id: string, list: Ficha[], cb: (ficha: Ficha) => void) => {
 	const index = list.findIndex((i) => i.id === id);
 	if (index > -1) {
@@ -24,11 +22,17 @@ const on = (id: string, list: Ficha[], cb: (ficha: Ficha) => void) => {
 	}
 };
 
+type State = {
+	list: Ficha[];
+	atual?: Ficha;
+};
+const INITIAL_STATE: State = {
+	list: [],
+};
+
 const fichasSlice = createSlice({
 	name: "fichas",
-	initialState: {
-		list: initialList,
-	},
+	initialState: INITIAL_STATE,
 	// https://redux-toolkit.js.org/api/createslice/
 	reducers: {
 		create: (state, action: PayloadAction<Ficha>) => {
