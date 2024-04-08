@@ -1,6 +1,6 @@
 import { z } from "zod";
 import { AbstractDTO as DescDTO } from "./Abstract/DescriptionDTO";
-import { AbstractDTO as IdDTO } from "./Abstract/IdDTO";
+// import { AbstractDTO as IdDTO } from "./Abstract/IdDTO";
 import { AbstractDTO as NameDTO } from "./Abstract/NameDTO";
 
 export enum HabilidadeDef {
@@ -19,10 +19,10 @@ export enum HabilidadeEnum {
 const HabilidadeDTO = z
 	.object({
 		valor: z.string(),
-		idAtributo: z.nativeEnum(HabilidadeEnum),
+		id: z.nativeEnum(HabilidadeEnum),
 		modificador: z.optional(z.nativeEnum(HabilidadeDef)),
 	})
-	.merge(IdDTO.IdDTO)
+	// .merge(IdDTO.IdDTO)
 	.merge(NameDTO.NameDTO)
 	.merge(DescDTO.DescriptionDTO);
 

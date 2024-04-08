@@ -5,12 +5,12 @@ import { AbstractDTO as NameDTO } from "./Abstract/NameDTO";
 import { AtributoEnum } from "./AtributoDTO";
 
 export enum RacaEnum {
-	ANAO = "anao",
-	ELFO_DOURADO = "elfo_dourado",
-	ELFO_FLORESTAL = "elfo_florestal",
-	HUMANO = "humano",
-	MEIO_ELFO = "meio_elfo",
-	PEQUENINO = "pequenino",
+	ANAO = "Anão",
+	ELFO_DOURADO = "Elfo Dourado",
+	ELFO_FLORESTAL = "Elfo Florestal",
+	HUMANO = "Humano",
+	MEIO_ELFO = "Meio Elfo",
+	PEQUENINO = "Pequenino",
 }
 
 const RacaDTO = z

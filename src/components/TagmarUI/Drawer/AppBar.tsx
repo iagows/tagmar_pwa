@@ -27,10 +27,9 @@ function localLink(action: ActionLinkFunction): LocalInfo {
 		return action.action;
 	}
 	if (isActionLink(action)) {
-		action.link = action.link.replace(":id", nanoid());
 		return {
 			component: Link,
-			to: action.link,
+			to: action.link.replace(":id", nanoid()),
 		};
 	}
 }

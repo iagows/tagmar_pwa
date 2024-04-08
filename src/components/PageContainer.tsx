@@ -1,5 +1,5 @@
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
-import { Box, Fab } from "@mui/material";
+import { Container, Fab } from "@mui/material";
 import { PropsWithChildren } from "react";
 import { Constants } from "../util/constants";
 import ScrollTop from "./ScrollTop";
@@ -7,9 +7,11 @@ import ScrollTop from "./ScrollTop";
 type In = {
 	bg?: string;
 };
+
 const PageContainer = ({ children, bg }: PropsWithChildren<In>) => {
 	return (
-		<Box
+		<Container
+			fixed
 			sx={{
 				flex: 1,
 				display: "flex",
@@ -28,7 +30,7 @@ const PageContainer = ({ children, bg }: PropsWithChildren<In>) => {
 					<KeyboardArrowUpIcon />
 				</Fab>
 			</ScrollTop>
-		</Box>
+		</Container>
 	);
 };
 

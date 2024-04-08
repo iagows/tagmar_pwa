@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { AbstractDTO as IdDTO } from "./Abstract/IdDTO";
+// import { AbstractDTO as IdDTO } from "./Abstract/IdDTO";
 import { AbstractDTO as NameDTO } from "./Abstract/NameDTO";
 import { AbstractDTO as DescDTO } from "./Abstract/DescriptionDTO";
 
@@ -18,7 +18,7 @@ const AtributoDTO = z
 		idAtributo: z.nativeEnum(AtributoEnum),
 		valor: z.string(),
 	})
-	.merge(IdDTO.IdDTO)
+	// .merge(IdDTO.IdDTO)
 	.merge(NameDTO.NameDTO)
 	.merge(DescDTO.DescriptionDTO);
 

@@ -2,9 +2,9 @@ import { Box, Tab, Tabs } from "@mui/material";
 import { useState } from "react";
 import PageContainer from "../components/PageContainer";
 import TabFichaBasico from "../components/TagmarUI/TabsFicha/BasicoPersonagem";
+import TabFichaCombate from "../components/TagmarUI/TabsFicha/CombatePersonagem";
 import TabFichaDados from "../components/TagmarUI/TabsFicha/DadosPersonagem";
 import TabFichaHabilidades from "../components/TagmarUI/TabsFicha/HabilidadesPersonagem";
-import TabFichaCombate from "../components/TagmarUI/TabsFicha/CombatePersonagem";
 import TabFichaMagia from "../components/TagmarUI/TabsFicha/MagiaPersonagem";
 
 interface TabPanelProps {
@@ -47,8 +47,8 @@ const PageEditarFicha = () => {
 		<PageContainer>
 			<Tabs
 				value={value}
-				scrollButtons
 				variant="scrollable"
+				scrollButtons="auto"
 				onChange={handleChange}
 				aria-label="basic tabs example"
 			>
