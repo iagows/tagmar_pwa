@@ -26,6 +26,7 @@ type State = {
 	list: Ficha[];
 	atual?: Ficha;
 };
+
 const INITIAL_STATE: State = {
 	list: [],
 };
