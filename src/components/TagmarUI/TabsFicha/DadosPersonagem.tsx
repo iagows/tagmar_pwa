@@ -1,8 +1,8 @@
 import { Autocomplete, Box, TextField } from "@mui/material";
+import { DEUSES } from "../../../data/deuses";
+import { ProfissaoEnum } from "../../../models/ProfissaoDTO";
 import { RacaEnum } from "../../../models/RacaDTO";
 import { enumToList } from "../../../util/enumHelp";
-import { ProfissaoEnum } from "../../../models/ProfissaoDTO";
-import { DEUSES } from "../../../data/deuses";
 
 const RACAS = enumToList(RacaEnum).map((item) => ({ label: item }));
 const PROFISSOES = enumToList(ProfissaoEnum).map((item) => ({ label: item }));

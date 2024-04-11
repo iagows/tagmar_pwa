@@ -13,7 +13,7 @@ const sorter = (a: Ficha, b: Ficha): number => {
 	return compareAsc(a.ultimaVisualizacao, b.ultimaVisualizacao);
 };
 
-const on = (id: string, list: Ficha[], cb: (ficha: Ficha) => void) => {
+const onFav = (id: string, list: Ficha[], cb: (ficha: Ficha) => void) => {
 	const index = list.findIndex((i) => i.id === id);
 	if (index > -1) {
 		const ficha = list[index];
@@ -55,13 +55,17 @@ const fichasSlice = createSlice({
 			}
 		},
 		invertFavorite: (state, action: PayloadAction<string>) => {
-			on(action.payload, state.list, (f) => {
+			onFav(action.payload, state.list, (f) => {
 				f.isFavorito = !f.isFavorito;
 			});
 			state.list.sort(sorter);
+		},
+		changeAtual: (state, action: PayloadAction<Ficha>) => {
+			state.atual = action.payload;
 		},
 	},
 });
 
 export default fichasSlice.reducer;
-export const { create, update, delete_, invertFavorite } = fichasSlice.actions;
+export const { create, update, delete_, invertFavorite, changeAtual } =
+	fichasSlice.actions;

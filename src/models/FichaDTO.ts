@@ -5,9 +5,16 @@ import { AbstractDTO as NameDTO } from "./Abstract/NameDTO";
 import { ProfissaoEnum } from "./ProfissaoDTO";
 import { RacaEnum } from "./RacaDTO";
 
+export enum ModoDaFicha {
+	CRIACAO = "Criação",
+	EVOLUCAO = "Evolução",
+	VISUALIZACAO = "Visualização",
+}
+
 const FichaDTO = z
 	.object({
 		xp: z.number(),
+		modo: z.nativeEnum(ModoDaFicha),
 		raca: z.nativeEnum(RacaEnum),
 		nivel: z.number(),
 		criacao: z.string(),

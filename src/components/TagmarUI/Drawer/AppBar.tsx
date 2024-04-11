@@ -1,15 +1,15 @@
 import ArrowBack from "@mui/icons-material/ArrowBack";
 import MenuIcon from "@mui/icons-material/Menu";
 import { AppBar, IconButton, Toolbar } from "@mui/material";
-import { nanoid } from "nanoid";
+import { nanoid } from "@reduxjs/toolkit";
 import { Link } from "react-router-dom";
 import useRouteMatch from "../../../hooks/useRouteMatch";
 import { THEME_OPTIONS } from "../../../theme";
 import {
-	isActionFunction,
-	isActionLink,
 	type ActionLinkFunction,
 	type VoidCallback,
+	isActionFunction,
+	isActionLink,
 } from "../../../util/commonTypes";
 import { Constants } from "../../../util/constants";
 import HideOnScroll from "../../HideOnScroll";
