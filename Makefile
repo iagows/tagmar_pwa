@@ -33,4 +33,4 @@ deployPatch: # envia para o github
 
 upgrade: # atualiza as libs
 	@nvm use
-	@bun run upgrade-interactive
+	@bun update
