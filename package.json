@@ -5,19 +5,19 @@
 	"type": "module",
 	"homepage": "https://github.com/iagows/tagmar_pwa",
 	"scripts": {
-		"dev": "vite",
-		"build": "tsc && vite build",
+		"dev": "bunx --bun vite",
+		"build": "tsc && bunx --bun vite build",
 		"buildMinor": "yarn incMinor && yarn build",
 		"buildMajor": "yarn incMajor && yarn build",
 		"buildPatch": "yarn incPatch && yarn build",
 		"lint": "npx @biomejs/biome check --apply .",
-		"preview": "vite preview",
+		"preview": "bunx --bun vite preview",
 		"predeploy": "npm run build",
 		"gen-assets": "pwa-assets-generator",
 		"deploy": "gh-pages -d dist",
-		"incPatch": "node predeploy.js p",
-		"incMinor": "node predeploy.js m",
-		"incMajor": "node predeploy.js M"
+		"incPatch": "bun predeploy.ts p",
+		"incMinor": "bun predeploy.ts m",
+		"incMajor": "bun predeploy.ts M"
 	},
 	"peerDependencies": {
 		"react": "^17.0.0 || ^18.0.0",
