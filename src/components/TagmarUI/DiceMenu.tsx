@@ -1,14 +1,14 @@
-import DiceBox from "@3d-dice/dice-box-threejs";
+import type DiceBox from "@3d-dice/dice-box-threejs";
 import {
 	Button,
 	FormControl,
 	MenuItem,
 	Select,
-	SelectChangeEvent,
+	type SelectChangeEvent,
 } from "@mui/material";
 import { useCallback, useState } from "react";
-import { DICE_THEMES_COLOR_SET, ThemeColorSet } from "../../3d/util";
-import { VoidCallback } from "../../util/commonTypes";
+import { DICE_THEMES_COLOR_SET, type ThemeColorSet } from "../../3d/util";
+import type { VoidCallback } from "../../util/commonTypes";
 
 type C = {
 	onRodar: VoidCallback;

@@ -1,4 +1,4 @@
-import { Deus, DeusEnum } from "../models/DeusDTO";
+import { type Deus, DeusEnum } from "../models/DeusDTO";
 
 export const DEUSES: Deus[] = [
 	{

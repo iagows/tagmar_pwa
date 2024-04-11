@@ -6,10 +6,10 @@ import { Link } from "react-router-dom";
 import useRouteMatch from "../../../hooks/useRouteMatch";
 import { THEME_OPTIONS } from "../../../theme";
 import {
-	ActionLinkFunction,
-	VoidCallback,
 	isActionFunction,
 	isActionLink,
+	type ActionLinkFunction,
+	type VoidCallback,
 } from "../../../util/commonTypes";
 import { Constants } from "../../../util/constants";
 import HideOnScroll from "../../HideOnScroll";

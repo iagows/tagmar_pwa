@@ -13,7 +13,7 @@ import PageMapa from "../pages/PageMapa";
 import PageMapas from "../pages/PageMapas";
 import PageSobre from "../pages/PageSobre";
 import { RoutePath } from "./RouteNames";
-import { RouteHandle } from "../util/commonTypes";
+import type { RouteHandle } from "../util/commonTypes";
 import { Constants } from "../util/constants";
 import AddIcon from "@mui/icons-material/Add";
 import PageEditarFicha from "../pages/PageEditarFicha";

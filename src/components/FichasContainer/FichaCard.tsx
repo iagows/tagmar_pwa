@@ -15,7 +15,7 @@ import {
 } from "@mui/material";
 import { useState } from "react";
 import getAsset from "../../assets/app";
-import { Ficha } from "../../models/FichaDTO";
+import type { Ficha } from "../../models/FichaDTO";
 import useFicha from "../../stores/slices/fichas/useFicha";
 import { THEME_OPTIONS } from "../../theme";
 import { changeOpacity } from "../../util/functions";

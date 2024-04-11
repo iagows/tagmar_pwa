@@ -1,6 +1,6 @@
-import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { type PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { compareAsc } from "date-fns";
-import { Ficha } from "../../../models/FichaDTO";
+import type { Ficha } from "../../../models/FichaDTO";
 
 const sorter = (a: Ficha, b: Ficha): number => {
 	if (a.isFavorito && !b.isFavorito) {

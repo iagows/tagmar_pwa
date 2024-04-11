@@ -8,7 +8,7 @@ import TagLabel from "../components/TagmarUI/Label";
 import { SectionPage } from "../components/TagmarUI/Section";
 import UnderConstruction from "../components/UnderConstruction";
 import { getMagia } from "../data/magiasCompiladas";
-import { Magia, MagiaEnum } from "../models/magia/MagiaDTO";
+import { type Magia, MagiaEnum } from "../models/magia/MagiaDTO";
 import { Constants } from "../util/constants";
 
 const PageMagia = () => {

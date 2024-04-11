@@ -1,5 +1,5 @@
 import { Button, Grid } from "@mui/material";
-import { AbstractDTO } from "../models/Abstract/NameDTO";
+import type { AbstractDTO } from "../models/Abstract/NameDTO";
 import { StringUtil } from "../util/stringHelp";
 
 type In = {

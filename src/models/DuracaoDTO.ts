@@ -1,4 +1,4 @@
-import { z } from "zod";
+import type { z } from "zod";
 import { StringUtil } from "../util/stringHelp";
 import AbstractMagicInfoDTO from "./magia/AbstractMagicInfoDTO";
 

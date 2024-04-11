@@ -9,8 +9,8 @@ import {
 	StormOutlined,
 } from "@mui/icons-material";
 
-import { SvgIconTypeMap } from "@mui/material";
-import { OverridableComponent } from "@mui/material/OverridableComponent";
+import type { SvgIconTypeMap } from "@mui/material";
+import type { OverridableComponent } from "@mui/material/OverridableComponent";
 import { RoutePath } from "../../../routing/RouteNames";
 
 export namespace Drawer {

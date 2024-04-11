@@ -1,4 +1,4 @@
-import fs from "fs";
+import fs from "node:fs";
 import packageJson from "./package.json" assert { type: "json" };
 
 class Versao {
@@ -24,9 +24,9 @@ class Versao {
 	static of(value: string): Versao {
 		const [major, minor, patch] = value.split(".");
 		const v = new Versao();
-		v.#major = parseInt(major);
-		v.#minor = parseInt(minor);
-		v.#patch = parseInt(patch);
+		v.#major = Number.parseInt(major);
+		v.#minor = Number.parseInt(minor);
+		v.#patch = Number.parseInt(patch);
 		return v;
 	}
 

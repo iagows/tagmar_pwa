@@ -1,6 +1,6 @@
 import { Box, List, ListItem } from "@mui/material";
-import { Magia } from "../../models/magia/MagiaDTO";
-import { Nivel } from "../../models/magia/NivelDTO";
+import type { Magia } from "../../models/magia/MagiaDTO";
+import type { Nivel } from "../../models/magia/NivelDTO";
 import TagLabel from "../TagmarUI/Label";
 import TagDescricao from "./TagDescricao";
 import TagMagic from "./Info";

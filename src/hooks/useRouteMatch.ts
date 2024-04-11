@@ -1,5 +1,5 @@
-import { UIMatch, useMatches } from "react-router-dom";
-import { RouteHandle } from "../util/commonTypes";
+import { type UIMatch, useMatches } from "react-router-dom";
+import type { RouteHandle } from "../util/commonTypes";
 
 const match = (list: UIMatch<unknown, unknown>[]): RouteHandle[] => {
 	return list

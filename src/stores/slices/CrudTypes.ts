@@ -1,5 +1,5 @@
-import { AbstractDTO } from "../../models/Abstract/IdDTO";
-import { SingleOrArray } from "../../util/commonTypes";
+import type { AbstractDTO } from "../../models/Abstract/IdDTO";
+import type { SingleOrArray } from "../../util/commonTypes";
 
 export type CrudType<T extends AbstractDTO.IdType> = {
 	list: T[];

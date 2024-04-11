@@ -1,6 +1,6 @@
 import { Box, Button, Modal } from "@mui/material";
-import { PropsWithChildren } from "react";
-import { VoidCallback } from "../../util/commonTypes";
+import type { PropsWithChildren } from "react";
+import type { VoidCallback } from "../../util/commonTypes";
 import TagLabel from "./Label";
 
 const style = {

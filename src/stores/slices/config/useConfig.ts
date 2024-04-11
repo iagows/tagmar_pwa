@@ -1,5 +1,5 @@
 import { useAppDispatch, useAppSelector } from "../../../hooks/reduxHooks";
-import { VoidCallback } from "../../../util/commonTypes";
+import type { VoidCallback } from "../../../util/commonTypes";
 import { setBuscaInexata, setDado3d } from "./";
 
 type Out = {

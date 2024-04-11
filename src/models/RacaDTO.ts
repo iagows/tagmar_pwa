@@ -1,6 +1,5 @@
 import { z } from "zod";
 import { AbstractDTO as DescDTO } from "./Abstract/DescriptionDTO";
-import { AbstractDTO as IdDTO } from "./Abstract/IdDTO";
 import { AbstractDTO as NameDTO } from "./Abstract/NameDTO";
 import { AtributoEnum } from "./AtributoDTO";
 
@@ -15,7 +14,7 @@ export enum RacaEnum {
 
 const RacaDTO = z
 	.object({
-		racaId: z.nativeEnum(RacaEnum),
+		id: z.nativeEnum(RacaEnum),
 		aura: z.number(),
 		peso: z.number(),
 		modificadores: z.array(
@@ -25,7 +24,6 @@ const RacaDTO = z
 			}),
 		),
 	})
-	.merge(IdDTO.IdDTO)
 	.merge(NameDTO.NameDTO)
 	.merge(DescDTO.DescriptionDTO);
 

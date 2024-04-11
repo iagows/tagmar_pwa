@@ -1,5 +1,5 @@
-import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { Config } from "../../../models/ConfigDTO";
+import { type PayloadAction, createSlice } from "@reduxjs/toolkit";
+import type { Config } from "../../../models/ConfigDTO";
 
 const INITIAL_CONFIG: Config = {
 	isBuscaInexata: true,

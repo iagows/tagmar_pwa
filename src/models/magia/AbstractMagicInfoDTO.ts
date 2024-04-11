@@ -1,4 +1,4 @@
-import { EnumLike, z } from "zod";
+import { type EnumLike, z } from "zod";
 import { AbstractDTO } from "../Abstract/DescriptionOptionalDTO";
 
 const AbstractMagicInfoDTO = <T extends EnumLike>(enumList: T) =>
