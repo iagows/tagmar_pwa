@@ -1,4 +1,4 @@
-import { AbstractDTO } from "../../models/Abstract/DescriptionOptionalDTO";
+import type { AbstractDTO } from "../../models/Abstract/DescriptionOptionalDTO";
 import { StringUtil } from "../../util/stringHelp";
 import TagLabel from "../TagmarUI/Label";
 

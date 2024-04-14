@@ -1,6 +1,6 @@
 import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
 import { Box } from "@mui/material";
-import { Dinheiro } from "../../models/DinheiroDTO";
+import type { Dinheiro } from "../../models/DinheiroDTO";
 import TagLabel from "../TagmarUI/Label";
 
 type MoedaIn = {

@@ -1,12 +1,14 @@
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
-import { Box, Fab } from "@mui/material";
-import { PropsWithChildren } from "react";
+import { Fab } from "@mui/material";
+import { Box } from "@mui/system";
+import type { PropsWithChildren } from "react";
 import { Constants } from "../util/constants";
 import ScrollTop from "./ScrollTop";
 
 type In = {
 	bg?: string;
 };
+
 const PageContainer = ({ children, bg }: PropsWithChildren<In>) => {
 	return (
 		<Box

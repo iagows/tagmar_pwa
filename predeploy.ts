@@ -1,77 +1,50 @@
-// @ts-check
-import fs from "fs";
+import fs from "node:fs";
 import packageJson from "./package.json" assert { type: "json" };
 
 class Versao {
-	/** @type {number} */
 	#major = 0;
-	/** @type {number} */
 	#minor = 0;
-	/** @type {number} */
 	#patch = 0;
 
-	incrementMajor() {
+	incrementMajor(): void {
 		this.#major++;
 		this.#minor = 0;
 		this.#patch = 0;
 	}
 
-	incrementMinor() {
+	incrementMinor(): void {
 		this.#minor++;
 		this.#patch = 0;
 	}
 
-	incrementPatch() {
+	incrementPatch(): void {
 		this.#patch++;
 	}
 
-	/**
-	 * Construtor
-	 *
-	 * @param {string} value
-	 * @returns {Versao}
-	 */
-	static of(value) {
+	static of(value: string): Versao {
 		const [major, minor, patch] = value.split(".");
 		const v = new Versao();
-		v.#major = parseInt(major);
-		v.#minor = parseInt(minor);
-		v.#patch = parseInt(patch);
+		v.#major = Number.parseInt(major);
+		v.#minor = Number.parseInt(minor);
+		v.#patch = Number.parseInt(patch);
 		return v;
 	}
 
-	/**
-	 *
-	 * @param {Versao} reference
-	 * @returns {string}
-	 */
-	static to(reference) {
+	static to(reference: Versao): string {
 		return `${reference.#major}.${reference.#minor}.${reference.#patch}`;
 	}
 }
 
-/**
- *
- * @returns {Versao}
- */
-function getVersion() {
+function getVersion(): Versao {
 	return Versao.of(packageJson.version);
 }
 
-/**
- * Salva a versão no package.json
- * @param {Versao} version
- */
-function saveVersion(version) {
+function saveVersion(version: Versao) {
 	packageJson.version = Versao.to(version);
 	fs.writeFileSync("./package.json", JSON.stringify(packageJson, null, "\t"));
 }
 
-/**
- *
- * @param {(v:Versao)=>void} something
- */
-function doSomething(something) {
+function doSomething(something: (v: Versao) => void): void {
 	const v = getVersion();
 	something(v);
 	saveVersion(v);
@@ -96,10 +69,7 @@ const patch = () => {
 	});
 };
 
-/**
- * @type {string}
- */
-const arg = process.argv[2];
+const arg: string = process.argv[2];
 switch (arg) {
 	case "p":
 		patch();

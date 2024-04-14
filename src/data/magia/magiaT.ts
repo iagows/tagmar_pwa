@@ -1,7 +1,7 @@
 import { AlcanceEnum } from "../../models/AlcanceDTO";
 import { DuracaoEnum } from "../../models/DuracaoDTO";
 import { EvocacaoEnum } from "../../models/EvocacaoDTO";
-import { Magia, MagiaEnum } from "../../models/magia/MagiaDTO";
+import { type Magia, MagiaEnum } from "../../models/magia/MagiaDTO";
 
 export namespace Magias {
 	export const lista: Magia[] = [

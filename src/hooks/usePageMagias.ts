@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { MAGIAS } from "../data/magiasCompiladas";
 import { Relations } from "../data/relations";
-import { AbstractDTO as IdDTO } from "../models/Abstract/IdDTO";
-import { AbstractDTO as NameDTO } from "../models/Abstract/NameDTO";
-import { ProfissaoEnum } from "../models/ProfissaoDTO";
-import { Magia, MagiaEnum } from "../models/magia/MagiaDTO";
-import { VoidCallback } from "../util/commonTypes";
+import type { AbstractDTO as IdDTO } from "../models/Abstract/IdDTO";
+import type { AbstractDTO as NameDTO } from "../models/Abstract/NameDTO";
+import type { ProfissaoEnum } from "../models/ProfissaoDTO";
+import type { Magia, MagiaEnum } from "../models/magia/MagiaDTO";
+import type { VoidCallback } from "../util/commonTypes";
 import { swapSet } from "../util/functions";
 import { StringUtil } from "../util/stringHelp";
 import useConfig from "../stores/slices/config/useConfig";

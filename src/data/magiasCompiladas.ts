@@ -1,4 +1,4 @@
-import { Magia, MagiaEnum } from "../models/magia/MagiaDTO";
+import type { Magia, MagiaEnum } from "../models/magia/MagiaDTO";
 import { Magias as MagiasA } from "./magia/magiaA";
 import { Magias as MagiasB } from "./magia/magiaB";
 import { Magias as MagiasC } from "./magia/magiaC";

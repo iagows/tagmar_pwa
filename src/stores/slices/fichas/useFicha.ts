@@ -1,20 +1,25 @@
 import { useAppDispatch, useAppSelector } from "../../../hooks/reduxHooks";
-import { Ficha } from "../../../models/FichaDTO";
-import { SingleOrArray } from "../../../util/commonTypes";
+import type { Ficha } from "../../../models/FichaDTO";
+import type { SingleOrArray } from "../../../util/commonTypes";
 import { toArray } from "../../../util/functions";
-import { CrudType } from "../CrudTypes";
+import type { CrudType } from "../CrudTypes";
 import {
+	changeAtual,
 	create as createFicha,
 	delete_ as deleteFicha,
 	invertFavorite,
 	update as updateFicha,
 } from "./index";
 
-type Out = CrudType<Ficha> & { changeFav: (id: string) => void };
+type Out = CrudType<Ficha> & {
+	atual?: Ficha;
+	changeFav: (id: string) => void;
+	ativaFichaAtual: (ficha: Ficha) => void;
+};
 
 const useFicha = (): Out => {
 	const dispatch = useAppDispatch();
-	const { list } = useAppSelector((s) => s.fichasReducer);
+	const { list, atual } = useAppSelector((s) => s.fichasReducer);
 
 	function create(datum: Ficha): void {
 		dispatch(createFicha(datum));
@@ -25,6 +30,10 @@ const useFicha = (): Out => {
 		return list.filter(
 			(ficha) => lista.findIndex((l) => ficha.id === l) !== -1,
 		);
+	}
+
+	function ativaFichaAtual(ficha: Ficha): void {
+		dispatch(changeAtual(ficha));
 	}
 
 	function update(obj: SingleOrArray<Ficha>): void {
@@ -42,10 +51,12 @@ const useFicha = (): Out => {
 	return {
 		list,
 		read,
+		atual,
 		update,
 		delete_,
 		create,
 		changeFav,
+		ativaFichaAtual,
 	};
 };
 

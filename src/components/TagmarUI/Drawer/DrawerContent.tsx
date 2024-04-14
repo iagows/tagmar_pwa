@@ -10,6 +10,7 @@ import { Link, useLocation } from "react-router-dom";
 import { RoutePath } from "../../../routing/RouteNames";
 import UserDisplay from "../../UserDisplay";
 import { Drawer } from "./data";
+import useFicha from "../../../stores/slices/fichas/useFicha";
 
 type IList = {
 	list: Drawer.Item[];
@@ -18,19 +19,21 @@ type IList = {
 const MountList = ({ list }: IList) => {
 	const { pathname } = useLocation();
 	const p = pathname as RoutePath;
-
+	const { atual } = useFicha();
 	return (
 		<List>
-			{list.map(({ text, icon: Icon, path }) => (
-				<ListItem key={text}>
-					<ListItemButton component={Link} to={path} disabled={path === p}>
-						<ListItemIcon>
-							<Icon />
-						</ListItemIcon>
-						<ListItemText primary={text} />
-					</ListItemButton>
-				</ListItem>
-			))}
+			{list
+				.filter(({ path }) => !!atual || path !== RoutePath.FICHA)
+				.map(({ text, icon: Icon, path }) => (
+					<ListItem key={text}>
+						<ListItemButton component={Link} to={path} disabled={path === p}>
+							<ListItemIcon>
+								<Icon />
+							</ListItemIcon>
+							<ListItemText primary={text} />
+						</ListItemButton>
+					</ListItem>
+				))}
 		</List>
 	);
 };

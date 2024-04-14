@@ -1,6 +1,5 @@
 import { z } from "zod";
 import { AbstractDTO as DescDTO } from "./Abstract/DescriptionDTO";
-import { AbstractDTO as IdDTO } from "./Abstract/IdDTO";
 import { AbstractDTO as NameDTO } from "./Abstract/NameDTO";
 import HabilidadeDTO from "./HabilidadeDTO";
 import RacaDTO from "./RacaDTO";
@@ -16,13 +15,13 @@ export enum ProfissaoEnum {
 
 const ProfissaoDTO = z
 	.object({
+		id: z.nativeEnum(ProfissaoEnum),
 		ehBasica: z.boolean(),
 		habilidadeIdAperfeicoada: HabilidadeDTO,
 		racasNaoPermitidas: z.array(RacaDTO),
 		pontosAquisicaoHabilidade: z.number(),
 		cdTipoHabilidadePenalizada: z.optional(z.array(HabilidadeDTO)),
 	})
-	.merge(IdDTO.IdDTO)
 	.merge(NameDTO.NameDTO)
 	.merge(DescDTO.DescriptionDTO);
 

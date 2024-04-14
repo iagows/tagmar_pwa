@@ -2,7 +2,7 @@ import { Box } from "@mui/material";
 import { alcanceToString } from "../../models/AlcanceDTO";
 import { duracaoToString } from "../../models/DuracaoDTO";
 import { evocacaoToString } from "../../models/EvocacaoDTO";
-import { AbstractMagic } from "../../models/magia/AbstractMagicDTO";
+import type { AbstractMagic } from "../../models/magia/AbstractMagicDTO";
 import TagLabel from "../TagmarUI/Label";
 import TagCusto from "./TagCusto";
 

@@ -1,7 +1,7 @@
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { AccordionDetails, AccordionSummary } from "@mui/material";
-import MuiAccordion, { AccordionProps } from "@mui/material/Accordion";
-import { PropsWithChildren } from "react";
+import MuiAccordion, { type AccordionProps } from "@mui/material/Accordion";
+import type { PropsWithChildren } from "react";
 import TagLabel from "./Label";
 
 const Accordion = (props: AccordionProps) => (

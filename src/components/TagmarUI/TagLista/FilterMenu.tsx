@@ -1,15 +1,15 @@
-import { SlotComponentProps } from "@mui/base/utils";
+import type { SlotComponentProps } from "@mui/base/utils";
 import Clear from "@mui/icons-material/Clear";
 import {
 	Divider,
 	ListItemIcon,
 	Menu,
 	MenuItem,
-	PaperTypeMap,
+	type PaperTypeMap,
 } from "@mui/material";
-import { OverridableComponent } from "@mui/material/OverridableComponent";
-import { PropsWithChildren } from "react";
-import { VoidCallback } from "../../../util/commonTypes";
+import type { OverridableComponent } from "@mui/material/OverridableComponent";
+import type { PropsWithChildren } from "react";
+import type { VoidCallback } from "../../../util/commonTypes";
 
 type In = {
 	open: boolean;

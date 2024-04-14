@@ -11,7 +11,7 @@ help:  # This menu
 	@cat $(MAKEFILE_LIST) | grep -e "^[a-zA-Z_\-]*: *.*"
 
 start: # start the project
-	@yarn dev
+	@bun run dev
 
 lighthouseLocal: # mostra qualidade pwa
 	@npx lighthouse http://localhost:5173/tagmar_pwa --view
@@ -20,17 +20,17 @@ lighthouseRemoto: # mostra qualidade pwa
 	@npx lighthouse https://iagows.github.io/tagmar_pwa --view
 
 deployMajor: # envia para o github
-	@yarn buildMajor
-	@yarn deploy
+	@bun run buildMajor
+	@bun run deploy
 
 deployMinor: # envia para o github
-	@yarn buildMinor
-	@yarn deploy
+	@bun run buildMinor
+	@bun run deploy
 
 deployPatch: # envia para o github
-	@yarn buildPatch
-	@yarn deploy
+	@bun run buildPatch
+	@bun run deploy
 
 upgrade: # atualiza as libs
 	@nvm use
-	@yarn upgrade-interactive
+	@bun update

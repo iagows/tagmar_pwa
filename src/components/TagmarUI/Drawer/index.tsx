@@ -2,7 +2,7 @@ import { Box, CssBaseline, Drawer, SwipeableDrawer } from "@mui/material";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import useRouteMatch from "../../../hooks/useRouteMatch";
-import { VoidCallback } from "../../../util/commonTypes";
+import type { VoidCallback } from "../../../util/commonTypes";
 import { Constants } from "../../../util/constants";
 import TagAppBar from "./AppBar";
 import DrawerContent from "./DrawerContent";

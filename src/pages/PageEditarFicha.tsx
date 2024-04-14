@@ -2,9 +2,9 @@ import { Box, Tab, Tabs } from "@mui/material";
 import { useState } from "react";
 import PageContainer from "../components/PageContainer";
 import TabFichaBasico from "../components/TagmarUI/TabsFicha/BasicoPersonagem";
+import TabFichaCombate from "../components/TagmarUI/TabsFicha/CombatePersonagem";
 import TabFichaDados from "../components/TagmarUI/TabsFicha/DadosPersonagem";
 import TabFichaHabilidades from "../components/TagmarUI/TabsFicha/HabilidadesPersonagem";
-import TabFichaCombate from "../components/TagmarUI/TabsFicha/CombatePersonagem";
 import TabFichaMagia from "../components/TagmarUI/TabsFicha/MagiaPersonagem";
 
 interface TabPanelProps {
@@ -17,7 +17,7 @@ function CustomTabPanel(props: TabPanelProps) {
 	const { children, value, index, ...other } = props;
 
 	return (
-		<div
+		<Box
 			role="tabpanel"
 			hidden={value !== index}
 			id={`simple-tabpanel-${index}`}
@@ -25,7 +25,7 @@ function CustomTabPanel(props: TabPanelProps) {
 			{...other}
 		>
 			{value === index && <Box sx={{ p: 3 }}>{children}</Box>}
-		</div>
+		</Box>
 	);
 }
 
@@ -37,18 +37,18 @@ function a11yProps(index: number) {
 }
 
 const PageEditarFicha = () => {
-	const [value, setValue] = useState<number>(0);
+	const [tabIndex, setTabIndex] = useState<number>(0);
 
 	const handleChange = (_: React.SyntheticEvent, newValue: number) => {
-		setValue(newValue);
+		setTabIndex(newValue);
 	};
 
 	return (
 		<PageContainer>
 			<Tabs
-				value={value}
-				scrollButtons
+				value={tabIndex}
 				variant="scrollable"
+				scrollButtons="auto"
 				onChange={handleChange}
 				aria-label="basic tabs example"
 			>
@@ -58,19 +58,19 @@ const PageEditarFicha = () => {
 				<Tab label="Combate" {...a11yProps(3)} />
 				<Tab label="Magia" {...a11yProps(4)} />
 			</Tabs>
-			<CustomTabPanel value={value} index={0}>
+			<CustomTabPanel value={tabIndex} index={0}>
 				<TabFichaDados />
 			</CustomTabPanel>
-			<CustomTabPanel value={value} index={1}>
+			<CustomTabPanel value={tabIndex} index={1}>
 				<TabFichaBasico />
 			</CustomTabPanel>
-			<CustomTabPanel value={value} index={2}>
+			<CustomTabPanel value={tabIndex} index={2}>
 				<TabFichaHabilidades />
 			</CustomTabPanel>
-			<CustomTabPanel value={value} index={3}>
+			<CustomTabPanel value={tabIndex} index={3}>
 				<TabFichaCombate />
 			</CustomTabPanel>
-			<CustomTabPanel value={value} index={4}>
+			<CustomTabPanel value={tabIndex} index={4}>
 				<TabFichaMagia />
 			</CustomTabPanel>
 		</PageContainer>

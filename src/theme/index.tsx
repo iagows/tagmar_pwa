@@ -1,5 +1,9 @@
-import { ThemeOptions, ThemeProvider, createTheme } from "@mui/material/styles";
-import { PropsWithChildren } from "react";
+import {
+	type ThemeOptions,
+	ThemeProvider,
+	createTheme,
+} from "@mui/material/styles";
+import type { PropsWithChildren } from "react";
 
 export const THEME_OPTIONS: ThemeOptions = {
 	palette: {

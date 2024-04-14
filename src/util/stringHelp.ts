@@ -1,5 +1,5 @@
 import { remove } from "diacritics";
-import { AbstractDTO } from "../models/Abstract/DescriptionOptionalDTO";
+import type { AbstractDTO } from "../models/Abstract/DescriptionOptionalDTO";
 import { Constants } from "./constants";
 
 export namespace StringUtil {

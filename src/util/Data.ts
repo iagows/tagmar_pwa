@@ -16,4 +16,12 @@ export namespace DateUtil {
 		// Converter String para Date com Timezone Local
 		return parseISO(date);
 	};
+
+	export const now = (): Date => {
+		return new Date();
+	};
+
+	export const nowString = (): string => {
+		return dateToString(now());
+	};
 }
