@@ -2,6 +2,7 @@ import { Navigate, createBrowserRouter } from "react-router-dom";
 import App from "../App";
 import PageConfiguracoes from "../pages/PageConfiguracoes";
 import PageDado from "../pages/PageDado";
+import PageEditarFicha from "../pages/PageEditarFicha";
 import PageError from "../pages/PageError";
 import PageFicha from "../pages/PageFicha";
 import PageFichas from "../pages/PageFichas";
@@ -12,21 +13,15 @@ import PageMagias from "../pages/PageMagias";
 import PageMapa from "../pages/PageMapa";
 import PageMapas from "../pages/PageMapas";
 import PageSobre from "../pages/PageSobre";
-import { RoutePath } from "./RouteNames";
 import type { RouteHandle } from "../util/commonTypes";
 import { Constants } from "../util/constants";
-import AddIcon from "@mui/icons-material/Add";
-import PageEditarFicha from "../pages/PageEditarFicha";
+import { RoutePath } from "./RouteNames";
 
 const BASENAME = "/tagmar_pwa";
 
 const FICHAS_HANDLE: RouteHandle = {
 	title: Constants.PAGES.fichas,
 	isMainRoute: true,
-	rightAction: {
-		Icon: AddIcon,
-		link: RoutePath.EDITAR_FICHA,
-	},
 };
 
 const FICHA_HANDLE: RouteHandle = {

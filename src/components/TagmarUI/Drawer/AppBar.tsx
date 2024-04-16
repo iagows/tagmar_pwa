@@ -7,6 +7,7 @@ import type { VoidCallback } from "../../../util/commonTypes";
 import { Constants } from "../../../util/constants";
 import HideOnScroll from "../../HideOnScroll";
 import TagLabel from "../Label";
+import TagRightMenu from "../RightMenu";
 
 const BAR_STYLE = {
 	ml: { sm: `${Constants.DRAWER_WIDTH}px` },
@@ -42,11 +43,7 @@ const TagAppBar = ({ onMenu }: In) => {
 					<TagLabel variant="h6" noWrap component="div" flexGrow={1}>
 						{title}
 					</TagLabel>
-					{/* {rightAction && (
-						<IconButton edge="end" {...localLink(rightAction)}>
-							<rightAction.Icon />
-						</IconButton>
-					)} */}
+					<TagRightMenu />
 				</Toolbar>
 			</AppBar>
 		</HideOnScroll>

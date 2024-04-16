@@ -59,7 +59,7 @@ Ainda sem imagens. Estou provando conceitos ;)
   - [x] Mover o botão de adicionar para um menu
   - [ ] Fazer os cards funcionarem
     - [x] Favorito
-    - [ ] Apagar
+    - [X] Apagar
     - [ ] Editar
   - [ ] Criar tela de ficha
     - [ ] Criar
@@ -80,7 +80,7 @@ Ainda sem imagens. Estou provando conceitos ;)
   - [ ] Exibir um mapa grande
   - [ ] O mapa deve ser selecionável (svg) por região
   - [ ] Popup com descrição
-- [ ] Configurações
+- [X] Configurações
   - [x] Ativar/desativar dado 3d
   - [x] Ativar/desativar busca por nome aproximado
 - [ ] Sobre (sempre revisando)

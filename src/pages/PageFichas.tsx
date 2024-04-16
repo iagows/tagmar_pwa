@@ -12,7 +12,7 @@ const PageFichas = () => {
 
 	return (
 		<PageContainer bg={bg}>
-			<UnderConstruction descricao="Fazer os cards funcionarem" />
+			<UnderConstruction descricao="Botão de criar ficha e funcionamento dos cards" />
 			<Box sx={{ flexGrow: 1 }}>
 				<Grid container rowSpacing={2} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
 					{list.map((f) => (
