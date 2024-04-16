@@ -3,25 +3,27 @@ import { Outlet } from "react-router-dom";
 import TagDrawer from "./components/TagmarUI/Drawer";
 import { Constants } from "./util/constants";
 
-const sx = {
-	flexGrow: 1,
+const appContainerCss = {
 	width: { sm: `calc(100% - ${Constants.DRAWER_WIDTH}px)` },
 } as const;
 
 function App() {
 	return (
-		<Box sx={{ display: "flex", flexFlow: "column" }}>
-			<Box sx={{ display: "flex" }}>
+		<Box display={"flex"} flexDirection={"column"}>
+			<Box display={"flex"}>
 				<TagDrawer />
 				<Box
-					sx={sx}
+					flexGrow={1}
 					height={"100vh"}
 					display={"flex"}
 					component="main"
+					sx={appContainerCss}
 					flexDirection={"column"}
 				>
 					<Toolbar />
-					<Box sx={{ flex: 1, display: "flex" }}>{<Outlet />}</Box>
+					<Box flex={1} display={"flex"}>
+						<Outlet />
+					</Box>
 				</Box>
 			</Box>
 		</Box>

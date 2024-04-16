@@ -11,7 +11,6 @@ import {
 } from "./index";
 
 type Out = CrudType<Ficha> & {
-	atual?: Ficha;
 	changeFav: (id: string) => void;
 };
 
