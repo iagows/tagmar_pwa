@@ -4,6 +4,7 @@ import { type Ficha, ModoDaFicha } from "../models/FichaDTO";
 import { ProfissaoEnum } from "../models/ProfissaoDTO";
 import { RacaEnum } from "../models/RacaDTO";
 import { DateUtil } from "../util/Data";
+import useFicha from "../stores/slices/fichas/useFicha";
 
 const criarFicha = (): Ficha => ({
 	xp: 0,
@@ -21,7 +22,11 @@ const criarFicha = (): Ficha => ({
 });
 
 const useEditarFicha = () => {
-	const { id } = useParams();
+	// const { id } = useParams();
+	const { create } = useFicha();
+	return {
+		create: () => create(criarFicha()),
+	};
 };
 
 export default useEditarFicha;
