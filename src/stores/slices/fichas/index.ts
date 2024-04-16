@@ -24,7 +24,6 @@ const onFav = (id: string, list: Ficha[], cb: (ficha: Ficha) => void) => {
 
 type State = {
 	list: Ficha[];
-	atual?: Ficha;
 };
 
 const INITIAL_STATE: State = {
@@ -61,12 +60,8 @@ const fichasSlice = createSlice({
 			});
 			state.list.sort(sorter);
 		},
-		changeAtual: (state, action: PayloadAction<Ficha>) => {
-			state.atual = action.payload;
-		},
 	},
 });
 
 export default fichasSlice.reducer;
-export const { create, update, delete_, invertFavorite, changeAtual } =
-	fichasSlice.actions;
+export const { create, update, delete_, invertFavorite } = fichasSlice.actions;

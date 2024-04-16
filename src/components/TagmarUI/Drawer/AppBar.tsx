@@ -1,38 +1,12 @@
 import ArrowBack from "@mui/icons-material/ArrowBack";
 import MenuIcon from "@mui/icons-material/Menu";
 import { AppBar, IconButton, Toolbar } from "@mui/material";
-import { nanoid } from "@reduxjs/toolkit";
-import { Link } from "react-router-dom";
 import useRouteMatch from "../../../hooks/useRouteMatch";
 import { THEME_OPTIONS } from "../../../theme";
-import {
-	type ActionLinkFunction,
-	type VoidCallback,
-	isActionFunction,
-	isActionLink,
-} from "../../../util/commonTypes";
+import type { VoidCallback } from "../../../util/commonTypes";
 import { Constants } from "../../../util/constants";
 import HideOnScroll from "../../HideOnScroll";
 import TagLabel from "../Label";
-
-type LocalVoid = VoidCallback;
-type LocalLink = {
-	component: React.ElementType;
-	to: string;
-};
-type LocalInfo = LocalVoid | LocalLink | undefined;
-
-function localLink(action: ActionLinkFunction): LocalInfo {
-	if (isActionFunction(action)) {
-		return action.action;
-	}
-	if (isActionLink(action)) {
-		return {
-			component: Link,
-			to: action.link.replace(":id", nanoid()),
-		};
-	}
-}
 
 const BAR_STYLE = {
 	ml: { sm: `${Constants.DRAWER_WIDTH}px` },
@@ -50,7 +24,7 @@ type In = {
 };
 
 const TagAppBar = ({ onMenu }: In) => {
-	const { isMainRoute, title, rightAction } = useRouteMatch();
+	const { isMainRoute, title } = useRouteMatch();
 
 	return (
 		<HideOnScroll>
@@ -68,11 +42,11 @@ const TagAppBar = ({ onMenu }: In) => {
 					<TagLabel variant="h6" noWrap component="div" flexGrow={1}>
 						{title}
 					</TagLabel>
-					{rightAction && (
+					{/* {rightAction && (
 						<IconButton edge="end" {...localLink(rightAction)}>
 							<rightAction.Icon />
 						</IconButton>
-					)}
+					)} */}
 				</Toolbar>
 			</AppBar>
 		</HideOnScroll>
