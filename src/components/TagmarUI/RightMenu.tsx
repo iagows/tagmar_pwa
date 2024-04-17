@@ -2,12 +2,10 @@ import { useLocation } from "react-router-dom";
 import { RoutePath } from "../../routing/RouteNames";
 import { IconButton } from "@mui/material";
 import { Add } from "@mui/icons-material";
-import useEditarFicha from "../../hooks/useEditarFicha";
 
 const AddFichaButton = () => {
-	const { create } = useEditarFicha();
 	return (
-		<IconButton edge="end" onClick={create}>
+		<IconButton edge="end" onClick={() => console.log("vai")}>
 			<Add />
 		</IconButton>
 	);

@@ -1,4 +1,8 @@
-import { type PayloadAction, createSlice } from "@reduxjs/toolkit";
+import {
+	type PayloadAction,
+	createEntityAdapter,
+	createSlice,
+} from "@reduxjs/toolkit";
 import { compareAsc } from "date-fns";
 import type { Ficha } from "../../../models/FichaDTO";
 
@@ -13,55 +17,29 @@ const sorter = (a: Ficha, b: Ficha): number => {
 	return compareAsc(a.ultimaVisualizacao, b.ultimaVisualizacao);
 };
 
-const onFav = (id: string, list: Ficha[], cb: (ficha: Ficha) => void) => {
-	const index = list.findIndex((i) => i.id === id);
-	if (index > -1) {
-		const ficha = list[index];
-		cb(ficha);
-		list[index] = ficha;
-	}
-};
-
-type State = {
-	list: Ficha[];
-};
-
-const INITIAL_STATE: State = {
-	list: [],
-};
+const adapter = createEntityAdapter<Ficha>({
+	sortComparer: sorter,
+});
 
 const fichasSlice = createSlice({
 	name: "fichas",
-	initialState: INITIAL_STATE,
+	initialState: adapter.getInitialState(),
 	// https://redux-toolkit.js.org/api/createslice/
 	reducers: {
-		create: (state, action: PayloadAction<Ficha>) => {
-			state.list.push(action.payload);
-		},
-		update: (state, action: PayloadAction<Ficha[]>) => {
-			for (const ficha of action.payload) {
-				const index = state.list.findIndex((i) => i.id === ficha.id);
-				if (index > -1) {
-					state.list[index] = ficha;
-				}
-			}
-		},
-		delete_: (state, action: PayloadAction<string[]>) => {
-			for (const item of action.payload) {
-				const index = state.list.findIndex((i) => i.id === item);
-				if (index > -1) {
-					state.list.splice(index, 1);
-				}
-			}
-		},
+		create: adapter.addOne,
+		update: adapter.addMany,
+		delete_: adapter.removeMany,
 		invertFavorite: (state, action: PayloadAction<string>) => {
-			onFav(action.payload, state.list, (f) => {
-				f.isFavorito = !f.isFavorito;
+			adapter.updateOne(state, {
+				id: action.payload,
+				changes: {
+					isFavorito: !state.entities[action.payload].isFavorito,
+				},
 			});
-			state.list.sort(sorter);
 		},
 	},
 });
 
 export default fichasSlice.reducer;
 export const { create, update, delete_, invertFavorite } = fichasSlice.actions;
+export const { selectAll, selectById, selectTotal } = adapter.getSelectors();

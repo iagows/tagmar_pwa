@@ -108,6 +108,10 @@ export const ABOUT_DATA: AccordionData[] = [
 				text: "zod",
 				url: "https://zod.dev/",
 			},
+			{
+				text: "redux-persist",
+				url: "https://github.com/rt2zz/redux-persist",
+			},
 		],
 	},
 ] as const;

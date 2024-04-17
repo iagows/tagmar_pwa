@@ -63,6 +63,7 @@ Ainda sem imagens. Estou provando conceitos ;)
     - [ ] Editar
   - [ ] Criar tela de ficha
     - [ ] Criar
+      - [ ] Abas
     - [ ] Ver
     - [ ] Gastar XP
     - [ ] Imprimir pdf no layout do livro
