@@ -89,6 +89,9 @@ Ainda sem imagens. Estou provando conceitos ;)
   - [ ] Persistir
     - [x] Configurações
     - [ ] Fichas
+    - [ ] [Google](https://blog.logrocket.com/guide-adding-google-login-react-app/)
+      - [ ] [Login](https://www.npmjs.com/package/%40react-oauth/google)
+      - [ ] [Salvar](https://www.perplexity.ai/search/possvel-usar-o-6Dxp2R2ERHCO8_EhI6mnWQ)
   - [ ] Salvar no sistema de arquivos
     - [ ] exportar
     - [ ] importar
