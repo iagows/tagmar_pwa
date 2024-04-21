@@ -7,6 +7,7 @@ import {
 	PersonOutlined,
 	Settings,
 	StormOutlined,
+	Policy,
 } from "@mui/icons-material";
 
 import type { SvgIconTypeMap } from "@mui/material";
@@ -66,6 +67,11 @@ export namespace Drawer {
 			text: "Sobre",
 			icon: Info,
 			path: RoutePath.SOBRE,
+		},
+		{
+			text: "Privacidade",
+			icon: Policy,
+			path: RoutePath.PRIVACIDADE,
 		},
 	];
 }

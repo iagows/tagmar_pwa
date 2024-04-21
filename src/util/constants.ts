@@ -28,5 +28,6 @@ export namespace Constants {
 		magias = "Magias",
 		habilidades = "Habilidades",
 		configuracoes = "Configurações",
+		privacidade = "Termos de privacidade",
 	}
 }

@@ -16,6 +16,7 @@ import PageSobre from "../pages/PageSobre";
 import type { RouteHandle } from "../util/commonTypes";
 import { Constants } from "../util/constants";
 import { RoutePath } from "./RouteNames";
+import PagePrivacidade from "../pages/PagePrivacidade";
 
 const BASENAME = "/tagmar_pwa";
 
@@ -127,11 +128,19 @@ export const route = createBrowserRouter(
 					} as RouteHandle,
 				},
 				{
+					path: RoutePath.PRIVACIDADE,
+					element: <PagePrivacidade />,
+					handle: {
+						title: Constants.PAGES.privacidade,
+						isMainRoute: false,
+					} as RouteHandle,
+				},
+				{
 					index: true,
 					element: <Navigate to={RoutePath.FICHAS} replace />,
 					handle: {
 						title: "",
-						isMainRoute: false,
+						isMainRoute: true,
 					} as RouteHandle,
 				},
 			],

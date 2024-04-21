@@ -1,4 +1,3 @@
-import { nanoid } from "nanoid";
 import { useAppDispatch, useAppSelector } from "../../../hooks/reduxHooks";
 import type { Ficha } from "../../../models/FichaDTO";
 import type { SingleOrArray } from "../../../util/commonTypes";
@@ -16,11 +15,14 @@ import {
 
 type Out = CrudType<Ficha> & {
 	changeFav: (id: string) => void;
+	total: number;
 };
 
 const useFicha = (): Out => {
 	const dispatch = useAppDispatch();
-	// const all = useAppDispatch(selectAll)
+	const list = useAppSelector((state) => selectAll(state.fichasReducer));
+	// const fichasId = useAppSelector(state => selectById(state.fichasReducer,))
+	const total = useAppSelector((state) => selectTotal(state.fichasReducer));
 
 	function create(datum: Ficha): void {
 		dispatch(createFicha(datum));
@@ -35,19 +37,20 @@ const useFicha = (): Out => {
 	}
 
 	function update(obj: SingleOrArray<Ficha>): void {
-		// dispatch(updateFicha(toArray(obj)));
+		dispatch(updateFicha(toArray(obj)));
 	}
 
 	function delete_(ids: SingleOrArray<string>): void {
-		// dispatch(deleteFicha(toArray(ids)));
+		dispatch(deleteFicha(toArray(ids)));
 	}
 
 	function changeFav(id: string): void {
-		// dispatch(invertFavorite(id));
+		dispatch(invertFavorite(id));
 	}
 
 	return {
-		list: [],
+		list,
+		total,
 		read,
 		update,
 		delete_,

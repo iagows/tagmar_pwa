@@ -3,7 +3,7 @@ import useFicha from "../stores/slices/fichas/useFicha";
 import TagLabel from "./TagmarUI/Label";
 
 const UserDisplay = () => {
-	const { list } = useFicha();
+	const { total } = useFicha();
 	return (
 		<List>
 			<ListItem>
@@ -15,7 +15,7 @@ const UserDisplay = () => {
 				<ListItemText primary="Fulano de tal" />
 			</ListItem>
 			<ListItem>
-				<TagLabel>fulano@gmail.com - {list.length} fichas</TagLabel>
+				<TagLabel>fulano@gmail.com - {total} fichas</TagLabel>
 			</ListItem>
 			<ListItem>
 				<TagLabel>app v{__APP_VERSION__}</TagLabel>
