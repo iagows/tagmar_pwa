@@ -1,7 +1,7 @@
 {
 	"name": "tagmar_pwa",
 	"private": true,
-	"version": "0.2.8",
+	"version": "0.2.9",
 	"type": "module",
 	"homepage": "https://github.com/iagows/tagmar_pwa",
 	"scripts": {
@@ -31,6 +31,7 @@
 		"@mui/icons-material": "^5.15.15",
 		"@mui/material": "^5.15.15",
 		"@react-native-async-storage/async-storage": "^1.23.1",
+		"@react-oauth/google": "^0.12.1",
 		"@reduxjs/toolkit": "^2.2.3",
 		"date-fns": "^3.6.0",
 		"date-fns-tz": "^3.1.3",
