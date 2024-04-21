@@ -9,7 +9,7 @@ import {
 	invertFavorite,
 	update as updateFicha,
 	selectAll,
-	selectById,
+	// selectById,
 	selectTotal,
 } from "./index";
 
@@ -29,6 +29,7 @@ const useFicha = (): Out => {
 	}
 
 	function read(ids: SingleOrArray<string>): Ficha[] {
+		console.log({ ids });
 		// const lista = toArray(ids);
 		// return list.filter(
 		// 	(ficha) => lista.findIndex((l) => ficha.id === l) !== -1,
