@@ -1,18 +1,16 @@
 import { z } from "zod";
-import { AbstractDTO as DescDTO } from "./Abstract/DescriptionDTO";
 import { AbstractDTO as IdDTO } from "./Abstract/IdDTO";
 import { AbstractDTO as NameDTO } from "./Abstract/NameDTO";
-import FichaDTO from "./FichaDTO";
 
 const UsuarioDTO = z
 	.object({
 		image: z.optional(z.string()),
 		email: z.optional(z.string().email()),
-		fichas: z.array(FichaDTO).default([]),
+		credential: z.optional(z.string()),
+		googleId: z.optional(z.string()),
 	})
 	.merge(IdDTO.IdDTO)
-	.merge(NameDTO.NameDTO)
-	.merge(DescDTO.DescriptionDTO);
+	.merge(NameDTO.NameDTO);
 
 type Usuario = z.infer<typeof UsuarioDTO>;
 

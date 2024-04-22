@@ -1,14 +1,6 @@
 import { Avatar, Divider, List, ListItem, ListItemText } from "@mui/material";
 import useFicha from "../stores/slices/fichas/useFicha";
 import TagLabel from "./TagmarUI/Label";
-import { type CredentialResponse, GoogleLogin } from "@react-oauth/google";
-
-const responseMessage = (response: CredentialResponse) => {
-	console.log(response);
-};
-const errorMessage = () => {
-	console.log("erro");
-};
 
 const UserDisplay = () => {
 	const { total } = useFicha();
@@ -24,9 +16,8 @@ const UserDisplay = () => {
 				<ListItemText primary="Fulano de tal" />
 			</ListItem>
 			<ListItem>
-				<TagLabel>fulano@gmail.com - {total} fichas</TagLabel>
+				<TagLabel>{total} fichas</TagLabel>
 			</ListItem>
-			<GoogleLogin onSuccess={responseMessage} onError={errorMessage} />
 			<ListItem>
 				<TagLabel>app v{__APP_VERSION__}</TagLabel>
 			</ListItem>
