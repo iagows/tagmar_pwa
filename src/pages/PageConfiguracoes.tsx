@@ -1,20 +1,15 @@
 import {
-	Box,
 	Button,
 	FormControl,
 	FormControlLabel,
 	FormGroup,
 	Switch,
 } from "@mui/material";
-import { googleLogout, useGoogleLogin } from "@react-oauth/google";
-import axios from "axios";
-import { useEffect, useState } from "react";
 import PageContainer from "../components/PageContainer";
 import UnderConstruction from "../components/UnderConstruction";
+import useGoogle from "../hooks/useGoogle";
 import useConfig from "../stores/slices/config/useConfig";
 import { THEME_OPTIONS } from "../theme";
-import useGoogle from "../hooks/useGoogle";
-import TagLabel from "../components/TagmarUI/Label";
 
 const SWITCH_CSS = {
 	borderRadius: 10,
@@ -61,13 +56,7 @@ const PageConfiguracoes = () => {
 				</FormGroup>
 			</FormControl>
 			{profile ? (
-				<Box>
-					<img src={profile.picture} alt="User's profiles face" />
-
-					<TagLabel>Name: {profile.name}</TagLabel>
-					<TagLabel>Email Address: {profile.email}</TagLabel>
-					<Button onClick={logout}>Sair</Button>
-				</Box>
+				<Button onClick={logout}>Sair</Button>
 			) : (
 				<Button variant="contained" onClick={onLogin}>
 					Entrar com Google 🚀

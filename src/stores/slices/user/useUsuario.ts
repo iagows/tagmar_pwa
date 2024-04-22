@@ -1,13 +1,14 @@
 import { useAppDispatch } from "../../../hooks/reduxHooks";
 import type { Usuario } from "../../../models/UsuarioDTO";
 import { store } from "../../store";
-import { selectById, setUser, unsetUser, selectTotal } from "./";
+import { selectById, setUser, unsetUser, selectTotal, selectAll } from "./";
 
 type Out = {
 	criaAtualiza: (user: Usuario) => void;
 	busca: (id: string) => void;
 	apaga: (id: string) => void;
 	isLogged: () => boolean;
+	usuario?: Usuario;
 };
 
 const useUsuario = (): Out => {
@@ -29,11 +30,20 @@ const useUsuario = (): Out => {
 		return selectTotal(store.getState().usuarioReducer) > 0;
 	};
 
+	const getUsuario = () => {
+		if (isLogged()) {
+			const all = selectAll(store.getState().usuarioReducer);
+			return all[0];
+		}
+		return undefined;
+	};
+
 	return {
 		busca,
 		apaga,
 		isLogged,
 		criaAtualiza,
+		usuario: getUsuario(),
 	};
 };
 

@@ -1,9 +1,11 @@
 import { Avatar, Divider, List, ListItem, ListItemText } from "@mui/material";
 import useFicha from "../stores/slices/fichas/useFicha";
 import TagLabel from "./TagmarUI/Label";
+import useUsuario from "../stores/slices/user/useUsuario";
 
 const UserDisplay = () => {
 	const { total } = useFicha();
+	const { usuario } = useUsuario();
 
 	return (
 		<List>
@@ -11,10 +13,12 @@ const UserDisplay = () => {
 				<ListItemText primary="Tagmar" />
 			</ListItem>
 			<Divider />
-			<ListItem>
-				<Avatar>F</Avatar>
-				<ListItemText primary="Fulano de tal" />
-			</ListItem>
+			{usuario && (
+				<ListItem>
+					<Avatar src={usuario.image} />
+					<ListItemText primary={usuario.nome} />
+				</ListItem>
+			)}
 			<ListItem>
 				<TagLabel>{total} fichas</TagLabel>
 			</ListItem>

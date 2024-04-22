@@ -5,6 +5,7 @@ import {
 } from "@react-oauth/google";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import useUsuario from "../stores/slices/user/useUsuario";
 
 const mountLink = (token: string): string => {
 	return `https://www.googleapis.com/oauth2/v1/userinfo?access_token=${token}`;
@@ -44,6 +45,7 @@ const request = async (token: string, onFinish: (a: OAuthUser) => void) => {
 const useGoogle = () => {
 	const [token, setToken] = useState<TokenResponse>();
 	const [profile, setProfile] = useState<OAuthUser>();
+	const { criaAtualiza, apaga } = useUsuario();
 
 	const login = useGoogleLogin({
 		onSuccess: setToken,
@@ -55,6 +57,19 @@ const useGoogle = () => {
 			request(token.access_token, setProfile);
 		}
 	}, [token]);
+
+	useEffect(() => {
+		if (profile) {
+			criaAtualiza({
+				id: profile.id,
+				nome: profile.name,
+				email: profile.email,
+				image: profile.picture,
+			});
+		} else {
+			//
+		}
+	}, [profile, criaAtualiza]);
 
 	const logout = () => {
 		googleLogout();

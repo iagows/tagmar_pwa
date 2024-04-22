@@ -17,4 +17,4 @@ const slice = createSlice({
 
 export default slice.reducer;
 export const { setUser, unsetUser } = slice.actions;
-export const { selectById, selectTotal } = adapter.getSelectors();
+export const { selectById, selectTotal, selectAll } = adapter.getSelectors();
