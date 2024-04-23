@@ -6,17 +6,7 @@ import {
 import axios from "axios";
 import { useEffect, useState } from "react";
 import useUsuario from "../stores/slices/user/useUsuario";
-
-const mountLink = (token: string): string => {
-	return `https://www.googleapis.com/oauth2/v1/userinfo?access_token=${token}`;
-};
-
-const mountConfig = (token: string) => ({
-	headers: {
-		Authorization: `Bearer ${token}`,
-		Accept: "application/json",
-	},
-});
+import useToken from "../stores/slices/token/useToken";
 
 type OAuthUser = {
 	id: string;
@@ -33,53 +23,55 @@ type Response = {
 	status: number;
 };
 
-const request = async (token: string, onFinish: (a: OAuthUser) => void) => {
+const request = async (token: string): Promise<OAuthUser | undefined> => {
 	try {
-		const res: Response = await axios.get(mountLink(token), mountConfig(token));
-		onFinish(res.data);
+		const res: Response = await axios.get(
+			`https://www.googleapis.com/oauth2/v1/userinfo?access_token=${token}`,
+			{
+				headers: {
+					Authorization: `Bearer ${token}`,
+					Accept: "application/json",
+				},
+			},
+		);
+		return res.data;
 	} catch (error) {
 		console.warn(error);
 	}
+	return undefined;
 };
 
 const useGoogle = () => {
-	const [token, setToken] = useState<TokenResponse>();
-	const [profile, setProfile] = useState<OAuthUser>();
-	const { criaAtualiza, apaga } = useUsuario();
+	const { saveLogin } = useToken();
+	const { cria, apaga, usuario } = useUsuario();
 
 	const login = useGoogleLogin({
-		onSuccess: setToken,
+		onSuccess: async (response: TokenResponse) => {
+			if (response) {
+				saveLogin(response);
+				const user = await request(response.access_token);
+				if (user) {
+					cria({
+						id: user.id,
+						nome: user.name,
+						email: user.email,
+						image: user.picture,
+					});
+				}
+			}
+		},
 		onError: (error) => console.log("Login Failed:", error),
 	});
 
-	useEffect(() => {
-		if (token) {
-			request(token.access_token, setProfile);
-		}
-	}, [token]);
-
-	useEffect(() => {
-		if (profile) {
-			criaAtualiza({
-				id: profile.id,
-				nome: profile.name,
-				email: profile.email,
-				image: profile.picture,
-			});
-		} else {
-			//
-		}
-	}, [profile, criaAtualiza]);
-
 	const logout = () => {
+		apaga();
 		googleLogout();
-		setProfile(undefined);
 	};
 
 	return {
 		login,
 		logout,
-		profile,
+		usuario,
 	};
 };
 

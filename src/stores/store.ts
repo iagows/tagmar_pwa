@@ -12,6 +12,7 @@ import {
 } from "redux-persist";
 import configReducer from "./slices/config";
 import fichasReducer from "./slices/fichas";
+import tokenReducer from "./slices/token";
 import usuarioReducer from "./slices/user";
 
 const persistConfig = {
@@ -23,6 +24,7 @@ const tagmarReducers = combineReducers({
 	configReducer,
 	fichasReducer,
 	usuarioReducer,
+	tokenReducer,
 });
 const persistedReducer = persistReducer(persistConfig, tagmarReducers);
 

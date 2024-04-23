@@ -1,49 +1,29 @@
-import { useAppDispatch } from "../../../hooks/reduxHooks";
+import { useAppDispatch, useAppSelector } from "../../../hooks/reduxHooks";
 import type { Usuario } from "../../../models/UsuarioDTO";
-import { store } from "../../store";
-import { selectById, setUser, unsetUser, selectTotal, selectAll } from "./";
+import { apaga as apagaUsuario, cria as criaUsuario, selectAll } from "./";
 
 type Out = {
-	criaAtualiza: (user: Usuario) => void;
-	busca: (id: string) => void;
-	apaga: (id: string) => void;
-	isLogged: () => boolean;
+	cria: (user: Usuario) => void;
+	apaga: () => void;
 	usuario?: Usuario;
 };
 
 const useUsuario = (): Out => {
 	const dispatch = useAppDispatch();
+	const usuario = useAppSelector((state) => selectAll(state.usuarioReducer));
 
-	const apaga = (id: string) => {
-		dispatch(unsetUser(id));
+	const apaga = () => {
+		dispatch(apagaUsuario());
 	};
 
-	const criaAtualiza = async (user: Usuario) => {
-		dispatch(setUser(user));
-	};
-
-	const busca = (id: string): Usuario => {
-		return selectById(store.getState().usuarioReducer, id);
-	};
-
-	const isLogged = (): boolean => {
-		return selectTotal(store.getState().usuarioReducer) > 0;
-	};
-
-	const getUsuario = () => {
-		if (isLogged()) {
-			const all = selectAll(store.getState().usuarioReducer);
-			return all[0];
-		}
-		return undefined;
+	const cria = async (user: Usuario) => {
+		dispatch(criaUsuario(user));
 	};
 
 	return {
-		busca,
+		cria,
 		apaga,
-		isLogged,
-		criaAtualiza,
-		usuario: getUsuario(),
+		usuario: usuario.length > 0 ? usuario[0] : undefined,
 	};
 };
 

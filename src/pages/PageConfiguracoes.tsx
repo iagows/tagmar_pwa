@@ -1,13 +1,12 @@
 import {
-	Button,
 	FormControl,
 	FormControlLabel,
 	FormGroup,
 	Switch,
 } from "@mui/material";
 import PageContainer from "../components/PageContainer";
+import TagGoogleConnect from "../components/TagmarUI/TagGoogleConnect";
 import UnderConstruction from "../components/UnderConstruction";
-import useGoogle from "../hooks/useGoogle";
 import useConfig from "../stores/slices/config/useConfig";
 import { THEME_OPTIONS } from "../theme";
 
@@ -21,12 +20,6 @@ const SWITCH_CSS = {
 const PageConfiguracoes = () => {
 	const { isDado3d, swapDado3d, isBuscaInexata, swapBuscaInexata } =
 		useConfig();
-
-	const { login, logout, profile } = useGoogle();
-
-	const onLogin = () => {
-		login();
-	};
 
 	return (
 		<PageContainer>
@@ -55,13 +48,7 @@ const PageConfiguracoes = () => {
 					/>
 				</FormGroup>
 			</FormControl>
-			{profile ? (
-				<Button onClick={logout}>Sair</Button>
-			) : (
-				<Button variant="contained" onClick={onLogin}>
-					Entrar com Google 🚀
-				</Button>
-			)}
+			<TagGoogleConnect />
 		</PageContainer>
 	);
 };

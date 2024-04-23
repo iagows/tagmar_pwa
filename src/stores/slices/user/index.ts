@@ -10,11 +10,11 @@ const slice = createSlice({
 	name: "user",
 	initialState: adapter.getInitialState(),
 	reducers: {
-		setUser: adapter.setOne,
-		unsetUser: adapter.removeOne,
+		cria: adapter.setOne,
+		apaga: adapter.removeAll,
 	},
 });
 
 export default slice.reducer;
-export const { setUser, unsetUser } = slice.actions;
-export const { selectById, selectTotal, selectAll } = adapter.getSelectors();
+export const { cria, apaga } = slice.actions;
+export const { selectAll } = adapter.getSelectors();
