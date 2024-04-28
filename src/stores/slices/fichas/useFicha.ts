@@ -20,9 +20,9 @@ type Out = CrudType<Ficha> & {
 
 const useFicha = (): Out => {
 	const dispatch = useAppDispatch();
-	const list = useAppSelector((state) => selectAll(state.fichasReducer));
-	// const fichasId = useAppSelector(state => selectById(state.fichasReducer,))
-	const total = useAppSelector((state) => selectTotal(state.fichasReducer));
+	const list = useAppSelector((state) => selectAll(state.fichas));
+	// const fichasId = useAppSelector(state => selectById(state.fichas,))
+	const total = useAppSelector((state) => selectTotal(state.fichas));
 
 	function create(datum: Ficha): void {
 		dispatch(createFicha(datum));

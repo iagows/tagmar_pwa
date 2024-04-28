@@ -4,9 +4,8 @@ import {
 	useGoogleLogin,
 } from "@react-oauth/google";
 import axios from "axios";
-import { useEffect, useState } from "react";
-import useUsuario from "../stores/slices/user/useUsuario";
 import useToken from "../stores/slices/token/useToken";
+import useUsuario from "../stores/slices/user/useUsuario";
 
 type OAuthUser = {
 	id: string;

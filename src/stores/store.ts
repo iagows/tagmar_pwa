@@ -14,6 +14,7 @@ import configReducer from "./slices/config";
 import fichasReducer from "./slices/fichas";
 import tokenReducer from "./slices/token";
 import usuarioReducer from "./slices/user";
+import filterReducer from "./slices/filters";
 
 const persistConfig = {
 	key: "root",
@@ -21,10 +22,11 @@ const persistConfig = {
 };
 
 const tagmarReducers = combineReducers({
-	configReducer,
-	fichasReducer,
-	usuarioReducer,
-	tokenReducer,
+	config: configReducer,
+	fichas: fichasReducer,
+	usuario: usuarioReducer,
+	token: tokenReducer,
+	filter: filterReducer,
 });
 const persistedReducer = persistReducer(persistConfig, tagmarReducers);
 

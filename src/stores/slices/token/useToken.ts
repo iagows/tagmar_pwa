@@ -5,9 +5,9 @@ import { useAppDispatch, useAppSelector } from "../../../hooks/reduxHooks";
 const useToken = () => {
 	const dispatch = useAppDispatch();
 
-	const token = useAppSelector((state) => state.tokenReducer.accessToken);
-	const isLoggedIn = useAppSelector((state) => state.tokenReducer.isLoggedIn);
-	const expiry = useAppSelector((state) => state.tokenReducer.tokenExpiryDate);
+	const token = useAppSelector((state) => state.token.accessToken);
+	const isLoggedIn = useAppSelector((state) => state.token.isLoggedIn);
+	const expiry = useAppSelector((state) => state.token.tokenExpiryDate);
 
 	const saveLogin = (response: TokenResponse) => {
 		dispatch(setLoggedIn(true));

@@ -13,9 +13,7 @@ type Out = {
 const useConfig = (): Out => {
 	const dispatch = useAppDispatch();
 
-	const { isBuscaInexata, isDado3dAtivo } = useAppSelector(
-		(s) => s.configReducer,
-	);
+	const { isBuscaInexata, isDado3dAtivo } = useAppSelector((s) => s.config);
 
 	function swapBuscaInexata(): void {
 		dispatch(setBuscaInexata(!isBuscaInexata));

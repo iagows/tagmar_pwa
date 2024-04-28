@@ -13,12 +13,3 @@ export const changeOpacity = (color: string, alpha: number): string => {
 export const routeTo = (route: RoutePath, id: string): string => {
 	return `${route.split(":")[0]}${id}`;
 };
-
-export const swapSet = <T>(inputSet: Set<T>, obj: T): Set<T> => {
-	if (inputSet.has(obj)) {
-		inputSet.delete(obj);
-	} else {
-		inputSet.add(obj);
-	}
-	return new Set([...inputSet]);
-};

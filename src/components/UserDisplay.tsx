@@ -14,7 +14,7 @@ const UserDisplay = () => {
 			</ListItem>
 			<Divider />
 			{usuario && (
-				<ListItem>
+				<ListItem sx={{ gap: 1 }}>
 					<Avatar src={usuario.image} />
 					<ListItemText primary={usuario.nome} />
 				</ListItem>

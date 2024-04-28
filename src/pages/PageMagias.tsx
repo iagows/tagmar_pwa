@@ -11,7 +11,7 @@ import { RoutePath } from "../routing/RouteNames";
 const profissoes = Relations.getProfissoesMagicas();
 
 const PageMagias = () => {
-	const { input, list, char, filter } = usePageMagias();
+	const { input, list, char, filter, profissao } = usePageMagias();
 
 	return (
 		<PageContainer>
@@ -20,16 +20,16 @@ const PageMagias = () => {
 					text={input.text}
 					label="Nome da magia"
 					onChange={input.setText}
-					onClearText={input.clear}
+					onClearText={filter.clear}
 					onClearFilters={filter.clear}
-					showClearButton={input.hasText}
+					showClearButton={filter.has}
 				>
 					{profissoes.map((p) => {
 						const Icon = getAsset(p);
-						const hideBadge = !filter.exists(p);
+						const hideBadge = !profissao.exists(p);
 
 						return (
-							<MenuItem key={p} onClick={() => filter.swap(p)}>
+							<MenuItem key={p} onClick={() => profissao.swap(p)}>
 								<Badge
 									variant="dot"
 									color="primary"

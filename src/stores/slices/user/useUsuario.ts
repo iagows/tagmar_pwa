@@ -10,7 +10,7 @@ type Out = {
 
 const useUsuario = (): Out => {
 	const dispatch = useAppDispatch();
-	const usuario = useAppSelector((state) => selectAll(state.usuarioReducer));
+	const usuario = useAppSelector((state) => selectAll(state.usuario));
 
 	const apaga = () => {
 		dispatch(apagaUsuario());

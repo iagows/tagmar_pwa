@@ -1,14 +1,13 @@
-import { useState } from "react";
 import { MAGIAS } from "../data/magiasCompiladas";
 import { Relations } from "../data/relations";
 import type { AbstractDTO as IdDTO } from "../models/Abstract/IdDTO";
 import type { AbstractDTO as NameDTO } from "../models/Abstract/NameDTO";
 import type { ProfissaoEnum } from "../models/ProfissaoDTO";
 import type { Magia, MagiaEnum } from "../models/magia/MagiaDTO";
-import type { VoidCallback } from "../util/commonTypes";
-import { swapSet } from "../util/functions";
-import { StringUtil } from "../util/stringHelp";
 import useConfig from "../stores/slices/config/useConfig";
+import useFilter from "../stores/slices/filters/useFilter";
+import type { VoidCallback } from "../util/commonTypes";
+import { StringUtil } from "../util/stringHelp";
 
 const filterByProfissao = (profs: ProfissaoEnum[], item: MagiaEnum): boolean =>
 	Relations.filterMagiaPor(profs, item);
@@ -17,8 +16,6 @@ type Out = {
 	input: {
 		text: string;
 		setText: (s: string) => void;
-		clear: VoidCallback;
-		hasText: boolean;
 	};
 	list: {
 		data: Magia[];
@@ -28,73 +25,61 @@ type Out = {
 		onCharClick: (c: string) => void;
 	};
 	filter: {
+		has: boolean;
 		clear: VoidCallback;
-		swap: (prof: ProfissaoEnum) => void;
+	};
+	profissao: {
 		exists: (prof: ProfissaoEnum) => boolean;
+		swap: (prof: ProfissaoEnum) => void;
 	};
 };
+
 const usePageMagias = (): Out => {
-	const [text, setText] = useState<string>("");
-	const [selectedCharButton, setSelectedCharButton] = useState<string>("");
-	const [selectedProf, setSelectedProf] = useState<Set<ProfissaoEnum>>(
-		new Set(),
-	);
+	const {
+		char: { add: setChar, current: currentChar },
+		clearAll,
+		hasFilter,
+		nome: { add: setNome, current: currentNome },
+		profissao: {
+			has: hasProfissao,
+			swap: swapProfissao,
+			selectedArray: profissoesSelecionadas,
+		},
+	} = useFilter();
 	const { isBuscaInexata } = useConfig();
 
 	const profFilter = (i: IdDTO.IdType) =>
-		filterByProfissao([...selectedProf], i.id as MagiaEnum);
+		filterByProfissao(profissoesSelecionadas, i.id as MagiaEnum);
 	const charFilter = (i: NameDTO.NameType) =>
-		StringUtil.filterByFirstChar(selectedCharButton, i.nome);
+		StringUtil.filterByFirstChar(currentChar, i.nome);
 	const proxFilter = (i: NameDTO.NameType) =>
 		isBuscaInexata
-			? StringUtil.filterByProximity(text, i.nome)
-			: StringUtil.filterByExact(text, i.nome);
+			? StringUtil.filterByProximity(currentNome, i.nome)
+			: StringUtil.filterByExact(currentNome, i.nome);
 
 	const filtered = MAGIAS.filter(profFilter)
 		.filter(charFilter)
 		.filter(proxFilter);
 
-	function clearText() {
-		setText("");
-		setSelectedCharButton("");
-	}
-
-	function clearFilters() {
-		setSelectedProf(new Set());
-	}
-
-	function onCharClick(char: string): void {
-		setSelectedCharButton((last) => (char === last ? "" : char));
-	}
-
-	function swap(prof: ProfissaoEnum): void {
-		setSelectedProf((last) => swapSet(last, prof));
-	}
-
-	function exists(prof: ProfissaoEnum): boolean {
-		return selectedProf.has(prof);
-	}
-
-	const hasText: boolean = text.length > 0 || selectedCharButton.length > 0;
-
 	return {
 		input: {
-			clear: clearText,
-			hasText,
-			setText,
-			text,
+			setText: setNome,
+			text: currentNome,
 		},
 		list: {
 			data: filtered,
 		},
 		char: {
-			char: selectedCharButton,
-			onCharClick,
+			char: currentChar,
+			onCharClick: setChar,
 		},
 		filter: {
-			clear: clearFilters,
-			swap,
-			exists,
+			clear: clearAll,
+			has: hasFilter,
+		},
+		profissao: {
+			exists: hasProfissao,
+			swap: swapProfissao,
 		},
 	};
 };
