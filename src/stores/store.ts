@@ -5,21 +5,18 @@ import {
 	PAUSE,
 	PERSIST,
 	PURGE,
+	type PersistConfig,
 	REGISTER,
 	REHYDRATE,
 	persistReducer,
 	persistStore,
 } from "redux-persist";
+import createTransform from "redux-persist/es/createTransform";
 import configReducer from "./slices/config";
 import fichasReducer from "./slices/fichas";
+import filterReducer from "./slices/filters";
 import tokenReducer from "./slices/token";
 import usuarioReducer from "./slices/user";
-import filterReducer from "./slices/filters";
-
-const persistConfig = {
-	key: "root",
-	storage: AsyncStorage,
-};
 
 const tagmarReducers = combineReducers({
 	config: configReducer,
@@ -28,6 +25,38 @@ const tagmarReducers = combineReducers({
 	token: tokenReducer,
 	filter: filterReducer,
 });
+
+/*
+ * Correção temporária para erro na transição de alguns dados
+ */
+const fixEntityId = (
+	record: Record<string, unknown>,
+	key: string | number | symbol,
+) => {
+	switch (key) {
+		case "fichas":
+		case "usuario": {
+			const ids = record.ids;
+			const entities = record.entities;
+			if (!ids || !entities) {
+				return {
+					ids: [],
+					entities: [],
+				};
+			}
+		}
+	}
+
+	return { ...record };
+};
+
+type PersistRootState = ReturnType<typeof tagmarReducers>;
+const persistConfig: PersistConfig<PersistRootState> = {
+	key: "root",
+	storage: AsyncStorage,
+	transforms: [createTransform(fixEntityId, fixEntityId)],
+};
+
 const persistedReducer = persistReducer(persistConfig, tagmarReducers);
 
 export const store = configureStore({
