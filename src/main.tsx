@@ -8,7 +8,7 @@ import { route } from "./routing/AppRoute.tsx";
 import { persistor, store } from "./stores/store.ts";
 import { ThemedApp } from "./theme/index.tsx";
 import { PersistGate } from "redux-persist/integration/react";
-import { GoogleOAuthProvider } from "@react-oauth/google";
+// import { GoogleOAuthProvider } from "@react-oauth/google";
 
 // add this to prompt for a refresh
 const updateSW = registerSW({
@@ -21,15 +21,15 @@ const updateSW = registerSW({
 
 // biome-ignore lint/style/noNonNullAssertion: <explanation>
 ReactDOM.createRoot(document.getElementById("root")!).render(
-	<GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID}>
-		<React.StrictMode>
-			<Provider store={store}>
-				<PersistGate loading={null} persistor={persistor}>
-					<ThemedApp>
-						<RouterProvider router={route} />
-					</ThemedApp>
-				</PersistGate>
-			</Provider>
-		</React.StrictMode>
-	</GoogleOAuthProvider>,
+	// <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID}>
+	<React.StrictMode>
+		<Provider store={store}>
+			<PersistGate loading={null} persistor={persistor}>
+				<ThemedApp>
+					<RouterProvider router={route} />
+				</ThemedApp>
+			</PersistGate>
+		</Provider>
+	</React.StrictMode>,
+	// </GoogleOAuthProvider>,
 );

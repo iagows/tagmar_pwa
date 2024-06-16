@@ -5,7 +5,7 @@ import {
 	Switch,
 } from "@mui/material";
 import PageContainer from "../components/PageContainer";
-import TagGoogleConnect from "../components/TagmarUI/TagGoogleConnect";
+// import TagGoogleConnect from "../components/TagmarUI/TagGoogleConnect";
 import UnderConstruction from "../components/UnderConstruction";
 import useConfig from "../stores/slices/config/useConfig";
 import { THEME_OPTIONS } from "../theme";
@@ -48,7 +48,7 @@ const PageConfiguracoes = () => {
 					/>
 				</FormGroup>
 			</FormControl>
-			<TagGoogleConnect />
+			{/* <TagGoogleConnect /> */}
 		</PageContainer>
 	);
 };
