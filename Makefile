@@ -36,4 +36,5 @@ deployPatch:      # envia para o github
 
 upgrade:          # atualiza as libs
 	@nvm use
+	@npx npm-check-updates -i 
 	@bun update
